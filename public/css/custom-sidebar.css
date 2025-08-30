@@ -6,21 +6,21 @@
     top: 0;
     height: 100vh;
     width: 280px;
-    background-color: #fafafa;
-    color: #2c3e50;
+    background-color: #ffffff;
+    color: #333333;
     padding: 20px;
     box-shadow: 2px 0 8px rgba(0,0,0,0.1);
     overflow-y: auto;
     z-index: 1000;
     transition: transform 0.3s ease-in-out;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    border-right: 1px solid #e1e8ed;
+    border-right: 1px solid #e5e5e5;
 }
 
 .custom-sidebar h3 {
-    color: #2c3e50;
+    color: #333333;
     margin: 0 0 25px 0;
-    border-bottom: 2px solid #e1e8ed;
+    border-bottom: 2px solid #e5e5e5;
     padding-bottom: 12px;
     font-size: 1.3em;
     font-weight: 600;
@@ -30,14 +30,14 @@
 .sidebar-section {
     margin-bottom: 20px;
     padding: 15px;
-    background: white;
+    background: #fafafa;
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    border: 1px solid #e1e8ed;
+    border: 1px solid #e5e5e5;
 }
 
 .sidebar-section h4 {
-    color: #2c3e50;
+    color: #333333;
     margin: 0 0 12px 0;
     font-size: 1em;
     font-weight: 600;
@@ -59,28 +59,28 @@
 .sidebar-section ul li a {
     display: block;
     padding: 8px 10px;
-    color: #34495e;
+    color: #555555;
     text-decoration: none;
     transition: all 0.2s ease;
     border-radius: 4px;
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
     font-size: 0.9em;
 }
 
 .sidebar-section ul li a:hover {
-    color: #2c3e50;
-    background: #e9ecef;
-    border-color: #dee2e6;
+    color: #333333;
+    background: #f0f0f0;
+    border-color: #d0d0d0;
 }
 
 /* 分类标题样式 */
 .category-title {
     display: block;
     padding: 8px 10px;
-    color: #495057;
+    color: #666666;
     font-weight: 500;
-    background: #f1f3f4;
+    background: #f5f5f5;
     border-radius: 4px;
     margin-bottom: 8px;
     font-size: 0.9em;
@@ -100,17 +100,17 @@
     padding: 6px 8px;
     font-size: 0.85em;
     background: #ffffff;
-    border: 1px solid #dee2e6;
+    border: 1px solid #e5e5e5;
 }
 
 .sub-articles a:hover {
-    background: #f8f9fa;
-    border-color: #adb5bd;
+    background: #f8f8f8;
+    border-color: #d0d0d0;
 }
 
-/* 调整主内容区域 */
+/* 调整主内容区域 - 修复布局问题 */
 body.has-sidebar {
-    margin-left: 280px;
+    margin-left: 280px !important;
 }
 
 body.has-sidebar .main,
@@ -118,8 +118,26 @@ body.has-sidebar .content,
 body.has-sidebar .post-content,
 body.has-sidebar .entry-content,
 body.has-sidebar .post,
-body.has-sidebar .entry {
-    margin-left: 280px;
+body.has-sidebar .entry,
+body.has-sidebar .post-header,
+body.has-sidebar .entry-header,
+body.has-sidebar .post-body,
+body.has-sidebar .entry-body {
+    margin-left: 280px !important;
+}
+
+/* 确保 PaperMod 主题的所有元素都被正确调整 */
+body.has-sidebar .post,
+body.has-sidebar .entry,
+body.has-sidebar .post-header,
+body.has-sidebar .entry-header,
+body.has-sidebar .post-body,
+body.has-sidebar .entry-body,
+body.has-sidebar .post-content,
+body.has-sidebar .entry-content,
+body.has-sidebar .post-meta,
+body.has-sidebar .entry-meta {
+    margin-left: 280px !important;
 }
 
 /* 移动端适配 */
@@ -128,15 +146,19 @@ body.has-sidebar .entry {
         width: 250px;
     }
     body.has-sidebar {
-        margin-left: 250px;
+        margin-left: 250px !important;
     }
     body.has-sidebar .main,
     body.has-sidebar .content,
     body.has-sidebar .post-content,
     body.has-sidebar .entry-content,
     body.has-sidebar .post,
-    body.has-sidebar .entry {
-        margin-left: 250px;
+    body.has-sidebar .entry,
+    body.has-sidebar .post-header,
+    body.has-sidebar .entry-header,
+    body.has-sidebar .post-body,
+    body.has-sidebar .entry-body {
+        margin-left: 250px !important;
     }
 }
 
@@ -155,8 +177,12 @@ body.has-sidebar .entry {
     body.has-sidebar .post-content,
     body.has-sidebar .entry-content,
     body.has-sidebar .post,
-    body.has-sidebar .entry {
-        margin-left: 0;
+    body.has-sidebar .entry,
+    body.has-sidebar .post-header,
+    body.has-sidebar .entry-header,
+    body.has-sidebar .post-body,
+    body.has-sidebar .entry-body {
+        margin-left: 0 !important;
     }
 }
 
@@ -166,7 +192,7 @@ body.has-sidebar .entry {
     left: 20px;
     top: 20px;
     z-index: 1001;
-    background: #6c757d;
+    background: #666666;
     color: white;
     border: none;
     border-radius: 50%;
@@ -177,12 +203,12 @@ body.has-sidebar .entry {
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
+    box-shadow: 0 2px 8px rgba(102, 102, 102, 0.3);
     transition: all 0.2s ease;
 }
 
 .sidebar-toggle:hover {
-    background: #5a6268;
+    background: #555555;
     transform: scale(1.05);
 }
 
@@ -197,7 +223,7 @@ body.has-sidebar .entry {
 .custom-sidebar + .content,
 .custom-sidebar + .post,
 .custom-sidebar + .entry {
-    margin-left: 280px;
+    margin-left: 280px !important;
 }
 
 @media (max-width: 1200px) {
@@ -205,7 +231,7 @@ body.has-sidebar .entry {
     .custom-sidebar + .content,
     .custom-sidebar + .post,
     .custom-sidebar + .entry {
-        margin-left: 250px;
+        margin-left: 250px !important;
     }
 }
 
@@ -214,58 +240,133 @@ body.has-sidebar .entry {
     .custom-sidebar + .content,
     .custom-sidebar + .post,
     .custom-sidebar + .entry {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 }
 
 /* 暗色模式支持 */
 @media (prefers-color-scheme: dark) {
     .custom-sidebar {
-        background-color: #2c3e50;
-        color: #ecf0f1;
-        border-right-color: #34495e;
+        background-color: #2d3748;
+        color: #e2e8f0;
+        border-right-color: #4a5568;
     }
     
     .custom-sidebar h3 {
-        color: #ecf0f1;
-        border-bottom-color: #34495e;
+        color: #e2e8f0;
+        border-bottom-color: #4a5568;
     }
     
     .sidebar-section {
-        background: #34495e;
-        border-color: #2c3e50;
+        background: #4a5568;
+        border-color: #2d3748;
     }
     
     .sidebar-section h4 {
-        color: #ecf0f1;
+        color: #e2e8f0;
     }
     
     .sidebar-section ul li a {
-        color: #bdc3c7;
-        background: #2c3e50;
-        border-color: #34495e;
+        color: #cbd5e0;
+        background: #2d3748;
+        border-color: #4a5568;
     }
     
     .sidebar-section ul li a:hover {
-        color: #ecf0f1;
-        background: #3a4a5c;
-        border-color: #34495e;
+        color: #e2e8f0;
+        background: #4a5568;
+        border-color: #718096;
     }
     
     .category-title {
-        color: #bdc3c7;
-        background: #3a4a5c;
+        color: #cbd5e0;
+        background: #4a5568;
     }
     
     .sub-articles a {
-        background: #2c3e50;
-        border-color: #34495e;
-        color: #bdc3c7;
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #cbd5e0;
     }
     
     .sub-articles a:hover {
-        background: #3a4a5c;
-        border-color: #34495e;
-        color: #ecf0f1;
+        background: #4a5568;
+        border-color: #718096;
+        color: #e2e8f0;
+    }
+}
+
+/* 额外的 PaperMod 主题兼容性样式 */
+body.has-sidebar .post-header,
+body.has-sidebar .entry-header,
+body.has-sidebar .post-meta,
+body.has-sidebar .entry-meta,
+body.has-sidebar .post-content,
+body.has-sidebar .entry-content,
+body.has-sidebar .post-body,
+body.has-sidebar .entry-body,
+body.has-sidebar .post-footer,
+body.has-sidebar .entry-footer {
+    margin-left: 280px !important;
+}
+
+body.has-sidebar .post,
+body.has-sidebar .entry,
+body.has-sidebar .post-header,
+body.has-sidebar .entry-header,
+body.has-sidebar .post-meta,
+body.has-sidebar .entry-meta,
+body.has-sidebar .post-content,
+body.has-sidebar .entry-content,
+body.has-sidebar .post-body,
+body.has-sidebar .entry-body,
+body.has-sidebar .post-footer,
+body.has-sidebar .entry-footer {
+    margin-left: 280px !important;
+}
+
+/* 确保所有可能的 PaperMod 元素都被调整 */
+body.has-sidebar *[class*="post"],
+body.has-sidebar *[class*="entry"] {
+    margin-left: 280px !important;
+}
+
+@media (max-width: 1200px) {
+    body.has-sidebar .post-header,
+    body.has-sidebar .entry-header,
+    body.has-sidebar .post-meta,
+    body.has-sidebar .entry-meta,
+    body.has-sidebar .post-content,
+    body.has-sidebar .entry-content,
+    body.has-sidebar .post-body,
+    body.has-sidebar .entry-body,
+    body.has-sidebar .post-footer,
+    body.has-sidebar .entry-footer {
+        margin-left: 250px !important;
+    }
+    
+    body.has-sidebar *[class*="post"],
+    body.has-sidebar *[class*="entry"] {
+        margin-left: 250px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body.has-sidebar .post-header,
+    body.has-sidebar .entry-header,
+    body.has-sidebar .post-meta,
+    body.has-sidebar .entry-meta,
+    body.has-sidebar .post-content,
+    body.has-sidebar .entry-content,
+    body.has-sidebar .post-body,
+    body.has-sidebar .entry-body,
+    body.has-sidebar .post-footer,
+    body.has-sidebar .entry-footer {
+        margin-left: 0 !important;
+    }
+    
+    body.has-sidebar *[class*="post"],
+    body.has-sidebar *[class*="entry"] {
+        margin-left: 0 !important;
     }
 }
