@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/posts/tool-snippets-structural-gt.md",
+                "file": "content/about/_index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tool-snippets-structural-gt"
+              "title": "_index"
             }
           }
         ]
@@ -179,12 +179,16 @@
   },
   "active": "ee05ae44a8b29585",
   "lastOpenFiles": [
+    "content/_index.md",
+    "content/about/_index.md",
+    "readme.md",
+    "Untitled.base",
+    "content/posts/tool-snippets-structural-gt.md",
     "content/posts/reading-notes-newman-ch3.md",
     "content/posts/progress-2025-08.md",
     "content/posts/idea-transformer-for-local-graph.md",
     "content/posts/20250829 test auto post.md",
     "content/posts/20250829 template.md",
-    "content/_index.md",
     "layouts/partials/simple-sidebar.html",
     "layouts/_default/baseof.html",
     "layouts/_default",
@@ -194,10 +198,8 @@
     "00 - Site MOC.md",
     "public/untitled/index.html",
     "public/untitled",
-    "content/posts/tool-snippets-structural-gt.md",
     "public/posts/20250829-test-auto-post/index.html",
     "public/posts/20250829-test-auto-post",
-    "public/posts/untitled/index.html",
     "Untitled.canvas"
   ]
 }
