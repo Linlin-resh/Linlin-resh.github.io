@@ -1,3 +1,100 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://Linlin-resh.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Notes on AI4Science & Graph Theory'
+theme = 'PaperMod'
+
+# Site information
+[params]
+  # Site description
+  description = 'Thoughts on Partially Disordered Networks, Silver Nanowires, Graph Theory, and Machine Learning'
+  
+  # Author information
+  author = 'Linlin-resh'
+  
+  # Default theme mode
+  defaultTheme = 'auto'
+  
+  # Show reading time
+  ShowReadingTime = true
+  
+  # Show word count
+  ShowWordCount = true
+  
+  # Show last modified time
+  ShowLastMod = true
+  
+  # Show share buttons
+  ShowShareButtons = true
+  
+  # Show code copy buttons
+  ShowCodeCopyButtons = true
+  
+  # Show code line numbers
+  ShowCodeLineNumbers = false
+  
+  # Pagination settings
+  paginate = 10
+  
+  # Summary length
+  summaryLength = 200
+
+# Menu configuration
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    identifier = 'blog'
+    name = 'Blog'
+    url = '/posts/'
+    weight = 2
+  [[menu.main]]
+    identifier = 'tags'
+    name = 'Tags'
+    url = '/tags/'
+    weight = 3
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
+    weight = 4
+  [[menu.main]]
+    identifier = 'search'
+    name = 'Search'
+    url = '/search/'
+    weight = 5
+
+# Math formula support (KaTeX)
+[params.math]
+  enable = true
+  provider = 'katex'
+  defer = true
+
+# Code highlighting
+[markup]
+  [markup.highlight]
+    style = 'dracula'
+    lineNos = false
+    copy = true
+
+# Output formats
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+# Search configuration
+[params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  location = 0
+  distance = 1000
+  threshold = 0.4
+  minMatchCharLength = 0
+  keys = ["title", "permalink", "summary", "content"]
+
+# Sitemap
+[params.sitemap]
+  changefreq = 'monthly'
+  priority = 0.5
+  filename = 'sitemap.xml'
