@@ -1,1 +1,166 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Tags on Notes on AI4Science &amp; Graph Theory</title><link>https://Linlin-resh.github.io/tags/</link><description>Recent content in Tags on Notes on AI4Science &amp; Graph Theory</description><generator>Hugo -- 0.149.0</generator><language>en-us</language><lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Linlin-resh.github.io/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>Code-Snippets</title><link>https://Linlin-resh.github.io/tags/code-snippets/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/code-snippets/</guid><description/></item><item><title>Graph-Neural-Networks</title><link>https://Linlin-resh.github.io/tags/graph-neural-networks/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/graph-neural-networks/</guid><description/></item><item><title>Graph-Theory</title><link>https://Linlin-resh.github.io/tags/graph-theory/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/graph-theory/</guid><description/></item><item><title>Ideas</title><link>https://Linlin-resh.github.io/tags/ideas/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/ideas/</guid><description/></item><item><title>Machine-Learning</title><link>https://Linlin-resh.github.io/tags/machine-learning/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/machine-learning/</guid><description/></item><item><title>Materials-Science</title><link>https://Linlin-resh.github.io/tags/materials-science/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/materials-science/</guid><description/></item><item><title>Mathematics</title><link>https://Linlin-resh.github.io/tags/mathematics/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/mathematics/</guid><description/></item><item><title>Monthly-Update</title><link>https://Linlin-resh.github.io/tags/monthly-update/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/monthly-update/</guid><description/></item><item><title>Nanowires</title><link>https://Linlin-resh.github.io/tags/nanowires/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/nanowires/</guid><description/></item><item><title>Network-Analysis</title><link>https://Linlin-resh.github.io/tags/network-analysis/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/network-analysis/</guid><description/></item><item><title>Network-Theory</title><link>https://Linlin-resh.github.io/tags/network-theory/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/network-theory/</guid><description/></item><item><title>Networkx</title><link>https://Linlin-resh.github.io/tags/networkx/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/networkx/</guid><description/></item><item><title>Python</title><link>https://Linlin-resh.github.io/tags/python/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/python/</guid><description/></item><item><title>Random-Graphs</title><link>https://Linlin-resh.github.io/tags/random-graphs/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/random-graphs/</guid><description/></item><item><title>Reading-Notes</title><link>https://Linlin-resh.github.io/tags/reading-notes/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/reading-notes/</guid><description/></item><item><title>Research-Progress</title><link>https://Linlin-resh.github.io/tags/research-progress/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/research-progress/</guid><description/></item><item><title>Tools</title><link>https://Linlin-resh.github.io/tags/tools/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/tools/</guid><description/></item><item><title>Transformer</title><link>https://Linlin-resh.github.io/tags/transformer/</link><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate><guid>https://Linlin-resh.github.io/tags/transformer/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Notes on AI4Science &amp; Graph Theory</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Notes on AI4Science &amp; Graph Theory</description>
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code-Snippets</title>
+      <link>http://localhost:1313/tags/code-snippets/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/code-snippets/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Graph-Neural-Networks</title>
+      <link>http://localhost:1313/tags/graph-neural-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/graph-neural-networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Graph-Theory</title>
+      <link>http://localhost:1313/tags/graph-theory/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/graph-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ideas</title>
+      <link>http://localhost:1313/tags/ideas/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ideas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine-Learning</title>
+      <link>http://localhost:1313/tags/machine-learning/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Materials-Science</title>
+      <link>http://localhost:1313/tags/materials-science/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/materials-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mathematics</title>
+      <link>http://localhost:1313/tags/mathematics/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mathematics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monthly-Update</title>
+      <link>http://localhost:1313/tags/monthly-update/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/monthly-update/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nanowires</title>
+      <link>http://localhost:1313/tags/nanowires/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/nanowires/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Analysis</title>
+      <link>http://localhost:1313/tags/network-analysis/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/network-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Theory</title>
+      <link>http://localhost:1313/tags/network-theory/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/network-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networkx</title>
+      <link>http://localhost:1313/tags/networkx/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/networkx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Random-Graphs</title>
+      <link>http://localhost:1313/tags/random-graphs/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/random-graphs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading-Notes</title>
+      <link>http://localhost:1313/tags/reading-notes/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/reading-notes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research-Progress</title>
+      <link>http://localhost:1313/tags/research-progress/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/research-progress/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Template</title>
+      <link>http://localhost:1313/tags/template/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/template/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tools</title>
+      <link>http://localhost:1313/tags/tools/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transformer</title>
+      <link>http://localhost:1313/tags/transformer/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/transformer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag1</title>
+      <link>http://localhost:1313/tags/tag1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tag1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag2</title>
+      <link>http://localhost:1313/tags/tag2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tag2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag3</title>
+      <link>http://localhost:1313/tags/tag3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tag3/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
