@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://Linlin-resh.github.io/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /draft/
+
+# Allow all content
+Allow: /posts/
+Allow: /tags/
+Allow: /about/
+Allow: /search/

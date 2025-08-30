@@ -17,7 +17,7 @@
 * 站点标题：`Notes on AI4Science & Graph Theory`
 * 站点描述：`Thoughts on Partially Disordered Networks, Silver Nanowires, Graph Theory, and Machine Learning` 
 * 自定义域名（可选）：`{{CUSTOM_DOMAIN}}`（没有就留空）
-* 作者信息：`{{AUTHOR_NAME}}`、`{{AUTHOR_EMAIL}}`（可选）
+* 作者信息：`Linlin Sun`、`linlins@umich.edu`（可选）
 * 社交链接（可选）：Google Scholar、ORCID、GitHub、X/微博 等 URL
 * 深色模式默认：`{{dark|light|auto}}`
 
@@ -39,7 +39,7 @@
 1. **数学公式**：KaTeX（优先）或 MathJax（仅选其一，默认 KaTeX）
 2. **代码高亮**：Hugo Chroma（支持常见语言；行号可选）
 3. **图片优化**：建议 webp 与等比缩放，保留原图链接；支持图片标题与说明
-4. **暗色模式**：跟随系统或可切换
+4. **亮色模式**：跟随系统或可切换
 5. **SEO**：`<meta>` 基础、OG、Twitter、站点地图、robots、canonical
 6. **RSS**：为博客文章启用
 7. **搜索**：本地 lunr/fuse 索引或 Algolia（先默认本地）
