@@ -1,0 +1,181 @@
+{{ if not .IsHome }}
+<aside class="sidebar">
+  <div class="sidebar-content">
+    <h3 class="sidebar-title">目录</h3>
+    
+    <!-- 文章目录 -->
+    {{ if .IsPage }}
+      {{ if .TableOfContents }}
+        <div class="toc-sidebar">
+          {{ .TableOfContents }}
+        </div>
+      {{ end }}
+    {{ end }}
+    
+    <!-- 全局导航 -->
+    <nav class="sidebar-nav">
+      <h4>网站导航</h4>
+      <ul>
+        <li><a href="/">🏠 首页</a></li>
+        <li><a href="/posts/">📝 博客</a></li>
+        <li><a href="/tags/">🏷️ 标签</a></li>
+        <li><a href="/about/">ℹ️ 关于</a></li>
+        <li><a href="/search/">🔍 搜索</a></li>
+      </ul>
+      
+      <h4>文章分类</h4>
+      <ul>
+        <li><a href="/tags/reading-notes/">📚 阅读笔记</a></li>
+        <li><a href="/tags/ideas/">💡 想法思考</a></li>
+        <li><a href="/tags/research-progress/">📊 研究进展</a></li>
+        <li><a href="/tags/tools/">🛠️ 工具代码</a></li>
+      </ul>
+      
+      <h4>热门标签</h4>
+      <div class="sidebar-tags">
+        <a href="/tags/network-theory/" class="tag">网络理论</a>
+        <a href="/tags/materials-science/" class="tag">材料科学</a>
+        <a href="/tags/machine-learning/" class="tag">机器学习</a>
+        <a href="/tags/graph-theory/" class="tag">图论</a>
+        <a href="/tags/nanowires/" class="tag">纳米线</a>
+      </div>
+    </nav>
+  </div>
+</aside>
+{{ end }}
+
+<style>
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background: var(--entry-bg);
+  border-right: 1px solid var(--border-color);
+  overflow-y: auto;
+  z-index: 100;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar-content {
+  padding-top: 60px; /* 为顶部导航留出空间 */
+}
+
+.sidebar-title {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: var(--entry-title-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+}
+
+.sidebar-nav h4 {
+  font-size: 1em;
+  margin: 20px 0 10px 0;
+  color: var(--entry-title-color);
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin: 8px 0;
+}
+
+.sidebar-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 5px 0;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+  color: var(--accent-color);
+}
+
+.sidebar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.sidebar-tags .tag {
+  background: var(--accent-color);
+  color: var(--bg-color);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-tags .tag:hover {
+  background: var(--accent-color-hover);
+}
+
+.toc-sidebar {
+  margin-bottom: 30px;
+}
+
+.toc-sidebar ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.toc-sidebar li {
+  margin: 5px 0;
+}
+
+.toc-sidebar a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.toc-sidebar a:hover {
+  color: var(--accent-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* 为主内容区域留出空间 */
+main {
+  margin-left: 280px;
+}
+
+@media (max-width: 1200px) {
+  main {
+    margin-left: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+  }
+}
+</style>
