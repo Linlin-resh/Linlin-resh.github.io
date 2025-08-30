@@ -44,12 +44,6 @@ theme = 'PaperMod'
   
   # Disable PaperMod sidebar
   ShowBreadCrumbs = false
-  ShowReadingTime = true
-  ShowWordCount = true
-  ShowLastMod = true
-  ShowShareButtons = true
-  ShowCodeCopyButtons = true
-  ShowCodeLineNumbers = false
 
 # Menu configuration
 [menu]
