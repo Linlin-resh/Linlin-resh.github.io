@@ -11,13 +11,14 @@
             "id": "ee05ae44a8b29585",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.base",
-                "viewName": "Table"
+                "file": "content/posts/20250829 test auto post.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "20250829 test auto post"
             }
           }
         ]
@@ -73,12 +74,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 354.5007095336914
   },
   "right": {
     "id": "94c56fe4cb146a26",
@@ -163,7 +163,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 678.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -179,17 +179,20 @@
   },
   "active": "ee05ae44a8b29585",
   "lastOpenFiles": [
-    "Untitled.canvas",
-    "Untitled.base",
     "content/posts/20250829 template.md",
+    "content/posts/20250829 test auto post.md",
+    "content/posts/tool-snippets-structural-gt.md",
+    "content/posts/reading-notes-newman-ch3.md",
+    "public/posts/20250829-test-auto-post/index.html",
+    "public/posts/20250829-test-auto-post",
+    "public/posts/untitled/index.html",
+    "public/posts/untitled",
+    "Untitled.base",
+    "Untitled.canvas",
     "public/tags/template/index.xml",
     "public/tags/template/page/1/index.html",
     "public/tags/template/page/1",
     "public/tags/template/index.html",
-    "public/tags/template/page",
-    "public/tags/template",
-    "public/posts/20250829-template/index.html",
-    "public/posts/20250829-template",
-    "public/posts/20250829/index.html"
+    "public/tags/template/page"
   ]
 }
