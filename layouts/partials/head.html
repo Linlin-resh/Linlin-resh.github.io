@@ -5,44 +5,34 @@
 <div class="custom-sidebar">
   <h3>📚 网站目录</h3>
   
-  <!-- 网站导航 -->
-  <h4>🏠 主要页面</h4>
-  <ul>
-    <li><a href="/">首页</a></li>
-    <li><a href="/posts/">所有文章</a></li>
-    <li><a href="/tags/">标签分类</a></li>
-    <li><a href="/about/">关于我</a></li>
-    <li><a href="/search/">搜索</a></li>
-  </ul>
-  
-  <!-- 文章分类 -->
-  <h4>📝 文章分类</h4>
-  <ul>
-    <li><a href="/tags/reading-notes/">📖 阅读笔记</a></li>
-    <li><a href="/tags/ideas/">💡 想法思考</a></li>
-    <li><a href="/tags/research-progress/">📊 研究进展</a></li>
-    <li><a href="/tags/tools/">🛠️ 工具代码</a></li>
-  </ul>
-  
-  <!-- 热门标签 -->
-  <h4>🏷️ 热门标签</h4>
-  <div class="sidebar-tags">
-    <a href="/tags/network-theory/" class="tag">网络理论</a>
-    <a href="/tags/materials-science/" class="tag">材料科学</a>
-    <a href="/tags/machine-learning/" class="tag">机器学习</a>
-    <a href="/tags/graph-theory/" class="tag">图论</a>
-    <a href="/tags/nanowires/" class="tag">纳米线</a>
+  <!-- 四个主要栏目 -->
+  <div class="sidebar-section">
+    <h4>📖 阅读笔记</h4>
+    <ul>
+      <li><a href="/tags/reading-notes/">查看所有阅读笔记</a></li>
+    </ul>
   </div>
   
-  <!-- 文章目录 (如果当前页面有) -->
-  {{ if .IsPage }}
-    {{ if .TableOfContents }}
-      <h4>📖 文章目录</h4>
-      <div class="toc-sidebar">
-        {{ .TableOfContents }}
-      </div>
-    {{ end }}
-  {{ end }}
+  <div class="sidebar-section">
+    <h4>💡 想法思考</h4>
+    <ul>
+      <li><a href="/tags/ideas/">查看所有想法思考</a></li>
+    </ul>
+  </div>
+  
+  <div class="sidebar-section">
+    <h4>📊 研究进展</h4>
+    <ul>
+      <li><a href="/tags/research-progress/">查看所有研究进展</a></li>
+    </ul>
+  </div>
+  
+  <div class="sidebar-section">
+    <h4>🛠️ 工具代码</h4>
+    <ul>
+      <li><a href="/tags/tools/">查看所有工具代码</a></li>
+    </ul>
+  </div>
 </div>
 
 <!-- 移动端侧边栏切换按钮 -->
