@@ -1,12 +1,13 @@
 {{ if not .IsHome }}
-<aside class="sidebar">
+<div class="papermod-sidebar">
   <div class="sidebar-content">
-    <h3 class="sidebar-title">目录</h3>
+    <h3 class="sidebar-title">📚 网站目录</h3>
     
     <!-- 文章目录 -->
     {{ if .IsPage }}
       {{ if .TableOfContents }}
         <div class="toc-sidebar">
+          <h4>📖 文章目录</h4>
           {{ .TableOfContents }}
         </div>
       {{ end }}
@@ -14,24 +15,24 @@
     
     <!-- 全局导航 -->
     <nav class="sidebar-nav">
-      <h4>网站导航</h4>
+      <h4>🏠 主要页面</h4>
       <ul>
-        <li><a href="/">🏠 首页</a></li>
-        <li><a href="/posts/">📝 博客</a></li>
-        <li><a href="/tags/">🏷️ 标签</a></li>
-        <li><a href="/about/">ℹ️ 关于</a></li>
-        <li><a href="/search/">🔍 搜索</a></li>
+        <li><a href="/">首页</a></li>
+        <li><a href="/posts/">所有文章</a></li>
+        <li><a href="/tags/">标签分类</a></li>
+        <li><a href="/about/">关于我</a></li>
+        <li><a href="/search/">搜索</a></li>
       </ul>
       
-      <h4>文章分类</h4>
+      <h4>📝 文章分类</h4>
       <ul>
-        <li><a href="/tags/reading-notes/">📚 阅读笔记</a></li>
+        <li><a href="/tags/reading-notes/">📖 阅读笔记</a></li>
         <li><a href="/tags/ideas/">💡 想法思考</a></li>
         <li><a href="/tags/research-progress/">📊 研究进展</a></li>
         <li><a href="/tags/tools/">🛠️ 工具代码</a></li>
       </ul>
       
-      <h4>热门标签</h4>
+      <h4>🏷️ 热门标签</h4>
       <div class="sidebar-tags">
         <a href="/tags/network-theory/" class="tag">网络理论</a>
         <a href="/tags/materials-science/" class="tag">材料科学</a>
@@ -41,11 +42,10 @@
       </div>
     </nav>
   </div>
-</aside>
-{{ end }}
+</div>
 
 <style>
-.sidebar {
+.papermod-sidebar {
   position: fixed;
   left: 0;
   top: 0;
@@ -54,13 +54,14 @@
   background: var(--entry-bg);
   border-right: 1px solid var(--border-color);
   overflow-y: auto;
-  z-index: 100;
+  z-index: 1000;
   padding: 20px;
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 .sidebar-content {
-  padding-top: 60px; /* 为顶部导航留出空间 */
+  padding-top: 60px;
 }
 
 .sidebar-title {
@@ -124,6 +125,12 @@
   margin-bottom: 30px;
 }
 
+.toc-sidebar h4 {
+  font-size: 1em;
+  margin: 0 0 10px 0;
+  color: var(--entry-title-color);
+}
+
 .toc-sidebar ul {
   list-style: none;
   padding-left: 15px;
@@ -146,36 +153,54 @@
 
 /* 响应式设计 */
 @media (max-width: 1200px) {
-  .sidebar {
+  .papermod-sidebar {
     width: 250px;
   }
 }
 
 @media (max-width: 768px) {
-  .sidebar {
+  .papermod-sidebar {
     transform: translateX(-100%);
     transition: transform 0.3s ease;
   }
   
-  .sidebar.open {
+  .papermod-sidebar.open {
     transform: translateX(0);
   }
 }
 
 /* 为主内容区域留出空间 */
-main {
+body {
   margin-left: 280px;
 }
 
 @media (max-width: 1200px) {
-  main {
+  body {
     margin-left: 250px;
   }
 }
 
 @media (max-width: 768px) {
-  main {
+  body {
+    margin-left: 0;
+  }
+}
+
+/* 确保 PaperMod 主题内容不被遮挡 */
+main, .main, .content, .post-content {
+  margin-left: 280px;
+}
+
+@media (max-width: 1200px) {
+  main, .main, .content, .post-content {
+    margin-left: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  main, .main, .content, .post-content {
     margin-left: 0;
   }
 }
 </style>
+{{ end }}
