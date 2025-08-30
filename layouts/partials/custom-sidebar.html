@@ -1,0 +1,87 @@
+<!-- 自定义左侧侧边栏 -->
+<div class="custom-sidebar">
+  <h3>📚 网站目录</h3>
+  
+  <!-- 网站导航 -->
+  <h4>🏠 主要页面</h4>
+  <ul>
+    <li><a href="/">首页</a></li>
+    <li><a href="/posts/">所有文章</a></li>
+    <li><a href="/tags/">标签分类</a></li>
+    <li><a href="/about/">关于我</a></li>
+    <li><a href="/search/">搜索</a></li>
+  </ul>
+  
+  <!-- 文章分类 -->
+  <h4>📝 文章分类</h4>
+  <ul>
+    <li><a href="/tags/reading-notes/">📖 阅读笔记</a></li>
+    <li><a href="/tags/ideas/">💡 想法思考</a></li>
+    <li><a href="/tags/research-progress/">📊 研究进展</a></li>
+    <li><a href="/tags/tools/">🛠️ 工具代码</a></li>
+  </ul>
+  
+  <!-- 热门标签 -->
+  <h4>🏷️ 热门标签</h4>
+  <div class="sidebar-tags">
+    <a href="/tags/network-theory/" class="tag">网络理论</a>
+    <a href="/tags/materials-science/" class="tag">材料科学</a>
+    <a href="/tags/machine-learning/" class="tag">机器学习</a>
+    <a href="/tags/graph-theory/" class="tag">图论</a>
+    <a href="/tags/nanowires/" class="tag">纳米线</a>
+  </div>
+  
+  <!-- 文章目录 (如果当前页面有) -->
+  {{ if .IsPage }}
+    {{ if .TableOfContents }}
+      <h4>📖 文章目录</h4>
+      <div class="toc-sidebar">
+        {{ .TableOfContents }}
+      </div>
+    {{ end }}
+  {{ end }}
+</div>
+
+<!-- 移动端侧边栏切换按钮 -->
+<button class="sidebar-toggle" onclick="toggleSidebar()" title="切换侧边栏">
+  ☰
+</button>
+
+<script>
+// 侧边栏切换功能
+function toggleSidebar() {
+  const body = document.body;
+  const sidebar = document.querySelector('.custom-sidebar');
+  
+  if (body.classList.contains('has-sidebar')) {
+    body.classList.remove('has-sidebar');
+    if (sidebar) {
+      sidebar.style.transform = 'translateX(-100%)';
+    }
+  } else {
+    body.classList.add('has-sidebar');
+    if (sidebar) {
+      sidebar.style.transform = 'translateX(0)';
+    }
+  }
+}
+
+// 页面加载完成后自动添加侧边栏
+document.addEventListener('DOMContentLoaded', function() {
+  const body = document.body;
+  body.classList.add('has-sidebar');
+  
+  // 移动端点击外部区域关闭侧边栏
+  document.addEventListener('click', function(event) {
+    const sidebar = document.querySelector('.custom-sidebar');
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    
+    if (window.innerWidth <= 768) {
+      if (sidebar && !sidebar.contains(event.target) && !sidebarToggle.contains(event.target)) {
+        body.classList.remove('has-sidebar');
+        sidebar.style.transform = 'translateX(-100%)';
+      }
+    }
+  });
+});
+</script>
