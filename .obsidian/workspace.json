@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/posts/20250829 test auto post.md",
+                "file": "00 - Site MOC.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "20250829 test auto post"
+              "title": "00 - Site MOC"
             }
           }
         ]
@@ -179,9 +179,13 @@
   },
   "active": "ee05ae44a8b29585",
   "lastOpenFiles": [
+    "content/_index.md",
+    "00 - Site MOC.md",
+    "public/untitled/index.html",
+    "public/untitled",
+    "content/posts/20250829 test auto post.md",
     "content/posts/20250829 template.md",
     "content/posts/idea-transformer-for-local-graph.md",
-    "content/posts/20250829 test auto post.md",
     "content/posts/tool-snippets-structural-gt.md",
     "content/posts/reading-notes-newman-ch3.md",
     "public/posts/20250829-test-auto-post/index.html",
@@ -192,8 +196,6 @@
     "Untitled.canvas",
     "public/tags/template/index.xml",
     "public/tags/template/page/1/index.html",
-    "public/tags/template/page/1",
-    "public/tags/template/index.html",
-    "public/tags/template/page"
+    "public/tags/template/page/1"
   ]
 }

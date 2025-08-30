@@ -121,6 +121,27 @@
       <description></description>
     </item>
     <item>
+      <title>Tag1</title>
+      <link>http://localhost:1313/tags/tag1/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tag1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag2</title>
+      <link>http://localhost:1313/tags/tag2/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tag2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag3</title>
+      <link>http://localhost:1313/tags/tag3/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tag3/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Template</title>
       <link>http://localhost:1313/tags/template/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
@@ -139,27 +160,6 @@
       <link>http://localhost:1313/tags/transformer/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/transformer/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tag1</title>
-      <link>http://localhost:1313/tags/tag1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tag1/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tag2</title>
-      <link>http://localhost:1313/tags/tag2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tag2/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tag3</title>
-      <link>http://localhost:1313/tags/tag3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tag3/</guid>
       <description></description>
     </item>
   </channel>
