@@ -60,6 +60,15 @@ jobs:
           HUGO_ENV: production
           HUGO_ENVIRONMENT: production
         run: |
+          echo "=== Current working directory ==="
+          pwd
+          echo "=== Hugo version ==="
+          hugo version
+          echo "=== Hugo config file ==="
+          cat hugo.toml
+          echo "=== Hugo config check ==="
+          hugo config
+          echo "=== Building Hugo site ==="
           hugo \
             --gc \
             --minify \
