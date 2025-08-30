@@ -86,22 +86,7 @@ def clique_size_distribution(G):
 #### Local Order Parameters
 ```python
 def calculate_local_order(G, reference_distances=None):
-    """Calculate local order parameters for each node"""
-    local_order = {}
-    
-    for node in G.nodes():
-        neighbors = list(G.neighbors(node))
-        if len(neighbors) < 2:
-            local_order[node] = 0.0
-            continue
-        
-        # Calculate actual distances
-        actual_distances = []
-        for i in range(len(neighbors)):
-            for j in range(i+1, len(neighbors)):
-                if G.has_edge(neighbors[i], neighbors[j]):
-                    actual_distances.append(1.0)  # Connected neighbors
-                else:
+    """Calcul
                     actual_distances.append(2.0)  # Disconnected neighbors
         
         # Calculate reference distances (ideal ordered structure)
@@ -109,12 +94,7 @@ def calculate_local_order(G, reference_distances=None):
             # Assume ideal structure has all neighbors connected
             reference_distances = [1.0] * len(actual_distances)
         
-        # Calculate disorder as RMS deviation
-        deviations = np.array(actual_distances) - np.array(reference_distances)
-        local_order[node] = np.sqrt(np.mean(deviations**2))
-    
-    return local_order
-
+        # Calculat
 def global_disorder_metric(G):
     """Calculate global disorder metric for the entire graph"""
     local_order = calculate_local_order(G)
@@ -137,18 +117,6 @@ def degree_entropy(G):
     total_nodes = len(G.nodes())
     probabilities = [count/total_nodes for count in degree_counts.values()]
     
-    return entropy(probabilities)
-
-def structural_entropy(G, feature='clustering'):
-    """Calculate structural entropy based on different features"""
-    if feature == 'clustering':
-        values = list(nx.clustering(G).values())
-    elif feature == 'betweenness':
-        values = list(nx.betweenness_centrality(G).values())
-    elif feature == 'closeness':
-        values = list(nx.closeness_centrality(G).values())
-    else:
-        raise ValueError("Feature must be 'clustering', 'betweenness', or 'closeness'")
     
     # Bin the values for entropy calculation
     hist, _ = np.histogram(values, bins=20, density=True)
@@ -175,22 +143,7 @@ def percolation_analysis(G, removal_fraction=0.1):
     components = list(nx.connected_components(G_temp))
     largest_component = max(components, key=len)
     
-    return {
-        'largest_component_size': len(largest_component),
-        'largest_component_fraction': len(largest_component) / n_nodes,
-        'num_components': len(components),
-        'nodes_removed': n_remove
-    }
-
-def critical_threshold_estimation(G, trials=100):
-    """Estimate critical threshold for percolation"""
-    thresholds = np.linspace(0.1, 0.9, 20)
-    results = []
-    
-    for threshold in thresholds:
-        component_sizes = []
-        for _ in range(trials):
-            result = percolation_analysis(G, threshold)
+    return {= percolation_analysis(G, threshold)
             component_sizes.append(result['largest_component_fraction'])
         
         results.append({
@@ -216,27 +169,7 @@ def plot_triangle_distribution(G):
     plt.figure(figsize=(10, 6))
     plt.hist(values, bins=20, alpha=0.7, edgecolor='black')
     plt.xlabel('Number of Triangles')
-    plt.ylabel('Frequency')
-    plt.title('Triangle Distribution')
-    plt.grid(True, alpha=0.3)
-    plt.show()
-    
-    return {
-        'mean': np.mean(values),
-        'median': np.median(values),
-        'std': np.std(values)
-    }
-
-def plot_clustering_distribution(G):
-    """Plot clustering coefficient distribution"""
-    clustering = nx.clustering(G)
-    values = list(clustering.values())
-    
-    plt.figure(figsize=(10, 6))
-    plt.hist(values, bins=30, alpha=0.7, edgecolor='black')
-    plt.xlabel('Clustering Coefficient')
-    plt.ylabel('Frequency')
-    plt.title('Clustering Coefficient Distribution')
+    plt.'Clustering Coefficient Distribution')
     plt.grid(True, alpha=0.3)
     plt.show()
     
@@ -262,29 +195,7 @@ class MaterialsNetworkAnalyzer:
         """Run complete structural analysis"""
         print("Running structural analysis...")
         
-        # Basic properties
-        self.results['basic'] = {
-            'nodes': self.G.number_of_nodes(),
-            'edges': self.G.number_of_edges(),
-            'density': nx.density(self.G),
-            'average_degree': np.mean([d for n, d in self.G.degree()])
-        }
-        
-        # Structural motifs
-        self.results['triangles'] = count_triangles_by_node(self.G)
-        self.results['clustering'] = clustering_coefficient_distribution(self.G)
-        self.results['cliques'] = clique_size_distribution(self.G)
-        
-        # Disorder metrics
-        self.results['local_order'] = calculate_local_order(self.G)
-        self.results['global_disorder'] = global_disorder_metric(self.G)
-        self.results['degree_entropy'] = degree_entropy(self.G)
-        self.results['structural_entropy'] = structural_entropy(self.G)
-        
-        # Connectivity
-        self.results['components'] = nx.number_connected_components(self.G)
-        self.results['largest_component'] = len(max(nx.connected_components(self.G), key=len))
-        
+        # Basic
         print("Analysis complete!")
         return self.results
     
@@ -308,19 +219,7 @@ class MaterialsNetworkAnalyzer:
         
         # Disorder metrics
         print(f"Global Disorder: {self.results['global_disorder']:.4f}")
-        print(f"Degree Entropy: {self.results['degree_entropy']:.4f}")
         
-        # Connectivity
-        print(f"Connected Components: {self.results['components']}")
-        print(f"Largest Component: {self.results['largest_component']} nodes")
-        
-        return self.results
-
-# Usage example
-if __name__ == "__main__":
-    # Create example network
-    G = nx.erdos_renyi_graph(100, 0.1)
-    
     # Run analysis
     analyzer = MaterialsNetworkAnalyzer(G)
     results = analyzer.run_full_analysis()
@@ -344,14 +243,7 @@ def memory_efficient_analysis(G):
     # Process in batches
     batch_size = 1000
     nodes = list(G.nodes())
-    
-    results = []
-    for i in range(0, len(nodes), batch_size):
-        batch_nodes = nodes[i:i+batch_size]
-        batch_subgraph = G.subgraph(batch_nodes)
-        
-        # Analyze batch
-        batch_results = analyze_subgraph(batch_subgraph)
+    h_results = analyze_subgraph(batch_subgraph)
         results.append(batch_results)
         
         # Clear memory

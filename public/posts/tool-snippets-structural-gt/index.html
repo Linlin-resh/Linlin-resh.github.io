@@ -137,7 +137,7 @@
     <div class="post-description">
       Practical code snippets and tools for analyzing structural properties of graphs in materials science applications
     </div>
-    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;925 words&nbsp;·&nbsp;Linlin-resh
+    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;644 words&nbsp;·&nbsp;Linlin-resh
 
 </div>
   </header> <div class="toc">
@@ -269,40 +269,20 @@
 </span></span></code></pre></div><h3 id="2-disorder-quantification">2. Disorder Quantification<a hidden class="anchor" aria-hidden="true" href="#2-disorder-quantification">#</a></h3>
 <h4 id="local-order-parameters">Local Order Parameters<a hidden class="anchor" aria-hidden="true" href="#local-order-parameters">#</a></h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">calculate_local_order</span>(G, reference_distances<span style="color:#ff79c6">=</span><span style="color:#ff79c6">None</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Calculate local order parameters for each node&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    local_order <span style="color:#ff79c6">=</span> {}
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> node <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>nodes():
-</span></span><span style="display:flex;"><span>        neighbors <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(G<span style="color:#ff79c6">.</span>neighbors(node))
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(neighbors) <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">2</span>:
-</span></span><span style="display:flex;"><span>            local_order[node] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.0</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">continue</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Calculate actual distances</span>
-</span></span><span style="display:flex;"><span>        actual_distances <span style="color:#ff79c6">=</span> []
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(neighbors)):
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span> j <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(i<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>, <span style="color:#8be9fd;font-style:italic">len</span>(neighbors)):
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">if</span> G<span style="color:#ff79c6">.</span>has_edge(neighbors[i], neighbors[j]):
-</span></span><span style="display:flex;"><span>                    actual_distances<span style="color:#ff79c6">.</span>append(<span style="color:#bd93f9">1.0</span>)  <span style="color:#6272a4"># Connected neighbors</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">else</span>:
-</span></span><span style="display:flex;"><span>                    actual_distances<span style="color:#ff79c6">.</span>append(<span style="color:#bd93f9">2.0</span>)  <span style="color:#6272a4"># Disconnected neighbors</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Calculate reference distances (ideal ordered structure)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> reference_distances <span style="color:#ff79c6">is</span> <span style="color:#ff79c6">None</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Assume ideal structure has all neighbors connected</span>
-</span></span><span style="display:flex;"><span>            reference_distances <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">1.0</span>] <span style="color:#ff79c6">*</span> <span style="color:#8be9fd;font-style:italic">len</span>(actual_distances)
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Calculate disorder as RMS deviation</span>
-</span></span><span style="display:flex;"><span>        deviations <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>array(actual_distances) <span style="color:#ff79c6">-</span> np<span style="color:#ff79c6">.</span>array(reference_distances)
-</span></span><span style="display:flex;"><span>        local_order[node] <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>sqrt(np<span style="color:#ff79c6">.</span>mean(deviations<span style="color:#ff79c6">**</span><span style="color:#bd93f9">2</span>))
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> local_order
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">global_disorder_metric</span>(G):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Calculate global disorder metric for the entire graph&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    local_order <span style="color:#ff79c6">=</span> calculate_local_order(G)
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> np<span style="color:#ff79c6">.</span>mean(<span style="color:#8be9fd;font-style:italic">list</span>(local_order<span style="color:#ff79c6">.</span>values()))
-</span></span></code></pre></div><h4 id="entropy-based-disorder">Entropy-Based Disorder<a hidden class="anchor" aria-hidden="true" href="#entropy-based-disorder">#</a></h4>
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Calcul
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                    actual_distances.append(2.0)  # Disconnected neighbors
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        # Calculate reference distances (ideal ordered structure)
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        if reference_distances is None:
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            # Assume ideal structure has all neighbors connected
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            reference_distances = [1.0] * len(actual_distances)
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        # Calculat
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">def global_disorder_metric(G):
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>Calculate <span style="color:#ff79c6">global</span> disorder metric <span style="color:#ff79c6">for</span> the entire graph<span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    local_order = calculate_local_order(G)
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    return np.mean(list(local_order.values()))
+</span></span></span></code></pre></div><h4 id="entropy-based-disorder">Entropy-Based Disorder<a hidden class="anchor" aria-hidden="true" href="#entropy-based-disorder">#</a></h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">from</span> scipy.stats <span style="color:#ff79c6">import</span> entropy
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">degree_entropy</span>(G):
@@ -317,18 +297,6 @@
 </span></span><span style="display:flex;"><span>    total_nodes <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(G<span style="color:#ff79c6">.</span>nodes())
 </span></span><span style="display:flex;"><span>    probabilities <span style="color:#ff79c6">=</span> [count<span style="color:#ff79c6">/</span>total_nodes <span style="color:#ff79c6">for</span> count <span style="color:#ff79c6">in</span> degree_counts<span style="color:#ff79c6">.</span>values()]
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> entropy(probabilities)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">structural_entropy</span>(G, feature<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;clustering&#39;</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Calculate structural entropy based on different features&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> feature <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;clustering&#39;</span>:
-</span></span><span style="display:flex;"><span>        values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(nx<span style="color:#ff79c6">.</span>clustering(G)<span style="color:#ff79c6">.</span>values())
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">elif</span> feature <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;betweenness&#39;</span>:
-</span></span><span style="display:flex;"><span>        values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(nx<span style="color:#ff79c6">.</span>betweenness_centrality(G)<span style="color:#ff79c6">.</span>values())
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">elif</span> feature <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;closeness&#39;</span>:
-</span></span><span style="display:flex;"><span>        values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(nx<span style="color:#ff79c6">.</span>closeness_centrality(G)<span style="color:#ff79c6">.</span>values())
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">raise</span> ValueError(<span style="color:#f1fa8c">&#34;Feature must be &#39;clustering&#39;, &#39;betweenness&#39;, or &#39;closeness&#39;&#34;</span>)
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Bin the values for entropy calculation</span>
 </span></span><span style="display:flex;"><span>    hist, _ <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>histogram(values, bins<span style="color:#ff79c6">=</span><span style="color:#bd93f9">20</span>, density<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
@@ -351,22 +319,7 @@
 </span></span><span style="display:flex;"><span>    components <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(nx<span style="color:#ff79c6">.</span>connected_components(G_temp))
 </span></span><span style="display:flex;"><span>    largest_component <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(components, key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;largest_component_size&#39;</span>: <span style="color:#8be9fd;font-style:italic">len</span>(largest_component),
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;largest_component_fraction&#39;</span>: <span style="color:#8be9fd;font-style:italic">len</span>(largest_component) <span style="color:#ff79c6">/</span> n_nodes,
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;num_components&#39;</span>: <span style="color:#8be9fd;font-style:italic">len</span>(components),
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;nodes_removed&#39;</span>: n_remove
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">critical_threshold_estimation</span>(G, trials<span style="color:#ff79c6">=</span><span style="color:#bd93f9">100</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Estimate critical threshold for percolation&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    thresholds <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#bd93f9">0.1</span>, <span style="color:#bd93f9">0.9</span>, <span style="color:#bd93f9">20</span>)
-</span></span><span style="display:flex;"><span>    results <span style="color:#ff79c6">=</span> []
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> threshold <span style="color:#ff79c6">in</span> thresholds:
-</span></span><span style="display:flex;"><span>        component_sizes <span style="color:#ff79c6">=</span> []
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(trials):
-</span></span><span style="display:flex;"><span>            result <span style="color:#ff79c6">=</span> percolation_analysis(G, threshold)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> {<span style="color:#ff79c6">=</span> percolation_analysis(G, threshold)
 </span></span><span style="display:flex;"><span>            component_sizes<span style="color:#ff79c6">.</span>append(result[<span style="color:#f1fa8c">&#39;largest_component_fraction&#39;</span>])
 </span></span><span style="display:flex;"><span>        
 </span></span><span style="display:flex;"><span>        results<span style="color:#ff79c6">.</span>append({
@@ -388,27 +341,7 @@
 </span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>figure(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">6</span>))
 </span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>hist(values, bins<span style="color:#ff79c6">=</span><span style="color:#bd93f9">20</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.7</span>, edgecolor<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;black&#39;</span>)
 </span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Number of Triangles&#39;</span>)
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Frequency&#39;</span>)
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Triangle Distribution&#39;</span>)
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;mean&#39;</span>: np<span style="color:#ff79c6">.</span>mean(values),
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;median&#39;</span>: np<span style="color:#ff79c6">.</span>median(values),
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;std&#39;</span>: np<span style="color:#ff79c6">.</span>std(values)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">plot_clustering_distribution</span>(G):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Plot clustering coefficient distribution&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    clustering <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>clustering(G)
-</span></span><span style="display:flex;"><span>    values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(clustering<span style="color:#ff79c6">.</span>values())
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>figure(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">6</span>))
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>hist(values, bins<span style="color:#ff79c6">=</span><span style="color:#bd93f9">30</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.7</span>, edgecolor<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;black&#39;</span>)
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Clustering Coefficient&#39;</span>)
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Frequency&#39;</span>)
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Clustering Coefficient Distribution&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span><span style="color:#f1fa8c">&#39;Clustering Coefficient Distribution&#39;</span>)
 </span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
 </span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
 </span></span><span style="display:flex;"><span>    
@@ -430,29 +363,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;&#34;&#34;Run complete structural analysis&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Running structural analysis...&#34;</span>)
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Basic properties</span>
-</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;basic&#39;</span>] <span style="color:#ff79c6">=</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;nodes&#39;</span>: <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G<span style="color:#ff79c6">.</span>number_of_nodes(),
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;edges&#39;</span>: <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G<span style="color:#ff79c6">.</span>number_of_edges(),
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;density&#39;</span>: nx<span style="color:#ff79c6">.</span>density(<span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G),
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;average_degree&#39;</span>: np<span style="color:#ff79c6">.</span>mean([d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G<span style="color:#ff79c6">.</span>degree()])
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Structural motifs</span>
-</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;triangles&#39;</span>] <span style="color:#ff79c6">=</span> count_triangles_by_node(<span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G)
-</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;clustering&#39;</span>] <span style="color:#ff79c6">=</span> clustering_coefficient_distribution(<span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G)
-</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;cliques&#39;</span>] <span style="color:#ff79c6">=</span> clique_size_distribution(<span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G)
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Disorder metrics</span>
-</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;local_order&#39;</span>] <span style="color:#ff79c6">=</span> calculate_local_order(<span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G)
-</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;global_disorder&#39;</span>] <span style="color:#ff79c6">=</span> global_disorder_metric(<span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G)
-</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;degree_entropy&#39;</span>] <span style="color:#ff79c6">=</span> degree_entropy(<span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G)
-</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;structural_entropy&#39;</span>] <span style="color:#ff79c6">=</span> structural_entropy(<span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G)
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Connectivity</span>
-</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;components&#39;</span>] <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>number_connected_components(<span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G)
-</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;largest_component&#39;</span>] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(<span style="color:#8be9fd;font-style:italic">max</span>(nx<span style="color:#ff79c6">.</span>connected_components(<span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>G), key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>))
-</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Basic</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Analysis complete!&#34;</span>)
 </span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results
 </span></span><span style="display:flex;"><span>    
@@ -476,19 +387,7 @@
 </span></span><span style="display:flex;"><span>        
 </span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Disorder metrics</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Global Disorder: </span><span style="color:#f1fa8c">{</span><span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;global_disorder&#39;</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.4f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Degree Entropy: </span><span style="color:#f1fa8c">{</span><span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;degree_entropy&#39;</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.4f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Connectivity</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Connected Components: </span><span style="color:#f1fa8c">{</span><span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;components&#39;</span>]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Largest Component: </span><span style="color:#f1fa8c">{</span><span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results[<span style="color:#f1fa8c">&#39;largest_component&#39;</span>]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> nodes&#34;</span>)
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>results
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Usage example</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">__name__</span> <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;__main__&#34;</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Create example network</span>
-</span></span><span style="display:flex;"><span>    G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>erdos_renyi_graph(<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">0.1</span>)
-</span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Run analysis</span>
 </span></span><span style="display:flex;"><span>    analyzer <span style="color:#ff79c6">=</span> MaterialsNetworkAnalyzer(G)
 </span></span><span style="display:flex;"><span>    results <span style="color:#ff79c6">=</span> analyzer<span style="color:#ff79c6">.</span>run_full_analysis()
@@ -509,14 +408,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Process in batches</span>
 </span></span><span style="display:flex;"><span>    batch_size <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1000</span>
 </span></span><span style="display:flex;"><span>    nodes <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(G<span style="color:#ff79c6">.</span>nodes())
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    results <span style="color:#ff79c6">=</span> []
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">0</span>, <span style="color:#8be9fd;font-style:italic">len</span>(nodes), batch_size):
-</span></span><span style="display:flex;"><span>        batch_nodes <span style="color:#ff79c6">=</span> nodes[i:i<span style="color:#ff79c6">+</span>batch_size]
-</span></span><span style="display:flex;"><span>        batch_subgraph <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>subgraph(batch_nodes)
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Analyze batch</span>
-</span></span><span style="display:flex;"><span>        batch_results <span style="color:#ff79c6">=</span> analyze_subgraph(batch_subgraph)
+</span></span><span style="display:flex;"><span>    h_results <span style="color:#ff79c6">=</span> analyze_subgraph(batch_subgraph)
 </span></span><span style="display:flex;"><span>        results<span style="color:#ff79c6">.</span>append(batch_results)
 </span></span><span style="display:flex;"><span>        
 </span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Clear memory</span>
