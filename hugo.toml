@@ -37,6 +37,19 @@ theme = 'PaperMod'
   
   # Summary length
   summaryLength = 200
+  
+  # Disable sidebar
+  ShowToc = false
+  TocOpen = false
+  
+  # Disable PaperMod sidebar
+  ShowBreadCrumbs = false
+  ShowReadingTime = true
+  ShowWordCount = true
+  ShowLastMod = true
+  ShowShareButtons = true
+  ShowCodeCopyButtons = true
+  ShowCodeLineNumbers = false
 
 # Menu configuration
 [menu]
