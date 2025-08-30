@@ -41,6 +41,16 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+      - name: Debug - List themes directory
+        run: |
+          echo "=== Checking themes directory ==="
+          ls -la themes/
+          echo "=== Checking PaperMod theme ==="
+          ls -la themes/PaperMod/
+          echo "=== Checking layouts directory ==="
+          ls -la themes/PaperMod/layouts/
+          echo "=== Checking _default layouts ==="
+          ls -la themes/PaperMod/layouts/_default/
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
