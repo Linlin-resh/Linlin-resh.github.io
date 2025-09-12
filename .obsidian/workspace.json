@@ -177,8 +177,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "af849d1fccb3b4e9",
+  "active": "542fd694e5629b68",
   "lastOpenFiles": [
+    "MATH_OPTIMIZATION_SUMMARY.md",
     "layouts/partials/extend_head.html",
     "public/posts/math-quick-test/index.html",
     "public/posts/math-quick-test",
@@ -190,7 +191,6 @@
     "public/tags/network-theory/page/2/index.html",
     "public/tags/network-theory/page/2",
     "public/tags/network-reconstruction/page/1/index.html",
-    "public/tags/network-reconstruction/page/1",
     "MATH_RENDERING_OPTIMIZATION.md",
     "content/posts/math-test.md",
     "content/posts/reading-notes-newman-ch4.md",
