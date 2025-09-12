@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Transformer on Notes on AI4Science &amp; Graph Theory</title>
-    <link>http://localhost:1313/tags/transformer/</link>
+    <link>https://Linlin-resh.github.io/tags/transformer/</link>
     <description>Recent content in Transformer on Notes on AI4Science &amp; Graph Theory</description>
     <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/transformer/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://Linlin-resh.github.io/tags/transformer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Transformer Architecture for Local Graph Structures: A Research Idea</title>
-      <link>http://localhost:1313/posts/idea-transformer-for-local-graph/</link>
+      <link>https://Linlin-resh.github.io/posts/idea-transformer-for-local-graph/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/idea-transformer-for-local-graph/</guid>
+      <guid>https://Linlin-resh.github.io/posts/idea-transformer-for-local-graph/</guid>
       <description>Exploring the potential of adapting Transformer architectures to capture local graph patterns in materials science applications</description>
     </item>
   </channel>

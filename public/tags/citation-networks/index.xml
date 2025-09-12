@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Citation-Networks on Notes on AI4Science &amp; Graph Theory</title>
+    <link>https://Linlin-resh.github.io/tags/citation-networks/</link>
+    <description>Recent content in Citation-Networks on Notes on AI4Science &amp; Graph Theory</description>
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://Linlin-resh.github.io/tags/citation-networks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks</title>
+      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/</guid>
+      <description>Study notes for Chapter 4 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering the World Wide Web, citation networks, and information flow dynamics</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Network-Reconstruction on Notes on AI4Science &amp; Graph Theory</title>
+    <link>https://Linlin-resh.github.io/tags/network-reconstruction/</link>
+    <description>Recent content in Network-Reconstruction on Notes on AI4Science &amp; Graph Theory</description>
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://Linlin-resh.github.io/tags/network-reconstruction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reading Notes: Newman&#39;s Networks Chapter 12 - Network Inference</title>
+      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch12/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch12/</guid>
+      <description>Study notes for Chapter 12 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering statistical inference, network reconstruction, and missing data imputation</description>
+    </item>
+  </channel>
+</rss>

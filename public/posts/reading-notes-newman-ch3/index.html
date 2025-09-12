@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs | Notes on AI4Science &amp; Graph Theory</title>
-<meta name="keywords" content="reading-notes, network-theory, random-graphs, mathematics">
-<meta name="description" content="Key insights from Chapter 3 of Newman&#39;s &#39;Networks: An Introduction&#39; on random graph theory and its applications">
+<meta name="robots" content="index, follow">
+<title>Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks | Notes on AI4Science &amp; Graph Theory</title>
+<meta name="keywords" content="reading-notes, network-theory, social-networks, data-collection, small-world">
+<meta name="description" content="Study notes for Chapter 3 of Newman&#39;s &#39;Networks: An Introduction&#39; covering social network analysis, data collection methods, and structural properties">
 <meta name="author" content="Linlin-resh">
-<link rel="canonical" href="http://localhost:1313/posts/reading-notes-newman-ch3/">
+<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch3/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/reading-notes-newman-ch3/">
+<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch3/">
 <noscript>
     <style>
         #theme-toggle,
@@ -55,7 +55,101 @@
         }
 
     </style>
-</noscript>
+</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch3/">
+  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks">
+  <meta property="og:description" content="Study notes for Chapter 3 of Newman&#39;s &#39;Networks: An Introduction&#39; covering social network analysis, data collection methods, and structural properties">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Reading-Notes">
+    <meta property="article:tag" content="Network-Theory">
+    <meta property="article:tag" content="Social-Networks">
+    <meta property="article:tag" content="Data-Collection">
+    <meta property="article:tag" content="Small-World">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks">
+<meta name="twitter:description" content="Study notes for Chapter 3 of Newman&#39;s &#39;Networks: An Introduction&#39; covering social network analysis, data collection methods, and structural properties">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Linlin-resh.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading Notes: Newman's Networks Chapter 3 - Social Networks",
+      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch3/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading Notes: Newman's Networks Chapter 3 - Social Networks",
+  "name": "Reading Notes: Newman\u0027s Networks Chapter 3 - Social Networks",
+  "description": "Study notes for Chapter 3 of Newman's 'Networks: An Introduction' covering social network analysis, data collection methods, and structural properties",
+  "keywords": [
+    "reading-notes", "network-theory", "social-networks", "data-collection", "small-world"
+  ],
+  "articleBody": "Introduction Chapter 3 of Newman’s Networks: An Introduction explores social networks - the webs of relationships that connect individuals in society. Social networks exhibit unique structural properties that reflect human behavior patterns and have profound implications for information spread, influence, and social dynamics.\n3.1 Data Collection Methods Survey-Based Methods Interviews and Questionnaires Face-to-face interviews provide high-quality data but are:\nExpensive: Require trained interviewers Time-consuming: Limited sample sizes Subject to bias: Social desirability effects Mathematical framework for survey design:\n$$n = \\frac{z^2 p(1-p)}{e^2}$$\nWhere:\n$n$: Required sample size $z$: Confidence level (e.g., 1.96 for 95%) $p$: Expected proportion $e$: Margin of error Online Surveys Advantages:\nCost-effective: Large sample sizes possible Anonymity: Reduced social desirability bias Geographic reach: Global data collection Challenges:\nSelection bias: Digital divide effects Response rates: Often low (\u003c 20%) Data quality: Self-reported relationships Observational Methods Direct Observation Systematic observation of social interactions:\nTime sampling: Record interactions at regular intervals Event sampling: Record specific interaction types Focal sampling: Follow specific individuals Mathematical modeling of observation reliability:\n$$R = \\frac{2r_{12}}{1 + r_{12}}$$\nWhere $r_{12}$ is the correlation between two observers.\nDigital Traces Modern data sources:\nSocial media: Facebook, Twitter, LinkedIn Communication logs: Email, phone calls, texts Location data: GPS, check-ins, proximity Privacy considerations:\nAnonymization: Remove identifying information Consent: Informed consent for data use Ethics: Institutional review board approval 3.2 Network Sampling Strategies Snowball Sampling Method: Start with initial contacts, then ask them to nominate others.\nMathematical model:\n$$P(\\text{reach node } i) = 1 - (1 - p)^{d_i}$$\nWhere:\n$p$: Probability of being nominated $d_i$: Degree of node $i$ Advantages:\nHidden populations: Access hard-to-reach groups Cost-effective: Leverages existing relationships Disadvantages:\nBias: Favors high-degree nodes Clustering: May miss isolated components Contact Tracing Epidemiological approach:\nIndex case: Start with known infected individual Contact identification: Find all contacts Network expansion: Repeat for each contact Mathematical framework:\n$$R_0 = \\beta \\cdot \\tau \\cdot c$$\nWhere:\n$R_0$: Basic reproduction number $\\beta$: Transmission probability $\\tau$: Infectious period $c$: Contact rate Random Walk Sampling Method: Start at random node, follow random edges.\nStationary distribution:\n$$\\pi_i = \\frac{k_i}{2m}$$\nWhere $k_i$ is the degree of node $i$ and $m$ is the total number of edges.\nAdvantages:\nUnbiased: Proportional to degree Efficient: No need for complete network 3.3 Structural Properties of Social Networks Degree Distribution Power-Law Behavior Many social networks exhibit scale-free degree distributions:\n$$P(k) \\sim k^{-\\gamma}$$\nWhere $\\gamma \\approx 2.0-3.0$ for social networks.\nMathematical Analysis Cumulative distribution function:\n$$P(K \\geq k) = \\int_k^{\\infty} P(k’) , dk’ \\sim k^{-(\\gamma-1)}$$\nMoment analysis:\nFirst moment: $\\langle k \\rangle = \\int k P(k) , dk$ Second moment: $\\langle k^2 \\rangle = \\int k^2 P(k) , dk$ Clustering Coefficient Local Clustering Definition:\n$$C_i = \\frac{2e_i}{k_i(k_i-1)}$$\nWhere $e_i$ is the number of edges between neighbors of node $i$.\nGlobal Clustering Average clustering:\n$$C = \\frac{1}{n} \\sum_{i=1}^{n} C_i$$\nTransitivity:\n$$T = \\frac{3 \\times \\text{number of triangles}}{\\text{number of connected triples}}$$\nSocial Interpretation High clustering: Dense social groups, strong local connections Low clustering: Sparse connections, weak social ties Path Length and Small-World Effect Milgram’s Experiment Six degrees of separation:\nTarget: Random person in Boston Method: Mail forwarding through acquaintances Result: Average path length ≈ 6 Mathematical Framework Small-world property:\n$$L \\sim \\log n \\quad \\text{and} \\quad C \\gg C_{\\text{random}}$$\nWhere:\n$L$: Average path length $C$: Clustering coefficient $C_{\\text{random}}$: Clustering in random network Network Efficiency Global efficiency:\n$$E = \\frac{1}{n(n-1)} \\sum_{i \\neq j} \\frac{1}{d_{ij}}$$\nLocal efficiency:\n$$E_{\\text{local}} = \\frac{1}{n} \\sum_{i} E_i$$\nWhere $E_i$ is the efficiency of the subgraph of neighbors of node $i$.\n3.4 Community Structure Modularity Definition:\n$$Q = \\frac{1}{2m} \\sum_{ij} \\left[ A_{ij} - \\frac{k_i k_j}{2m} \\right] \\delta(c_i, c_j)$$\nWhere:\n$A_{ij}$: Adjacency matrix $k_i, k_j$: Degrees of nodes $i, j$ $c_i, c_j$: Community assignments $\\delta(c_i, c_j)$: Kronecker delta Interpretation $Q \u003e 0$: More edges within communities than expected by chance $Q = 0$: Random network structure $Q \u003c 0$: Fewer edges within communities than expected Community Detection Algorithms Girvan-Newman Algorithm Method:\nCalculate betweenness centrality for all edges Remove edge with highest betweenness Recalculate betweenness for remaining edges Repeat until no edges remain Betweenness centrality:\n$$C_B(e) = \\sum_{s \\neq t} \\frac{\\sigma_{st}(e)}{\\sigma_{st}}$$\nWhere $\\sigma_{st}(e)$ is the number of shortest paths between $s$ and $t$ that pass through edge $e$.\nSpectral Clustering Laplacian matrix:\n$$L = D - A$$\nWhere $D$ is the degree matrix and $A$ is the adjacency matrix.\nNormalized Laplacian:\n$$L_{\\text{norm}} = D^{-1/2} L D^{-1/2}$$\nEigenvalue decomposition:\n$$L_{\\text{norm}} = U \\Lambda U^T$$\nUse the first $k$ eigenvectors to cluster nodes.\n3.5 Influence and Centrality Centrality Measures Degree Centrality Definition:\n$$C_D(i) = \\frac{k_i}{n-1}$$\nInterpretation: Number of direct connections\nBetweenness Centrality Definition:\n$$C_B(i) = \\sum_{s \\neq i \\neq t} \\frac{\\sigma_{st}(i)}{\\sigma_{st}}$$\nInterpretation: How often node $i$ lies on shortest paths\nCloseness Centrality Definition:\n$$C_C(i) = \\frac{n-1}{\\sum_{j \\neq i} d_{ij}}$$\nInterpretation: Average distance to all other nodes\nEigenvector Centrality Definition:\n$$x_i = \\frac{1}{\\lambda} \\sum_{j} A_{ij} x_j$$\nMatrix form:\n$$A \\mathbf{x} = \\lambda \\mathbf{x}$$\nInterpretation: Importance based on connections to important nodes\nInfluence Models Linear Threshold Model Activation rule:\n$$\\sum_{j \\in \\text{active neighbors}} w_{ji} \\geq \\theta_i$$\nWhere:\n$w_{ji}$: Influence weight from $j$ to $i$ $\\theta_i$: Threshold for node $i$ Independent Cascade Model Activation probability:\n$$P(\\text{activate } j \\text{ from } i) = p_{ij}$$\nCascade dynamics:\n$$P(\\text{node } j \\text{ activated}) = 1 - \\prod_{i \\in \\text{active}} (1 - p_{ij})$$\n3.6 Applications to Materials Science Collaboration Networks Scientific Collaboration Network structure:\nNodes: Researchers Edges: Co-authorship relationships Weights: Number of joint publications Mathematical properties:\nDegree distribution: Power-law with $\\gamma \\approx 2.1$ Clustering: High ($C \\approx 0.3$) Path length: Short ($L \\approx 6$) Research Impact Citation networks:\nIn-degree: Number of citations received Out-degree: Number of papers cited PageRank: Influence based on citation network Knowledge Networks Technology Transfer Network structure:\nNodes: Institutions, companies Edges: Technology transfer relationships Weights: Transfer frequency/value Diffusion models:\nBass model: $S(t) = S_{\\max} \\frac{1 - e^{-(p+q)t}}{1 + \\frac{q}{p} e^{-(p+q)t}}$ SIR model: Susceptible → Infected → Recovered Code Example: Social Network Analysis import networkx as nx import numpy as np import matplotlib.pyplot as plt from collections import Counter def analyze_social_network(G, network_name=\"social\"): \"\"\"Comprehensive social network analysis\"\"\" # Basic statistics n = G.number_of_nodes() m = G.number_of_edges() density = 2 * m / (n * (n - 1)) # Degree analysis degrees = [d for n, d in G.degree()] degree_dist = Counter(degrees) # Power-law fitting if len(degree_dist) \u003e 1: k_values = list(degree_dist.keys()) counts = list(degree_dist.values()) # Log-log regression log_k = np.log(k_values[1:]) # Skip k=0 log_counts = np.log(counts[1:]) if len(log_k) \u003e 1: gamma = -np.polyfit(log_k, log_counts, 1)[0] else: gamma = None else: gamma = None # Clustering analysis local_clustering = nx.clustering(G) global_clustering = nx.average_clustering(G) # Path length analysis if nx.is_connected(G): avg_path_length = nx.average_shortest_path_length(G) diameter = nx.diameter(G) else: # Analyze largest component largest_cc = max(nx.connected_components(G), key=len) subgraph = G.subgraph(largest_cc) avg_path_length = nx.average_shortest_path_length(subgraph) diameter = nx.diameter(subgraph) # Centrality measures degree_centrality = nx.degree_centrality(G) betweenness_centrality = nx.betweenness_centrality(G) closeness_centrality = nx.closeness_centrality(G) eigenvector_centrality = nx.eigenvector_centrality(G, max_iter=1000) # Community detection try: communities = nx.community.greedy_modularity_communities(G) modularity = nx.community.modularity(G, communities) except: communities = None modularity = None # Small-world coefficient if n \u003e 1: # Compare to random network p = density random_G = nx.erdos_renyi_graph(n, p) random_clustering = nx.average_clustering(random_G) random_path_length = nx.average_shortest_path_length(random_G) if nx.is_connected(random_G) else float('inf') small_world_coeff = (global_clustering / random_clustering) / (avg_path_length / random_path_length) else: small_world_coeff = None return { 'network_name': network_name, 'nodes': n, 'edges': m, 'density': density, 'avg_degree': np.mean(degrees), 'gamma_estimate': gamma, 'global_clustering': global_clustering, 'avg_path_length': avg_path_length, 'diameter': diameter, 'small_world_coeff': small_world_coeff, 'modularity': modularity, 'num_communities': len(communities) if communities else None, 'degree_centrality': degree_centrality, 'betweenness_centrality': betweenness_centrality, 'closeness_centrality': closeness_centrality, 'eigenvector_centrality': eigenvector_centrality } def plot_degree_distribution(G, title=\"Degree Distribution\"): \"\"\"Plot degree distribution in log-log scale\"\"\" degrees = [d for n, d in G.degree()] degree_counts = Counter(degrees) k_values = list(degree_counts.keys()) counts = list(degree_counts.values()) plt.figure(figsize=(10, 6)) plt.loglog(k_values, counts, 'bo', markersize=8) plt.xlabel('Degree k') plt.ylabel('Count') plt.title(title) plt.grid(True, alpha=0.3) plt.show() # Example: Analyze a social network G = nx.barabasi_albert_graph(1000, 3) results = analyze_social_network(G, \"collaboration_network\") print(\"Social Network Analysis Results:\") for key, value in results.items(): if key not in ['degree_centrality', 'betweenness_centrality', 'closeness_centrality', 'eigenvector_centrality']: print(f\"{key}: {value}\") # Plot degree distribution plot_degree_distribution(G, \"Collaboration Network Degree Distribution\") Key Takeaways Data collection challenges: Social network data is difficult to collect and often biased Scale-free structure: Most social networks follow power-law degree distributions Small-world effect: Short path lengths with high clustering are common Community structure: Social networks exhibit strong modular organization Centrality matters: Different centrality measures capture different aspects of influence Applications: Network analysis provides insights into collaboration and knowledge transfer References Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press. Milgram, S. (1967). The small world problem. Psychology Today, 2(1), 60-67. Watts, D. J., \u0026 Strogatz, S. H. (1998). Collective dynamics of ‘small-world’ networks. Nature, 393(6684), 440-442. Girvan, M., \u0026 Newman, M. E. J. (2002). Community structure in social and biological networks. Proceedings of the National Academy of Sciences, 99(12), 7821-7826. Social networks provide a rich source of data for understanding human behavior and social dynamics, with important applications in materials science collaboration and knowledge transfer.\n",
+  "wordCount" : "1453",
+  "inLanguage": "en",
+  "datePublished": "2025-08-29T00:00:00Z",
+  "dateModified": "2025-08-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Linlin-resh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch3/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Notes on AI4Science \u0026 Graph Theory",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Linlin-resh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -73,7 +167,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -99,27 +193,27 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Home">
+                <a href="https://Linlin-resh.github.io/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/posts/" title="Blog">
+                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
                     <span>Blog</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="https://Linlin-resh.github.io/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -132,12 +226,12 @@
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs
+      Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks
     </h1>
     <div class="post-description">
-      Key insights from Chapter 3 of Newman&#39;s &#39;Networks: An Introduction&#39; on random graph theory and its applications
+      Study notes for Chapter 3 of Newman&#39;s &#39;Networks: An Introduction&#39; covering social network analysis, data collection methods, and structural properties
     </div>
-    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;332 words&nbsp;·&nbsp;Linlin-resh
+    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1453 words&nbsp;·&nbsp;Linlin-resh
 
 </div>
   </header> <div class="toc">
@@ -150,31 +244,131 @@
                 <li>
                     <a href="#introduction" aria-label="Introduction">Introduction</a></li>
                 <li>
-                    <a href="#key-concepts" aria-label="Key Concepts">Key Concepts</a><ul>
+                    <a href="#31-data-collection-methods" aria-label="3.1 Data Collection Methods">3.1 Data Collection Methods</a><ul>
                         
                 <li>
-                    <a href="#erd%c5%91s-r%c3%a9nyi-model" aria-label="Erdős-Rényi Model">Erdős-Rényi Model</a></li>
-                <li>
-                    <a href="#degree-distribution" aria-label="Degree Distribution">Degree Distribution</a></li></ul>
-                </li>
-                <li>
-                    <a href="#phase-transitions" aria-label="Phase Transitions">Phase Transitions</a><ul>
+                    <a href="#survey-based-methods" aria-label="Survey-Based Methods">Survey-Based Methods</a><ul>
                         
                 <li>
-                    <a href="#giant-component-emergence" aria-label="Giant Component Emergence">Giant Component Emergence</a></li></ul>
+                    <a href="#interviews-and-questionnaires" aria-label="Interviews and Questionnaires">Interviews and Questionnaires</a></li>
+                <li>
+                    <a href="#online-surveys" aria-label="Online Surveys">Online Surveys</a></li></ul>
                 </li>
                 <li>
-                    <a href="#applications-to-materials-science" aria-label="Applications to Materials Science">Applications to Materials Science</a><ul>
+                    <a href="#observational-methods" aria-label="Observational Methods">Observational Methods</a><ul>
                         
                 <li>
-                    <a href="#silver-nanowire-networks" aria-label="Silver Nanowire Networks">Silver Nanowire Networks</a></li>
+                    <a href="#direct-observation" aria-label="Direct Observation">Direct Observation</a></li>
                 <li>
-                    <a href="#partially-disordered-systems" aria-label="Partially Disordered Systems">Partially Disordered Systems</a></li></ul>
+                    <a href="#digital-traces" aria-label="Digital Traces">Digital Traces</a></li></ul>
+                </li></ul>
                 </li>
                 <li>
-                    <a href="#code-example-random-graph-generation" aria-label="Code Example: Random Graph Generation">Code Example: Random Graph Generation</a></li>
+                    <a href="#32-network-sampling-strategies" aria-label="3.2 Network Sampling Strategies">3.2 Network Sampling Strategies</a><ul>
+                        
                 <li>
-                    <a href="#conclusion" aria-label="Conclusion">Conclusion</a></li>
+                    <a href="#snowball-sampling" aria-label="Snowball Sampling">Snowball Sampling</a></li>
+                <li>
+                    <a href="#contact-tracing" aria-label="Contact Tracing">Contact Tracing</a></li>
+                <li>
+                    <a href="#random-walk-sampling" aria-label="Random Walk Sampling">Random Walk Sampling</a></li></ul>
+                </li>
+                <li>
+                    <a href="#33-structural-properties-of-social-networks" aria-label="3.3 Structural Properties of Social Networks">3.3 Structural Properties of Social Networks</a><ul>
+                        
+                <li>
+                    <a href="#degree-distribution" aria-label="Degree Distribution">Degree Distribution</a><ul>
+                        
+                <li>
+                    <a href="#power-law-behavior" aria-label="Power-Law Behavior">Power-Law Behavior</a></li>
+                <li>
+                    <a href="#mathematical-analysis" aria-label="Mathematical Analysis">Mathematical Analysis</a></li></ul>
+                </li>
+                <li>
+                    <a href="#clustering-coefficient" aria-label="Clustering Coefficient">Clustering Coefficient</a><ul>
+                        
+                <li>
+                    <a href="#local-clustering" aria-label="Local Clustering">Local Clustering</a></li>
+                <li>
+                    <a href="#global-clustering" aria-label="Global Clustering">Global Clustering</a></li>
+                <li>
+                    <a href="#social-interpretation" aria-label="Social Interpretation">Social Interpretation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#path-length-and-small-world-effect" aria-label="Path Length and Small-World Effect">Path Length and Small-World Effect</a><ul>
+                        
+                <li>
+                    <a href="#milgrams-experiment" aria-label="Milgram&rsquo;s Experiment">Milgram&rsquo;s Experiment</a></li>
+                <li>
+                    <a href="#mathematical-framework" aria-label="Mathematical Framework">Mathematical Framework</a></li>
+                <li>
+                    <a href="#network-efficiency" aria-label="Network Efficiency">Network Efficiency</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#34-community-structure" aria-label="3.4 Community Structure">3.4 Community Structure</a><ul>
+                        
+                <li>
+                    <a href="#modularity" aria-label="Modularity">Modularity</a><ul>
+                        
+                <li>
+                    <a href="#interpretation" aria-label="Interpretation">Interpretation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#community-detection-algorithms" aria-label="Community Detection Algorithms">Community Detection Algorithms</a><ul>
+                        
+                <li>
+                    <a href="#girvan-newman-algorithm" aria-label="Girvan-Newman Algorithm">Girvan-Newman Algorithm</a></li>
+                <li>
+                    <a href="#spectral-clustering" aria-label="Spectral Clustering">Spectral Clustering</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#35-influence-and-centrality" aria-label="3.5 Influence and Centrality">3.5 Influence and Centrality</a><ul>
+                        
+                <li>
+                    <a href="#centrality-measures" aria-label="Centrality Measures">Centrality Measures</a><ul>
+                        
+                <li>
+                    <a href="#degree-centrality" aria-label="Degree Centrality">Degree Centrality</a></li>
+                <li>
+                    <a href="#betweenness-centrality" aria-label="Betweenness Centrality">Betweenness Centrality</a></li>
+                <li>
+                    <a href="#closeness-centrality" aria-label="Closeness Centrality">Closeness Centrality</a></li>
+                <li>
+                    <a href="#eigenvector-centrality" aria-label="Eigenvector Centrality">Eigenvector Centrality</a></li></ul>
+                </li>
+                <li>
+                    <a href="#influence-models" aria-label="Influence Models">Influence Models</a><ul>
+                        
+                <li>
+                    <a href="#linear-threshold-model" aria-label="Linear Threshold Model">Linear Threshold Model</a></li>
+                <li>
+                    <a href="#independent-cascade-model" aria-label="Independent Cascade Model">Independent Cascade Model</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#36-applications-to-materials-science" aria-label="3.6 Applications to Materials Science">3.6 Applications to Materials Science</a><ul>
+                        
+                <li>
+                    <a href="#collaboration-networks" aria-label="Collaboration Networks">Collaboration Networks</a><ul>
+                        
+                <li>
+                    <a href="#scientific-collaboration" aria-label="Scientific Collaboration">Scientific Collaboration</a></li>
+                <li>
+                    <a href="#research-impact" aria-label="Research Impact">Research Impact</a></li></ul>
+                </li>
+                <li>
+                    <a href="#knowledge-networks" aria-label="Knowledge Networks">Knowledge Networks</a><ul>
+                        
+                <li>
+                    <a href="#technology-transfer" aria-label="Technology Transfer">Technology Transfer</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#code-example-social-network-analysis" aria-label="Code Example: Social Network Analysis">Code Example: Social Network Analysis</a></li>
+                <li>
+                    <a href="#key-takeaways" aria-label="Key Takeaways">Key Takeaways</a></li>
                 <li>
                     <a href="#references" aria-label="References">References</a>
                 </li>
@@ -184,90 +378,423 @@
 </div>
 
   <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
-<p>Chapter 3 of Newman&rsquo;s seminal work on networks introduces the fundamental concepts of <strong>random graph theory</strong>, a cornerstone in understanding complex network structures. This chapter provides the mathematical foundation for analyzing networks with stochastic properties.</p>
-<h2 id="key-concepts">Key Concepts<a hidden class="anchor" aria-hidden="true" href="#key-concepts">#</a></h2>
-<h3 id="erdős-rényi-model">Erdős-Rényi Model<a hidden class="anchor" aria-hidden="true" href="#erdős-rényi-model">#</a></h3>
-<p>The classic Erdős-Rényi random graph model $G(n,p)$ consists of:</p>
+<p>Chapter 3 of Newman&rsquo;s <em>Networks: An Introduction</em> explores <strong>social networks</strong> - the webs of relationships that connect individuals in society. Social networks exhibit unique structural properties that reflect human behavior patterns and have profound implications for information spread, influence, and social dynamics.</p>
+<h2 id="31-data-collection-methods">3.1 Data Collection Methods<a hidden class="anchor" aria-hidden="true" href="#31-data-collection-methods">#</a></h2>
+<h3 id="survey-based-methods">Survey-Based Methods<a hidden class="anchor" aria-hidden="true" href="#survey-based-methods">#</a></h3>
+<h4 id="interviews-and-questionnaires">Interviews and Questionnaires<a hidden class="anchor" aria-hidden="true" href="#interviews-and-questionnaires">#</a></h4>
+<p><strong>Face-to-face interviews</strong> provide high-quality data but are:</p>
 <ul>
-<li><strong>n</strong> vertices</li>
-<li><strong>p</strong> probability of edge existence between any two vertices</li>
+<li><strong>Expensive</strong>: Require trained interviewers</li>
+<li><strong>Time-consuming</strong>: Limited sample sizes</li>
+<li><strong>Subject to bias</strong>: Social desirability effects</li>
 </ul>
-<p>The expected number of edges is:
-$$E[m] = \binom{n}{2}p = \frac{n(n-1)}{2}p$$</p>
+<p><strong>Mathematical framework</strong> for survey design:</p>
+<p>$$n = \frac{z^2 p(1-p)}{e^2}$$</p>
+<p>Where:</p>
+<ul>
+<li>$n$: Required sample size</li>
+<li>$z$: Confidence level (e.g., 1.96 for 95%)</li>
+<li>$p$: Expected proportion</li>
+<li>$e$: Margin of error</li>
+</ul>
+<h4 id="online-surveys">Online Surveys<a hidden class="anchor" aria-hidden="true" href="#online-surveys">#</a></h4>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li><strong>Cost-effective</strong>: Large sample sizes possible</li>
+<li><strong>Anonymity</strong>: Reduced social desirability bias</li>
+<li><strong>Geographic reach</strong>: Global data collection</li>
+</ul>
+<p><strong>Challenges</strong>:</p>
+<ul>
+<li><strong>Selection bias</strong>: Digital divide effects</li>
+<li><strong>Response rates</strong>: Often low (&lt; 20%)</li>
+<li><strong>Data quality</strong>: Self-reported relationships</li>
+</ul>
+<h3 id="observational-methods">Observational Methods<a hidden class="anchor" aria-hidden="true" href="#observational-methods">#</a></h3>
+<h4 id="direct-observation">Direct Observation<a hidden class="anchor" aria-hidden="true" href="#direct-observation">#</a></h4>
+<p><strong>Systematic observation</strong> of social interactions:</p>
+<ul>
+<li><strong>Time sampling</strong>: Record interactions at regular intervals</li>
+<li><strong>Event sampling</strong>: Record specific interaction types</li>
+<li><strong>Focal sampling</strong>: Follow specific individuals</li>
+</ul>
+<p><strong>Mathematical modeling</strong> of observation reliability:</p>
+<p>$$R = \frac{2r_{12}}{1 + r_{12}}$$</p>
+<p>Where $r_{12}$ is the correlation between two observers.</p>
+<h4 id="digital-traces">Digital Traces<a hidden class="anchor" aria-hidden="true" href="#digital-traces">#</a></h4>
+<p><strong>Modern data sources</strong>:</p>
+<ul>
+<li><strong>Social media</strong>: Facebook, Twitter, LinkedIn</li>
+<li><strong>Communication logs</strong>: Email, phone calls, texts</li>
+<li><strong>Location data</strong>: GPS, check-ins, proximity</li>
+</ul>
+<p><strong>Privacy considerations</strong>:</p>
+<ul>
+<li><strong>Anonymization</strong>: Remove identifying information</li>
+<li><strong>Consent</strong>: Informed consent for data use</li>
+<li><strong>Ethics</strong>: Institutional review board approval</li>
+</ul>
+<h2 id="32-network-sampling-strategies">3.2 Network Sampling Strategies<a hidden class="anchor" aria-hidden="true" href="#32-network-sampling-strategies">#</a></h2>
+<h3 id="snowball-sampling">Snowball Sampling<a hidden class="anchor" aria-hidden="true" href="#snowball-sampling">#</a></h3>
+<p><strong>Method</strong>: Start with initial contacts, then ask them to nominate others.</p>
+<p><strong>Mathematical model</strong>:</p>
+<p>$$P(\text{reach node } i) = 1 - (1 - p)^{d_i}$$</p>
+<p>Where:</p>
+<ul>
+<li>$p$: Probability of being nominated</li>
+<li>$d_i$: Degree of node $i$</li>
+</ul>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li><strong>Hidden populations</strong>: Access hard-to-reach groups</li>
+<li><strong>Cost-effective</strong>: Leverages existing relationships</li>
+</ul>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li><strong>Bias</strong>: Favors high-degree nodes</li>
+<li><strong>Clustering</strong>: May miss isolated components</li>
+</ul>
+<h3 id="contact-tracing">Contact Tracing<a hidden class="anchor" aria-hidden="true" href="#contact-tracing">#</a></h3>
+<p><strong>Epidemiological approach</strong>:</p>
+<ol>
+<li><strong>Index case</strong>: Start with known infected individual</li>
+<li><strong>Contact identification</strong>: Find all contacts</li>
+<li><strong>Network expansion</strong>: Repeat for each contact</li>
+</ol>
+<p><strong>Mathematical framework</strong>:</p>
+<p>$$R_0 = \beta \cdot \tau \cdot c$$</p>
+<p>Where:</p>
+<ul>
+<li>$R_0$: Basic reproduction number</li>
+<li>$\beta$: Transmission probability</li>
+<li>$\tau$: Infectious period</li>
+<li>$c$: Contact rate</li>
+</ul>
+<h3 id="random-walk-sampling">Random Walk Sampling<a hidden class="anchor" aria-hidden="true" href="#random-walk-sampling">#</a></h3>
+<p><strong>Method</strong>: Start at random node, follow random edges.</p>
+<p><strong>Stationary distribution</strong>:</p>
+<p>$$\pi_i = \frac{k_i}{2m}$$</p>
+<p>Where $k_i$ is the degree of node $i$ and $m$ is the total number of edges.</p>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li><strong>Unbiased</strong>: Proportional to degree</li>
+<li><strong>Efficient</strong>: No need for complete network</li>
+</ul>
+<h2 id="33-structural-properties-of-social-networks">3.3 Structural Properties of Social Networks<a hidden class="anchor" aria-hidden="true" href="#33-structural-properties-of-social-networks">#</a></h2>
 <h3 id="degree-distribution">Degree Distribution<a hidden class="anchor" aria-hidden="true" href="#degree-distribution">#</a></h3>
-<p>For large networks, the degree distribution follows a <strong>Poisson distribution</strong>:
-$$P(k) = \frac{\langle k \rangle^k e^{-\langle k \rangle}}{k!}$$</p>
-<p>Where $\langle k \rangle = (n-1)p$ is the average degree.</p>
-<h2 id="phase-transitions">Phase Transitions<a hidden class="anchor" aria-hidden="true" href="#phase-transitions">#</a></h2>
-<h3 id="giant-component-emergence">Giant Component Emergence<a hidden class="anchor" aria-hidden="true" href="#giant-component-emergence">#</a></h3>
-<p>A fascinating phenomenon occurs at the critical threshold $p_c = \frac{1}{n-1}$:</p>
+<h4 id="power-law-behavior">Power-Law Behavior<a hidden class="anchor" aria-hidden="true" href="#power-law-behavior">#</a></h4>
+<p>Many social networks exhibit <strong>scale-free degree distributions</strong>:</p>
+<p>$$P(k) \sim k^{-\gamma}$$</p>
+<p>Where $\gamma \approx 2.0-3.0$ for social networks.</p>
+<h4 id="mathematical-analysis">Mathematical Analysis<a hidden class="anchor" aria-hidden="true" href="#mathematical-analysis">#</a></h4>
+<p><strong>Cumulative distribution function</strong>:</p>
+<p>$$P(K \geq k) = \int_k^{\infty} P(k&rsquo;) , dk&rsquo; \sim k^{-(\gamma-1)}$$</p>
+<p><strong>Moment analysis</strong>:</p>
 <ul>
-<li><strong>Below threshold</strong>: Only small, isolated components exist</li>
-<li><strong>At threshold</strong>: Giant component emerges</li>
-<li><strong>Above threshold</strong>: Giant component dominates</li>
+<li><strong>First moment</strong>: $\langle k \rangle = \int k P(k) , dk$</li>
+<li><strong>Second moment</strong>: $\langle k^2 \rangle = \int k^2 P(k) , dk$</li>
 </ul>
-<p>The size of the giant component $S$ follows:
-$$S \sim n^{2/3} \text{ at criticality}$$</p>
-<h2 id="applications-to-materials-science">Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#applications-to-materials-science">#</a></h2>
-<h3 id="silver-nanowire-networks">Silver Nanowire Networks<a hidden class="anchor" aria-hidden="true" href="#silver-nanowire-networks">#</a></h3>
-<p>Random graph theory helps model:</p>
+<h3 id="clustering-coefficient">Clustering Coefficient<a hidden class="anchor" aria-hidden="true" href="#clustering-coefficient">#</a></h3>
+<h4 id="local-clustering">Local Clustering<a hidden class="anchor" aria-hidden="true" href="#local-clustering">#</a></h4>
+<p><strong>Definition</strong>:</p>
+<p>$$C_i = \frac{2e_i}{k_i(k_i-1)}$$</p>
+<p>Where $e_i$ is the number of edges between neighbors of node $i$.</p>
+<h4 id="global-clustering">Global Clustering<a hidden class="anchor" aria-hidden="true" href="#global-clustering">#</a></h4>
+<p><strong>Average clustering</strong>:</p>
+<p>$$C = \frac{1}{n} \sum_{i=1}^{n} C_i$$</p>
+<p><strong>Transitivity</strong>:</p>
+<p>$$T = \frac{3 \times \text{number of triangles}}{\text{number of connected triples}}$$</p>
+<h4 id="social-interpretation">Social Interpretation<a hidden class="anchor" aria-hidden="true" href="#social-interpretation">#</a></h4>
 <ul>
-<li><strong>Percolation</strong> in nanowire networks</li>
-<li><strong>Electrical conductivity</strong> as a function of density</li>
-<li><strong>Critical density</strong> for network connectivity</li>
+<li><strong>High clustering</strong>: Dense social groups, strong local connections</li>
+<li><strong>Low clustering</strong>: Sparse connections, weak social ties</li>
 </ul>
-<h3 id="partially-disordered-systems">Partially Disordered Systems<a hidden class="anchor" aria-hidden="true" href="#partially-disordered-systems">#</a></h3>
-<p>For materials with partial disorder:</p>
+<h3 id="path-length-and-small-world-effect">Path Length and Small-World Effect<a hidden class="anchor" aria-hidden="true" href="#path-length-and-small-world-effect">#</a></h3>
+<h4 id="milgrams-experiment">Milgram&rsquo;s Experiment<a hidden class="anchor" aria-hidden="true" href="#milgrams-experiment">#</a></h4>
+<p><strong>Six degrees of separation</strong>:</p>
 <ul>
-<li><strong>Local order</strong> can be modeled as clustered random graphs</li>
-<li><strong>Disorder parameters</strong> affect network properties</li>
-<li><strong>Phase transitions</strong> correspond to material property changes</li>
+<li><strong>Target</strong>: Random person in Boston</li>
+<li><strong>Method</strong>: Mail forwarding through acquaintances</li>
+<li><strong>Result</strong>: Average path length ≈ 6</li>
 </ul>
-<h2 id="code-example-random-graph-generation">Code Example: Random Graph Generation<a hidden class="anchor" aria-hidden="true" href="#code-example-random-graph-generation">#</a></h2>
+<h4 id="mathematical-framework">Mathematical Framework<a hidden class="anchor" aria-hidden="true" href="#mathematical-framework">#</a></h4>
+<p><strong>Small-world property</strong>:</p>
+<p>$$L \sim \log n \quad \text{and} \quad C \gg C_{\text{random}}$$</p>
+<p>Where:</p>
+<ul>
+<li>$L$: Average path length</li>
+<li>$C$: Clustering coefficient</li>
+<li>$C_{\text{random}}$: Clustering in random network</li>
+</ul>
+<h4 id="network-efficiency">Network Efficiency<a hidden class="anchor" aria-hidden="true" href="#network-efficiency">#</a></h4>
+<p><strong>Global efficiency</strong>:</p>
+<p>$$E = \frac{1}{n(n-1)} \sum_{i \neq j} \frac{1}{d_{ij}}$$</p>
+<p><strong>Local efficiency</strong>:</p>
+<p>$$E_{\text{local}} = \frac{1}{n} \sum_{i} E_i$$</p>
+<p>Where $E_i$ is the efficiency of the subgraph of neighbors of node $i$.</p>
+<h2 id="34-community-structure">3.4 Community Structure<a hidden class="anchor" aria-hidden="true" href="#34-community-structure">#</a></h2>
+<h3 id="modularity">Modularity<a hidden class="anchor" aria-hidden="true" href="#modularity">#</a></h3>
+<p><strong>Definition</strong>:</p>
+<p>$$Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i, c_j)$$</p>
+<p>Where:</p>
+<ul>
+<li>$A_{ij}$: Adjacency matrix</li>
+<li>$k_i, k_j$: Degrees of nodes $i, j$</li>
+<li>$c_i, c_j$: Community assignments</li>
+<li>$\delta(c_i, c_j)$: Kronecker delta</li>
+</ul>
+<h4 id="interpretation">Interpretation<a hidden class="anchor" aria-hidden="true" href="#interpretation">#</a></h4>
+<ul>
+<li>$Q &gt; 0$: More edges within communities than expected by chance</li>
+<li>$Q = 0$: Random network structure</li>
+<li>$Q &lt; 0$: Fewer edges within communities than expected</li>
+</ul>
+<h3 id="community-detection-algorithms">Community Detection Algorithms<a hidden class="anchor" aria-hidden="true" href="#community-detection-algorithms">#</a></h3>
+<h4 id="girvan-newman-algorithm">Girvan-Newman Algorithm<a hidden class="anchor" aria-hidden="true" href="#girvan-newman-algorithm">#</a></h4>
+<p><strong>Method</strong>:</p>
+<ol>
+<li>Calculate <strong>betweenness centrality</strong> for all edges</li>
+<li>Remove edge with highest betweenness</li>
+<li>Recalculate betweenness for remaining edges</li>
+<li>Repeat until no edges remain</li>
+</ol>
+<p><strong>Betweenness centrality</strong>:</p>
+<p>$$C_B(e) = \sum_{s \neq t} \frac{\sigma_{st}(e)}{\sigma_{st}}$$</p>
+<p>Where $\sigma_{st}(e)$ is the number of shortest paths between $s$ and $t$ that pass through edge $e$.</p>
+<h4 id="spectral-clustering">Spectral Clustering<a hidden class="anchor" aria-hidden="true" href="#spectral-clustering">#</a></h4>
+<p><strong>Laplacian matrix</strong>:</p>
+<p>$$L = D - A$$</p>
+<p>Where $D$ is the degree matrix and $A$ is the adjacency matrix.</p>
+<p><strong>Normalized Laplacian</strong>:</p>
+<p>$$L_{\text{norm}} = D^{-1/2} L D^{-1/2}$$</p>
+<p><strong>Eigenvalue decomposition</strong>:</p>
+<p>$$L_{\text{norm}} = U \Lambda U^T$$</p>
+<p>Use the first $k$ eigenvectors to cluster nodes.</p>
+<h2 id="35-influence-and-centrality">3.5 Influence and Centrality<a hidden class="anchor" aria-hidden="true" href="#35-influence-and-centrality">#</a></h2>
+<h3 id="centrality-measures">Centrality Measures<a hidden class="anchor" aria-hidden="true" href="#centrality-measures">#</a></h3>
+<h4 id="degree-centrality">Degree Centrality<a hidden class="anchor" aria-hidden="true" href="#degree-centrality">#</a></h4>
+<p><strong>Definition</strong>:</p>
+<p>$$C_D(i) = \frac{k_i}{n-1}$$</p>
+<p><strong>Interpretation</strong>: Number of direct connections</p>
+<h4 id="betweenness-centrality">Betweenness Centrality<a hidden class="anchor" aria-hidden="true" href="#betweenness-centrality">#</a></h4>
+<p><strong>Definition</strong>:</p>
+<p>$$C_B(i) = \sum_{s \neq i \neq t} \frac{\sigma_{st}(i)}{\sigma_{st}}$$</p>
+<p><strong>Interpretation</strong>: How often node $i$ lies on shortest paths</p>
+<h4 id="closeness-centrality">Closeness Centrality<a hidden class="anchor" aria-hidden="true" href="#closeness-centrality">#</a></h4>
+<p><strong>Definition</strong>:</p>
+<p>$$C_C(i) = \frac{n-1}{\sum_{j \neq i} d_{ij}}$$</p>
+<p><strong>Interpretation</strong>: Average distance to all other nodes</p>
+<h4 id="eigenvector-centrality">Eigenvector Centrality<a hidden class="anchor" aria-hidden="true" href="#eigenvector-centrality">#</a></h4>
+<p><strong>Definition</strong>:</p>
+<p>$$x_i = \frac{1}{\lambda} \sum_{j} A_{ij} x_j$$</p>
+<p><strong>Matrix form</strong>:</p>
+<p>$$A \mathbf{x} = \lambda \mathbf{x}$$</p>
+<p><strong>Interpretation</strong>: Importance based on connections to important nodes</p>
+<h3 id="influence-models">Influence Models<a hidden class="anchor" aria-hidden="true" href="#influence-models">#</a></h3>
+<h4 id="linear-threshold-model">Linear Threshold Model<a hidden class="anchor" aria-hidden="true" href="#linear-threshold-model">#</a></h4>
+<p><strong>Activation rule</strong>:</p>
+<p>$$\sum_{j \in \text{active neighbors}} w_{ji} \geq \theta_i$$</p>
+<p>Where:</p>
+<ul>
+<li>$w_{ji}$: Influence weight from $j$ to $i$</li>
+<li>$\theta_i$: Threshold for node $i$</li>
+</ul>
+<h4 id="independent-cascade-model">Independent Cascade Model<a hidden class="anchor" aria-hidden="true" href="#independent-cascade-model">#</a></h4>
+<p><strong>Activation probability</strong>:</p>
+<p>$$P(\text{activate } j \text{ from } i) = p_{ij}$$</p>
+<p><strong>Cascade dynamics</strong>:</p>
+<p>$$P(\text{node } j \text{ activated}) = 1 - \prod_{i \in \text{active}} (1 - p_{ij})$$</p>
+<h2 id="36-applications-to-materials-science">3.6 Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#36-applications-to-materials-science">#</a></h2>
+<h3 id="collaboration-networks">Collaboration Networks<a hidden class="anchor" aria-hidden="true" href="#collaboration-networks">#</a></h3>
+<h4 id="scientific-collaboration">Scientific Collaboration<a hidden class="anchor" aria-hidden="true" href="#scientific-collaboration">#</a></h4>
+<p><strong>Network structure</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Researchers</li>
+<li><strong>Edges</strong>: Co-authorship relationships</li>
+<li><strong>Weights</strong>: Number of joint publications</li>
+</ul>
+<p><strong>Mathematical properties</strong>:</p>
+<ul>
+<li><strong>Degree distribution</strong>: Power-law with $\gamma \approx 2.1$</li>
+<li><strong>Clustering</strong>: High ($C \approx 0.3$)</li>
+<li><strong>Path length</strong>: Short ($L \approx 6$)</li>
+</ul>
+<h4 id="research-impact">Research Impact<a hidden class="anchor" aria-hidden="true" href="#research-impact">#</a></h4>
+<p><strong>Citation networks</strong>:</p>
+<ul>
+<li><strong>In-degree</strong>: Number of citations received</li>
+<li><strong>Out-degree</strong>: Number of papers cited</li>
+<li><strong>PageRank</strong>: Influence based on citation network</li>
+</ul>
+<h3 id="knowledge-networks">Knowledge Networks<a hidden class="anchor" aria-hidden="true" href="#knowledge-networks">#</a></h3>
+<h4 id="technology-transfer">Technology Transfer<a hidden class="anchor" aria-hidden="true" href="#technology-transfer">#</a></h4>
+<p><strong>Network structure</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Institutions, companies</li>
+<li><strong>Edges</strong>: Technology transfer relationships</li>
+<li><strong>Weights</strong>: Transfer frequency/value</li>
+</ul>
+<p><strong>Diffusion models</strong>:</p>
+<ul>
+<li><strong>Bass model</strong>: $S(t) = S_{\max} \frac{1 - e^{-(p+q)t}}{1 + \frac{q}{p} e^{-(p+q)t}}$</li>
+<li><strong>SIR model</strong>: Susceptible → Infected → Recovered</li>
+</ul>
+<h2 id="code-example-social-network-analysis">Code Example: Social Network Analysis<a hidden class="anchor" aria-hidden="true" href="#code-example-social-network-analysis">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> collections <span style="color:#ff79c6">import</span> Counter
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">generate_er_graph</span>(n, p):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Generate Erdős-Rényi random graph&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>erdos_renyi_graph(n, p)
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> G
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_social_network</span>(G, network_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;social&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Comprehensive social network analysis&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Basic statistics</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    m <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_edges()
+</span></span><span style="display:flex;"><span>    density <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span> <span style="color:#ff79c6">*</span> m <span style="color:#ff79c6">/</span> (n <span style="color:#ff79c6">*</span> (n <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Degree analysis</span>
+</span></span><span style="display:flex;"><span>    degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>degree()]
+</span></span><span style="display:flex;"><span>    degree_dist <span style="color:#ff79c6">=</span> Counter(degrees)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Power-law fitting</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(degree_dist) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>        k_values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(degree_dist<span style="color:#ff79c6">.</span>keys())
+</span></span><span style="display:flex;"><span>        counts <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(degree_dist<span style="color:#ff79c6">.</span>values())
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Log-log regression</span>
+</span></span><span style="display:flex;"><span>        log_k <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>log(k_values[<span style="color:#bd93f9">1</span>:])  <span style="color:#6272a4"># Skip k=0</span>
+</span></span><span style="display:flex;"><span>        log_counts <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>log(counts[<span style="color:#bd93f9">1</span>:])
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(log_k) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>            gamma <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span>np<span style="color:#ff79c6">.</span>polyfit(log_k, log_counts, <span style="color:#bd93f9">1</span>)[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            gamma <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        gamma <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Clustering analysis</span>
+</span></span><span style="display:flex;"><span>    local_clustering <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>clustering(G)
+</span></span><span style="display:flex;"><span>    global_clustering <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_clustering(G)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Path length analysis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> nx<span style="color:#ff79c6">.</span>is_connected(G):
+</span></span><span style="display:flex;"><span>        avg_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(G)
+</span></span><span style="display:flex;"><span>        diameter <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>diameter(G)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Analyze largest component</span>
+</span></span><span style="display:flex;"><span>        largest_cc <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(nx<span style="color:#ff79c6">.</span>connected_components(G), key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)
+</span></span><span style="display:flex;"><span>        subgraph <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>subgraph(largest_cc)
+</span></span><span style="display:flex;"><span>        avg_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(subgraph)
+</span></span><span style="display:flex;"><span>        diameter <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>diameter(subgraph)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Centrality measures</span>
+</span></span><span style="display:flex;"><span>    degree_centrality <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>degree_centrality(G)
+</span></span><span style="display:flex;"><span>    betweenness_centrality <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>betweenness_centrality(G)
+</span></span><span style="display:flex;"><span>    closeness_centrality <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>closeness_centrality(G)
+</span></span><span style="display:flex;"><span>    eigenvector_centrality <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>eigenvector_centrality(G, max_iter<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1000</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Community detection</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">try</span>:
+</span></span><span style="display:flex;"><span>        communities <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>community<span style="color:#ff79c6">.</span>greedy_modularity_communities(G)
+</span></span><span style="display:flex;"><span>        modularity <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>community<span style="color:#ff79c6">.</span>modularity(G, communities)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">except</span>:
+</span></span><span style="display:flex;"><span>        communities <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>        modularity <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Small-world coefficient</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Compare to random network</span>
+</span></span><span style="display:flex;"><span>        p <span style="color:#ff79c6">=</span> density
+</span></span><span style="display:flex;"><span>        random_G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>erdos_renyi_graph(n, p)
+</span></span><span style="display:flex;"><span>        random_clustering <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_clustering(random_G)
+</span></span><span style="display:flex;"><span>        random_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(random_G) <span style="color:#ff79c6">if</span> nx<span style="color:#ff79c6">.</span>is_connected(random_G) <span style="color:#ff79c6">else</span> <span style="color:#8be9fd;font-style:italic">float</span>(<span style="color:#f1fa8c">&#39;inf&#39;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        small_world_coeff <span style="color:#ff79c6">=</span> (global_clustering <span style="color:#ff79c6">/</span> random_clustering) <span style="color:#ff79c6">/</span> (avg_path_length <span style="color:#ff79c6">/</span> random_path_length)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        small_world_coeff <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;network_name&#39;</span>: network_name,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;nodes&#39;</span>: n,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;edges&#39;</span>: m,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;density&#39;</span>: density,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_degree&#39;</span>: np<span style="color:#ff79c6">.</span>mean(degrees),
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;gamma_estimate&#39;</span>: gamma,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;global_clustering&#39;</span>: global_clustering,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_path_length&#39;</span>: avg_path_length,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;diameter&#39;</span>: diameter,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;small_world_coeff&#39;</span>: small_world_coeff,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;modularity&#39;</span>: modularity,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;num_communities&#39;</span>: <span style="color:#8be9fd;font-style:italic">len</span>(communities) <span style="color:#ff79c6">if</span> communities <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">None</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;degree_centrality&#39;</span>: degree_centrality,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;betweenness_centrality&#39;</span>: betweenness_centrality,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;closeness_centrality&#39;</span>: closeness_centrality,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;eigenvector_centrality&#39;</span>: eigenvector_centrality
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_giant_component</span>(G):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze giant component properties&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    components <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(nx<span style="color:#ff79c6">.</span>connected_components(G))
-</span></span><span style="display:flex;"><span>    largest <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(components, key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">len</span>(largest), <span style="color:#8be9fd;font-style:italic">len</span>(components)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">plot_degree_distribution</span>(G, title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Degree Distribution&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Plot degree distribution in log-log scale&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>degree()]
+</span></span><span style="display:flex;"><span>    degree_counts <span style="color:#ff79c6">=</span> Counter(degrees)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    k_values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(degree_counts<span style="color:#ff79c6">.</span>keys())
+</span></span><span style="display:flex;"><span>    counts <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(degree_counts<span style="color:#ff79c6">.</span>values())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>figure(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">6</span>))
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>loglog(k_values, counts, <span style="color:#f1fa8c">&#39;bo&#39;</span>, markersize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Degree k&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Count&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>title(title)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example usage</span>
-</span></span><span style="display:flex;"><span>n, p <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1000</span>, <span style="color:#bd93f9">0.01</span>
-</span></span><span style="display:flex;"><span>G <span style="color:#ff79c6">=</span> generate_er_graph(n, p)
-</span></span><span style="display:flex;"><span>giant_size, num_components <span style="color:#ff79c6">=</span> analyze_giant_component(G)
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Giant component size: </span><span style="color:#f1fa8c">{</span>giant_size<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Number of components: </span><span style="color:#f1fa8c">{</span>num_components<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span></code></pre></div><h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
-<p>Random graph theory provides essential tools for understanding network structures in both theoretical and applied contexts. The phase transition behavior is particularly relevant for materials science applications where connectivity plays a crucial role.</p>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Analyze a social network</span>
+</span></span><span style="display:flex;"><span>G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>barabasi_albert_graph(<span style="color:#bd93f9">1000</span>, <span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span>results <span style="color:#ff79c6">=</span> analyze_social_network(G, <span style="color:#f1fa8c">&#34;collaboration_network&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Social Network Analysis Results:&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> key, value <span style="color:#ff79c6">in</span> results<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> key <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">in</span> [<span style="color:#f1fa8c">&#39;degree_centrality&#39;</span>, <span style="color:#f1fa8c">&#39;betweenness_centrality&#39;</span>, <span style="color:#f1fa8c">&#39;closeness_centrality&#39;</span>, <span style="color:#f1fa8c">&#39;eigenvector_centrality&#39;</span>]:
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{</span>key<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">: </span><span style="color:#f1fa8c">{</span>value<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Plot degree distribution</span>
+</span></span><span style="display:flex;"><span>plot_degree_distribution(G, <span style="color:#f1fa8c">&#34;Collaboration Network Degree Distribution&#34;</span>)
+</span></span></code></pre></div><h2 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h2>
+<ol>
+<li><strong>Data collection challenges</strong>: Social network data is difficult to collect and often biased</li>
+<li><strong>Scale-free structure</strong>: Most social networks follow power-law degree distributions</li>
+<li><strong>Small-world effect</strong>: Short path lengths with high clustering are common</li>
+<li><strong>Community structure</strong>: Social networks exhibit strong modular organization</li>
+<li><strong>Centrality matters</strong>: Different centrality measures capture different aspects of influence</li>
+<li><strong>Applications</strong>: Network analysis provides insights into collaboration and knowledge transfer</li>
+</ol>
 <h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
 <ol>
 <li>Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press.</li>
-<li>Erdős, P., &amp; Rényi, A. (1959). On random graphs. Publicationes Mathematicae.</li>
+<li>Milgram, S. (1967). The small world problem. Psychology Today, 2(1), 60-67.</li>
+<li>Watts, D. J., &amp; Strogatz, S. H. (1998). Collective dynamics of &lsquo;small-world&rsquo; networks. Nature, 393(6684), 440-442.</li>
+<li>Girvan, M., &amp; Newman, M. E. J. (2002). Community structure in social and biological networks. Proceedings of the National Academy of Sciences, 99(12), 7821-7826.</li>
 </ol>
+<hr>
+<p><em>Social networks provide a rich source of data for understanding human behavior and social dynamics, with important applications in materials science collaboration and knowledge transfer.</em></p>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/reading-notes/">Reading-Notes</a></li>
-      <li><a href="http://localhost:1313/tags/network-theory/">Network-Theory</a></li>
-      <li><a href="http://localhost:1313/tags/random-graphs/">Random-Graphs</a></li>
-      <li><a href="http://localhost:1313/tags/mathematics/">Mathematics</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/social-networks/">Social-Networks</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/data-collection/">Data-Collection</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/small-world/">Small-World</a></li>
     </ul>
 
 <ul class="share-buttons">
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs on x"
-            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Random%20Graphs&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch3%2f&amp;hashtags=reading-notes%2cnetwork-theory%2crandom-graphs%2cmathematics">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks on x"
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Social%20Networks&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch3%2f&amp;hashtags=reading-notes%2cnetwork-theory%2csocial-networks%2cdata-collection%2csmall-world">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -275,8 +802,8 @@ $$S \sim n^{2/3} \text{ at criticality}$$</p>
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch3%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Random%20Graphs&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Random%20Graphs&amp;source=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch3%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch3%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Social%20Networks&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Social%20Networks&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch3%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -284,8 +811,8 @@ $$S \sim n^{2/3} \text{ at criticality}$$</p>
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs on reddit"
-            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch3%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Random%20Graphs">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch3%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Social%20Networks">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -293,8 +820,8 @@ $$S \sim n^{2/3} \text{ at criticality}$$</p>
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs on facebook"
-            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch3%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch3%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
@@ -302,8 +829,8 @@ $$S \sim n^{2/3} \text{ at criticality}$$</p>
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs on whatsapp"
-            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Random%20Graphs%20-%20http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch3%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks on whatsapp"
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Social%20Networks%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch3%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -311,8 +838,8 @@ $$S \sim n^{2/3} \text{ at criticality}$$</p>
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs on telegram"
-            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Random%20Graphs&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch3%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks on telegram"
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Social%20Networks&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch3%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -320,8 +847,8 @@ $$S \sim n^{2/3} \text{ at criticality}$$</p>
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Random%20Graphs&u=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch3%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%203%20-%20Social%20Networks&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch3%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path
@@ -336,7 +863,7 @@ $$S \sim n^{2/3} \text{ at criticality}$$</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
 
     <span>
         Powered by

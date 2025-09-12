@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs | Notes on AI4Science &amp; Graph Theory</title>
+<meta name="keywords" content="reading-notes, network-theory, random-graphs, erdos-renyi, configuration-model">
+<meta name="description" content="Study notes for Chapter 8 of Newman&#39;s &#39;Networks: An Introduction&#39; covering Erdős-Rényi model, configuration model, and random graph theory">
+<meta name="author" content="Linlin-resh">
+<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch8/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch8/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch8/">
+  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs">
+  <meta property="og:description" content="Study notes for Chapter 8 of Newman&#39;s &#39;Networks: An Introduction&#39; covering Erdős-Rényi model, configuration model, and random graph theory">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Reading-Notes">
+    <meta property="article:tag" content="Network-Theory">
+    <meta property="article:tag" content="Random-Graphs">
+    <meta property="article:tag" content="Erdos-Renyi">
+    <meta property="article:tag" content="Configuration-Model">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs">
+<meta name="twitter:description" content="Study notes for Chapter 8 of Newman&#39;s &#39;Networks: An Introduction&#39; covering Erdős-Rényi model, configuration model, and random graph theory">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Linlin-resh.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading Notes: Newman's Networks Chapter 8 - Random Graphs",
+      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch8/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading Notes: Newman's Networks Chapter 8 - Random Graphs",
+  "name": "Reading Notes: Newman\u0027s Networks Chapter 8 - Random Graphs",
+  "description": "Study notes for Chapter 8 of Newman's 'Networks: An Introduction' covering Erdős-Rényi model, configuration model, and random graph theory",
+  "keywords": [
+    "reading-notes", "network-theory", "random-graphs", "erdos-renyi", "configuration-model"
+  ],
+  "articleBody": "Introduction Chapter 8 of Newman’s Networks: An Introduction introduces random graph theory - the mathematical foundation for understanding network structure through probabilistic models. This chapter covers the classic Erdős-Rényi model, configuration models, and their applications to understanding real-world networks.\n8.1 Erdős-Rényi Model Model Definition The Erdős-Rényi random graph $G(n,p)$ consists of:\nn vertices p probability of edge existence between any two vertices Expected number of edges: $E[m] = \\binom{n}{2}p = \\frac{n(n-1)}{2}p$ Mathematical Properties Degree Distribution For large networks, the degree distribution follows a Poisson distribution:\n$$P(k) = \\frac{\\langle k \\rangle^k e^{-\\langle k \\rangle}}{k!}$$\nWhere $\\langle k \\rangle = (n-1)p$ is the average degree.\nProperties of Poisson Distribution Mean: $\\langle k \\rangle = (n-1)p$\nVariance: $\\sigma_k^2 = \\langle k \\rangle$\nStandard deviation: $\\sigma_k = \\sqrt{\\langle k \\rangle}$\nCoefficient of variation: $CV = \\frac{\\sigma_k}{\\langle k \\rangle} = \\frac{1}{\\sqrt{\\langle k \\rangle}}$\nClustering Coefficient Expected clustering coefficient: $$C = p = \\frac{\\langle k \\rangle}{n-1}$$\nFor large networks: $C \\to 0$ as $n \\to \\infty$\nPath Length Average path length: $$L \\sim \\frac{\\ln n}{\\ln \\langle k \\rangle}$$\nFor large networks: $L \\sim \\ln n$ (logarithmic growth)\nPhase Transitions Giant Component Emergence A phase transition occurs at the critical threshold:\n$$p_c = \\frac{1}{n-1} \\approx \\frac{1}{n}$$\nBelow threshold ($p \u003c p_c$):\nOnly small, isolated components exist Largest component size: $O(\\ln n)$ At threshold ($p = p_c$):\nGiant component emerges Largest component size: $O(n^{2/3})$ Above threshold ($p \u003e p_c$):\nGiant component dominates Largest component size: $O(n)$ Mathematical Analysis Component size distribution: $$P(s) \\sim s^{-3/2} e^{-s/s_0}$$\nWhere $s_0$ is the characteristic size.\nGiant component size: $$S = n \\left[1 - \\sum_{k=0}^{\\infty} P(k) u^k\\right]$$\nWhere $u$ satisfies: $$u = \\sum_{k=0}^{\\infty} \\frac{k P(k) u^{k-1}}{\\langle k \\rangle}$$\nConnectivity Probability of Connectivity For large networks: $$P(\\text{connected}) \\approx \\exp(-n e^{-\\langle k \\rangle})$$\nCritical threshold for connectivity: $$p_c^{\\text{conn}} = \\frac{\\ln n}{n}$$\nDiameter Expected diameter: $$D \\sim \\frac{\\ln n}{\\ln \\langle k \\rangle}$$\nFor large networks: $D \\sim \\ln n$\n8.2 Configuration Model Model Definition The configuration model generates random graphs with a prescribed degree sequence:\nInput: Degree sequence ${k_1, k_2, \\ldots, k_n}$ Constraint: $\\sum_{i=1}^n k_i$ must be even Method: Randomly connect stubs (half-edges) Mathematical Properties Degree Distribution Given degree sequence: $P(k) = \\frac{n_k}{n}$\nWhere $n_k$ is the number of nodes with degree $k$.\nExpected Number of Edges Total number of edges: $$m = \\frac{1}{2} \\sum_{i=1}^n k_i = \\frac{n \\langle k \\rangle}{2}$$\nClustering Coefficient Expected clustering coefficient: $$C = \\frac{\\langle k^2 \\rangle - \\langle k \\rangle}{n \\langle k \\rangle^2}$$\nFor large networks: $C \\to 0$ as $n \\to \\infty$\nPath Length Average path length: $$L \\sim \\frac{\\ln n}{\\ln \\langle k \\rangle}$$\nFor scale-free networks: $L \\sim \\frac{\\ln n}{\\ln \\ln n}$\nDegree Correlation Assortativity Degree correlation function: $$k_{nn}(k) = \\frac{\\sum_{k’} k’ P(k’|k)}{\\sum_{k’} P(k’|k)}$$\nFor configuration model: $$k_{nn}(k) = \\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}$$\nAssortativity coefficient: $$r = \\frac{\\langle k^2 \\rangle - \\langle k \\rangle^2}{\\langle k^3 \\rangle - \\langle k \\rangle^2}$$\nGiant Component Existence Condition Giant component exists if: $$\\frac{\\langle k^2 \\rangle}{\\langle k \\rangle} \u003e 2$$\nCritical threshold: $$\\frac{\\langle k^2 \\rangle}{\\langle k \\rangle} = 2$$\nSize of Giant Component Giant component size: $$S = n \\left[1 - \\sum_{k=0}^{\\infty} P(k) u^k\\right]$$\nWhere $u$ satisfies: $$u = \\sum_{k=0}^{\\infty} \\frac{k P(k) u^{k-1}}{\\langle k \\rangle}$$\n8.3 Random Graph Variants Directed Random Graphs Model Definition Directed Erdős-Rényi model $G(n,p)$:\nn vertices p probability of directed edge from any vertex to any other Expected number of edges: $E[m] = n(n-1)p$ Degree Distributions In-degree distribution: $$P_{\\text{in}}(k) = \\frac{\\langle k_{\\text{in}} \\rangle^k e^{-\\langle k_{\\text{in}} \\rangle}}{k!}$$\nOut-degree distribution: $$P_{\\text{out}}(k) = \\frac{\\langle k_{\\text{out}} \\rangle^k e^{-\\langle k_{\\text{out}} \\rangle}}{k!}$$\nWhere $\\langle k_{\\text{in}} \\rangle = \\langle k_{\\text{out}} \\rangle = (n-1)p$.\nWeighted Random Graphs Model Definition Weighted random graph:\nn vertices p probability of edge existence w weight distribution for existing edges Weight Distribution Exponential weights: $$P(w) = \\lambda e^{-\\lambda w}$$\nPower-law weights: $$P(w) \\sim w^{-\\alpha}$$\nNetwork Properties Weighted degree: $$k_i^w = \\sum_{j} w_{ij}$$\nWeighted clustering: $$C_i^w = \\frac{\\sum_{j,k} w_{ij} w_{jk} w_{ki}}{\\sum_{j,k} w_{ij} w_{jk}}$$\nBipartite Random Graphs Model Definition Bipartite random graph $G(n_1, n_2, p)$:\nn₁ vertices in partition 1 n₂ vertices in partition 2 p probability of edge between partitions Degree Distributions Partition 1 degree distribution: $$P_1(k) = \\frac{(n_2 p)^k e^{-n_2 p}}{k!}$$\nPartition 2 degree distribution: $$P_2(k) = \\frac{(n_1 p)^k e^{-n_1 p}}{k!}$$\n8.4 Random Graph Algorithms Generation Algorithms Erdős-Rényi Generation Algorithm:\nInitialize empty graph with $n$ vertices For each pair $(i,j)$ where $i \u003c j$: Generate random number $r \\sim U(0,1)$ If $r \u003c p$, add edge $(i,j)$ Time complexity: $O(n^2)$\nConfiguration Model Generation Algorithm:\nCreate $k_i$ stubs for each vertex $i$ Randomly pair stubs Connect paired stubs to form edges Time complexity: $O(m)$ where $m$ is the number of edges\nSampling Algorithms Random Walk Sampling Algorithm:\nStart at random vertex At each step, move to random neighbor Repeat for desired number of steps Stationary distribution: $$\\pi_i = \\frac{k_i}{2m}$$\nMetropolis-Hastings Sampling Algorithm:\nStart at random vertex Propose move to neighbor with probability $1/k_i$ Accept with probability $\\min(1, k_i/k_j)$ Stationary distribution: Uniform\n8.5 Applications to Materials Science Percolation Theory Bond Percolation Model: Random removal of edges with probability $1-p$\nPercolation probability: $$P(p) = 1 - \\sum_{k=0}^{\\infty} P(k) (1-p)^k$$\nCritical threshold: $$p_c = \\frac{1}{\\kappa - 1}$$\nWhere $\\kappa = \\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}$.\nSite Percolation Model: Random removal of vertices with probability $1-p$\nPercolation probability: $$P(p) = 1 - \\sum_{k=0}^{\\infty} P(k) (1-p)^k$$\nCritical threshold: $$p_c = \\frac{1}{\\kappa - 1}$$\nNanowire Networks Network Formation Random geometric graph:\nNodes: Nanowire junctions Edges: Nanowire segments Probability: $p = \\rho \\pi r^2$ where $\\rho$ is density and $r$ is interaction radius Electrical Properties Conductivity: $$\\sigma \\sim (p - p_c)^t$$\nWhere $t \\approx 2.0$ is the conductivity exponent.\nCritical density: $$\\rho_c = \\frac{1}{\\pi r^2 (\\kappa - 1)}$$\nDefect Networks Defect Clustering Clustering coefficient: $$C = \\frac{\\langle k^2 \\rangle - \\langle k \\rangle}{n \\langle k \\rangle^2}$$\nFor defect networks: $C \u003e 0$ indicates clustering\nPercolation Threshold Defect percolation: $$p_c = \\frac{1}{\\kappa - 1}$$\nFor materials: $p_c$ determines critical defect concentration\nCode Example: Random Graph Analysis import networkx as nx import numpy as np import matplotlib.pyplot as plt from collections import Counter from scipy import stats def generate_erdos_renyi(n, p): \"\"\"Generate Erdős-Rényi random graph\"\"\" G = nx.erdos_renyi_graph(n, p) return G def generate_configuration_model(degree_sequence): \"\"\"Generate configuration model random graph\"\"\" G = nx.configuration_model(degree_sequence) # Remove self-loops and parallel edges G = nx.Graph(G) G.remove_edges_from(nx.selfloop_edges(G)) return G def analyze_random_graph(G, model_type=\"ER\"): \"\"\"Analyze random graph properties\"\"\" # Basic statistics n = G.number_of_nodes() m = G.number_of_edges() density = 2 * m / (n * (n - 1)) # Degree analysis degrees = [d for n, d in G.degree()] degree_dist = Counter(degrees) # Poisson fitting for ER model if model_type == \"ER\": avg_degree = np.mean(degrees) poisson_dist = stats.poisson(avg_degree) # Chi-square test observed = list(degree_dist.values()) expected = [poisson_dist.pmf(k) * n for k in degree_dist.keys()] chi2_stat, chi2_pvalue = stats.chisquare(observed, expected) else: chi2_stat = chi2_pvalue = None # Clustering analysis clustering = nx.average_clustering(G) # Path length analysis if nx.is_connected(G): avg_path_length = nx.average_shortest_path_length(G) diameter = nx.diameter(G) else: # Analyze largest component largest_cc = max(nx.connected_components(G), key=len) subgraph = G.subgraph(largest_cc) avg_path_length = nx.average_shortest_path_length(subgraph) diameter = nx.diameter(subgraph) # Giant component analysis components = list(nx.connected_components(G)) component_sizes = [len(comp) for comp in components] giant_component_size = max(component_sizes) if component_sizes else 0 giant_component_fraction = giant_component_size / n if n \u003e 0 else 0 # Phase transition analysis avg_degree = np.mean(degrees) phase_transition_threshold = 1.0 # For ER model return { 'model_type': model_type, 'nodes': n, 'edges': m, 'density': density, 'avg_degree': avg_degree, 'degree_variance': np.var(degrees), 'clustering': clustering, 'avg_path_length': avg_path_length, 'diameter': diameter, 'giant_component_size': giant_component_size, 'giant_component_fraction': giant_component_fraction, 'num_components': len(components), 'phase_transition_threshold': phase_transition_threshold, 'above_threshold': avg_degree \u003e phase_transition_threshold, 'chi2_statistic': chi2_stat, 'chi2_pvalue': chi2_pvalue } def analyze_phase_transition(n_values, p_values): \"\"\"Analyze phase transition in random graphs\"\"\" results = [] for n in n_values: for p in p_values: G = generate_erdos_renyi(n, p) analysis = analyze_random_graph(G, \"ER\") results.append({ 'n': n, 'p': p, 'giant_component_fraction': analysis['giant_component_fraction'], 'avg_path_length': analysis['avg_path_length'], 'clustering': analysis['clustering'] }) return results def plot_degree_distribution(G, model_type=\"ER\", title=\"Degree Distribution\"): \"\"\"Plot degree distribution with theoretical comparison\"\"\" degrees = [d for n, d in G.degree()] degree_dist = Counter(degrees) k_values = list(degree_dist.keys()) counts = list(degree_dist.values()) plt.figure(figsize=(10, 6)) # Plot observed distribution plt.bar(k_values, counts, alpha=0.7, label='Observed', color='blue') # Plot theoretical distribution if model_type == \"ER\": avg_degree = np.mean(degrees) poisson_dist = stats.poisson(avg_degree) theoretical = [poisson_dist.pmf(k) * len(degrees) for k in k_values] plt.plot(k_values, theoretical, 'ro-', label='Poisson', markersize=8) plt.xlabel('Degree k') plt.ylabel('Count') plt.title(f'{title} - {model_type} Model') plt.legend() plt.grid(True, alpha=0.3) plt.show() def plot_phase_transition(results): \"\"\"Plot phase transition results\"\"\" # Group results by n n_values = sorted(set(r['n'] for r in results)) fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6)) for n in n_values: n_results = [r for r in results if r['n'] == n] p_values = [r['p'] for r in n_results] giant_fractions = [r['giant_component_fraction'] for r in n_results] ax1.plot(p_values, giant_fractions, 'o-', label=f'n={n}', markersize=8) ax1.set_xlabel('Probability p') ax1.set_ylabel('Giant Component Fraction') ax1.set_title('Phase Transition: Giant Component') ax1.legend() ax1.grid(True, alpha=0.3) for n in n_values: n_results = [r for r in results if r['n'] == n] p_values = [r['p'] for r in n_results] path_lengths = [r['avg_path_length'] for r in n_results] ax2.plot(p_values, path_lengths, 'o-', label=f'n={n}', markersize=8) ax2.set_xlabel('Probability p') ax2.set_ylabel('Average Path Length') ax2.set_title('Phase Transition: Path Length') ax2.legend() ax2.grid(True, alpha=0.3) plt.tight_layout() plt.show() # Example: Analyze Erdős-Rényi random graph n, p = 1000, 0.01 G_ER = generate_erdos_renyi(n, p) analysis_ER = analyze_random_graph(G_ER, \"ER\") print(\"Erdős-Rényi Random Graph Analysis:\") for key, value in analysis_ER.items(): print(f\"{key}: {value}\") # Plot degree distribution plot_degree_distribution(G_ER, \"ER\", \"Erdős-Rényi Random Graph\") # Example: Analyze configuration model degree_sequence = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3] * 100 # Regular graph G_CM = generate_configuration_model(degree_sequence) analysis_CM = analyze_random_graph(G_CM, \"CM\") print(\"\\nConfiguration Model Analysis:\") for key, value in analysis_CM.items(): print(f\"{key}: {value}\") # Plot degree distribution plot_degree_distribution(G_CM, \"CM\", \"Configuration Model\") # Example: Phase transition analysis n_values = [100, 500, 1000] p_values = np.linspace(0.001, 0.1, 20) phase_results = analyze_phase_transition(n_values, p_values) # Plot phase transition plot_phase_transition(phase_results) Key Takeaways Random graph models: Provide null models for understanding network structure Phase transitions: Critical thresholds determine network connectivity Degree distributions: Poisson for ER model, prescribed for configuration model Giant component: Emerges at critical threshold, dominates above threshold Mathematical analysis: Rigorous theory enables prediction of network properties Applications: Random graphs provide insights into materials science phenomena Percolation theory: Direct application to nanowire networks and defect systems References Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press. Erdős, P., \u0026 Rényi, A. (1959). On random graphs. Publicationes Mathematicae, 6, 290-297. Molloy, M., \u0026 Reed, B. (1995). A critical point for random graphs with a given degree sequence. Random Structures \u0026 Algorithms, 6(2-3), 161-180. Stauffer, D., \u0026 Aharony, A. (1994). Introduction to Percolation Theory. Taylor \u0026 Francis. Random graph theory provides the mathematical foundation for understanding network structure and behavior, with important applications in materials science and percolation phenomena.\n",
+  "wordCount" : "1731",
+  "inLanguage": "en",
+  "datePublished": "2025-08-29T00:00:00Z",
+  "dateModified": "2025-08-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Linlin-resh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch8/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Notes on AI4Science \u0026 Graph Theory",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Linlin-resh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Linlin-resh.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs
+    </h1>
+    <div class="post-description">
+      Study notes for Chapter 8 of Newman&#39;s &#39;Networks: An Introduction&#39; covering Erdős-Rényi model, configuration model, and random graph theory
+    </div>
+    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1731 words&nbsp;·&nbsp;Linlin-resh
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#81-erd%c5%91s-r%c3%a9nyi-model" aria-label="8.1 Erdős-Rényi Model">8.1 Erdős-Rényi Model</a><ul>
+                        
+                <li>
+                    <a href="#model-definition" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#mathematical-properties" aria-label="Mathematical Properties">Mathematical Properties</a><ul>
+                        
+                <li>
+                    <a href="#degree-distribution" aria-label="Degree Distribution">Degree Distribution</a></li>
+                <li>
+                    <a href="#properties-of-poisson-distribution" aria-label="Properties of Poisson Distribution">Properties of Poisson Distribution</a></li>
+                <li>
+                    <a href="#clustering-coefficient" aria-label="Clustering Coefficient">Clustering Coefficient</a></li>
+                <li>
+                    <a href="#path-length" aria-label="Path Length">Path Length</a></li></ul>
+                </li>
+                <li>
+                    <a href="#phase-transitions" aria-label="Phase Transitions">Phase Transitions</a><ul>
+                        
+                <li>
+                    <a href="#giant-component-emergence" aria-label="Giant Component Emergence">Giant Component Emergence</a></li>
+                <li>
+                    <a href="#mathematical-analysis" aria-label="Mathematical Analysis">Mathematical Analysis</a></li></ul>
+                </li>
+                <li>
+                    <a href="#connectivity" aria-label="Connectivity">Connectivity</a><ul>
+                        
+                <li>
+                    <a href="#probability-of-connectivity" aria-label="Probability of Connectivity">Probability of Connectivity</a></li>
+                <li>
+                    <a href="#diameter" aria-label="Diameter">Diameter</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#82-configuration-model" aria-label="8.2 Configuration Model">8.2 Configuration Model</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-1" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#mathematical-properties-1" aria-label="Mathematical Properties">Mathematical Properties</a><ul>
+                        
+                <li>
+                    <a href="#degree-distribution-1" aria-label="Degree Distribution">Degree Distribution</a></li>
+                <li>
+                    <a href="#expected-number-of-edges" aria-label="Expected Number of Edges">Expected Number of Edges</a></li>
+                <li>
+                    <a href="#clustering-coefficient-1" aria-label="Clustering Coefficient">Clustering Coefficient</a></li>
+                <li>
+                    <a href="#path-length-1" aria-label="Path Length">Path Length</a></li></ul>
+                </li>
+                <li>
+                    <a href="#degree-correlation" aria-label="Degree Correlation">Degree Correlation</a><ul>
+                        
+                <li>
+                    <a href="#assortativity" aria-label="Assortativity">Assortativity</a></li></ul>
+                </li>
+                <li>
+                    <a href="#giant-component" aria-label="Giant Component">Giant Component</a><ul>
+                        
+                <li>
+                    <a href="#existence-condition" aria-label="Existence Condition">Existence Condition</a></li>
+                <li>
+                    <a href="#size-of-giant-component" aria-label="Size of Giant Component">Size of Giant Component</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#83-random-graph-variants" aria-label="8.3 Random Graph Variants">8.3 Random Graph Variants</a><ul>
+                        
+                <li>
+                    <a href="#directed-random-graphs" aria-label="Directed Random Graphs">Directed Random Graphs</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-2" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#degree-distributions" aria-label="Degree Distributions">Degree Distributions</a></li></ul>
+                </li>
+                <li>
+                    <a href="#weighted-random-graphs" aria-label="Weighted Random Graphs">Weighted Random Graphs</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-3" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#weight-distribution" aria-label="Weight Distribution">Weight Distribution</a></li>
+                <li>
+                    <a href="#network-properties" aria-label="Network Properties">Network Properties</a></li></ul>
+                </li>
+                <li>
+                    <a href="#bipartite-random-graphs" aria-label="Bipartite Random Graphs">Bipartite Random Graphs</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-4" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#degree-distributions-1" aria-label="Degree Distributions">Degree Distributions</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#84-random-graph-algorithms" aria-label="8.4 Random Graph Algorithms">8.4 Random Graph Algorithms</a><ul>
+                        
+                <li>
+                    <a href="#generation-algorithms" aria-label="Generation Algorithms">Generation Algorithms</a><ul>
+                        
+                <li>
+                    <a href="#erd%c5%91s-r%c3%a9nyi-generation" aria-label="Erdős-Rényi Generation">Erdős-Rényi Generation</a></li>
+                <li>
+                    <a href="#configuration-model-generation" aria-label="Configuration Model Generation">Configuration Model Generation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#sampling-algorithms" aria-label="Sampling Algorithms">Sampling Algorithms</a><ul>
+                        
+                <li>
+                    <a href="#random-walk-sampling" aria-label="Random Walk Sampling">Random Walk Sampling</a></li>
+                <li>
+                    <a href="#metropolis-hastings-sampling" aria-label="Metropolis-Hastings Sampling">Metropolis-Hastings Sampling</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#85-applications-to-materials-science" aria-label="8.5 Applications to Materials Science">8.5 Applications to Materials Science</a><ul>
+                        
+                <li>
+                    <a href="#percolation-theory" aria-label="Percolation Theory">Percolation Theory</a><ul>
+                        
+                <li>
+                    <a href="#bond-percolation" aria-label="Bond Percolation">Bond Percolation</a></li>
+                <li>
+                    <a href="#site-percolation" aria-label="Site Percolation">Site Percolation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#nanowire-networks" aria-label="Nanowire Networks">Nanowire Networks</a><ul>
+                        
+                <li>
+                    <a href="#network-formation" aria-label="Network Formation">Network Formation</a></li>
+                <li>
+                    <a href="#electrical-properties" aria-label="Electrical Properties">Electrical Properties</a></li></ul>
+                </li>
+                <li>
+                    <a href="#defect-networks" aria-label="Defect Networks">Defect Networks</a><ul>
+                        
+                <li>
+                    <a href="#defect-clustering" aria-label="Defect Clustering">Defect Clustering</a></li>
+                <li>
+                    <a href="#percolation-threshold" aria-label="Percolation Threshold">Percolation Threshold</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#code-example-random-graph-analysis" aria-label="Code Example: Random Graph Analysis">Code Example: Random Graph Analysis</a></li>
+                <li>
+                    <a href="#key-takeaways" aria-label="Key Takeaways">Key Takeaways</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Chapter 8 of Newman&rsquo;s <em>Networks: An Introduction</em> introduces <strong>random graph theory</strong> - the mathematical foundation for understanding network structure through probabilistic models. This chapter covers the classic Erdős-Rényi model, configuration models, and their applications to understanding real-world networks.</p>
+<h2 id="81-erdős-rényi-model">8.1 Erdős-Rényi Model<a hidden class="anchor" aria-hidden="true" href="#81-erdős-rényi-model">#</a></h2>
+<h3 id="model-definition">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition">#</a></h3>
+<p>The <strong>Erdős-Rényi random graph</strong> $G(n,p)$ consists of:</p>
+<ul>
+<li><strong>n</strong> vertices</li>
+<li><strong>p</strong> probability of edge existence between any two vertices</li>
+<li><strong>Expected number of edges</strong>: $E[m] = \binom{n}{2}p = \frac{n(n-1)}{2}p$</li>
+</ul>
+<h3 id="mathematical-properties">Mathematical Properties<a hidden class="anchor" aria-hidden="true" href="#mathematical-properties">#</a></h3>
+<h4 id="degree-distribution">Degree Distribution<a hidden class="anchor" aria-hidden="true" href="#degree-distribution">#</a></h4>
+<p>For large networks, the degree distribution follows a <strong>Poisson distribution</strong>:</p>
+<p>$$P(k) = \frac{\langle k \rangle^k e^{-\langle k \rangle}}{k!}$$</p>
+<p>Where $\langle k \rangle = (n-1)p$ is the average degree.</p>
+<h4 id="properties-of-poisson-distribution">Properties of Poisson Distribution<a hidden class="anchor" aria-hidden="true" href="#properties-of-poisson-distribution">#</a></h4>
+<p><strong>Mean</strong>: $\langle k \rangle = (n-1)p$</p>
+<p><strong>Variance</strong>: $\sigma_k^2 = \langle k \rangle$</p>
+<p><strong>Standard deviation</strong>: $\sigma_k = \sqrt{\langle k \rangle}$</p>
+<p><strong>Coefficient of variation</strong>: $CV = \frac{\sigma_k}{\langle k \rangle} = \frac{1}{\sqrt{\langle k \rangle}}$</p>
+<h4 id="clustering-coefficient">Clustering Coefficient<a hidden class="anchor" aria-hidden="true" href="#clustering-coefficient">#</a></h4>
+<p><strong>Expected clustering coefficient</strong>:
+$$C = p = \frac{\langle k \rangle}{n-1}$$</p>
+<p><strong>For large networks</strong>: $C \to 0$ as $n \to \infty$</p>
+<h4 id="path-length">Path Length<a hidden class="anchor" aria-hidden="true" href="#path-length">#</a></h4>
+<p><strong>Average path length</strong>:
+$$L \sim \frac{\ln n}{\ln \langle k \rangle}$$</p>
+<p><strong>For large networks</strong>: $L \sim \ln n$ (logarithmic growth)</p>
+<h3 id="phase-transitions">Phase Transitions<a hidden class="anchor" aria-hidden="true" href="#phase-transitions">#</a></h3>
+<h4 id="giant-component-emergence">Giant Component Emergence<a hidden class="anchor" aria-hidden="true" href="#giant-component-emergence">#</a></h4>
+<p>A <strong>phase transition</strong> occurs at the critical threshold:</p>
+<p>$$p_c = \frac{1}{n-1} \approx \frac{1}{n}$$</p>
+<p><strong>Below threshold</strong> ($p &lt; p_c$):</p>
+<ul>
+<li>Only small, isolated components exist</li>
+<li>Largest component size: $O(\ln n)$</li>
+</ul>
+<p><strong>At threshold</strong> ($p = p_c$):</p>
+<ul>
+<li>Giant component emerges</li>
+<li>Largest component size: $O(n^{2/3})$</li>
+</ul>
+<p><strong>Above threshold</strong> ($p &gt; p_c$):</p>
+<ul>
+<li>Giant component dominates</li>
+<li>Largest component size: $O(n)$</li>
+</ul>
+<h4 id="mathematical-analysis">Mathematical Analysis<a hidden class="anchor" aria-hidden="true" href="#mathematical-analysis">#</a></h4>
+<p><strong>Component size distribution</strong>:
+$$P(s) \sim s^{-3/2} e^{-s/s_0}$$</p>
+<p>Where $s_0$ is the characteristic size.</p>
+<p><strong>Giant component size</strong>:
+$$S = n \left[1 - \sum_{k=0}^{\infty} P(k) u^k\right]$$</p>
+<p>Where $u$ satisfies:
+$$u = \sum_{k=0}^{\infty} \frac{k P(k) u^{k-1}}{\langle k \rangle}$$</p>
+<h3 id="connectivity">Connectivity<a hidden class="anchor" aria-hidden="true" href="#connectivity">#</a></h3>
+<h4 id="probability-of-connectivity">Probability of Connectivity<a hidden class="anchor" aria-hidden="true" href="#probability-of-connectivity">#</a></h4>
+<p><strong>For large networks</strong>:
+$$P(\text{connected}) \approx \exp(-n e^{-\langle k \rangle})$$</p>
+<p><strong>Critical threshold for connectivity</strong>:
+$$p_c^{\text{conn}} = \frac{\ln n}{n}$$</p>
+<h4 id="diameter">Diameter<a hidden class="anchor" aria-hidden="true" href="#diameter">#</a></h4>
+<p><strong>Expected diameter</strong>:
+$$D \sim \frac{\ln n}{\ln \langle k \rangle}$$</p>
+<p><strong>For large networks</strong>: $D \sim \ln n$</p>
+<h2 id="82-configuration-model">8.2 Configuration Model<a hidden class="anchor" aria-hidden="true" href="#82-configuration-model">#</a></h2>
+<h3 id="model-definition-1">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-1">#</a></h3>
+<p>The <strong>configuration model</strong> generates random graphs with a <strong>prescribed degree sequence</strong>:</p>
+<ul>
+<li><strong>Input</strong>: Degree sequence ${k_1, k_2, \ldots, k_n}$</li>
+<li><strong>Constraint</strong>: $\sum_{i=1}^n k_i$ must be even</li>
+<li><strong>Method</strong>: Randomly connect stubs (half-edges)</li>
+</ul>
+<h3 id="mathematical-properties-1">Mathematical Properties<a hidden class="anchor" aria-hidden="true" href="#mathematical-properties-1">#</a></h3>
+<h4 id="degree-distribution-1">Degree Distribution<a hidden class="anchor" aria-hidden="true" href="#degree-distribution-1">#</a></h4>
+<p><strong>Given degree sequence</strong>: $P(k) = \frac{n_k}{n}$</p>
+<p>Where $n_k$ is the number of nodes with degree $k$.</p>
+<h4 id="expected-number-of-edges">Expected Number of Edges<a hidden class="anchor" aria-hidden="true" href="#expected-number-of-edges">#</a></h4>
+<p><strong>Total number of edges</strong>:
+$$m = \frac{1}{2} \sum_{i=1}^n k_i = \frac{n \langle k \rangle}{2}$$</p>
+<h4 id="clustering-coefficient-1">Clustering Coefficient<a hidden class="anchor" aria-hidden="true" href="#clustering-coefficient-1">#</a></h4>
+<p><strong>Expected clustering coefficient</strong>:
+$$C = \frac{\langle k^2 \rangle - \langle k \rangle}{n \langle k \rangle^2}$$</p>
+<p><strong>For large networks</strong>: $C \to 0$ as $n \to \infty$</p>
+<h4 id="path-length-1">Path Length<a hidden class="anchor" aria-hidden="true" href="#path-length-1">#</a></h4>
+<p><strong>Average path length</strong>:
+$$L \sim \frac{\ln n}{\ln \langle k \rangle}$$</p>
+<p><strong>For scale-free networks</strong>: $L \sim \frac{\ln n}{\ln \ln n}$</p>
+<h3 id="degree-correlation">Degree Correlation<a hidden class="anchor" aria-hidden="true" href="#degree-correlation">#</a></h3>
+<h4 id="assortativity">Assortativity<a hidden class="anchor" aria-hidden="true" href="#assortativity">#</a></h4>
+<p><strong>Degree correlation function</strong>:
+$$k_{nn}(k) = \frac{\sum_{k&rsquo;} k&rsquo; P(k&rsquo;|k)}{\sum_{k&rsquo;} P(k&rsquo;|k)}$$</p>
+<p><strong>For configuration model</strong>:
+$$k_{nn}(k) = \frac{\langle k^2 \rangle}{\langle k \rangle}$$</p>
+<p><strong>Assortativity coefficient</strong>:
+$$r = \frac{\langle k^2 \rangle - \langle k \rangle^2}{\langle k^3 \rangle - \langle k \rangle^2}$$</p>
+<h3 id="giant-component">Giant Component<a hidden class="anchor" aria-hidden="true" href="#giant-component">#</a></h3>
+<h4 id="existence-condition">Existence Condition<a hidden class="anchor" aria-hidden="true" href="#existence-condition">#</a></h4>
+<p><strong>Giant component exists if</strong>:
+$$\frac{\langle k^2 \rangle}{\langle k \rangle} &gt; 2$$</p>
+<p><strong>Critical threshold</strong>:
+$$\frac{\langle k^2 \rangle}{\langle k \rangle} = 2$$</p>
+<h4 id="size-of-giant-component">Size of Giant Component<a hidden class="anchor" aria-hidden="true" href="#size-of-giant-component">#</a></h4>
+<p><strong>Giant component size</strong>:
+$$S = n \left[1 - \sum_{k=0}^{\infty} P(k) u^k\right]$$</p>
+<p>Where $u$ satisfies:
+$$u = \sum_{k=0}^{\infty} \frac{k P(k) u^{k-1}}{\langle k \rangle}$$</p>
+<h2 id="83-random-graph-variants">8.3 Random Graph Variants<a hidden class="anchor" aria-hidden="true" href="#83-random-graph-variants">#</a></h2>
+<h3 id="directed-random-graphs">Directed Random Graphs<a hidden class="anchor" aria-hidden="true" href="#directed-random-graphs">#</a></h3>
+<h4 id="model-definition-2">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-2">#</a></h4>
+<p><strong>Directed Erdős-Rényi model</strong> $G(n,p)$:</p>
+<ul>
+<li><strong>n</strong> vertices</li>
+<li><strong>p</strong> probability of directed edge from any vertex to any other</li>
+<li><strong>Expected number of edges</strong>: $E[m] = n(n-1)p$</li>
+</ul>
+<h4 id="degree-distributions">Degree Distributions<a hidden class="anchor" aria-hidden="true" href="#degree-distributions">#</a></h4>
+<p><strong>In-degree distribution</strong>:
+$$P_{\text{in}}(k) = \frac{\langle k_{\text{in}} \rangle^k e^{-\langle k_{\text{in}} \rangle}}{k!}$$</p>
+<p><strong>Out-degree distribution</strong>:
+$$P_{\text{out}}(k) = \frac{\langle k_{\text{out}} \rangle^k e^{-\langle k_{\text{out}} \rangle}}{k!}$$</p>
+<p>Where $\langle k_{\text{in}} \rangle = \langle k_{\text{out}} \rangle = (n-1)p$.</p>
+<h3 id="weighted-random-graphs">Weighted Random Graphs<a hidden class="anchor" aria-hidden="true" href="#weighted-random-graphs">#</a></h3>
+<h4 id="model-definition-3">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-3">#</a></h4>
+<p><strong>Weighted random graph</strong>:</p>
+<ul>
+<li><strong>n</strong> vertices</li>
+<li><strong>p</strong> probability of edge existence</li>
+<li><strong>w</strong> weight distribution for existing edges</li>
+</ul>
+<h4 id="weight-distribution">Weight Distribution<a hidden class="anchor" aria-hidden="true" href="#weight-distribution">#</a></h4>
+<p><strong>Exponential weights</strong>:
+$$P(w) = \lambda e^{-\lambda w}$$</p>
+<p><strong>Power-law weights</strong>:
+$$P(w) \sim w^{-\alpha}$$</p>
+<h4 id="network-properties">Network Properties<a hidden class="anchor" aria-hidden="true" href="#network-properties">#</a></h4>
+<p><strong>Weighted degree</strong>:
+$$k_i^w = \sum_{j} w_{ij}$$</p>
+<p><strong>Weighted clustering</strong>:
+$$C_i^w = \frac{\sum_{j,k} w_{ij} w_{jk} w_{ki}}{\sum_{j,k} w_{ij} w_{jk}}$$</p>
+<h3 id="bipartite-random-graphs">Bipartite Random Graphs<a hidden class="anchor" aria-hidden="true" href="#bipartite-random-graphs">#</a></h3>
+<h4 id="model-definition-4">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-4">#</a></h4>
+<p><strong>Bipartite random graph</strong> $G(n_1, n_2, p)$:</p>
+<ul>
+<li><strong>n₁</strong> vertices in partition 1</li>
+<li><strong>n₂</strong> vertices in partition 2</li>
+<li><strong>p</strong> probability of edge between partitions</li>
+</ul>
+<h4 id="degree-distributions-1">Degree Distributions<a hidden class="anchor" aria-hidden="true" href="#degree-distributions-1">#</a></h4>
+<p><strong>Partition 1 degree distribution</strong>:
+$$P_1(k) = \frac{(n_2 p)^k e^{-n_2 p}}{k!}$$</p>
+<p><strong>Partition 2 degree distribution</strong>:
+$$P_2(k) = \frac{(n_1 p)^k e^{-n_1 p}}{k!}$$</p>
+<h2 id="84-random-graph-algorithms">8.4 Random Graph Algorithms<a hidden class="anchor" aria-hidden="true" href="#84-random-graph-algorithms">#</a></h2>
+<h3 id="generation-algorithms">Generation Algorithms<a hidden class="anchor" aria-hidden="true" href="#generation-algorithms">#</a></h3>
+<h4 id="erdős-rényi-generation">Erdős-Rényi Generation<a hidden class="anchor" aria-hidden="true" href="#erdős-rényi-generation">#</a></h4>
+<p><strong>Algorithm</strong>:</p>
+<ol>
+<li>Initialize empty graph with $n$ vertices</li>
+<li>For each pair $(i,j)$ where $i &lt; j$:
+<ul>
+<li>Generate random number $r \sim U(0,1)$</li>
+<li>If $r &lt; p$, add edge $(i,j)$</li>
+</ul>
+</li>
+</ol>
+<p><strong>Time complexity</strong>: $O(n^2)$</p>
+<h4 id="configuration-model-generation">Configuration Model Generation<a hidden class="anchor" aria-hidden="true" href="#configuration-model-generation">#</a></h4>
+<p><strong>Algorithm</strong>:</p>
+<ol>
+<li>Create $k_i$ stubs for each vertex $i$</li>
+<li>Randomly pair stubs</li>
+<li>Connect paired stubs to form edges</li>
+</ol>
+<p><strong>Time complexity</strong>: $O(m)$ where $m$ is the number of edges</p>
+<h3 id="sampling-algorithms">Sampling Algorithms<a hidden class="anchor" aria-hidden="true" href="#sampling-algorithms">#</a></h3>
+<h4 id="random-walk-sampling">Random Walk Sampling<a hidden class="anchor" aria-hidden="true" href="#random-walk-sampling">#</a></h4>
+<p><strong>Algorithm</strong>:</p>
+<ol>
+<li>Start at random vertex</li>
+<li>At each step, move to random neighbor</li>
+<li>Repeat for desired number of steps</li>
+</ol>
+<p><strong>Stationary distribution</strong>:
+$$\pi_i = \frac{k_i}{2m}$$</p>
+<h4 id="metropolis-hastings-sampling">Metropolis-Hastings Sampling<a hidden class="anchor" aria-hidden="true" href="#metropolis-hastings-sampling">#</a></h4>
+<p><strong>Algorithm</strong>:</p>
+<ol>
+<li>Start at random vertex</li>
+<li>Propose move to neighbor with probability $1/k_i$</li>
+<li>Accept with probability $\min(1, k_i/k_j)$</li>
+</ol>
+<p><strong>Stationary distribution</strong>: Uniform</p>
+<h2 id="85-applications-to-materials-science">8.5 Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#85-applications-to-materials-science">#</a></h2>
+<h3 id="percolation-theory">Percolation Theory<a hidden class="anchor" aria-hidden="true" href="#percolation-theory">#</a></h3>
+<h4 id="bond-percolation">Bond Percolation<a hidden class="anchor" aria-hidden="true" href="#bond-percolation">#</a></h4>
+<p><strong>Model</strong>: Random removal of edges with probability $1-p$</p>
+<p><strong>Percolation probability</strong>:
+$$P(p) = 1 - \sum_{k=0}^{\infty} P(k) (1-p)^k$$</p>
+<p><strong>Critical threshold</strong>:
+$$p_c = \frac{1}{\kappa - 1}$$</p>
+<p>Where $\kappa = \frac{\langle k^2 \rangle}{\langle k \rangle}$.</p>
+<h4 id="site-percolation">Site Percolation<a hidden class="anchor" aria-hidden="true" href="#site-percolation">#</a></h4>
+<p><strong>Model</strong>: Random removal of vertices with probability $1-p$</p>
+<p><strong>Percolation probability</strong>:
+$$P(p) = 1 - \sum_{k=0}^{\infty} P(k) (1-p)^k$$</p>
+<p><strong>Critical threshold</strong>:
+$$p_c = \frac{1}{\kappa - 1}$$</p>
+<h3 id="nanowire-networks">Nanowire Networks<a hidden class="anchor" aria-hidden="true" href="#nanowire-networks">#</a></h3>
+<h4 id="network-formation">Network Formation<a hidden class="anchor" aria-hidden="true" href="#network-formation">#</a></h4>
+<p><strong>Random geometric graph</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Nanowire junctions</li>
+<li><strong>Edges</strong>: Nanowire segments</li>
+<li><strong>Probability</strong>: $p = \rho \pi r^2$ where $\rho$ is density and $r$ is interaction radius</li>
+</ul>
+<h4 id="electrical-properties">Electrical Properties<a hidden class="anchor" aria-hidden="true" href="#electrical-properties">#</a></h4>
+<p><strong>Conductivity</strong>:
+$$\sigma \sim (p - p_c)^t$$</p>
+<p>Where $t \approx 2.0$ is the conductivity exponent.</p>
+<p><strong>Critical density</strong>:
+$$\rho_c = \frac{1}{\pi r^2 (\kappa - 1)}$$</p>
+<h3 id="defect-networks">Defect Networks<a hidden class="anchor" aria-hidden="true" href="#defect-networks">#</a></h3>
+<h4 id="defect-clustering">Defect Clustering<a hidden class="anchor" aria-hidden="true" href="#defect-clustering">#</a></h4>
+<p><strong>Clustering coefficient</strong>:
+$$C = \frac{\langle k^2 \rangle - \langle k \rangle}{n \langle k \rangle^2}$$</p>
+<p><strong>For defect networks</strong>: $C &gt; 0$ indicates clustering</p>
+<h4 id="percolation-threshold">Percolation Threshold<a hidden class="anchor" aria-hidden="true" href="#percolation-threshold">#</a></h4>
+<p><strong>Defect percolation</strong>:
+$$p_c = \frac{1}{\kappa - 1}$$</p>
+<p><strong>For materials</strong>: $p_c$ determines critical defect concentration</p>
+<h2 id="code-example-random-graph-analysis">Code Example: Random Graph Analysis<a hidden class="anchor" aria-hidden="true" href="#code-example-random-graph-analysis">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> collections <span style="color:#ff79c6">import</span> Counter
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> scipy <span style="color:#ff79c6">import</span> stats
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">generate_erdos_renyi</span>(n, p):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Generate Erdős-Rényi random graph&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>erdos_renyi_graph(n, p)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> G
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">generate_configuration_model</span>(degree_sequence):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Generate configuration model random graph&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>configuration_model(degree_sequence)
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Remove self-loops and parallel edges</span>
+</span></span><span style="display:flex;"><span>    G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>Graph(G)
+</span></span><span style="display:flex;"><span>    G<span style="color:#ff79c6">.</span>remove_edges_from(nx<span style="color:#ff79c6">.</span>selfloop_edges(G))
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> G
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_random_graph</span>(G, model_type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;ER&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze random graph properties&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Basic statistics</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    m <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_edges()
+</span></span><span style="display:flex;"><span>    density <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span> <span style="color:#ff79c6">*</span> m <span style="color:#ff79c6">/</span> (n <span style="color:#ff79c6">*</span> (n <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Degree analysis</span>
+</span></span><span style="display:flex;"><span>    degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>degree()]
+</span></span><span style="display:flex;"><span>    degree_dist <span style="color:#ff79c6">=</span> Counter(degrees)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Poisson fitting for ER model</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> model_type <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;ER&#34;</span>:
+</span></span><span style="display:flex;"><span>        avg_degree <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>mean(degrees)
+</span></span><span style="display:flex;"><span>        poisson_dist <span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>poisson(avg_degree)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Chi-square test</span>
+</span></span><span style="display:flex;"><span>        observed <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(degree_dist<span style="color:#ff79c6">.</span>values())
+</span></span><span style="display:flex;"><span>        expected <span style="color:#ff79c6">=</span> [poisson_dist<span style="color:#ff79c6">.</span>pmf(k) <span style="color:#ff79c6">*</span> n <span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> degree_dist<span style="color:#ff79c6">.</span>keys()]
+</span></span><span style="display:flex;"><span>        chi2_stat, chi2_pvalue <span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>chisquare(observed, expected)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        chi2_stat <span style="color:#ff79c6">=</span> chi2_pvalue <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Clustering analysis</span>
+</span></span><span style="display:flex;"><span>    clustering <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_clustering(G)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Path length analysis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> nx<span style="color:#ff79c6">.</span>is_connected(G):
+</span></span><span style="display:flex;"><span>        avg_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(G)
+</span></span><span style="display:flex;"><span>        diameter <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>diameter(G)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Analyze largest component</span>
+</span></span><span style="display:flex;"><span>        largest_cc <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(nx<span style="color:#ff79c6">.</span>connected_components(G), key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)
+</span></span><span style="display:flex;"><span>        subgraph <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>subgraph(largest_cc)
+</span></span><span style="display:flex;"><span>        avg_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(subgraph)
+</span></span><span style="display:flex;"><span>        diameter <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>diameter(subgraph)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Giant component analysis</span>
+</span></span><span style="display:flex;"><span>    components <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(nx<span style="color:#ff79c6">.</span>connected_components(G))
+</span></span><span style="display:flex;"><span>    component_sizes <span style="color:#ff79c6">=</span> [<span style="color:#8be9fd;font-style:italic">len</span>(comp) <span style="color:#ff79c6">for</span> comp <span style="color:#ff79c6">in</span> components]
+</span></span><span style="display:flex;"><span>    giant_component_size <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(component_sizes) <span style="color:#ff79c6">if</span> component_sizes <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    giant_component_fraction <span style="color:#ff79c6">=</span> giant_component_size <span style="color:#ff79c6">/</span> n <span style="color:#ff79c6">if</span> n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Phase transition analysis</span>
+</span></span><span style="display:flex;"><span>    avg_degree <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>mean(degrees)
+</span></span><span style="display:flex;"><span>    phase_transition_threshold <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1.0</span>  <span style="color:#6272a4"># For ER model</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;model_type&#39;</span>: model_type,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;nodes&#39;</span>: n,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;edges&#39;</span>: m,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;density&#39;</span>: density,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_degree&#39;</span>: avg_degree,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;degree_variance&#39;</span>: np<span style="color:#ff79c6">.</span>var(degrees),
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;clustering&#39;</span>: clustering,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_path_length&#39;</span>: avg_path_length,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;diameter&#39;</span>: diameter,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;giant_component_size&#39;</span>: giant_component_size,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;giant_component_fraction&#39;</span>: giant_component_fraction,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;num_components&#39;</span>: <span style="color:#8be9fd;font-style:italic">len</span>(components),
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;phase_transition_threshold&#39;</span>: phase_transition_threshold,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;above_threshold&#39;</span>: avg_degree <span style="color:#ff79c6">&gt;</span> phase_transition_threshold,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;chi2_statistic&#39;</span>: chi2_stat,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;chi2_pvalue&#39;</span>: chi2_pvalue
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_phase_transition</span>(n_values, p_values):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze phase transition in random graphs&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    results <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> n <span style="color:#ff79c6">in</span> n_values:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> p <span style="color:#ff79c6">in</span> p_values:
+</span></span><span style="display:flex;"><span>            G <span style="color:#ff79c6">=</span> generate_erdos_renyi(n, p)
+</span></span><span style="display:flex;"><span>            analysis <span style="color:#ff79c6">=</span> analyze_random_graph(G, <span style="color:#f1fa8c">&#34;ER&#34;</span>)
+</span></span><span style="display:flex;"><span>            results<span style="color:#ff79c6">.</span>append({
+</span></span><span style="display:flex;"><span>                <span style="color:#f1fa8c">&#39;n&#39;</span>: n,
+</span></span><span style="display:flex;"><span>                <span style="color:#f1fa8c">&#39;p&#39;</span>: p,
+</span></span><span style="display:flex;"><span>                <span style="color:#f1fa8c">&#39;giant_component_fraction&#39;</span>: analysis[<span style="color:#f1fa8c">&#39;giant_component_fraction&#39;</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#f1fa8c">&#39;avg_path_length&#39;</span>: analysis[<span style="color:#f1fa8c">&#39;avg_path_length&#39;</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#f1fa8c">&#39;clustering&#39;</span>: analysis[<span style="color:#f1fa8c">&#39;clustering&#39;</span>]
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> results
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">plot_degree_distribution</span>(G, model_type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;ER&#34;</span>, title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Degree Distribution&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Plot degree distribution with theoretical comparison&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>degree()]
+</span></span><span style="display:flex;"><span>    degree_dist <span style="color:#ff79c6">=</span> Counter(degrees)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    k_values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(degree_dist<span style="color:#ff79c6">.</span>keys())
+</span></span><span style="display:flex;"><span>    counts <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(degree_dist<span style="color:#ff79c6">.</span>values())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>figure(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">6</span>))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Plot observed distribution</span>
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>bar(k_values, counts, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.7</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Observed&#39;</span>, color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;blue&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Plot theoretical distribution</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> model_type <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;ER&#34;</span>:
+</span></span><span style="display:flex;"><span>        avg_degree <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>mean(degrees)
+</span></span><span style="display:flex;"><span>        poisson_dist <span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>poisson(avg_degree)
+</span></span><span style="display:flex;"><span>        theoretical <span style="color:#ff79c6">=</span> [poisson_dist<span style="color:#ff79c6">.</span>pmf(k) <span style="color:#ff79c6">*</span> <span style="color:#8be9fd;font-style:italic">len</span>(degrees) <span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> k_values]
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>plot(k_values, theoretical, <span style="color:#f1fa8c">&#39;ro-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Poisson&#39;</span>, markersize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Degree k&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Count&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>title<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> - </span><span style="color:#f1fa8c">{</span>model_type<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> Model&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>legend()
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">plot_phase_transition</span>(results):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Plot phase transition results&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Group results by n</span>
+</span></span><span style="display:flex;"><span>    n_values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(<span style="color:#8be9fd;font-style:italic">set</span>(r[<span style="color:#f1fa8c">&#39;n&#39;</span>] <span style="color:#ff79c6">for</span> r <span style="color:#ff79c6">in</span> results))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    fig, (ax1, ax2) <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">15</span>, <span style="color:#bd93f9">6</span>))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> n <span style="color:#ff79c6">in</span> n_values:
+</span></span><span style="display:flex;"><span>        n_results <span style="color:#ff79c6">=</span> [r <span style="color:#ff79c6">for</span> r <span style="color:#ff79c6">in</span> results <span style="color:#ff79c6">if</span> r[<span style="color:#f1fa8c">&#39;n&#39;</span>] <span style="color:#ff79c6">==</span> n]
+</span></span><span style="display:flex;"><span>        p_values <span style="color:#ff79c6">=</span> [r[<span style="color:#f1fa8c">&#39;p&#39;</span>] <span style="color:#ff79c6">for</span> r <span style="color:#ff79c6">in</span> n_results]
+</span></span><span style="display:flex;"><span>        giant_fractions <span style="color:#ff79c6">=</span> [r[<span style="color:#f1fa8c">&#39;giant_component_fraction&#39;</span>] <span style="color:#ff79c6">for</span> r <span style="color:#ff79c6">in</span> n_results]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        ax1<span style="color:#ff79c6">.</span>plot(p_values, giant_fractions, <span style="color:#f1fa8c">&#39;o-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;n=</span><span style="color:#f1fa8c">{</span>n<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>, markersize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Probability p&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Giant Component Fraction&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Phase Transition: Giant Component&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>legend()
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> n <span style="color:#ff79c6">in</span> n_values:
+</span></span><span style="display:flex;"><span>        n_results <span style="color:#ff79c6">=</span> [r <span style="color:#ff79c6">for</span> r <span style="color:#ff79c6">in</span> results <span style="color:#ff79c6">if</span> r[<span style="color:#f1fa8c">&#39;n&#39;</span>] <span style="color:#ff79c6">==</span> n]
+</span></span><span style="display:flex;"><span>        p_values <span style="color:#ff79c6">=</span> [r[<span style="color:#f1fa8c">&#39;p&#39;</span>] <span style="color:#ff79c6">for</span> r <span style="color:#ff79c6">in</span> n_results]
+</span></span><span style="display:flex;"><span>        path_lengths <span style="color:#ff79c6">=</span> [r[<span style="color:#f1fa8c">&#39;avg_path_length&#39;</span>] <span style="color:#ff79c6">for</span> r <span style="color:#ff79c6">in</span> n_results]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        ax2<span style="color:#ff79c6">.</span>plot(p_values, path_lengths, <span style="color:#f1fa8c">&#39;o-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;n=</span><span style="color:#f1fa8c">{</span>n<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>, markersize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Probability p&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Average Path Length&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Phase Transition: Path Length&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>legend()
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>tight_layout()
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Analyze Erdős-Rényi random graph</span>
+</span></span><span style="display:flex;"><span>n, p <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1000</span>, <span style="color:#bd93f9">0.01</span>
+</span></span><span style="display:flex;"><span>G_ER <span style="color:#ff79c6">=</span> generate_erdos_renyi(n, p)
+</span></span><span style="display:flex;"><span>analysis_ER <span style="color:#ff79c6">=</span> analyze_random_graph(G_ER, <span style="color:#f1fa8c">&#34;ER&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Erdős-Rényi Random Graph Analysis:&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> key, value <span style="color:#ff79c6">in</span> analysis_ER<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{</span>key<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">: </span><span style="color:#f1fa8c">{</span>value<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Plot degree distribution</span>
+</span></span><span style="display:flex;"><span>plot_degree_distribution(G_ER, <span style="color:#f1fa8c">&#34;ER&#34;</span>, <span style="color:#f1fa8c">&#34;Erdős-Rényi Random Graph&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Analyze configuration model</span>
+</span></span><span style="display:flex;"><span>degree_sequence <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>] <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">100</span>  <span style="color:#6272a4"># Regular graph</span>
+</span></span><span style="display:flex;"><span>G_CM <span style="color:#ff79c6">=</span> generate_configuration_model(degree_sequence)
+</span></span><span style="display:flex;"><span>analysis_CM <span style="color:#ff79c6">=</span> analyze_random_graph(G_CM, <span style="color:#f1fa8c">&#34;CM&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">Configuration Model Analysis:&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> key, value <span style="color:#ff79c6">in</span> analysis_CM<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{</span>key<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">: </span><span style="color:#f1fa8c">{</span>value<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Plot degree distribution</span>
+</span></span><span style="display:flex;"><span>plot_degree_distribution(G_CM, <span style="color:#f1fa8c">&#34;CM&#34;</span>, <span style="color:#f1fa8c">&#34;Configuration Model&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Phase transition analysis</span>
+</span></span><span style="display:flex;"><span>n_values <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">500</span>, <span style="color:#bd93f9">1000</span>]
+</span></span><span style="display:flex;"><span>p_values <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#bd93f9">0.001</span>, <span style="color:#bd93f9">0.1</span>, <span style="color:#bd93f9">20</span>)
+</span></span><span style="display:flex;"><span>phase_results <span style="color:#ff79c6">=</span> analyze_phase_transition(n_values, p_values)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Plot phase transition</span>
+</span></span><span style="display:flex;"><span>plot_phase_transition(phase_results)
+</span></span></code></pre></div><h2 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h2>
+<ol>
+<li><strong>Random graph models</strong>: Provide null models for understanding network structure</li>
+<li><strong>Phase transitions</strong>: Critical thresholds determine network connectivity</li>
+<li><strong>Degree distributions</strong>: Poisson for ER model, prescribed for configuration model</li>
+<li><strong>Giant component</strong>: Emerges at critical threshold, dominates above threshold</li>
+<li><strong>Mathematical analysis</strong>: Rigorous theory enables prediction of network properties</li>
+<li><strong>Applications</strong>: Random graphs provide insights into materials science phenomena</li>
+<li><strong>Percolation theory</strong>: Direct application to nanowire networks and defect systems</li>
+</ol>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ol>
+<li>Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press.</li>
+<li>Erdős, P., &amp; Rényi, A. (1959). On random graphs. Publicationes Mathematicae, 6, 290-297.</li>
+<li>Molloy, M., &amp; Reed, B. (1995). A critical point for random graphs with a given degree sequence. Random Structures &amp; Algorithms, 6(2-3), 161-180.</li>
+<li>Stauffer, D., &amp; Aharony, A. (1994). Introduction to Percolation Theory. Taylor &amp; Francis.</li>
+</ol>
+<hr>
+<p><em>Random graph theory provides the mathematical foundation for understanding network structure and behavior, with important applications in materials science and percolation phenomena.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/random-graphs/">Random-Graphs</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/erdos-renyi/">Erdos-Renyi</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/configuration-model/">Configuration-Model</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs on x"
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%208%20-%20Random%20Graphs&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch8%2f&amp;hashtags=reading-notes%2cnetwork-theory%2crandom-graphs%2cerdos-renyi%2cconfiguration-model">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch8%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%208%20-%20Random%20Graphs&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%208%20-%20Random%20Graphs&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch8%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch8%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%208%20-%20Random%20Graphs">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch8%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs on whatsapp"
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%208%20-%20Random%20Graphs%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch8%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs on telegram"
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%208%20-%20Random%20Graphs&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch8%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%208%20-%20Random%20Graphs&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch8%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

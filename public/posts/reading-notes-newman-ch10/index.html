@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes | Notes on AI4Science &amp; Graph Theory</title>
+<meta name="keywords" content="reading-notes, network-theory, network-processes, percolation, epidemic-spreading">
+<meta name="description" content="Study notes for Chapter 10 of Newman&#39;s &#39;Networks: An Introduction&#39; covering percolation, epidemic spreading, synchronization, and other dynamic processes on networks">
+<meta name="author" content="Linlin-resh">
+<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/">
+  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes">
+  <meta property="og:description" content="Study notes for Chapter 10 of Newman&#39;s &#39;Networks: An Introduction&#39; covering percolation, epidemic spreading, synchronization, and other dynamic processes on networks">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Reading-Notes">
+    <meta property="article:tag" content="Network-Theory">
+    <meta property="article:tag" content="Network-Processes">
+    <meta property="article:tag" content="Percolation">
+    <meta property="article:tag" content="Epidemic-Spreading">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes">
+<meta name="twitter:description" content="Study notes for Chapter 10 of Newman&#39;s &#39;Networks: An Introduction&#39; covering percolation, epidemic spreading, synchronization, and other dynamic processes on networks">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Linlin-resh.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading Notes: Newman's Networks Chapter 10 - Network Processes",
+      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading Notes: Newman's Networks Chapter 10 - Network Processes",
+  "name": "Reading Notes: Newman\u0027s Networks Chapter 10 - Network Processes",
+  "description": "Study notes for Chapter 10 of Newman's 'Networks: An Introduction' covering percolation, epidemic spreading, synchronization, and other dynamic processes on networks",
+  "keywords": [
+    "reading-notes", "network-theory", "network-processes", "percolation", "epidemic-spreading"
+  ],
+  "articleBody": "Introduction Chapter 10 of Newman’s Networks: An Introduction explores network processes - the dynamic phenomena that occur on networks. This chapter covers percolation, epidemic spreading, synchronization, and other processes that reveal how network structure affects system behavior.\n10.1 Percolation Theory Bond Percolation Model Definition Bond percolation on a network:\nInitial state: All edges present Process: Remove edges with probability $1-p$ Question: What is the probability of a giant connected component? Mathematical Analysis Percolation probability: $$P(p) = 1 - \\sum_{k=0}^{\\infty} P(k) (1-p)^k$$\nWhere $P(k)$ is the degree distribution.\nCritical threshold: $$p_c = \\frac{1}{\\kappa - 1}$$\nWhere $\\kappa = \\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}$ is the degree ratio.\nPhase Transition Below threshold ($p \u003c p_c$):\nOnly small, isolated components exist Largest component size: $O(\\ln n)$ At threshold ($p = p_c$):\nGiant component emerges Largest component size: $O(n^{2/3})$ Above threshold ($p \u003e p_c$):\nGiant component dominates Largest component size: $O(n)$ Site Percolation Model Definition Site percolation on a network:\nInitial state: All nodes present Process: Remove nodes with probability $1-p$ Question: What is the probability of a giant connected component? Mathematical Analysis Percolation probability: $$P(p) = 1 - \\sum_{k=0}^{\\infty} P(k) (1-p)^k$$\nCritical threshold: $$p_c = \\frac{1}{\\kappa - 1}$$\nSame as bond percolation for degree-uncorrelated networks.\nPercolation on Scale-Free Networks Critical Threshold For power-law degree distribution $P(k) \\sim k^{-\\gamma}$:\n$\\gamma \u003e 3$: $p_c \u003e 0$ (finite threshold) $2 \u003c \\gamma \\leq 3$: $p_c = 0$ (no threshold) $\\gamma \\leq 2$: $p_c = 0$ (no threshold) Mathematical Derivation Second moment: $$\\langle k^2 \\rangle = \\int_{k_{\\min}}^{\\infty} k^2 P(k) , dk$$\nFor power-law distribution: $$\\langle k^2 \\rangle \\sim \\int_{k_{\\min}}^{\\infty} k^{2-\\gamma} , dk$$\nConvergence condition: $\\gamma \u003e 3$\nCritical threshold: $$p_c = \\frac{1}{\\kappa - 1} = \\frac{\\langle k \\rangle}{\\langle k^2 \\rangle - \\langle k \\rangle}$$\nApplications to Materials Science Nanowire Networks Network formation:\nNodes: Nanowire junctions Edges: Nanowire segments Percolation: Electrical connectivity Critical density: $$\\rho_c = \\frac{1}{\\pi r^2 (\\kappa - 1)}$$\nWhere $r$ is the interaction radius.\nConductivity: $$\\sigma \\sim (\\rho - \\rho_c)^t$$\nWhere $t \\approx 2.0$ is the conductivity exponent.\nDefect Networks Defect percolation:\nNodes: Defect sites Edges: Defect interactions Percolation: Defect clustering Critical concentration: $$c_c = \\frac{1}{\\kappa - 1}$$\n10.2 Epidemic Spreading SIR Model Model Definition SIR model on a network:\nS: Susceptible (haven’t been infected) I: Infected (can spread the disease) R: Recovered (immune, cannot spread) Dynamics Transition rates:\nS → I: $\\beta$ (infection rate) I → R: $\\gamma$ (recovery rate) Differential equations: $$\\frac{dS_i}{dt} = -\\beta S_i \\sum_{j} A_{ij} I_j$$ $$\\frac{dI_i}{dt} = \\beta S_i \\sum_{j} A_{ij} I_j - \\gamma I_i$$ $$\\frac{dR_i}{dt} = \\gamma I_i$$\nBasic Reproduction Number Definition: $$R_0 = \\frac{\\beta}{\\gamma} \\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}$$\nEpidemic threshold: $$R_0 \u003e 1$$\nCritical infection rate: $$\\beta_c = \\frac{\\gamma \\langle k \\rangle}{\\langle k^2 \\rangle}$$\nSIS Model Model Definition SIS model on a network:\nS: Susceptible I: Infected No recovered state: Infected nodes can become susceptible again Dynamics Transition rates:\nS → I: $\\beta$ (infection rate) I → S: $\\gamma$ (recovery rate) Differential equations: $$\\frac{dS_i}{dt} = -\\beta S_i \\sum_{j} A_{ij} I_j + \\gamma I_i$$ $$\\frac{dI_i}{dt} = \\beta S_i \\sum_{j} A_{ij} I_j - \\gamma I_i$$\nSteady State Infection prevalence: $$\\rho = \\frac{\\beta \\langle k^2 \\rangle}{\\gamma \\langle k \\rangle + \\beta \\langle k^2 \\rangle}$$\nCritical threshold: $$\\beta_c = \\frac{\\gamma \\langle k \\rangle}{\\langle k^2 \\rangle}$$\nComplex Contagion Threshold Models Activation condition: $$\\sum_{j \\in \\text{active neighbors}} w_{ji} \\geq \\theta_i$$\nWhere:\n$w_{ji}$: Influence weight from $j$ to $i$ $\\theta_i$: Threshold for node $i$ Cascade Condition Global cascade condition: $$\\frac{\\langle k^2 \\rangle}{\\langle k \\rangle} \u003e \\frac{1}{\\theta}$$\nWhere $\\theta$ is the average threshold.\nMathematical Analysis Cascade size: $$S = \\sum_{k=0}^{\\infty} P(k) \\sum_{m=0}^{k} \\binom{k}{m} p^m (1-p)^{k-m} \\Theta(m - \\theta k)$$\nWhere $\\Theta(x)$ is the Heaviside step function.\n10.3 Synchronization Kuramoto Model Model Definition Kuramoto model on a network:\n$$\\frac{d\\theta_i}{dt} = \\omega_i + \\frac{K}{N} \\sum_{j=1}^N A_{ij} \\sin(\\theta_j - \\theta_i)$$\nWhere:\n$\\theta_i$: Phase of oscillator $i$ $\\omega_i$: Natural frequency $K$: Coupling strength $A_{ij}$: Adjacency matrix Order Parameters Global order parameter: $$r = \\left| \\frac{1}{N} \\sum_{j=1}^N e^{i\\theta_j} \\right|$$\nLocal order parameter: $$r_i = \\left| \\frac{1}{k_i} \\sum_{j \\in \\mathcal{N}_i} e^{i\\theta_j} \\right|$$\nSynchronization Threshold Critical coupling: $$K_c = \\frac{2}{\\pi g(0)} \\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}$$\nWhere $g(0)$ is the frequency distribution at zero.\nMaster Stability Function Linear Stability Analysis Perturbation equations: $$\\frac{d\\delta \\theta_i}{dt} = \\delta \\omega_i + \\frac{K}{N} \\sum_{j=1}^N A_{ij} \\cos(\\theta_j - \\theta_i) (\\delta \\theta_j - \\delta \\theta_i)$$\nEigenvalue problem: $$\\lambda \\delta \\theta = L \\delta \\theta$$\nWhere $L$ is the Laplacian matrix.\nStability Condition Synchronization is stable if: $$\\lambda_2 \u003e \\frac{\\sigma^2}{K}$$\nWhere $\\lambda_2$ is the second smallest eigenvalue of the Laplacian.\n10.4 Random Walks Simple Random Walk Model Definition Simple random walk on a network:\nStart: Random initial node Move: At each step, move to random neighbor Transition matrix: $P_{ij} = \\frac{A_{ij}}{k_i}$ Stationary Distribution Stationary distribution: $$\\pi_i = \\frac{k_i}{2m}$$\nVerification: $$\\sum_i \\pi_i P_{ij} = \\sum_i \\frac{k_i}{2m} \\frac{A_{ij}}{k_i} = \\frac{1}{2m} \\sum_i A_{ij} = \\frac{k_j}{2m} = \\pi_j$$\nMixing Time Mixing time: $$\\tau_{\\text{mix}} = \\min{t : \\max_i ||P^t(i, \\cdot) - \\pi||_1 \\leq \\epsilon}$$\nSpectral bound: $$\\tau_{\\text{mix}} \\leq \\frac{1}{1 - \\lambda_2} \\log\\left(\\frac{1}{\\epsilon \\pi_{\\min}}\\right)$$\nWhere $\\lambda_2$ is the second largest eigenvalue of $P$.\nPageRank Model Definition PageRank as a random walk:\n$$\\mathbf{PR} = (1-d) \\frac{\\mathbf{1}}{n} + d P^T \\mathbf{PR}$$\nWhere $P$ is the transition matrix.\nMathematical Properties Convergence: Guaranteed for $d \u003c 1$\nStationary distribution: Unique solution\nInterpretation: Probability of being at each node in the long run\n10.5 Applications to Materials Science Information Spreading in Materials Defect Propagation Defect spreading can be modeled as:\nS: Healthy sites I: Defected sites R: Repaired sites Mathematical model: $$\\frac{dS_i}{dt} = -\\beta S_i \\sum_{j} A_{ij} I_j + \\gamma R_i$$ $$\\frac{dI_i}{dt} = \\beta S_i \\sum_{j} A_{ij} I_j - \\delta I_i$$ $$\\frac{dR_i}{dt} = \\delta I_i - \\gamma R_i$$\nCritical Defect Rate Critical defect rate: $$\\beta_c = \\frac{\\delta \\langle k \\rangle}{\\langle k^2 \\rangle}$$\nFor scale-free networks: $\\beta_c \\to 0$ as $n \\to \\infty$\nPhase Transitions in Materials Order-Disorder Transitions Order parameter: $$\\phi = \\frac{1}{N} \\sum_{i=1}^N \\cos(\\theta_i - \\theta_0)$$\nWhere $\\theta_0$ is the preferred orientation.\nCritical temperature: $$T_c = \\frac{K \\langle k^2 \\rangle}{2 \\langle k \\rangle}$$\nPercolation in Disordered Systems Defect percolation: $$P(\\text{percolation}) = 1 - \\sum_{k=0}^{\\infty} P(k) (1-p)^k$$\nCritical concentration: $$c_c = \\frac{1}{\\kappa - 1}$$\nNetwork-Based Materials Design Structure-Property Relationships Property prediction: $$P = f(\\langle k \\rangle, C, L, \\ldots)$$\nNetwork optimization: $$\\min_{\\text{network}} \\sum_i w_i |P_i - P_i^{\\text{target}}|^2$$\nConstraints:\nConnectivity: Network must be connected Degree bounds: $k_{\\min} \\leq k_i \\leq k_{\\max}$ Clustering bounds: $C_{\\min} \\leq C \\leq C_{\\max}$ Code Example: Network Processes import networkx as nx import numpy as np import matplotlib.pyplot as plt from collections import Counter from scipy.integrate import odeint def simulate_percolation(G, p_values): \"\"\"Simulate percolation on network\"\"\" results = [] for p in p_values: # Remove edges with probability 1-p edges_to_remove = [] for edge in G.edges(): if np.random.random() \u003e p: edges_to_remove.append(edge) # Create subgraph G_sub = G.copy() G_sub.remove_edges_from(edges_to_remove) # Analyze components components = list(nx.connected_components(G_sub)) component_sizes = [len(comp) for comp in components] giant_component_size = max(component_sizes) if component_sizes else 0 giant_component_fraction = giant_component_size / G.number_of_nodes() results.append({ 'p': p, 'giant_component_fraction': giant_component_fraction, 'num_components': len(components), 'avg_component_size': np.mean(component_sizes) }) return results def simulate_sir_epidemic(G, beta, gamma, initial_infected=1): \"\"\"Simulate SIR epidemic on network\"\"\" n = G.number_of_nodes() # Initial conditions S = np.ones(n) # Susceptible I = np.zeros(n) # Infected R = np.zeros(n) # Recovered # Initial infected nodes infected_nodes = np.random.choice(n, initial_infected, replace=False) S[infected_nodes] = 0 I[infected_nodes] = 1 # Time points t = np.linspace(0, 100, 1000) # SIR dynamics def sir_equations(y, t): S, I, R = y dS_dt = np.zeros(n) dI_dt = np.zeros(n) dR_dt = np.zeros(n) for i in range(n): # Infection rate infection_rate = 0 for j in G.neighbors(i): infection_rate += I[j] infection_rate *= beta * S[i] # Recovery rate recovery_rate = gamma * I[i] dS_dt[i] = -infection_rate dI_dt[i] = infection_rate - recovery_rate dR_dt[i] = recovery_rate return np.concatenate([dS_dt, dI_dt, dR_dt]) # Solve ODEs y0 = np.concatenate([S, I, R]) sol = odeint(sir_equations, y0, t) # Extract results S_t = sol[:, :n] I_t = sol[:, n:2*n] R_t = sol[:, 2*n:] return t, S_t, I_t, R_t def simulate_kuramoto(G, K, omega, initial_phases=None): \"\"\"Simulate Kuramoto model on network\"\"\" n = G.number_of_nodes() # Initial phases if initial_phases is None: theta = np.random.uniform(0, 2*np.pi, n) else: theta = initial_phases # Time points t = np.linspace(0, 100, 1000) # Kuramoto dynamics def kuramoto_equations(theta, t): dtheta_dt = np.zeros(n) for i in range(n): coupling = 0 for j in G.neighbors(i): coupling += np.sin(theta[j] - theta[i]) coupling *= K / n dtheta_dt[i] = omega[i] + coupling return dtheta_dt # Solve ODEs sol = odeint(kuramoto_equations, theta, t) return t, sol def analyze_network_processes(G, process_type=\"percolation\"): \"\"\"Analyze network processes\"\"\" if process_type == \"percolation\": # Percolation analysis p_values = np.linspace(0.1, 1.0, 20) results = simulate_percolation(G, p_values) # Find critical threshold critical_p = None for i, result in enumerate(results): if result['giant_component_fraction'] \u003e 0.5: critical_p = result['p'] break return { 'process_type': process_type, 'critical_threshold': critical_p, 'results': results } elif process_type == \"sir\": # SIR epidemic analysis beta = 0.1 gamma = 0.05 t, S_t, I_t, R_t = simulate_sir_epidemic(G, beta, gamma) # Calculate basic reproduction number degrees = [d for n, d in G.degree()] avg_degree = np.mean(degrees) degree_variance = np.var(degrees) R0 = (beta / gamma) * (avg_degree + degree_variance / avg_degree) return { 'process_type': process_type, 'R0': R0, 'time': t, 'S': S_t, 'I': I_t, 'R': R_t } elif process_type == \"kuramoto\": # Kuramoto synchronization analysis K = 1.0 omega = np.random.normal(0, 1, G.number_of_nodes()) t, theta_t = simulate_kuramoto(G, K, omega) # Calculate order parameter r_t = np.abs(np.mean(np.exp(1j * theta_t), axis=1)) return { 'process_type': process_type, 'time': t, 'phases': theta_t, 'order_parameter': r_t } def plot_network_processes(G, process_type=\"percolation\"): \"\"\"Plot network process results\"\"\" results = analyze_network_processes(G, process_type) if process_type == \"percolation\": p_values = [r['p'] for r in results['results']] giant_fractions = [r['giant_component_fraction'] for r in results['results']] plt.figure(figsize=(10, 6)) plt.plot(p_values, giant_fractions, 'bo-', markersize=8) plt.axvline(x=results['critical_threshold'], color='r', linestyle='--', label=f'Critical threshold: {results[\"critical_threshold\"]:.3f}') plt.xlabel('Probability p') plt.ylabel('Giant Component Fraction') plt.title('Percolation Phase Transition') plt.legend() plt.grid(True, alpha=0.3) plt.show() elif process_type == \"sir\": t = results['time'] S_t = results['S'] I_t = results['I'] R_t = results['R'] plt.figure(figsize=(12, 8)) # Plot SIR curves plt.subplot(2, 2, 1) plt.plot(t, np.mean(S_t, axis=1), 'b-', label='Susceptible') plt.plot(t, np.mean(I_t, axis=1), 'r-', label='Infected') plt.plot(t, np.mean(R_t, axis=1), 'g-', label='Recovered') plt.xlabel('Time') plt.ylabel('Fraction') plt.title('SIR Epidemic Dynamics') plt.legend() plt.grid(True, alpha=0.3) # Plot R0 plt.subplot(2, 2, 2) plt.bar(['R0'], [results['R0']], color='orange') plt.ylabel('Basic Reproduction Number') plt.title('Epidemic Threshold') plt.grid(True, alpha=0.3) # Plot individual node dynamics plt.subplot(2, 2, 3) for i in range(min(5, S_t.shape[1])): plt.plot(t, S_t[:, i], 'b-', alpha=0.3) plt.plot(t, I_t[:, i], 'r-', alpha=0.3) plt.plot(t, R_t[:, i], 'g-', alpha=0.3) plt.xlabel('Time') plt.ylabel('Fraction') plt.title('Individual Node Dynamics') plt.grid(True, alpha=0.3) # Plot network visualization plt.subplot(2, 2, 4) pos = nx.spring_layout(G, k=1, iterations=50) nx.draw(G, pos, node_size=50, node_color='lightblue', edge_color='gray', alpha=0.6) plt.title('Network Structure') plt.axis('off') plt.tight_layout() plt.show() elif process_type == \"kuramoto\": t = results['time'] theta_t = results['phases'] r_t = results['order_parameter'] plt.figure(figsize=(12, 8)) # Plot order parameter plt.subplot(2, 2, 1) plt.plot(t, r_t, 'b-', linewidth=2) plt.xlabel('Time') plt.ylabel('Order Parameter r') plt.title('Synchronization Order Parameter') plt.grid(True, alpha=0.3) # Plot phase evolution plt.subplot(2, 2, 2) for i in range(min(10, theta_t.shape[1])): plt.plot(t, theta_t[:, i], alpha=0.7) plt.xlabel('Time') plt.ylabel('Phase θ') plt.title('Phase Evolution') plt.grid(True, alpha=0.3) # Plot phase distribution plt.subplot(2, 2, 3) final_phases = theta_t[-1, :] plt.hist(final_phases, bins=20, alpha=0.7, edgecolor='black') plt.xlabel('Final Phase') plt.ylabel('Count') plt.title('Final Phase Distribution') plt.grid(True, alpha=0.3) # Plot network visualization plt.subplot(2, 2, 4) pos = nx.spring_layout(G, k=1, iterations=50) nx.draw(G, pos, node_size=50, node_color='lightblue', edge_color='gray', alpha=0.6) plt.title('Network Structure') plt.axis('off') plt.tight_layout() plt.show() # Example: Analyze network processes G = nx.barabasi_albert_graph(100, 3) # Percolation analysis print(\"Percolation Analysis:\") percolation_results = analyze_network_processes(G, \"percolation\") print(f\"Critical threshold: {percolation_results['critical_threshold']:.3f}\") # SIR epidemic analysis print(\"\\nSIR Epidemic Analysis:\") sir_results = analyze_network_processes(G, \"sir\") print(f\"Basic reproduction number: {sir_results['R0']:.3f}\") # Kuramoto synchronization analysis print(\"\\nKuramoto Synchronization Analysis:\") kuramoto_results = analyze_network_processes(G, \"kuramoto\") print(f\"Final order parameter: {kuramoto_results['order_parameter'][-1]:.3f}\") # Plot results plot_network_processes(G, \"percolation\") plot_network_processes(G, \"sir\") plot_network_processes(G, \"kuramoto\") Key Takeaways Percolation theory: Provides framework for understanding connectivity transitions Epidemic spreading: Network structure affects disease transmission dynamics Synchronization: Coupling strength and network topology determine synchronization Random walks: Reveal network structure and mixing properties Phase transitions: Critical thresholds determine system behavior Applications: Network processes help understand materials science phenomena Mathematical analysis: Rigorous theory enables prediction of dynamic behavior References Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press. Stauffer, D., \u0026 Aharony, A. (1994). Introduction to Percolation Theory. Taylor \u0026 Francis. Pastor-Satorras, R., \u0026 Vespignani, A. (2001). Epidemic spreading in scale-free networks. Physical Review Letters, 86(14), 3200. Kuramoto, Y. (1984). Chemical Oscillations, Waves, and Turbulence. Springer. Network processes provide insights into how dynamic phenomena unfold on complex networks, with important applications in understanding materials behavior and system dynamics.\n",
+  "wordCount" : "2014",
+  "inLanguage": "en",
+  "datePublished": "2025-08-29T00:00:00Z",
+  "dateModified": "2025-08-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Linlin-resh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Notes on AI4Science \u0026 Graph Theory",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Linlin-resh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Linlin-resh.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes
+    </h1>
+    <div class="post-description">
+      Study notes for Chapter 10 of Newman&#39;s &#39;Networks: An Introduction&#39; covering percolation, epidemic spreading, synchronization, and other dynamic processes on networks
+    </div>
+    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;2014 words&nbsp;·&nbsp;Linlin-resh
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#101-percolation-theory" aria-label="10.1 Percolation Theory">10.1 Percolation Theory</a><ul>
+                        
+                <li>
+                    <a href="#bond-percolation" aria-label="Bond Percolation">Bond Percolation</a><ul>
+                        
+                <li>
+                    <a href="#model-definition" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#mathematical-analysis" aria-label="Mathematical Analysis">Mathematical Analysis</a></li>
+                <li>
+                    <a href="#phase-transition" aria-label="Phase Transition">Phase Transition</a></li></ul>
+                </li>
+                <li>
+                    <a href="#site-percolation" aria-label="Site Percolation">Site Percolation</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-1" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#mathematical-analysis-1" aria-label="Mathematical Analysis">Mathematical Analysis</a></li></ul>
+                </li>
+                <li>
+                    <a href="#percolation-on-scale-free-networks" aria-label="Percolation on Scale-Free Networks">Percolation on Scale-Free Networks</a><ul>
+                        
+                <li>
+                    <a href="#critical-threshold" aria-label="Critical Threshold">Critical Threshold</a></li>
+                <li>
+                    <a href="#mathematical-derivation" aria-label="Mathematical Derivation">Mathematical Derivation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#applications-to-materials-science" aria-label="Applications to Materials Science">Applications to Materials Science</a><ul>
+                        
+                <li>
+                    <a href="#nanowire-networks" aria-label="Nanowire Networks">Nanowire Networks</a></li>
+                <li>
+                    <a href="#defect-networks" aria-label="Defect Networks">Defect Networks</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#102-epidemic-spreading" aria-label="10.2 Epidemic Spreading">10.2 Epidemic Spreading</a><ul>
+                        
+                <li>
+                    <a href="#sir-model" aria-label="SIR Model">SIR Model</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-2" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#dynamics" aria-label="Dynamics">Dynamics</a></li>
+                <li>
+                    <a href="#basic-reproduction-number" aria-label="Basic Reproduction Number">Basic Reproduction Number</a></li></ul>
+                </li>
+                <li>
+                    <a href="#sis-model" aria-label="SIS Model">SIS Model</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-3" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#dynamics-1" aria-label="Dynamics">Dynamics</a></li>
+                <li>
+                    <a href="#steady-state" aria-label="Steady State">Steady State</a></li></ul>
+                </li>
+                <li>
+                    <a href="#complex-contagion" aria-label="Complex Contagion">Complex Contagion</a><ul>
+                        
+                <li>
+                    <a href="#threshold-models" aria-label="Threshold Models">Threshold Models</a></li>
+                <li>
+                    <a href="#cascade-condition" aria-label="Cascade Condition">Cascade Condition</a></li>
+                <li>
+                    <a href="#mathematical-analysis-2" aria-label="Mathematical Analysis">Mathematical Analysis</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#103-synchronization" aria-label="10.3 Synchronization">10.3 Synchronization</a><ul>
+                        
+                <li>
+                    <a href="#kuramoto-model" aria-label="Kuramoto Model">Kuramoto Model</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-4" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#order-parameters" aria-label="Order Parameters">Order Parameters</a></li>
+                <li>
+                    <a href="#synchronization-threshold" aria-label="Synchronization Threshold">Synchronization Threshold</a></li></ul>
+                </li>
+                <li>
+                    <a href="#master-stability-function" aria-label="Master Stability Function">Master Stability Function</a><ul>
+                        
+                <li>
+                    <a href="#linear-stability-analysis" aria-label="Linear Stability Analysis">Linear Stability Analysis</a></li>
+                <li>
+                    <a href="#stability-condition" aria-label="Stability Condition">Stability Condition</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#104-random-walks" aria-label="10.4 Random Walks">10.4 Random Walks</a><ul>
+                        
+                <li>
+                    <a href="#simple-random-walk" aria-label="Simple Random Walk">Simple Random Walk</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-5" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#stationary-distribution" aria-label="Stationary Distribution">Stationary Distribution</a></li>
+                <li>
+                    <a href="#mixing-time" aria-label="Mixing Time">Mixing Time</a></li></ul>
+                </li>
+                <li>
+                    <a href="#pagerank" aria-label="PageRank">PageRank</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-6" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#mathematical-properties" aria-label="Mathematical Properties">Mathematical Properties</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#105-applications-to-materials-science" aria-label="10.5 Applications to Materials Science">10.5 Applications to Materials Science</a><ul>
+                        
+                <li>
+                    <a href="#information-spreading-in-materials" aria-label="Information Spreading in Materials">Information Spreading in Materials</a><ul>
+                        
+                <li>
+                    <a href="#defect-propagation" aria-label="Defect Propagation">Defect Propagation</a></li>
+                <li>
+                    <a href="#critical-defect-rate" aria-label="Critical Defect Rate">Critical Defect Rate</a></li></ul>
+                </li>
+                <li>
+                    <a href="#phase-transitions-in-materials" aria-label="Phase Transitions in Materials">Phase Transitions in Materials</a><ul>
+                        
+                <li>
+                    <a href="#order-disorder-transitions" aria-label="Order-Disorder Transitions">Order-Disorder Transitions</a></li>
+                <li>
+                    <a href="#percolation-in-disordered-systems" aria-label="Percolation in Disordered Systems">Percolation in Disordered Systems</a></li></ul>
+                </li>
+                <li>
+                    <a href="#network-based-materials-design" aria-label="Network-Based Materials Design">Network-Based Materials Design</a><ul>
+                        
+                <li>
+                    <a href="#structure-property-relationships" aria-label="Structure-Property Relationships">Structure-Property Relationships</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#code-example-network-processes" aria-label="Code Example: Network Processes">Code Example: Network Processes</a></li>
+                <li>
+                    <a href="#key-takeaways" aria-label="Key Takeaways">Key Takeaways</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Chapter 10 of Newman&rsquo;s <em>Networks: An Introduction</em> explores <strong>network processes</strong> - the dynamic phenomena that occur on networks. This chapter covers percolation, epidemic spreading, synchronization, and other processes that reveal how network structure affects system behavior.</p>
+<h2 id="101-percolation-theory">10.1 Percolation Theory<a hidden class="anchor" aria-hidden="true" href="#101-percolation-theory">#</a></h2>
+<h3 id="bond-percolation">Bond Percolation<a hidden class="anchor" aria-hidden="true" href="#bond-percolation">#</a></h3>
+<h4 id="model-definition">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition">#</a></h4>
+<p><strong>Bond percolation</strong> on a network:</p>
+<ul>
+<li><strong>Initial state</strong>: All edges present</li>
+<li><strong>Process</strong>: Remove edges with probability $1-p$</li>
+<li><strong>Question</strong>: What is the probability of a giant connected component?</li>
+</ul>
+<h4 id="mathematical-analysis">Mathematical Analysis<a hidden class="anchor" aria-hidden="true" href="#mathematical-analysis">#</a></h4>
+<p><strong>Percolation probability</strong>:
+$$P(p) = 1 - \sum_{k=0}^{\infty} P(k) (1-p)^k$$</p>
+<p>Where $P(k)$ is the degree distribution.</p>
+<p><strong>Critical threshold</strong>:
+$$p_c = \frac{1}{\kappa - 1}$$</p>
+<p>Where $\kappa = \frac{\langle k^2 \rangle}{\langle k \rangle}$ is the degree ratio.</p>
+<h4 id="phase-transition">Phase Transition<a hidden class="anchor" aria-hidden="true" href="#phase-transition">#</a></h4>
+<p><strong>Below threshold</strong> ($p &lt; p_c$):</p>
+<ul>
+<li>Only small, isolated components exist</li>
+<li>Largest component size: $O(\ln n)$</li>
+</ul>
+<p><strong>At threshold</strong> ($p = p_c$):</p>
+<ul>
+<li>Giant component emerges</li>
+<li>Largest component size: $O(n^{2/3})$</li>
+</ul>
+<p><strong>Above threshold</strong> ($p &gt; p_c$):</p>
+<ul>
+<li>Giant component dominates</li>
+<li>Largest component size: $O(n)$</li>
+</ul>
+<h3 id="site-percolation">Site Percolation<a hidden class="anchor" aria-hidden="true" href="#site-percolation">#</a></h3>
+<h4 id="model-definition-1">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-1">#</a></h4>
+<p><strong>Site percolation</strong> on a network:</p>
+<ul>
+<li><strong>Initial state</strong>: All nodes present</li>
+<li><strong>Process</strong>: Remove nodes with probability $1-p$</li>
+<li><strong>Question</strong>: What is the probability of a giant connected component?</li>
+</ul>
+<h4 id="mathematical-analysis-1">Mathematical Analysis<a hidden class="anchor" aria-hidden="true" href="#mathematical-analysis-1">#</a></h4>
+<p><strong>Percolation probability</strong>:
+$$P(p) = 1 - \sum_{k=0}^{\infty} P(k) (1-p)^k$$</p>
+<p><strong>Critical threshold</strong>:
+$$p_c = \frac{1}{\kappa - 1}$$</p>
+<p><strong>Same as bond percolation</strong> for degree-uncorrelated networks.</p>
+<h3 id="percolation-on-scale-free-networks">Percolation on Scale-Free Networks<a hidden class="anchor" aria-hidden="true" href="#percolation-on-scale-free-networks">#</a></h3>
+<h4 id="critical-threshold">Critical Threshold<a hidden class="anchor" aria-hidden="true" href="#critical-threshold">#</a></h4>
+<p><strong>For power-law degree distribution</strong> $P(k) \sim k^{-\gamma}$:</p>
+<ul>
+<li><strong>$\gamma &gt; 3$</strong>: $p_c &gt; 0$ (finite threshold)</li>
+<li><strong>$2 &lt; \gamma \leq 3$</strong>: $p_c = 0$ (no threshold)</li>
+<li><strong>$\gamma \leq 2$</strong>: $p_c = 0$ (no threshold)</li>
+</ul>
+<h4 id="mathematical-derivation">Mathematical Derivation<a hidden class="anchor" aria-hidden="true" href="#mathematical-derivation">#</a></h4>
+<p><strong>Second moment</strong>:
+$$\langle k^2 \rangle = \int_{k_{\min}}^{\infty} k^2 P(k) , dk$$</p>
+<p><strong>For power-law distribution</strong>:
+$$\langle k^2 \rangle \sim \int_{k_{\min}}^{\infty} k^{2-\gamma} , dk$$</p>
+<p><strong>Convergence condition</strong>: $\gamma &gt; 3$</p>
+<p><strong>Critical threshold</strong>:
+$$p_c = \frac{1}{\kappa - 1} = \frac{\langle k \rangle}{\langle k^2 \rangle - \langle k \rangle}$$</p>
+<h3 id="applications-to-materials-science">Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#applications-to-materials-science">#</a></h3>
+<h4 id="nanowire-networks">Nanowire Networks<a hidden class="anchor" aria-hidden="true" href="#nanowire-networks">#</a></h4>
+<p><strong>Network formation</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Nanowire junctions</li>
+<li><strong>Edges</strong>: Nanowire segments</li>
+<li><strong>Percolation</strong>: Electrical connectivity</li>
+</ul>
+<p><strong>Critical density</strong>:
+$$\rho_c = \frac{1}{\pi r^2 (\kappa - 1)}$$</p>
+<p>Where $r$ is the interaction radius.</p>
+<p><strong>Conductivity</strong>:
+$$\sigma \sim (\rho - \rho_c)^t$$</p>
+<p>Where $t \approx 2.0$ is the conductivity exponent.</p>
+<h4 id="defect-networks">Defect Networks<a hidden class="anchor" aria-hidden="true" href="#defect-networks">#</a></h4>
+<p><strong>Defect percolation</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Defect sites</li>
+<li><strong>Edges</strong>: Defect interactions</li>
+<li><strong>Percolation</strong>: Defect clustering</li>
+</ul>
+<p><strong>Critical concentration</strong>:
+$$c_c = \frac{1}{\kappa - 1}$$</p>
+<h2 id="102-epidemic-spreading">10.2 Epidemic Spreading<a hidden class="anchor" aria-hidden="true" href="#102-epidemic-spreading">#</a></h2>
+<h3 id="sir-model">SIR Model<a hidden class="anchor" aria-hidden="true" href="#sir-model">#</a></h3>
+<h4 id="model-definition-2">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-2">#</a></h4>
+<p><strong>SIR model</strong> on a network:</p>
+<ul>
+<li><strong>S</strong>: Susceptible (haven&rsquo;t been infected)</li>
+<li><strong>I</strong>: Infected (can spread the disease)</li>
+<li><strong>R</strong>: Recovered (immune, cannot spread)</li>
+</ul>
+<h4 id="dynamics">Dynamics<a hidden class="anchor" aria-hidden="true" href="#dynamics">#</a></h4>
+<p><strong>Transition rates</strong>:</p>
+<ul>
+<li><strong>S → I</strong>: $\beta$ (infection rate)</li>
+<li><strong>I → R</strong>: $\gamma$ (recovery rate)</li>
+</ul>
+<p><strong>Differential equations</strong>:
+$$\frac{dS_i}{dt} = -\beta S_i \sum_{j} A_{ij} I_j$$
+$$\frac{dI_i}{dt} = \beta S_i \sum_{j} A_{ij} I_j - \gamma I_i$$
+$$\frac{dR_i}{dt} = \gamma I_i$$</p>
+<h4 id="basic-reproduction-number">Basic Reproduction Number<a hidden class="anchor" aria-hidden="true" href="#basic-reproduction-number">#</a></h4>
+<p><strong>Definition</strong>:
+$$R_0 = \frac{\beta}{\gamma} \frac{\langle k^2 \rangle}{\langle k \rangle}$$</p>
+<p><strong>Epidemic threshold</strong>:
+$$R_0 &gt; 1$$</p>
+<p><strong>Critical infection rate</strong>:
+$$\beta_c = \frac{\gamma \langle k \rangle}{\langle k^2 \rangle}$$</p>
+<h3 id="sis-model">SIS Model<a hidden class="anchor" aria-hidden="true" href="#sis-model">#</a></h3>
+<h4 id="model-definition-3">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-3">#</a></h4>
+<p><strong>SIS model</strong> on a network:</p>
+<ul>
+<li><strong>S</strong>: Susceptible</li>
+<li><strong>I</strong>: Infected</li>
+<li><strong>No recovered state</strong>: Infected nodes can become susceptible again</li>
+</ul>
+<h4 id="dynamics-1">Dynamics<a hidden class="anchor" aria-hidden="true" href="#dynamics-1">#</a></h4>
+<p><strong>Transition rates</strong>:</p>
+<ul>
+<li><strong>S → I</strong>: $\beta$ (infection rate)</li>
+<li><strong>I → S</strong>: $\gamma$ (recovery rate)</li>
+</ul>
+<p><strong>Differential equations</strong>:
+$$\frac{dS_i}{dt} = -\beta S_i \sum_{j} A_{ij} I_j + \gamma I_i$$
+$$\frac{dI_i}{dt} = \beta S_i \sum_{j} A_{ij} I_j - \gamma I_i$$</p>
+<h4 id="steady-state">Steady State<a hidden class="anchor" aria-hidden="true" href="#steady-state">#</a></h4>
+<p><strong>Infection prevalence</strong>:
+$$\rho = \frac{\beta \langle k^2 \rangle}{\gamma \langle k \rangle + \beta \langle k^2 \rangle}$$</p>
+<p><strong>Critical threshold</strong>:
+$$\beta_c = \frac{\gamma \langle k \rangle}{\langle k^2 \rangle}$$</p>
+<h3 id="complex-contagion">Complex Contagion<a hidden class="anchor" aria-hidden="true" href="#complex-contagion">#</a></h3>
+<h4 id="threshold-models">Threshold Models<a hidden class="anchor" aria-hidden="true" href="#threshold-models">#</a></h4>
+<p><strong>Activation condition</strong>:
+$$\sum_{j \in \text{active neighbors}} w_{ji} \geq \theta_i$$</p>
+<p>Where:</p>
+<ul>
+<li>$w_{ji}$: Influence weight from $j$ to $i$</li>
+<li>$\theta_i$: Threshold for node $i$</li>
+</ul>
+<h4 id="cascade-condition">Cascade Condition<a hidden class="anchor" aria-hidden="true" href="#cascade-condition">#</a></h4>
+<p><strong>Global cascade condition</strong>:
+$$\frac{\langle k^2 \rangle}{\langle k \rangle} &gt; \frac{1}{\theta}$$</p>
+<p>Where $\theta$ is the average threshold.</p>
+<h4 id="mathematical-analysis-2">Mathematical Analysis<a hidden class="anchor" aria-hidden="true" href="#mathematical-analysis-2">#</a></h4>
+<p><strong>Cascade size</strong>:
+$$S = \sum_{k=0}^{\infty} P(k) \sum_{m=0}^{k} \binom{k}{m} p^m (1-p)^{k-m} \Theta(m - \theta k)$$</p>
+<p>Where $\Theta(x)$ is the Heaviside step function.</p>
+<h2 id="103-synchronization">10.3 Synchronization<a hidden class="anchor" aria-hidden="true" href="#103-synchronization">#</a></h2>
+<h3 id="kuramoto-model">Kuramoto Model<a hidden class="anchor" aria-hidden="true" href="#kuramoto-model">#</a></h3>
+<h4 id="model-definition-4">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-4">#</a></h4>
+<p><strong>Kuramoto model</strong> on a network:</p>
+<p>$$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^N A_{ij} \sin(\theta_j - \theta_i)$$</p>
+<p>Where:</p>
+<ul>
+<li>$\theta_i$: Phase of oscillator $i$</li>
+<li>$\omega_i$: Natural frequency</li>
+<li>$K$: Coupling strength</li>
+<li>$A_{ij}$: Adjacency matrix</li>
+</ul>
+<h4 id="order-parameters">Order Parameters<a hidden class="anchor" aria-hidden="true" href="#order-parameters">#</a></h4>
+<p><strong>Global order parameter</strong>:
+$$r = \left| \frac{1}{N} \sum_{j=1}^N e^{i\theta_j} \right|$$</p>
+<p><strong>Local order parameter</strong>:
+$$r_i = \left| \frac{1}{k_i} \sum_{j \in \mathcal{N}_i} e^{i\theta_j} \right|$$</p>
+<h4 id="synchronization-threshold">Synchronization Threshold<a hidden class="anchor" aria-hidden="true" href="#synchronization-threshold">#</a></h4>
+<p><strong>Critical coupling</strong>:
+$$K_c = \frac{2}{\pi g(0)} \frac{\langle k^2 \rangle}{\langle k \rangle}$$</p>
+<p>Where $g(0)$ is the frequency distribution at zero.</p>
+<h3 id="master-stability-function">Master Stability Function<a hidden class="anchor" aria-hidden="true" href="#master-stability-function">#</a></h3>
+<h4 id="linear-stability-analysis">Linear Stability Analysis<a hidden class="anchor" aria-hidden="true" href="#linear-stability-analysis">#</a></h4>
+<p><strong>Perturbation equations</strong>:
+$$\frac{d\delta \theta_i}{dt} = \delta \omega_i + \frac{K}{N} \sum_{j=1}^N A_{ij} \cos(\theta_j - \theta_i) (\delta \theta_j - \delta \theta_i)$$</p>
+<p><strong>Eigenvalue problem</strong>:
+$$\lambda \delta \theta = L \delta \theta$$</p>
+<p>Where $L$ is the Laplacian matrix.</p>
+<h4 id="stability-condition">Stability Condition<a hidden class="anchor" aria-hidden="true" href="#stability-condition">#</a></h4>
+<p><strong>Synchronization is stable if</strong>:
+$$\lambda_2 &gt; \frac{\sigma^2}{K}$$</p>
+<p>Where $\lambda_2$ is the second smallest eigenvalue of the Laplacian.</p>
+<h2 id="104-random-walks">10.4 Random Walks<a hidden class="anchor" aria-hidden="true" href="#104-random-walks">#</a></h2>
+<h3 id="simple-random-walk">Simple Random Walk<a hidden class="anchor" aria-hidden="true" href="#simple-random-walk">#</a></h3>
+<h4 id="model-definition-5">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-5">#</a></h4>
+<p><strong>Simple random walk</strong> on a network:</p>
+<ul>
+<li><strong>Start</strong>: Random initial node</li>
+<li><strong>Move</strong>: At each step, move to random neighbor</li>
+<li><strong>Transition matrix</strong>: $P_{ij} = \frac{A_{ij}}{k_i}$</li>
+</ul>
+<h4 id="stationary-distribution">Stationary Distribution<a hidden class="anchor" aria-hidden="true" href="#stationary-distribution">#</a></h4>
+<p><strong>Stationary distribution</strong>:
+$$\pi_i = \frac{k_i}{2m}$$</p>
+<p><strong>Verification</strong>:
+$$\sum_i \pi_i P_{ij} = \sum_i \frac{k_i}{2m} \frac{A_{ij}}{k_i} = \frac{1}{2m} \sum_i A_{ij} = \frac{k_j}{2m} = \pi_j$$</p>
+<h4 id="mixing-time">Mixing Time<a hidden class="anchor" aria-hidden="true" href="#mixing-time">#</a></h4>
+<p><strong>Mixing time</strong>:
+$$\tau_{\text{mix}} = \min{t : \max_i ||P^t(i, \cdot) - \pi||_1 \leq \epsilon}$$</p>
+<p><strong>Spectral bound</strong>:
+$$\tau_{\text{mix}} \leq \frac{1}{1 - \lambda_2} \log\left(\frac{1}{\epsilon \pi_{\min}}\right)$$</p>
+<p>Where $\lambda_2$ is the second largest eigenvalue of $P$.</p>
+<h3 id="pagerank">PageRank<a hidden class="anchor" aria-hidden="true" href="#pagerank">#</a></h3>
+<h4 id="model-definition-6">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-6">#</a></h4>
+<p><strong>PageRank</strong> as a random walk:</p>
+<p>$$\mathbf{PR} = (1-d) \frac{\mathbf{1}}{n} + d P^T \mathbf{PR}$$</p>
+<p>Where $P$ is the transition matrix.</p>
+<h4 id="mathematical-properties">Mathematical Properties<a hidden class="anchor" aria-hidden="true" href="#mathematical-properties">#</a></h4>
+<p><strong>Convergence</strong>: Guaranteed for $d &lt; 1$</p>
+<p><strong>Stationary distribution</strong>: Unique solution</p>
+<p><strong>Interpretation</strong>: Probability of being at each node in the long run</p>
+<h2 id="105-applications-to-materials-science">10.5 Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#105-applications-to-materials-science">#</a></h2>
+<h3 id="information-spreading-in-materials">Information Spreading in Materials<a hidden class="anchor" aria-hidden="true" href="#information-spreading-in-materials">#</a></h3>
+<h4 id="defect-propagation">Defect Propagation<a hidden class="anchor" aria-hidden="true" href="#defect-propagation">#</a></h4>
+<p><strong>Defect spreading</strong> can be modeled as:</p>
+<ul>
+<li><strong>S</strong>: Healthy sites</li>
+<li><strong>I</strong>: Defected sites</li>
+<li><strong>R</strong>: Repaired sites</li>
+</ul>
+<p><strong>Mathematical model</strong>:
+$$\frac{dS_i}{dt} = -\beta S_i \sum_{j} A_{ij} I_j + \gamma R_i$$
+$$\frac{dI_i}{dt} = \beta S_i \sum_{j} A_{ij} I_j - \delta I_i$$
+$$\frac{dR_i}{dt} = \delta I_i - \gamma R_i$$</p>
+<h4 id="critical-defect-rate">Critical Defect Rate<a hidden class="anchor" aria-hidden="true" href="#critical-defect-rate">#</a></h4>
+<p><strong>Critical defect rate</strong>:
+$$\beta_c = \frac{\delta \langle k \rangle}{\langle k^2 \rangle}$$</p>
+<p><strong>For scale-free networks</strong>: $\beta_c \to 0$ as $n \to \infty$</p>
+<h3 id="phase-transitions-in-materials">Phase Transitions in Materials<a hidden class="anchor" aria-hidden="true" href="#phase-transitions-in-materials">#</a></h3>
+<h4 id="order-disorder-transitions">Order-Disorder Transitions<a hidden class="anchor" aria-hidden="true" href="#order-disorder-transitions">#</a></h4>
+<p><strong>Order parameter</strong>:
+$$\phi = \frac{1}{N} \sum_{i=1}^N \cos(\theta_i - \theta_0)$$</p>
+<p>Where $\theta_0$ is the preferred orientation.</p>
+<p><strong>Critical temperature</strong>:
+$$T_c = \frac{K \langle k^2 \rangle}{2 \langle k \rangle}$$</p>
+<h4 id="percolation-in-disordered-systems">Percolation in Disordered Systems<a hidden class="anchor" aria-hidden="true" href="#percolation-in-disordered-systems">#</a></h4>
+<p><strong>Defect percolation</strong>:
+$$P(\text{percolation}) = 1 - \sum_{k=0}^{\infty} P(k) (1-p)^k$$</p>
+<p><strong>Critical concentration</strong>:
+$$c_c = \frac{1}{\kappa - 1}$$</p>
+<h3 id="network-based-materials-design">Network-Based Materials Design<a hidden class="anchor" aria-hidden="true" href="#network-based-materials-design">#</a></h3>
+<h4 id="structure-property-relationships">Structure-Property Relationships<a hidden class="anchor" aria-hidden="true" href="#structure-property-relationships">#</a></h4>
+<p><strong>Property prediction</strong>:
+$$P = f(\langle k \rangle, C, L, \ldots)$$</p>
+<p><strong>Network optimization</strong>:
+$$\min_{\text{network}} \sum_i w_i |P_i - P_i^{\text{target}}|^2$$</p>
+<p><strong>Constraints</strong>:</p>
+<ul>
+<li><strong>Connectivity</strong>: Network must be connected</li>
+<li><strong>Degree bounds</strong>: $k_{\min} \leq k_i \leq k_{\max}$</li>
+<li><strong>Clustering bounds</strong>: $C_{\min} \leq C \leq C_{\max}$</li>
+</ul>
+<h2 id="code-example-network-processes">Code Example: Network Processes<a hidden class="anchor" aria-hidden="true" href="#code-example-network-processes">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> collections <span style="color:#ff79c6">import</span> Counter
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> scipy.integrate <span style="color:#ff79c6">import</span> odeint
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">simulate_percolation</span>(G, p_values):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Simulate percolation on network&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    results <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> p <span style="color:#ff79c6">in</span> p_values:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Remove edges with probability 1-p</span>
+</span></span><span style="display:flex;"><span>        edges_to_remove <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> edge <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>edges():
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>random() <span style="color:#ff79c6">&gt;</span> p:
+</span></span><span style="display:flex;"><span>                edges_to_remove<span style="color:#ff79c6">.</span>append(edge)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Create subgraph</span>
+</span></span><span style="display:flex;"><span>        G_sub <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>copy()
+</span></span><span style="display:flex;"><span>        G_sub<span style="color:#ff79c6">.</span>remove_edges_from(edges_to_remove)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Analyze components</span>
+</span></span><span style="display:flex;"><span>        components <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(nx<span style="color:#ff79c6">.</span>connected_components(G_sub))
+</span></span><span style="display:flex;"><span>        component_sizes <span style="color:#ff79c6">=</span> [<span style="color:#8be9fd;font-style:italic">len</span>(comp) <span style="color:#ff79c6">for</span> comp <span style="color:#ff79c6">in</span> components]
+</span></span><span style="display:flex;"><span>        giant_component_size <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(component_sizes) <span style="color:#ff79c6">if</span> component_sizes <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>        giant_component_fraction <span style="color:#ff79c6">=</span> giant_component_size <span style="color:#ff79c6">/</span> G<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        results<span style="color:#ff79c6">.</span>append({
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;p&#39;</span>: p,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;giant_component_fraction&#39;</span>: giant_component_fraction,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;num_components&#39;</span>: <span style="color:#8be9fd;font-style:italic">len</span>(components),
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;avg_component_size&#39;</span>: np<span style="color:#ff79c6">.</span>mean(component_sizes)
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> results
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">simulate_sir_epidemic</span>(G, beta, gamma, initial_infected<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Simulate SIR epidemic on network&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Initial conditions</span>
+</span></span><span style="display:flex;"><span>    S <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>ones(n)  <span style="color:#6272a4"># Susceptible</span>
+</span></span><span style="display:flex;"><span>    I <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)  <span style="color:#6272a4"># Infected</span>
+</span></span><span style="display:flex;"><span>    R <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)  <span style="color:#6272a4"># Recovered</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Initial infected nodes</span>
+</span></span><span style="display:flex;"><span>    infected_nodes <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>choice(n, initial_infected, replace<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>)
+</span></span><span style="display:flex;"><span>    S[infected_nodes] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    I[infected_nodes] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Time points</span>
+</span></span><span style="display:flex;"><span>    t <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">1000</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># SIR dynamics</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">sir_equations</span>(y, t):
+</span></span><span style="display:flex;"><span>        S, I, R <span style="color:#ff79c6">=</span> y
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        dS_dt <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>        dI_dt <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>        dR_dt <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Infection rate</span>
+</span></span><span style="display:flex;"><span>            infection_rate <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span> j <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>neighbors(i):
+</span></span><span style="display:flex;"><span>                infection_rate <span style="color:#ff79c6">+=</span> I[j]
+</span></span><span style="display:flex;"><span>            infection_rate <span style="color:#ff79c6">*=</span> beta <span style="color:#ff79c6">*</span> S[i]
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Recovery rate</span>
+</span></span><span style="display:flex;"><span>            recovery_rate <span style="color:#ff79c6">=</span> gamma <span style="color:#ff79c6">*</span> I[i]
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            dS_dt[i] <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span>infection_rate
+</span></span><span style="display:flex;"><span>            dI_dt[i] <span style="color:#ff79c6">=</span> infection_rate <span style="color:#ff79c6">-</span> recovery_rate
+</span></span><span style="display:flex;"><span>            dR_dt[i] <span style="color:#ff79c6">=</span> recovery_rate
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> np<span style="color:#ff79c6">.</span>concatenate([dS_dt, dI_dt, dR_dt])
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Solve ODEs</span>
+</span></span><span style="display:flex;"><span>    y0 <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>concatenate([S, I, R])
+</span></span><span style="display:flex;"><span>    sol <span style="color:#ff79c6">=</span> odeint(sir_equations, y0, t)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Extract results</span>
+</span></span><span style="display:flex;"><span>    S_t <span style="color:#ff79c6">=</span> sol[:, :n]
+</span></span><span style="display:flex;"><span>    I_t <span style="color:#ff79c6">=</span> sol[:, n:<span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>n]
+</span></span><span style="display:flex;"><span>    R_t <span style="color:#ff79c6">=</span> sol[:, <span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>n:]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> t, S_t, I_t, R_t
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">simulate_kuramoto</span>(G, K, omega, initial_phases<span style="color:#ff79c6">=</span><span style="color:#ff79c6">None</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Simulate Kuramoto model on network&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Initial phases</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> initial_phases <span style="color:#ff79c6">is</span> <span style="color:#ff79c6">None</span>:
+</span></span><span style="display:flex;"><span>        theta <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>uniform(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>np<span style="color:#ff79c6">.</span>pi, n)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        theta <span style="color:#ff79c6">=</span> initial_phases
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Time points</span>
+</span></span><span style="display:flex;"><span>    t <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">1000</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Kuramoto dynamics</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">kuramoto_equations</span>(theta, t):
+</span></span><span style="display:flex;"><span>        dtheta_dt <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+</span></span><span style="display:flex;"><span>            coupling <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span> j <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>neighbors(i):
+</span></span><span style="display:flex;"><span>                coupling <span style="color:#ff79c6">+=</span> np<span style="color:#ff79c6">.</span>sin(theta[j] <span style="color:#ff79c6">-</span> theta[i])
+</span></span><span style="display:flex;"><span>            coupling <span style="color:#ff79c6">*=</span> K <span style="color:#ff79c6">/</span> n
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            dtheta_dt[i] <span style="color:#ff79c6">=</span> omega[i] <span style="color:#ff79c6">+</span> coupling
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> dtheta_dt
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Solve ODEs</span>
+</span></span><span style="display:flex;"><span>    sol <span style="color:#ff79c6">=</span> odeint(kuramoto_equations, theta, t)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> t, sol
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_network_processes</span>(G, process_type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;percolation&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze network processes&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> process_type <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;percolation&#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Percolation analysis</span>
+</span></span><span style="display:flex;"><span>        p_values <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#bd93f9">0.1</span>, <span style="color:#bd93f9">1.0</span>, <span style="color:#bd93f9">20</span>)
+</span></span><span style="display:flex;"><span>        results <span style="color:#ff79c6">=</span> simulate_percolation(G, p_values)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Find critical threshold</span>
+</span></span><span style="display:flex;"><span>        critical_p <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i, result <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(results):
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> result[<span style="color:#f1fa8c">&#39;giant_component_fraction&#39;</span>] <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0.5</span>:
+</span></span><span style="display:flex;"><span>                critical_p <span style="color:#ff79c6">=</span> result[<span style="color:#f1fa8c">&#39;p&#39;</span>]
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">break</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;process_type&#39;</span>: process_type,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;critical_threshold&#39;</span>: critical_p,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;results&#39;</span>: results
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">elif</span> process_type <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;sir&#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># SIR epidemic analysis</span>
+</span></span><span style="display:flex;"><span>        beta <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.1</span>
+</span></span><span style="display:flex;"><span>        gamma <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.05</span>
+</span></span><span style="display:flex;"><span>        t, S_t, I_t, R_t <span style="color:#ff79c6">=</span> simulate_sir_epidemic(G, beta, gamma)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Calculate basic reproduction number</span>
+</span></span><span style="display:flex;"><span>        degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>degree()]
+</span></span><span style="display:flex;"><span>        avg_degree <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>mean(degrees)
+</span></span><span style="display:flex;"><span>        degree_variance <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>var(degrees)
+</span></span><span style="display:flex;"><span>        R0 <span style="color:#ff79c6">=</span> (beta <span style="color:#ff79c6">/</span> gamma) <span style="color:#ff79c6">*</span> (avg_degree <span style="color:#ff79c6">+</span> degree_variance <span style="color:#ff79c6">/</span> avg_degree)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;process_type&#39;</span>: process_type,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;R0&#39;</span>: R0,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;time&#39;</span>: t,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;S&#39;</span>: S_t,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;I&#39;</span>: I_t,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;R&#39;</span>: R_t
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">elif</span> process_type <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;kuramoto&#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Kuramoto synchronization analysis</span>
+</span></span><span style="display:flex;"><span>        K <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1.0</span>
+</span></span><span style="display:flex;"><span>        omega <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>normal(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>, G<span style="color:#ff79c6">.</span>number_of_nodes())
+</span></span><span style="display:flex;"><span>        t, theta_t <span style="color:#ff79c6">=</span> simulate_kuramoto(G, K, omega)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Calculate order parameter</span>
+</span></span><span style="display:flex;"><span>        r_t <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>abs(np<span style="color:#ff79c6">.</span>mean(np<span style="color:#ff79c6">.</span>exp(<span style="color:#bd93f9">1</span>j <span style="color:#ff79c6">*</span> theta_t), axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>))
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;process_type&#39;</span>: process_type,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;time&#39;</span>: t,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;phases&#39;</span>: theta_t,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;order_parameter&#39;</span>: r_t
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">plot_network_processes</span>(G, process_type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;percolation&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Plot network process results&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    results <span style="color:#ff79c6">=</span> analyze_network_processes(G, process_type)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> process_type <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;percolation&#34;</span>:
+</span></span><span style="display:flex;"><span>        p_values <span style="color:#ff79c6">=</span> [r[<span style="color:#f1fa8c">&#39;p&#39;</span>] <span style="color:#ff79c6">for</span> r <span style="color:#ff79c6">in</span> results[<span style="color:#f1fa8c">&#39;results&#39;</span>]]
+</span></span><span style="display:flex;"><span>        giant_fractions <span style="color:#ff79c6">=</span> [r[<span style="color:#f1fa8c">&#39;giant_component_fraction&#39;</span>] <span style="color:#ff79c6">for</span> r <span style="color:#ff79c6">in</span> results[<span style="color:#f1fa8c">&#39;results&#39;</span>]]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>figure(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">6</span>))
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>plot(p_values, giant_fractions, <span style="color:#f1fa8c">&#39;bo-&#39;</span>, markersize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>axvline(x<span style="color:#ff79c6">=</span>results[<span style="color:#f1fa8c">&#39;critical_threshold&#39;</span>], color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;r&#39;</span>, linestyle<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;--&#39;</span>, 
+</span></span><span style="display:flex;"><span>                   label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;Critical threshold: </span><span style="color:#f1fa8c">{</span>results[<span style="color:#f1fa8c">&#34;critical_threshold&#34;</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Probability p&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Giant Component Fraction&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Percolation Phase Transition&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>legend()
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">elif</span> process_type <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;sir&#34;</span>:
+</span></span><span style="display:flex;"><span>        t <span style="color:#ff79c6">=</span> results[<span style="color:#f1fa8c">&#39;time&#39;</span>]
+</span></span><span style="display:flex;"><span>        S_t <span style="color:#ff79c6">=</span> results[<span style="color:#f1fa8c">&#39;S&#39;</span>]
+</span></span><span style="display:flex;"><span>        I_t <span style="color:#ff79c6">=</span> results[<span style="color:#f1fa8c">&#39;I&#39;</span>]
+</span></span><span style="display:flex;"><span>        R_t <span style="color:#ff79c6">=</span> results[<span style="color:#f1fa8c">&#39;R&#39;</span>]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>figure(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">12</span>, <span style="color:#bd93f9">8</span>))
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Plot SIR curves</span>
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>plot(t, np<span style="color:#ff79c6">.</span>mean(S_t, axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>), <span style="color:#f1fa8c">&#39;b-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Susceptible&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>plot(t, np<span style="color:#ff79c6">.</span>mean(I_t, axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>), <span style="color:#f1fa8c">&#39;r-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Infected&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>plot(t, np<span style="color:#ff79c6">.</span>mean(R_t, axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>), <span style="color:#f1fa8c">&#39;g-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Recovered&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Time&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Fraction&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;SIR Epidemic Dynamics&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>legend()
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Plot R0</span>
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>bar([<span style="color:#f1fa8c">&#39;R0&#39;</span>], [results[<span style="color:#f1fa8c">&#39;R0&#39;</span>]], color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;orange&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Basic Reproduction Number&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Epidemic Threshold&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Plot individual node dynamics</span>
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#bd93f9">5</span>, S_t<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">1</span>])):
+</span></span><span style="display:flex;"><span>            plt<span style="color:#ff79c6">.</span>plot(t, S_t[:, i], <span style="color:#f1fa8c">&#39;b-&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>            plt<span style="color:#ff79c6">.</span>plot(t, I_t[:, i], <span style="color:#f1fa8c">&#39;r-&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>            plt<span style="color:#ff79c6">.</span>plot(t, R_t[:, i], <span style="color:#f1fa8c">&#39;g-&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Time&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Fraction&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Individual Node Dynamics&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Plot network visualization</span>
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">4</span>)
+</span></span><span style="display:flex;"><span>        pos <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>spring_layout(G, k<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, iterations<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
+</span></span><span style="display:flex;"><span>        nx<span style="color:#ff79c6">.</span>draw(G, pos, node_size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>, node_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;lightblue&#39;</span>, 
+</span></span><span style="display:flex;"><span>                edge_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;gray&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.6</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Network Structure&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>axis(<span style="color:#f1fa8c">&#39;off&#39;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>tight_layout()
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">elif</span> process_type <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;kuramoto&#34;</span>:
+</span></span><span style="display:flex;"><span>        t <span style="color:#ff79c6">=</span> results[<span style="color:#f1fa8c">&#39;time&#39;</span>]
+</span></span><span style="display:flex;"><span>        theta_t <span style="color:#ff79c6">=</span> results[<span style="color:#f1fa8c">&#39;phases&#39;</span>]
+</span></span><span style="display:flex;"><span>        r_t <span style="color:#ff79c6">=</span> results[<span style="color:#f1fa8c">&#39;order_parameter&#39;</span>]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>figure(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">12</span>, <span style="color:#bd93f9">8</span>))
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Plot order parameter</span>
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>plot(t, r_t, <span style="color:#f1fa8c">&#39;b-&#39;</span>, linewidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Time&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Order Parameter r&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Synchronization Order Parameter&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Plot phase evolution</span>
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#bd93f9">10</span>, theta_t<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">1</span>])):
+</span></span><span style="display:flex;"><span>            plt<span style="color:#ff79c6">.</span>plot(t, theta_t[:, i], alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.7</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Time&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Phase θ&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Phase Evolution&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Plot phase distribution</span>
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span>        final_phases <span style="color:#ff79c6">=</span> theta_t[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>, :]
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>hist(final_phases, bins<span style="color:#ff79c6">=</span><span style="color:#bd93f9">20</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.7</span>, edgecolor<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;black&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">&#39;Final Phase&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>ylabel(<span style="color:#f1fa8c">&#39;Count&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Final Phase Distribution&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Plot network visualization</span>
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">4</span>)
+</span></span><span style="display:flex;"><span>        pos <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>spring_layout(G, k<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, iterations<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
+</span></span><span style="display:flex;"><span>        nx<span style="color:#ff79c6">.</span>draw(G, pos, node_size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>, node_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;lightblue&#39;</span>, 
+</span></span><span style="display:flex;"><span>                edge_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;gray&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.6</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#39;Network Structure&#39;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>axis(<span style="color:#f1fa8c">&#39;off&#39;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>tight_layout()
+</span></span><span style="display:flex;"><span>        plt<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Analyze network processes</span>
+</span></span><span style="display:flex;"><span>G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>barabasi_albert_graph(<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Percolation analysis</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Percolation Analysis:&#34;</span>)
+</span></span><span style="display:flex;"><span>percolation_results <span style="color:#ff79c6">=</span> analyze_network_processes(G, <span style="color:#f1fa8c">&#34;percolation&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Critical threshold: </span><span style="color:#f1fa8c">{</span>percolation_results[<span style="color:#f1fa8c">&#39;critical_threshold&#39;</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># SIR epidemic analysis</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">SIR Epidemic Analysis:&#34;</span>)
+</span></span><span style="display:flex;"><span>sir_results <span style="color:#ff79c6">=</span> analyze_network_processes(G, <span style="color:#f1fa8c">&#34;sir&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Basic reproduction number: </span><span style="color:#f1fa8c">{</span>sir_results[<span style="color:#f1fa8c">&#39;R0&#39;</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Kuramoto synchronization analysis</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">Kuramoto Synchronization Analysis:&#34;</span>)
+</span></span><span style="display:flex;"><span>kuramoto_results <span style="color:#ff79c6">=</span> analyze_network_processes(G, <span style="color:#f1fa8c">&#34;kuramoto&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Final order parameter: </span><span style="color:#f1fa8c">{</span>kuramoto_results[<span style="color:#f1fa8c">&#39;order_parameter&#39;</span>][<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Plot results</span>
+</span></span><span style="display:flex;"><span>plot_network_processes(G, <span style="color:#f1fa8c">&#34;percolation&#34;</span>)
+</span></span><span style="display:flex;"><span>plot_network_processes(G, <span style="color:#f1fa8c">&#34;sir&#34;</span>)
+</span></span><span style="display:flex;"><span>plot_network_processes(G, <span style="color:#f1fa8c">&#34;kuramoto&#34;</span>)
+</span></span></code></pre></div><h2 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h2>
+<ol>
+<li><strong>Percolation theory</strong>: Provides framework for understanding connectivity transitions</li>
+<li><strong>Epidemic spreading</strong>: Network structure affects disease transmission dynamics</li>
+<li><strong>Synchronization</strong>: Coupling strength and network topology determine synchronization</li>
+<li><strong>Random walks</strong>: Reveal network structure and mixing properties</li>
+<li><strong>Phase transitions</strong>: Critical thresholds determine system behavior</li>
+<li><strong>Applications</strong>: Network processes help understand materials science phenomena</li>
+<li><strong>Mathematical analysis</strong>: Rigorous theory enables prediction of dynamic behavior</li>
+</ol>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ol>
+<li>Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press.</li>
+<li>Stauffer, D., &amp; Aharony, A. (1994). Introduction to Percolation Theory. Taylor &amp; Francis.</li>
+<li>Pastor-Satorras, R., &amp; Vespignani, A. (2001). Epidemic spreading in scale-free networks. Physical Review Letters, 86(14), 3200.</li>
+<li>Kuramoto, Y. (1984). Chemical Oscillations, Waves, and Turbulence. Springer.</li>
+</ol>
+<hr>
+<p><em>Network processes provide insights into how dynamic phenomena unfold on complex networks, with important applications in understanding materials behavior and system dynamics.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-processes/">Network-Processes</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/percolation/">Percolation</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/epidemic-spreading/">Epidemic-Spreading</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on x"
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f&amp;hashtags=reading-notes%2cnetwork-theory%2cnetwork-processes%2cpercolation%2cepidemic-spreading">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on whatsapp"
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on telegram"
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

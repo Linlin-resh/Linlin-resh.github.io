@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control | Notes on AI4Science &amp; Graph Theory</title>
+<meta name="keywords" content="reading-notes, network-theory, network-control, controllability, control-theory">
+<meta name="description" content="Study notes for Chapter 14 of Newman&#39;s &#39;Networks: An Introduction&#39; covering network controllability, control theory, and applications to complex systems">
+<meta name="author" content="Linlin-resh">
+<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/">
+  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control">
+  <meta property="og:description" content="Study notes for Chapter 14 of Newman&#39;s &#39;Networks: An Introduction&#39; covering network controllability, control theory, and applications to complex systems">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Reading-Notes">
+    <meta property="article:tag" content="Network-Theory">
+    <meta property="article:tag" content="Network-Control">
+    <meta property="article:tag" content="Controllability">
+    <meta property="article:tag" content="Control-Theory">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control">
+<meta name="twitter:description" content="Study notes for Chapter 14 of Newman&#39;s &#39;Networks: An Introduction&#39; covering network controllability, control theory, and applications to complex systems">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Linlin-resh.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading Notes: Newman's Networks Chapter 14 - Network Control",
+      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading Notes: Newman's Networks Chapter 14 - Network Control",
+  "name": "Reading Notes: Newman\u0027s Networks Chapter 14 - Network Control",
+  "description": "Study notes for Chapter 14 of Newman's 'Networks: An Introduction' covering network controllability, control theory, and applications to complex systems",
+  "keywords": [
+    "reading-notes", "network-theory", "network-control", "controllability", "control-theory"
+  ],
+  "articleBody": "Introduction Chapter 14 of Newman’s Networks: An Introduction explores network control - the theory and methods for controlling complex networks to achieve desired behaviors. This chapter covers controllability theory, control strategies, and applications to understanding and manipulating network dynamics.\n14.1 Controllability Theory Linear Controllability System Model Linear time-invariant system: $$\\frac{dx}{dt} = Ax + Bu$$\nWhere:\n$x \\in \\mathbb{R}^n$: State vector $u \\in \\mathbb{R}^m$: Control input $A \\in \\mathbb{R}^{n \\times n}$: System matrix $B \\in \\mathbb{R}^{n \\times m}$: Input matrix Controllability Matrix Controllability matrix: $$\\mathcal{C} = [B, AB, A^2B, \\ldots, A^{n-1}B]$$\nControllability condition: System is controllable if and only if $$\\text{rank}(\\mathcal{C}) = n$$\nKalman’s Controllability Test Theorem: The system is controllable if and only if the controllability matrix has full rank.\nProof: Based on Cayley-Hamilton theorem and linear algebra.\nStructural Controllability Definition Structural controllability: System is structurally controllable if it is controllable for almost all parameter values.\nAdvantage: Depends only on network topology, not specific parameter values.\nMinimum Number of Drivers Theorem: Minimum number of driver nodes needed for structural controllability is: $$N_D = \\max_i \\mu_i$$\nWhere $\\mu_i$ is the geometric multiplicity of eigenvalue $\\lambda_i$ of $A$.\nDriver Node Selection Algorithm:\nFind maximum matching in bipartite graph Unmatched nodes are driver nodes Minimum number of drivers = $n - |M|$ Where $|M|$ is the size of maximum matching.\nEnergy Control Control Energy Control energy: $$E = \\int_0^T ||u(t)||^2 dt$$\nMinimum energy control: $$u^*(t) = B^T e^{A^T(T-t)} W^{-1}(T) x_f$$\nWhere $W(T)$ is the controllability Gramian: $$W(T) = \\int_0^T e^{At} BB^T e^{A^T t} dt$$\nControllability Gramian Properties:\nSymmetric: $W(T) = W^T(T)$ Positive definite: If system is controllable Energy bound: $E \\geq x_f^T W^{-1}(T) x_f$ Optimal Control Linear Quadratic Regulator (LQR) Cost function: $$J = \\int_0^T (x^T Q x + u^T R u) dt$$\nWhere:\n$Q \\geq 0$: State weight matrix $R \u003e 0$: Control weight matrix Optimal control: $$u^*(t) = -R^{-1} B^T P(t) x(t)$$\nWhere $P(t)$ satisfies the Riccati equation: $$-\\frac{dP}{dt} = A^T P + PA - PBR^{-1}B^T P + Q$$\nSteady-State Solution Algebraic Riccati equation: $$A^T P + PA - PBR^{-1}B^T P + Q = 0$$\nOptimal control: $$u^*(t) = -R^{-1} B^T P x(t)$$\n14.2 Network Controllability Controllability of Complex Networks Driver Node Analysis Driver nodes: Nodes that need external control input\nControllable nodes: Nodes that can be controlled by driver nodes\nMathematical formulation: $$\\min_{B} ||B||_0 \\quad \\text{subject to } \\text{rank}(\\mathcal{C}) = n$$\nWhere $||B||_0$ is the number of non-zero columns in $B$.\nControllability Gramian Network controllability Gramian: $$W = \\int_0^{\\infty} e^{At} BB^T e^{A^T t} dt$$\nProperties:\nTrace: $\\text{tr}(W)$ measures controllability Determinant: $\\det(W)$ measures controllability Eigenvalues: $\\lambda_i(W)$ measure controllability in different directions Control Centrality Definition Control centrality of node $i$: $$C_i = \\text{tr}(W_i)$$\nWhere $W_i$ is the controllability Gramian when node $i$ is the only driver.\nProperties Range: $C_i \\geq 0$\nInterpretation: Higher $C_i$ means node $i$ is more important for control\nCalculation: $C_i = \\sum_{j=1}^n \\frac{1}{\\lambda_j^2}$ where $\\lambda_j$ are eigenvalues of $A$.\nControllability and Network Structure Degree and Controllability High-degree nodes: Often important for control\nLow-degree nodes: May be easier to control\nMathematical relationship: $$C_i \\sim k_i^{\\alpha}$$\nWhere $\\alpha$ depends on network structure.\nClustering and Controllability High clustering: May reduce controllability\nLow clustering: May increase controllability\nMathematical relationship: $$C_i \\sim C_i^{-\\beta}$$\nWhere $\\beta$ depends on network structure.\n14.3 Control Strategies Centralized Control Single Controller Control law: $$u(t) = -K x(t)$$\nWhere $K$ is the feedback gain matrix.\nDesign: $K = R^{-1} B^T P$\nAdvantages: Optimal performance Disadvantages: Requires global information\nMultiple Controllers Control law: $$u_i(t) = -K_i x_i(t) + \\sum_{j \\in \\mathcal{N}i} K{ij} x_j(t)$$\nWhere:\n$K_i$: Local feedback gain $K_{ij}$: Coupling gain $\\mathcal{N}_i$: Neighbors of node $i$ Decentralized Control Local Control Control law: $$u_i(t) = -K_i x_i(t)$$\nDesign: Each controller uses only local information\nAdvantages: Scalable, robust Disadvantages: May not achieve global optimum\nDistributed Control Control law: $$u_i(t) = -K_i x_i(t) + \\sum_{j \\in \\mathcal{N}i} K{ij} (x_j(t) - x_i(t))$$\nDesign: Controllers communicate with neighbors\nAdvantages: Better performance than local control Disadvantages: Requires communication\nAdaptive Control Model Reference Adaptive Control Reference model: $$\\frac{dx_m}{dt} = A_m x_m + B_m r$$\nControl law: $$u(t) = K_x(t) x(t) + K_r(t) r(t)$$\nAdaptation law: $$\\frac{dK_x}{dt} = -\\Gamma_x x(t) e^T(t) P B$$ $$\\frac{dK_r}{dt} = -\\Gamma_r r(t) e^T(t) P B$$\nWhere $e(t) = x(t) - x_m(t)$ is the tracking error.\nSelf-Tuning Control Parameter estimation: $$\\hat{\\theta}(t) = \\hat{\\theta}(t-1) + \\Gamma \\phi(t) e(t)$$\nControl law: $$u(t) = \\hat{\\theta}^T(t) \\phi(t)$$\nWhere $\\phi(t)$ is the regressor vector.\n14.4 Applications to Materials Science Defect Control Problem Given: Defect network with dynamics $$\\frac{dx_i}{dt} = f_i(x_i) + \\sum_{j} A_{ij} g_{ij}(x_i, x_j) + u_i$$\nGoal: Control defect density to desired level\nControl objective: $$\\min_{u} \\int_0^T ||x(t) - x_d||^2 dt$$\nSolution Optimal control: $$u_i^*(t) = -R^{-1} B^T P (x_i(t) - x_{d,i})$$\nFeedback gain: $$K = R^{-1} B^T P$$\nStability: Guaranteed if $A$ is Hurwitz\nPhase Control Problem Given: Phase transition dynamics $$\\frac{d\\phi}{dt} = f(\\phi) + u$$\nGoal: Control phase to desired value\nControl objective: $$\\min_{u} \\int_0^T (\\phi(t) - \\phi_d)^2 dt$$\nSolution Optimal control: $$u^*(t) = -R^{-1} B^T P (\\phi(t) - \\phi_d)$$\nPhase transition: Controlled by external field\nNanowire Network Control Problem Given: Nanowire network with electrical dynamics $$\\frac{dV_i}{dt} = \\frac{1}{C_i} \\sum_{j} \\frac{V_j - V_i}{R_{ij}} + u_i$$\nGoal: Control voltage distribution\nControl objective: $$\\min_{u} \\int_0^T ||V(t) - V_d||^2 dt$$\nSolution Optimal control: $$u_i^*(t) = -R^{-1} C_i (V_i(t) - V_{d,i})$$\nElectrical properties: Controlled by external current\n14.5 Robust Control Robust Controllability Definition Robust controllability: System remains controllable under parameter uncertainty\nMathematical condition: $$\\text{rank}(\\mathcal{C}(\\theta)) = n \\quad \\forall \\theta \\in \\Theta$$\nWhere $\\Theta$ is the uncertainty set.\nRobust Control Design Control law: $$u(t) = -K(\\theta) x(t)$$\nDesign: $K(\\theta)$ minimizes worst-case performance\nPerformance: $$J = \\max_{\\theta \\in \\Theta} \\int_0^T (x^T Q x + u^T R u) dt$$\nH∞ Control Problem Given: System with disturbances $$\\frac{dx}{dt} = Ax + Bu + B_w w$$ $$z = Cx + Du$$\nGoal: Minimize effect of disturbances\nPerformance: $$||T_{zw}||_{\\infty} \u003c \\gamma$$\nWhere $T_{zw}$ is the transfer function from $w$ to $z$.\nSolution Control law: $$u(t) = -K x(t)$$\nDesign: $K$ minimizes $||T_{zw}||_{\\infty}$\nRiccati equation: $$A^T P + PA - P(BR^{-1}B^T - \\gamma^{-2}B_w B_w^T) P + C^T C = 0$$\nCode Example: Network Control import networkx as nx import numpy as np import matplotlib.pyplot as plt from scipy.linalg import solve_continuous_are, eig from scipy.optimize import minimize from sklearn.linear_model import LinearRegression def check_controllability(A, B): \"\"\"Check if system is controllable\"\"\" n = A.shape[0] # Build controllability matrix C = B A_power = np.eye(n) for i in range(1, n): A_power = A_power @ A C = np.hstack([C, A_power @ B]) # Check rank rank = np.linalg.matrix_rank(C) is_controllable = rank == n return is_controllable, rank, C def find_driver_nodes(A): \"\"\"Find minimum number of driver nodes for structural controllability\"\"\" n = A.shape[0] # Create bipartite graph G_bipartite = nx.Graph() # Add nodes for i in range(n): G_bipartite.add_node(f'x_{i}', bipartite=0) G_bipartite.add_node(f'y_{i}', bipartite=1) # Add edges for i in range(n): for j in range(n): if A[i, j] != 0: G_bipartite.add_edge(f'x_{i}', f'y_{j}') # Find maximum matching matching = nx.bipartite.maximum_matching(G_bipartite) # Find unmatched nodes matched_x = set() for x, y in matching.items(): if x.startswith('x_'): matched_x.add(x) # Driver nodes are unmatched x nodes driver_nodes = [] for i in range(n): if f'x_{i}' not in matched_x: driver_nodes.append(i) return driver_nodes, len(driver_nodes) def design_lqr_controller(A, B, Q, R): \"\"\"Design LQR controller\"\"\" # Solve algebraic Riccati equation P = solve_continuous_are(A, B, Q, R) # Calculate feedback gain K = np.linalg.inv(R) @ B.T @ P # Calculate closed-loop matrix A_cl = A - B @ K # Check stability eigenvals = eig(A_cl)[0] is_stable = np.all(np.real(eigenvals) \u003c 0) return K, P, A_cl, is_stable def simulate_controlled_system(A, B, K, x0, T, dt=0.01): \"\"\"Simulate controlled system\"\"\" n = A.shape[0] steps = int(T / dt) # Initialize x = x0.copy() x_history = [x.copy()] u_history = [] # Simulate for t in range(steps): # Calculate control input u = -K @ x u_history.append(u.copy()) # Update state x = x + dt * (A @ x + B @ u) x_history.append(x.copy()) return np.array(x_history), np.array(u_history) def calculate_control_energy(u_history, dt): \"\"\"Calculate control energy\"\"\" energy = np.sum(np.sum(u_history**2, axis=1)) * dt return energy def design_robust_controller(A, B, Q, R, uncertainty_set): \"\"\"Design robust controller for uncertain system\"\"\" def objective(K_flat): K = K_flat.reshape(B.shape[1], A.shape[0]) # Check stability for all parameter values max_eigenval = -np.inf for A_uncertain in uncertainty_set: A_cl = A_uncertain - B @ K eigenvals = eig(A_cl)[0] max_eigenval = max(max_eigenval, np.max(np.real(eigenvals))) # Return negative of maximum real part (we want it to be negative) return -max_eigenval # Initial guess K0 = np.random.randn(B.shape[1], A.shape[0]) # Optimize result = minimize(objective, K0.flatten(), method='BFGS') K_robust = result.x.reshape(B.shape[1], A.shape[0]) return K_robust def analyze_control_centrality(A, B): \"\"\"Analyze control centrality of nodes\"\"\" n = A.shape[0] control_centrality = np.zeros(n) for i in range(n): # Create B matrix with only node i as driver B_i = np.zeros((n, 1)) B_i[i, 0] = 1 # Check controllability is_controllable, rank, C = check_controllability(A, B_i) if is_controllable: # Calculate controllability Gramian try: P = solve_continuous_are(A, B_i, np.eye(n), np.eye(1)) control_centrality[i] = np.trace(P) except: control_centrality[i] = 0 else: control_centrality[i] = 0 return control_centrality def plot_control_analysis(A, B, K, x_history, u_history, control_centrality): \"\"\"Plot control analysis results\"\"\" fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12)) # State evolution t = np.linspace(0, len(x_history)-1, len(x_history)) for i in range(min(5, x_history.shape[1])): ax1.plot(t, x_history[:, i], label=f'State {i}', linewidth=2) ax1.set_xlabel('Time') ax1.set_ylabel('State Value') ax1.set_title('State Evolution') ax1.legend() ax1.grid(True, alpha=0.3) # Control input t_u = np.linspace(0, len(u_history)-1, len(u_history)) for i in range(min(5, u_history.shape[1])): ax2.plot(t_u, u_history[:, i], label=f'Control {i}', linewidth=2) ax2.set_xlabel('Time') ax2.set_ylabel('Control Input') ax2.set_title('Control Input Evolution') ax2.legend() ax2.grid(True, alpha=0.3) # Control centrality nodes = range(len(control_centrality)) bars = ax3.bar(nodes, control_centrality, alpha=0.7, color='skyblue') ax3.set_xlabel('Node Index') ax3.set_ylabel('Control Centrality') ax3.set_title('Control Centrality of Nodes') ax3.grid(True, alpha=0.3) # Network visualization with control centrality G = nx.from_numpy_array(A) pos = nx.spring_layout(G, k=1, iterations=50) # Color nodes by control centrality node_colors = control_centrality node_sizes = 100 + 50 * control_centrality / np.max(control_centrality) nx.draw(G, pos, ax=ax4, node_color=node_colors, node_size=node_sizes, edge_color='gray', alpha=0.6, cmap='viridis') ax4.set_title('Network with Control Centrality') ax4.axis('off') plt.tight_layout() plt.show() # Example: Network control analysis n = 20 G = nx.barabasi_albert_graph(n, 3) A = nx.adjacency_matrix(G).toarray() # Add self-loops for stability A = A - np.diag(np.sum(A, axis=1)) # Create control input matrix (all nodes can be controlled) B = np.eye(n) # Check controllability is_controllable, rank, C = check_controllability(A, B) print(f\"System is controllable: {is_controllable}\") print(f\"Controllability rank: {rank}/{n}\") # Find driver nodes driver_nodes, n_drivers = find_driver_nodes(A) print(f\"Driver nodes: {driver_nodes}\") print(f\"Number of drivers: {n_drivers}\") # Design LQR controller Q = np.eye(n) R = 0.1 * np.eye(n) K, P, A_cl, is_stable = design_lqr_controller(A, B, Q, R) print(f\"Controller is stable: {is_stable}\") # Simulate controlled system x0 = np.random.randn(n) T = 10 x_history, u_history = simulate_controlled_system(A, B, K, x0, T) # Calculate control energy energy = calculate_control_energy(u_history, 0.01) print(f\"Control energy: {energy:.3f}\") # Analyze control centrality control_centrality = analyze_control_centrality(A, B) print(f\"Control centrality range: {np.min(control_centrality):.3f} - {np.max(control_centrality):.3f}\") # Plot results plot_control_analysis(A, B, K, x_history, u_history, control_centrality) Key Takeaways Controllability theory: Mathematical foundation for network control Driver nodes: Minimum set of nodes needed for control Control strategies: Centralized, decentralized, and adaptive control Energy optimization: LQR and other optimal control methods Robust control: Control under uncertainty Applications: Important for materials science and complex systems Control centrality: Measures importance of nodes for control References Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press. Liu, Y. Y., Slotine, J. J., \u0026 Barabási, A. L. (2011). Controllability of complex networks. Nature, 473(7346), 167-173. Kalman, R. E. (1960). On the general theory of control systems. IRE Transactions on Automatic Control, 5(4), 110-110. Lewis, F. L., Vrabie, D., \u0026 Syrmos, V. L. (2012). Optimal Control. John Wiley \u0026 Sons. Network control provides powerful tools for understanding and manipulating complex systems, with important applications in materials science and engineering.\n",
+  "wordCount" : "1896",
+  "inLanguage": "en",
+  "datePublished": "2025-08-29T00:00:00Z",
+  "dateModified": "2025-08-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Linlin-resh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Notes on AI4Science \u0026 Graph Theory",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Linlin-resh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Linlin-resh.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control
+    </h1>
+    <div class="post-description">
+      Study notes for Chapter 14 of Newman&#39;s &#39;Networks: An Introduction&#39; covering network controllability, control theory, and applications to complex systems
+    </div>
+    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1896 words&nbsp;·&nbsp;Linlin-resh
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#141-controllability-theory" aria-label="14.1 Controllability Theory">14.1 Controllability Theory</a><ul>
+                        
+                <li>
+                    <a href="#linear-controllability" aria-label="Linear Controllability">Linear Controllability</a><ul>
+                        
+                <li>
+                    <a href="#system-model" aria-label="System Model">System Model</a></li>
+                <li>
+                    <a href="#controllability-matrix" aria-label="Controllability Matrix">Controllability Matrix</a></li>
+                <li>
+                    <a href="#kalmans-controllability-test" aria-label="Kalman&rsquo;s Controllability Test">Kalman&rsquo;s Controllability Test</a></li></ul>
+                </li>
+                <li>
+                    <a href="#structural-controllability" aria-label="Structural Controllability">Structural Controllability</a><ul>
+                        
+                <li>
+                    <a href="#definition" aria-label="Definition">Definition</a></li>
+                <li>
+                    <a href="#minimum-number-of-drivers" aria-label="Minimum Number of Drivers">Minimum Number of Drivers</a></li>
+                <li>
+                    <a href="#driver-node-selection" aria-label="Driver Node Selection">Driver Node Selection</a></li></ul>
+                </li>
+                <li>
+                    <a href="#energy-control" aria-label="Energy Control">Energy Control</a><ul>
+                        
+                <li>
+                    <a href="#control-energy" aria-label="Control Energy">Control Energy</a></li>
+                <li>
+                    <a href="#controllability-gramian" aria-label="Controllability Gramian">Controllability Gramian</a></li></ul>
+                </li>
+                <li>
+                    <a href="#optimal-control" aria-label="Optimal Control">Optimal Control</a><ul>
+                        
+                <li>
+                    <a href="#linear-quadratic-regulator-lqr" aria-label="Linear Quadratic Regulator (LQR)">Linear Quadratic Regulator (LQR)</a></li>
+                <li>
+                    <a href="#steady-state-solution" aria-label="Steady-State Solution">Steady-State Solution</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#142-network-controllability" aria-label="14.2 Network Controllability">14.2 Network Controllability</a><ul>
+                        
+                <li>
+                    <a href="#controllability-of-complex-networks" aria-label="Controllability of Complex Networks">Controllability of Complex Networks</a><ul>
+                        
+                <li>
+                    <a href="#driver-node-analysis" aria-label="Driver Node Analysis">Driver Node Analysis</a></li>
+                <li>
+                    <a href="#controllability-gramian-1" aria-label="Controllability Gramian">Controllability Gramian</a></li></ul>
+                </li>
+                <li>
+                    <a href="#control-centrality" aria-label="Control Centrality">Control Centrality</a><ul>
+                        
+                <li>
+                    <a href="#definition-1" aria-label="Definition">Definition</a></li>
+                <li>
+                    <a href="#properties" aria-label="Properties">Properties</a></li></ul>
+                </li>
+                <li>
+                    <a href="#controllability-and-network-structure" aria-label="Controllability and Network Structure">Controllability and Network Structure</a><ul>
+                        
+                <li>
+                    <a href="#degree-and-controllability" aria-label="Degree and Controllability">Degree and Controllability</a></li>
+                <li>
+                    <a href="#clustering-and-controllability" aria-label="Clustering and Controllability">Clustering and Controllability</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#143-control-strategies" aria-label="14.3 Control Strategies">14.3 Control Strategies</a><ul>
+                        
+                <li>
+                    <a href="#centralized-control" aria-label="Centralized Control">Centralized Control</a><ul>
+                        
+                <li>
+                    <a href="#single-controller" aria-label="Single Controller">Single Controller</a></li>
+                <li>
+                    <a href="#multiple-controllers" aria-label="Multiple Controllers">Multiple Controllers</a></li></ul>
+                </li>
+                <li>
+                    <a href="#decentralized-control" aria-label="Decentralized Control">Decentralized Control</a><ul>
+                        
+                <li>
+                    <a href="#local-control" aria-label="Local Control">Local Control</a></li>
+                <li>
+                    <a href="#distributed-control" aria-label="Distributed Control">Distributed Control</a></li></ul>
+                </li>
+                <li>
+                    <a href="#adaptive-control" aria-label="Adaptive Control">Adaptive Control</a><ul>
+                        
+                <li>
+                    <a href="#model-reference-adaptive-control" aria-label="Model Reference Adaptive Control">Model Reference Adaptive Control</a></li>
+                <li>
+                    <a href="#self-tuning-control" aria-label="Self-Tuning Control">Self-Tuning Control</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#144-applications-to-materials-science" aria-label="14.4 Applications to Materials Science">14.4 Applications to Materials Science</a><ul>
+                        
+                <li>
+                    <a href="#defect-control" aria-label="Defect Control">Defect Control</a><ul>
+                        
+                <li>
+                    <a href="#problem" aria-label="Problem">Problem</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li></ul>
+                </li>
+                <li>
+                    <a href="#phase-control" aria-label="Phase Control">Phase Control</a><ul>
+                        
+                <li>
+                    <a href="#problem-1" aria-label="Problem">Problem</a></li>
+                <li>
+                    <a href="#solution-1" aria-label="Solution">Solution</a></li></ul>
+                </li>
+                <li>
+                    <a href="#nanowire-network-control" aria-label="Nanowire Network Control">Nanowire Network Control</a><ul>
+                        
+                <li>
+                    <a href="#problem-2" aria-label="Problem">Problem</a></li>
+                <li>
+                    <a href="#solution-2" aria-label="Solution">Solution</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#145-robust-control" aria-label="14.5 Robust Control">14.5 Robust Control</a><ul>
+                        
+                <li>
+                    <a href="#robust-controllability" aria-label="Robust Controllability">Robust Controllability</a><ul>
+                        
+                <li>
+                    <a href="#definition-2" aria-label="Definition">Definition</a></li>
+                <li>
+                    <a href="#robust-control-design" aria-label="Robust Control Design">Robust Control Design</a></li></ul>
+                </li>
+                <li>
+                    <a href="#h-control" aria-label="H∞ Control">H∞ Control</a><ul>
+                        
+                <li>
+                    <a href="#problem-3" aria-label="Problem">Problem</a></li>
+                <li>
+                    <a href="#solution-3" aria-label="Solution">Solution</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#code-example-network-control" aria-label="Code Example: Network Control">Code Example: Network Control</a></li>
+                <li>
+                    <a href="#key-takeaways" aria-label="Key Takeaways">Key Takeaways</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Chapter 14 of Newman&rsquo;s <em>Networks: An Introduction</em> explores <strong>network control</strong> - the theory and methods for controlling complex networks to achieve desired behaviors. This chapter covers controllability theory, control strategies, and applications to understanding and manipulating network dynamics.</p>
+<h2 id="141-controllability-theory">14.1 Controllability Theory<a hidden class="anchor" aria-hidden="true" href="#141-controllability-theory">#</a></h2>
+<h3 id="linear-controllability">Linear Controllability<a hidden class="anchor" aria-hidden="true" href="#linear-controllability">#</a></h3>
+<h4 id="system-model">System Model<a hidden class="anchor" aria-hidden="true" href="#system-model">#</a></h4>
+<p><strong>Linear time-invariant system</strong>:
+$$\frac{dx}{dt} = Ax + Bu$$</p>
+<p>Where:</p>
+<ul>
+<li>$x \in \mathbb{R}^n$: State vector</li>
+<li>$u \in \mathbb{R}^m$: Control input</li>
+<li>$A \in \mathbb{R}^{n \times n}$: System matrix</li>
+<li>$B \in \mathbb{R}^{n \times m}$: Input matrix</li>
+</ul>
+<h4 id="controllability-matrix">Controllability Matrix<a hidden class="anchor" aria-hidden="true" href="#controllability-matrix">#</a></h4>
+<p><strong>Controllability matrix</strong>:
+$$\mathcal{C} = [B, AB, A^2B, \ldots, A^{n-1}B]$$</p>
+<p><strong>Controllability condition</strong>: System is controllable if and only if
+$$\text{rank}(\mathcal{C}) = n$$</p>
+<h4 id="kalmans-controllability-test">Kalman&rsquo;s Controllability Test<a hidden class="anchor" aria-hidden="true" href="#kalmans-controllability-test">#</a></h4>
+<p><strong>Theorem</strong>: The system is controllable if and only if the controllability matrix has full rank.</p>
+<p><strong>Proof</strong>: Based on Cayley-Hamilton theorem and linear algebra.</p>
+<h3 id="structural-controllability">Structural Controllability<a hidden class="anchor" aria-hidden="true" href="#structural-controllability">#</a></h3>
+<h4 id="definition">Definition<a hidden class="anchor" aria-hidden="true" href="#definition">#</a></h4>
+<p><strong>Structural controllability</strong>: System is structurally controllable if it is controllable for almost all parameter values.</p>
+<p><strong>Advantage</strong>: Depends only on network topology, not specific parameter values.</p>
+<h4 id="minimum-number-of-drivers">Minimum Number of Drivers<a hidden class="anchor" aria-hidden="true" href="#minimum-number-of-drivers">#</a></h4>
+<p><strong>Theorem</strong>: Minimum number of driver nodes needed for structural controllability is:
+$$N_D = \max_i \mu_i$$</p>
+<p>Where $\mu_i$ is the geometric multiplicity of eigenvalue $\lambda_i$ of $A$.</p>
+<h4 id="driver-node-selection">Driver Node Selection<a hidden class="anchor" aria-hidden="true" href="#driver-node-selection">#</a></h4>
+<p><strong>Algorithm</strong>:</p>
+<ol>
+<li>Find maximum matching in bipartite graph</li>
+<li>Unmatched nodes are driver nodes</li>
+<li>Minimum number of drivers = $n - |M|$</li>
+</ol>
+<p>Where $|M|$ is the size of maximum matching.</p>
+<h3 id="energy-control">Energy Control<a hidden class="anchor" aria-hidden="true" href="#energy-control">#</a></h3>
+<h4 id="control-energy">Control Energy<a hidden class="anchor" aria-hidden="true" href="#control-energy">#</a></h4>
+<p><strong>Control energy</strong>:
+$$E = \int_0^T ||u(t)||^2 dt$$</p>
+<p><strong>Minimum energy control</strong>:
+$$u^*(t) = B^T e^{A^T(T-t)} W^{-1}(T) x_f$$</p>
+<p>Where $W(T)$ is the controllability Gramian:
+$$W(T) = \int_0^T e^{At} BB^T e^{A^T t} dt$$</p>
+<h4 id="controllability-gramian">Controllability Gramian<a hidden class="anchor" aria-hidden="true" href="#controllability-gramian">#</a></h4>
+<p><strong>Properties</strong>:</p>
+<ul>
+<li><strong>Symmetric</strong>: $W(T) = W^T(T)$</li>
+<li><strong>Positive definite</strong>: If system is controllable</li>
+<li><strong>Energy bound</strong>: $E \geq x_f^T W^{-1}(T) x_f$</li>
+</ul>
+<h3 id="optimal-control">Optimal Control<a hidden class="anchor" aria-hidden="true" href="#optimal-control">#</a></h3>
+<h4 id="linear-quadratic-regulator-lqr">Linear Quadratic Regulator (LQR)<a hidden class="anchor" aria-hidden="true" href="#linear-quadratic-regulator-lqr">#</a></h4>
+<p><strong>Cost function</strong>:
+$$J = \int_0^T (x^T Q x + u^T R u) dt$$</p>
+<p>Where:</p>
+<ul>
+<li>$Q \geq 0$: State weight matrix</li>
+<li>$R &gt; 0$: Control weight matrix</li>
+</ul>
+<p><strong>Optimal control</strong>:
+$$u^*(t) = -R^{-1} B^T P(t) x(t)$$</p>
+<p>Where $P(t)$ satisfies the Riccati equation:
+$$-\frac{dP}{dt} = A^T P + PA - PBR^{-1}B^T P + Q$$</p>
+<h4 id="steady-state-solution">Steady-State Solution<a hidden class="anchor" aria-hidden="true" href="#steady-state-solution">#</a></h4>
+<p><strong>Algebraic Riccati equation</strong>:
+$$A^T P + PA - PBR^{-1}B^T P + Q = 0$$</p>
+<p><strong>Optimal control</strong>:
+$$u^*(t) = -R^{-1} B^T P x(t)$$</p>
+<h2 id="142-network-controllability">14.2 Network Controllability<a hidden class="anchor" aria-hidden="true" href="#142-network-controllability">#</a></h2>
+<h3 id="controllability-of-complex-networks">Controllability of Complex Networks<a hidden class="anchor" aria-hidden="true" href="#controllability-of-complex-networks">#</a></h3>
+<h4 id="driver-node-analysis">Driver Node Analysis<a hidden class="anchor" aria-hidden="true" href="#driver-node-analysis">#</a></h4>
+<p><strong>Driver nodes</strong>: Nodes that need external control input</p>
+<p><strong>Controllable nodes</strong>: Nodes that can be controlled by driver nodes</p>
+<p><strong>Mathematical formulation</strong>:
+$$\min_{B} ||B||_0 \quad \text{subject to } \text{rank}(\mathcal{C}) = n$$</p>
+<p>Where $||B||_0$ is the number of non-zero columns in $B$.</p>
+<h4 id="controllability-gramian-1">Controllability Gramian<a hidden class="anchor" aria-hidden="true" href="#controllability-gramian-1">#</a></h4>
+<p><strong>Network controllability Gramian</strong>:
+$$W = \int_0^{\infty} e^{At} BB^T e^{A^T t} dt$$</p>
+<p><strong>Properties</strong>:</p>
+<ul>
+<li><strong>Trace</strong>: $\text{tr}(W)$ measures controllability</li>
+<li><strong>Determinant</strong>: $\det(W)$ measures controllability</li>
+<li><strong>Eigenvalues</strong>: $\lambda_i(W)$ measure controllability in different directions</li>
+</ul>
+<h3 id="control-centrality">Control Centrality<a hidden class="anchor" aria-hidden="true" href="#control-centrality">#</a></h3>
+<h4 id="definition-1">Definition<a hidden class="anchor" aria-hidden="true" href="#definition-1">#</a></h4>
+<p><strong>Control centrality</strong> of node $i$:
+$$C_i = \text{tr}(W_i)$$</p>
+<p>Where $W_i$ is the controllability Gramian when node $i$ is the only driver.</p>
+<h4 id="properties">Properties<a hidden class="anchor" aria-hidden="true" href="#properties">#</a></h4>
+<p><strong>Range</strong>: $C_i \geq 0$</p>
+<p><strong>Interpretation</strong>: Higher $C_i$ means node $i$ is more important for control</p>
+<p><strong>Calculation</strong>: $C_i = \sum_{j=1}^n \frac{1}{\lambda_j^2}$ where $\lambda_j$ are eigenvalues of $A$.</p>
+<h3 id="controllability-and-network-structure">Controllability and Network Structure<a hidden class="anchor" aria-hidden="true" href="#controllability-and-network-structure">#</a></h3>
+<h4 id="degree-and-controllability">Degree and Controllability<a hidden class="anchor" aria-hidden="true" href="#degree-and-controllability">#</a></h4>
+<p><strong>High-degree nodes</strong>: Often important for control</p>
+<p><strong>Low-degree nodes</strong>: May be easier to control</p>
+<p><strong>Mathematical relationship</strong>:
+$$C_i \sim k_i^{\alpha}$$</p>
+<p>Where $\alpha$ depends on network structure.</p>
+<h4 id="clustering-and-controllability">Clustering and Controllability<a hidden class="anchor" aria-hidden="true" href="#clustering-and-controllability">#</a></h4>
+<p><strong>High clustering</strong>: May reduce controllability</p>
+<p><strong>Low clustering</strong>: May increase controllability</p>
+<p><strong>Mathematical relationship</strong>:
+$$C_i \sim C_i^{-\beta}$$</p>
+<p>Where $\beta$ depends on network structure.</p>
+<h2 id="143-control-strategies">14.3 Control Strategies<a hidden class="anchor" aria-hidden="true" href="#143-control-strategies">#</a></h2>
+<h3 id="centralized-control">Centralized Control<a hidden class="anchor" aria-hidden="true" href="#centralized-control">#</a></h3>
+<h4 id="single-controller">Single Controller<a hidden class="anchor" aria-hidden="true" href="#single-controller">#</a></h4>
+<p><strong>Control law</strong>:
+$$u(t) = -K x(t)$$</p>
+<p>Where $K$ is the feedback gain matrix.</p>
+<p><strong>Design</strong>: $K = R^{-1} B^T P$</p>
+<p><strong>Advantages</strong>: Optimal performance
+<strong>Disadvantages</strong>: Requires global information</p>
+<h4 id="multiple-controllers">Multiple Controllers<a hidden class="anchor" aria-hidden="true" href="#multiple-controllers">#</a></h4>
+<p><strong>Control law</strong>:
+$$u_i(t) = -K_i x_i(t) + \sum_{j \in \mathcal{N}<em>i} K</em>{ij} x_j(t)$$</p>
+<p>Where:</p>
+<ul>
+<li>$K_i$: Local feedback gain</li>
+<li>$K_{ij}$: Coupling gain</li>
+<li>$\mathcal{N}_i$: Neighbors of node $i$</li>
+</ul>
+<h3 id="decentralized-control">Decentralized Control<a hidden class="anchor" aria-hidden="true" href="#decentralized-control">#</a></h3>
+<h4 id="local-control">Local Control<a hidden class="anchor" aria-hidden="true" href="#local-control">#</a></h4>
+<p><strong>Control law</strong>:
+$$u_i(t) = -K_i x_i(t)$$</p>
+<p><strong>Design</strong>: Each controller uses only local information</p>
+<p><strong>Advantages</strong>: Scalable, robust
+<strong>Disadvantages</strong>: May not achieve global optimum</p>
+<h4 id="distributed-control">Distributed Control<a hidden class="anchor" aria-hidden="true" href="#distributed-control">#</a></h4>
+<p><strong>Control law</strong>:
+$$u_i(t) = -K_i x_i(t) + \sum_{j \in \mathcal{N}<em>i} K</em>{ij} (x_j(t) - x_i(t))$$</p>
+<p><strong>Design</strong>: Controllers communicate with neighbors</p>
+<p><strong>Advantages</strong>: Better performance than local control
+<strong>Disadvantages</strong>: Requires communication</p>
+<h3 id="adaptive-control">Adaptive Control<a hidden class="anchor" aria-hidden="true" href="#adaptive-control">#</a></h3>
+<h4 id="model-reference-adaptive-control">Model Reference Adaptive Control<a hidden class="anchor" aria-hidden="true" href="#model-reference-adaptive-control">#</a></h4>
+<p><strong>Reference model</strong>:
+$$\frac{dx_m}{dt} = A_m x_m + B_m r$$</p>
+<p><strong>Control law</strong>:
+$$u(t) = K_x(t) x(t) + K_r(t) r(t)$$</p>
+<p><strong>Adaptation law</strong>:
+$$\frac{dK_x}{dt} = -\Gamma_x x(t) e^T(t) P B$$
+$$\frac{dK_r}{dt} = -\Gamma_r r(t) e^T(t) P B$$</p>
+<p>Where $e(t) = x(t) - x_m(t)$ is the tracking error.</p>
+<h4 id="self-tuning-control">Self-Tuning Control<a hidden class="anchor" aria-hidden="true" href="#self-tuning-control">#</a></h4>
+<p><strong>Parameter estimation</strong>:
+$$\hat{\theta}(t) = \hat{\theta}(t-1) + \Gamma \phi(t) e(t)$$</p>
+<p><strong>Control law</strong>:
+$$u(t) = \hat{\theta}^T(t) \phi(t)$$</p>
+<p>Where $\phi(t)$ is the regressor vector.</p>
+<h2 id="144-applications-to-materials-science">14.4 Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#144-applications-to-materials-science">#</a></h2>
+<h3 id="defect-control">Defect Control<a hidden class="anchor" aria-hidden="true" href="#defect-control">#</a></h3>
+<h4 id="problem">Problem<a hidden class="anchor" aria-hidden="true" href="#problem">#</a></h4>
+<p><strong>Given</strong>: Defect network with dynamics
+$$\frac{dx_i}{dt} = f_i(x_i) + \sum_{j} A_{ij} g_{ij}(x_i, x_j) + u_i$$</p>
+<p><strong>Goal</strong>: Control defect density to desired level</p>
+<p><strong>Control objective</strong>:
+$$\min_{u} \int_0^T ||x(t) - x_d||^2 dt$$</p>
+<h4 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h4>
+<p><strong>Optimal control</strong>:
+$$u_i^*(t) = -R^{-1} B^T P (x_i(t) - x_{d,i})$$</p>
+<p><strong>Feedback gain</strong>:
+$$K = R^{-1} B^T P$$</p>
+<p><strong>Stability</strong>: Guaranteed if $A$ is Hurwitz</p>
+<h3 id="phase-control">Phase Control<a hidden class="anchor" aria-hidden="true" href="#phase-control">#</a></h3>
+<h4 id="problem-1">Problem<a hidden class="anchor" aria-hidden="true" href="#problem-1">#</a></h4>
+<p><strong>Given</strong>: Phase transition dynamics
+$$\frac{d\phi}{dt} = f(\phi) + u$$</p>
+<p><strong>Goal</strong>: Control phase to desired value</p>
+<p><strong>Control objective</strong>:
+$$\min_{u} \int_0^T (\phi(t) - \phi_d)^2 dt$$</p>
+<h4 id="solution-1">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-1">#</a></h4>
+<p><strong>Optimal control</strong>:
+$$u^*(t) = -R^{-1} B^T P (\phi(t) - \phi_d)$$</p>
+<p><strong>Phase transition</strong>: Controlled by external field</p>
+<h3 id="nanowire-network-control">Nanowire Network Control<a hidden class="anchor" aria-hidden="true" href="#nanowire-network-control">#</a></h3>
+<h4 id="problem-2">Problem<a hidden class="anchor" aria-hidden="true" href="#problem-2">#</a></h4>
+<p><strong>Given</strong>: Nanowire network with electrical dynamics
+$$\frac{dV_i}{dt} = \frac{1}{C_i} \sum_{j} \frac{V_j - V_i}{R_{ij}} + u_i$$</p>
+<p><strong>Goal</strong>: Control voltage distribution</p>
+<p><strong>Control objective</strong>:
+$$\min_{u} \int_0^T ||V(t) - V_d||^2 dt$$</p>
+<h4 id="solution-2">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-2">#</a></h4>
+<p><strong>Optimal control</strong>:
+$$u_i^*(t) = -R^{-1} C_i (V_i(t) - V_{d,i})$$</p>
+<p><strong>Electrical properties</strong>: Controlled by external current</p>
+<h2 id="145-robust-control">14.5 Robust Control<a hidden class="anchor" aria-hidden="true" href="#145-robust-control">#</a></h2>
+<h3 id="robust-controllability">Robust Controllability<a hidden class="anchor" aria-hidden="true" href="#robust-controllability">#</a></h3>
+<h4 id="definition-2">Definition<a hidden class="anchor" aria-hidden="true" href="#definition-2">#</a></h4>
+<p><strong>Robust controllability</strong>: System remains controllable under parameter uncertainty</p>
+<p><strong>Mathematical condition</strong>:
+$$\text{rank}(\mathcal{C}(\theta)) = n \quad \forall \theta \in \Theta$$</p>
+<p>Where $\Theta$ is the uncertainty set.</p>
+<h4 id="robust-control-design">Robust Control Design<a hidden class="anchor" aria-hidden="true" href="#robust-control-design">#</a></h4>
+<p><strong>Control law</strong>:
+$$u(t) = -K(\theta) x(t)$$</p>
+<p><strong>Design</strong>: $K(\theta)$ minimizes worst-case performance</p>
+<p><strong>Performance</strong>:
+$$J = \max_{\theta \in \Theta} \int_0^T (x^T Q x + u^T R u) dt$$</p>
+<h3 id="h-control">H∞ Control<a hidden class="anchor" aria-hidden="true" href="#h-control">#</a></h3>
+<h4 id="problem-3">Problem<a hidden class="anchor" aria-hidden="true" href="#problem-3">#</a></h4>
+<p><strong>Given</strong>: System with disturbances
+$$\frac{dx}{dt} = Ax + Bu + B_w w$$
+$$z = Cx + Du$$</p>
+<p><strong>Goal</strong>: Minimize effect of disturbances</p>
+<p><strong>Performance</strong>:
+$$||T_{zw}||_{\infty} &lt; \gamma$$</p>
+<p>Where $T_{zw}$ is the transfer function from $w$ to $z$.</p>
+<h4 id="solution-3">Solution<a hidden class="anchor" aria-hidden="true" href="#solution-3">#</a></h4>
+<p><strong>Control law</strong>:
+$$u(t) = -K x(t)$$</p>
+<p><strong>Design</strong>: $K$ minimizes $||T_{zw}||_{\infty}$</p>
+<p><strong>Riccati equation</strong>:
+$$A^T P + PA - P(BR^{-1}B^T - \gamma^{-2}B_w B_w^T) P + C^T C = 0$$</p>
+<h2 id="code-example-network-control">Code Example: Network Control<a hidden class="anchor" aria-hidden="true" href="#code-example-network-control">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> scipy.linalg <span style="color:#ff79c6">import</span> solve_continuous_are, eig
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> scipy.optimize <span style="color:#ff79c6">import</span> minimize
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.linear_model <span style="color:#ff79c6">import</span> LinearRegression
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">check_controllability</span>(A, B):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Check if system is controllable&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> A<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Build controllability matrix</span>
+</span></span><span style="display:flex;"><span>    C <span style="color:#ff79c6">=</span> B
+</span></span><span style="display:flex;"><span>    A_power <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>eye(n)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">1</span>, n):
+</span></span><span style="display:flex;"><span>        A_power <span style="color:#ff79c6">=</span> A_power <span style="color:#ff79c6">@</span> A
+</span></span><span style="display:flex;"><span>        C <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>hstack([C, A_power <span style="color:#ff79c6">@</span> B])
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Check rank</span>
+</span></span><span style="display:flex;"><span>    rank <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linalg<span style="color:#ff79c6">.</span>matrix_rank(C)
+</span></span><span style="display:flex;"><span>    is_controllable <span style="color:#ff79c6">=</span> rank <span style="color:#ff79c6">==</span> n
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> is_controllable, rank, C
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">find_driver_nodes</span>(A):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Find minimum number of driver nodes for structural controllability&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> A<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Create bipartite graph</span>
+</span></span><span style="display:flex;"><span>    G_bipartite <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>Graph()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Add nodes</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+</span></span><span style="display:flex;"><span>        G_bipartite<span style="color:#ff79c6">.</span>add_node(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;x_</span><span style="color:#f1fa8c">{</span>i<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>, bipartite<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>        G_bipartite<span style="color:#ff79c6">.</span>add_node(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;y_</span><span style="color:#f1fa8c">{</span>i<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>, bipartite<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Add edges</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> j <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> A[i, j] <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">0</span>:
+</span></span><span style="display:flex;"><span>                G_bipartite<span style="color:#ff79c6">.</span>add_edge(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;x_</span><span style="color:#f1fa8c">{</span>i<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>, <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;y_</span><span style="color:#f1fa8c">{</span>j<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Find maximum matching</span>
+</span></span><span style="display:flex;"><span>    matching <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>bipartite<span style="color:#ff79c6">.</span>maximum_matching(G_bipartite)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Find unmatched nodes</span>
+</span></span><span style="display:flex;"><span>    matched_x <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">set</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> x, y <span style="color:#ff79c6">in</span> matching<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> x<span style="color:#ff79c6">.</span>startswith(<span style="color:#f1fa8c">&#39;x_&#39;</span>):
+</span></span><span style="display:flex;"><span>            matched_x<span style="color:#ff79c6">.</span>add(x)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Driver nodes are unmatched x nodes</span>
+</span></span><span style="display:flex;"><span>    driver_nodes <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;x_</span><span style="color:#f1fa8c">{</span>i<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span> <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">in</span> matched_x:
+</span></span><span style="display:flex;"><span>            driver_nodes<span style="color:#ff79c6">.</span>append(i)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> driver_nodes, <span style="color:#8be9fd;font-style:italic">len</span>(driver_nodes)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">design_lqr_controller</span>(A, B, Q, R):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Design LQR controller&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Solve algebraic Riccati equation</span>
+</span></span><span style="display:flex;"><span>    P <span style="color:#ff79c6">=</span> solve_continuous_are(A, B, Q, R)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Calculate feedback gain</span>
+</span></span><span style="display:flex;"><span>    K <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linalg<span style="color:#ff79c6">.</span>inv(R) <span style="color:#ff79c6">@</span> B<span style="color:#ff79c6">.</span>T <span style="color:#ff79c6">@</span> P
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Calculate closed-loop matrix</span>
+</span></span><span style="display:flex;"><span>    A_cl <span style="color:#ff79c6">=</span> A <span style="color:#ff79c6">-</span> B <span style="color:#ff79c6">@</span> K
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Check stability</span>
+</span></span><span style="display:flex;"><span>    eigenvals <span style="color:#ff79c6">=</span> eig(A_cl)[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>    is_stable <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>all(np<span style="color:#ff79c6">.</span>real(eigenvals) <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> K, P, A_cl, is_stable
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">simulate_controlled_system</span>(A, B, K, x0, T, dt<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.01</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Simulate controlled system&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> A<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>    steps <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">int</span>(T <span style="color:#ff79c6">/</span> dt)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Initialize</span>
+</span></span><span style="display:flex;"><span>    x <span style="color:#ff79c6">=</span> x0<span style="color:#ff79c6">.</span>copy()
+</span></span><span style="display:flex;"><span>    x_history <span style="color:#ff79c6">=</span> [x<span style="color:#ff79c6">.</span>copy()]
+</span></span><span style="display:flex;"><span>    u_history <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Simulate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> t <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(steps):
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Calculate control input</span>
+</span></span><span style="display:flex;"><span>        u <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span>K <span style="color:#ff79c6">@</span> x
+</span></span><span style="display:flex;"><span>        u_history<span style="color:#ff79c6">.</span>append(u<span style="color:#ff79c6">.</span>copy())
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Update state</span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> x <span style="color:#ff79c6">+</span> dt <span style="color:#ff79c6">*</span> (A <span style="color:#ff79c6">@</span> x <span style="color:#ff79c6">+</span> B <span style="color:#ff79c6">@</span> u)
+</span></span><span style="display:flex;"><span>        x_history<span style="color:#ff79c6">.</span>append(x<span style="color:#ff79c6">.</span>copy())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> np<span style="color:#ff79c6">.</span>array(x_history), np<span style="color:#ff79c6">.</span>array(u_history)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">calculate_control_energy</span>(u_history, dt):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Calculate control energy&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    energy <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>sum(np<span style="color:#ff79c6">.</span>sum(u_history<span style="color:#ff79c6">**</span><span style="color:#bd93f9">2</span>, axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>)) <span style="color:#ff79c6">*</span> dt
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> energy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">design_robust_controller</span>(A, B, Q, R, uncertainty_set):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Design robust controller for uncertain system&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">objective</span>(K_flat):
+</span></span><span style="display:flex;"><span>        K <span style="color:#ff79c6">=</span> K_flat<span style="color:#ff79c6">.</span>reshape(B<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">1</span>], A<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">0</span>])
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Check stability for all parameter values</span>
+</span></span><span style="display:flex;"><span>        max_eigenval <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span>np<span style="color:#ff79c6">.</span>inf
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> A_uncertain <span style="color:#ff79c6">in</span> uncertainty_set:
+</span></span><span style="display:flex;"><span>            A_cl <span style="color:#ff79c6">=</span> A_uncertain <span style="color:#ff79c6">-</span> B <span style="color:#ff79c6">@</span> K
+</span></span><span style="display:flex;"><span>            eigenvals <span style="color:#ff79c6">=</span> eig(A_cl)[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>            max_eigenval <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(max_eigenval, np<span style="color:#ff79c6">.</span>max(np<span style="color:#ff79c6">.</span>real(eigenvals)))
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Return negative of maximum real part (we want it to be negative)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">-</span>max_eigenval
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Initial guess</span>
+</span></span><span style="display:flex;"><span>    K0 <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>randn(B<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">1</span>], A<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">0</span>])
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Optimize</span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#ff79c6">=</span> minimize(objective, K0<span style="color:#ff79c6">.</span>flatten(), method<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;BFGS&#39;</span>)
+</span></span><span style="display:flex;"><span>    K_robust <span style="color:#ff79c6">=</span> result<span style="color:#ff79c6">.</span>x<span style="color:#ff79c6">.</span>reshape(B<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">1</span>], A<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">0</span>])
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> K_robust
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_control_centrality</span>(A, B):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze control centrality of nodes&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> A<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>    control_centrality <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Create B matrix with only node i as driver</span>
+</span></span><span style="display:flex;"><span>        B_i <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros((n, <span style="color:#bd93f9">1</span>))
+</span></span><span style="display:flex;"><span>        B_i[i, <span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Check controllability</span>
+</span></span><span style="display:flex;"><span>        is_controllable, rank, C <span style="color:#ff79c6">=</span> check_controllability(A, B_i)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> is_controllable:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Calculate controllability Gramian</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">try</span>:
+</span></span><span style="display:flex;"><span>                P <span style="color:#ff79c6">=</span> solve_continuous_are(A, B_i, np<span style="color:#ff79c6">.</span>eye(n), np<span style="color:#ff79c6">.</span>eye(<span style="color:#bd93f9">1</span>))
+</span></span><span style="display:flex;"><span>                control_centrality[i] <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>trace(P)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">except</span>:
+</span></span><span style="display:flex;"><span>                control_centrality[i] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            control_centrality[i] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> control_centrality
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">plot_control_analysis</span>(A, B, K, x_history, u_history, control_centrality):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Plot control analysis results&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    fig, ((ax1, ax2), (ax3, ax4)) <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">15</span>, <span style="color:#bd93f9">12</span>))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># State evolution</span>
+</span></span><span style="display:flex;"><span>    t <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#bd93f9">0</span>, <span style="color:#8be9fd;font-style:italic">len</span>(x_history)<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>, <span style="color:#8be9fd;font-style:italic">len</span>(x_history))
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#bd93f9">5</span>, x_history<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">1</span>])):
+</span></span><span style="display:flex;"><span>        ax1<span style="color:#ff79c6">.</span>plot(t, x_history[:, i], label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;State </span><span style="color:#f1fa8c">{</span>i<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>, linewidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Time&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;State Value&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;State Evolution&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>legend()
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Control input</span>
+</span></span><span style="display:flex;"><span>    t_u <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#bd93f9">0</span>, <span style="color:#8be9fd;font-style:italic">len</span>(u_history)<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>, <span style="color:#8be9fd;font-style:italic">len</span>(u_history))
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#bd93f9">5</span>, u_history<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">1</span>])):
+</span></span><span style="display:flex;"><span>        ax2<span style="color:#ff79c6">.</span>plot(t_u, u_history[:, i], label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;Control </span><span style="color:#f1fa8c">{</span>i<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>, linewidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Time&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Control Input&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Control Input Evolution&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>legend()
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Control centrality</span>
+</span></span><span style="display:flex;"><span>    nodes <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(control_centrality))
+</span></span><span style="display:flex;"><span>    bars <span style="color:#ff79c6">=</span> ax3<span style="color:#ff79c6">.</span>bar(nodes, control_centrality, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.7</span>, color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;skyblue&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Node Index&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Control Centrality&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Control Centrality of Nodes&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Network visualization with control centrality</span>
+</span></span><span style="display:flex;"><span>    G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>from_numpy_array(A)
+</span></span><span style="display:flex;"><span>    pos <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>spring_layout(G, k<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, iterations<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Color nodes by control centrality</span>
+</span></span><span style="display:flex;"><span>    node_colors <span style="color:#ff79c6">=</span> control_centrality
+</span></span><span style="display:flex;"><span>    node_sizes <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">100</span> <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">50</span> <span style="color:#ff79c6">*</span> control_centrality <span style="color:#ff79c6">/</span> np<span style="color:#ff79c6">.</span>max(control_centrality)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    nx<span style="color:#ff79c6">.</span>draw(G, pos, ax<span style="color:#ff79c6">=</span>ax4, node_color<span style="color:#ff79c6">=</span>node_colors, node_size<span style="color:#ff79c6">=</span>node_sizes,
+</span></span><span style="display:flex;"><span>            edge_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;gray&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.6</span>, cmap<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;viridis&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax4<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Network with Control Centrality&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax4<span style="color:#ff79c6">.</span>axis(<span style="color:#f1fa8c">&#39;off&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>tight_layout()
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Network control analysis</span>
+</span></span><span style="display:flex;"><span>n <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">20</span>
+</span></span><span style="display:flex;"><span>G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>barabasi_albert_graph(n, <span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span>A <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>adjacency_matrix(G)<span style="color:#ff79c6">.</span>toarray()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Add self-loops for stability</span>
+</span></span><span style="display:flex;"><span>A <span style="color:#ff79c6">=</span> A <span style="color:#ff79c6">-</span> np<span style="color:#ff79c6">.</span>diag(np<span style="color:#ff79c6">.</span>sum(A, axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Create control input matrix (all nodes can be controlled)</span>
+</span></span><span style="display:flex;"><span>B <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>eye(n)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Check controllability</span>
+</span></span><span style="display:flex;"><span>is_controllable, rank, C <span style="color:#ff79c6">=</span> check_controllability(A, B)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;System is controllable: </span><span style="color:#f1fa8c">{</span>is_controllable<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Controllability rank: </span><span style="color:#f1fa8c">{</span>rank<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">/</span><span style="color:#f1fa8c">{</span>n<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Find driver nodes</span>
+</span></span><span style="display:flex;"><span>driver_nodes, n_drivers <span style="color:#ff79c6">=</span> find_driver_nodes(A)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Driver nodes: </span><span style="color:#f1fa8c">{</span>driver_nodes<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Number of drivers: </span><span style="color:#f1fa8c">{</span>n_drivers<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Design LQR controller</span>
+</span></span><span style="display:flex;"><span>Q <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>eye(n)
+</span></span><span style="display:flex;"><span>R <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.1</span> <span style="color:#ff79c6">*</span> np<span style="color:#ff79c6">.</span>eye(n)
+</span></span><span style="display:flex;"><span>K, P, A_cl, is_stable <span style="color:#ff79c6">=</span> design_lqr_controller(A, B, Q, R)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Controller is stable: </span><span style="color:#f1fa8c">{</span>is_stable<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Simulate controlled system</span>
+</span></span><span style="display:flex;"><span>x0 <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>randn(n)
+</span></span><span style="display:flex;"><span>T <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>
+</span></span><span style="display:flex;"><span>x_history, u_history <span style="color:#ff79c6">=</span> simulate_controlled_system(A, B, K, x0, T)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Calculate control energy</span>
+</span></span><span style="display:flex;"><span>energy <span style="color:#ff79c6">=</span> calculate_control_energy(u_history, <span style="color:#bd93f9">0.01</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Control energy: </span><span style="color:#f1fa8c">{</span>energy<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Analyze control centrality</span>
+</span></span><span style="display:flex;"><span>control_centrality <span style="color:#ff79c6">=</span> analyze_control_centrality(A, B)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Control centrality range: </span><span style="color:#f1fa8c">{</span>np<span style="color:#ff79c6">.</span>min(control_centrality)<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> - </span><span style="color:#f1fa8c">{</span>np<span style="color:#ff79c6">.</span>max(control_centrality)<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Plot results</span>
+</span></span><span style="display:flex;"><span>plot_control_analysis(A, B, K, x_history, u_history, control_centrality)
+</span></span></code></pre></div><h2 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h2>
+<ol>
+<li><strong>Controllability theory</strong>: Mathematical foundation for network control</li>
+<li><strong>Driver nodes</strong>: Minimum set of nodes needed for control</li>
+<li><strong>Control strategies</strong>: Centralized, decentralized, and adaptive control</li>
+<li><strong>Energy optimization</strong>: LQR and other optimal control methods</li>
+<li><strong>Robust control</strong>: Control under uncertainty</li>
+<li><strong>Applications</strong>: Important for materials science and complex systems</li>
+<li><strong>Control centrality</strong>: Measures importance of nodes for control</li>
+</ol>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ol>
+<li>Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press.</li>
+<li>Liu, Y. Y., Slotine, J. J., &amp; Barabási, A. L. (2011). Controllability of complex networks. Nature, 473(7346), 167-173.</li>
+<li>Kalman, R. E. (1960). On the general theory of control systems. IRE Transactions on Automatic Control, 5(4), 110-110.</li>
+<li>Lewis, F. L., Vrabie, D., &amp; Syrmos, V. L. (2012). Optimal Control. John Wiley &amp; Sons.</li>
+</ol>
+<hr>
+<p><em>Network control provides powerful tools for understanding and manipulating complex systems, with important applications in materials science and engineering.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-control/">Network-Control</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/controllability/">Controllability</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/control-theory/">Control-Theory</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on x"
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f&amp;hashtags=reading-notes%2cnetwork-theory%2cnetwork-control%2ccontrollability%2ccontrol-theory">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on whatsapp"
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on telegram"
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -2,164 +2,521 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Notes on AI4Science &amp; Graph Theory</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://Linlin-resh.github.io/tags/</link>
     <description>Recent content in Tags on Notes on AI4Science &amp; Graph Theory</description>
     <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://Linlin-resh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Biological-Networks</title>
+      <link>https://Linlin-resh.github.io/tags/biological-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/biological-networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Citation-Networks</title>
+      <link>https://Linlin-resh.github.io/tags/citation-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/citation-networks/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Code-Snippets</title>
-      <link>http://localhost:1313/tags/code-snippets/</link>
+      <link>https://Linlin-resh.github.io/tags/code-snippets/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/code-snippets/</guid>
+      <guid>https://Linlin-resh.github.io/tags/code-snippets/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Community-Detection</title>
+      <link>https://Linlin-resh.github.io/tags/community-detection/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/community-detection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Configuration-Model</title>
+      <link>https://Linlin-resh.github.io/tags/configuration-model/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/configuration-model/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Control-Theory</title>
+      <link>https://Linlin-resh.github.io/tags/control-theory/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/control-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Controllability</title>
+      <link>https://Linlin-resh.github.io/tags/controllability/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/controllability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data-Collection</title>
+      <link>https://Linlin-resh.github.io/tags/data-collection/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/data-collection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Design-Principles</title>
+      <link>https://Linlin-resh.github.io/tags/design-principles/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/design-principles/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Emerging-Trends</title>
+      <link>https://Linlin-resh.github.io/tags/emerging-trends/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/emerging-trends/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Epidemic-Spreading</title>
+      <link>https://Linlin-resh.github.io/tags/epidemic-spreading/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/epidemic-spreading/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Erdos-Renyi</title>
+      <link>https://Linlin-resh.github.io/tags/erdos-renyi/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/erdos-renyi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Failure-Analysis</title>
+      <link>https://Linlin-resh.github.io/tags/failure-analysis/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/failure-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Future-Directions</title>
+      <link>https://Linlin-resh.github.io/tags/future-directions/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/future-directions/</guid>
       <description></description>
     </item>
     <item>
       <title>Graph-Neural-Networks</title>
-      <link>http://localhost:1313/tags/graph-neural-networks/</link>
+      <link>https://Linlin-resh.github.io/tags/graph-neural-networks/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/graph-neural-networks/</guid>
+      <guid>https://Linlin-resh.github.io/tags/graph-neural-networks/</guid>
       <description></description>
     </item>
     <item>
       <title>Graph-Theory</title>
-      <link>http://localhost:1313/tags/graph-theory/</link>
+      <link>https://Linlin-resh.github.io/tags/graph-theory/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/graph-theory/</guid>
+      <guid>https://Linlin-resh.github.io/tags/graph-theory/</guid>
       <description></description>
     </item>
     <item>
       <title>Ideas</title>
-      <link>http://localhost:1313/tags/ideas/</link>
+      <link>https://Linlin-resh.github.io/tags/ideas/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ideas/</guid>
+      <guid>https://Linlin-resh.github.io/tags/ideas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Information-Networks</title>
+      <link>https://Linlin-resh.github.io/tags/information-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/information-networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infrastructure</title>
+      <link>https://Linlin-resh.github.io/tags/infrastructure/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/infrastructure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Internet</title>
+      <link>https://Linlin-resh.github.io/tags/internet/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/internet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Introduction</title>
+      <link>https://Linlin-resh.github.io/tags/introduction/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/introduction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Katex</title>
+      <link>https://Linlin-resh.github.io/tags/katex/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/katex/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linear-Algebra</title>
+      <link>https://Linlin-resh.github.io/tags/linear-algebra/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/linear-algebra/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine-Learning</title>
-      <link>http://localhost:1313/tags/machine-learning/</link>
+      <link>https://Linlin-resh.github.io/tags/machine-learning/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/machine-learning/</guid>
+      <guid>https://Linlin-resh.github.io/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Materials-Science</title>
-      <link>http://localhost:1313/tags/materials-science/</link>
+      <link>https://Linlin-resh.github.io/tags/materials-science/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/materials-science/</guid>
+      <guid>https://Linlin-resh.github.io/tags/materials-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Math</title>
+      <link>https://Linlin-resh.github.io/tags/math/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/math/</guid>
       <description></description>
     </item>
     <item>
       <title>Mathematics</title>
-      <link>http://localhost:1313/tags/mathematics/</link>
+      <link>https://Linlin-resh.github.io/tags/mathematics/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/mathematics/</guid>
+      <guid>https://Linlin-resh.github.io/tags/mathematics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mathjax</title>
+      <link>https://Linlin-resh.github.io/tags/mathjax/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/mathjax/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Measures</title>
+      <link>https://Linlin-resh.github.io/tags/measures/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/measures/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Metabolic-Networks</title>
+      <link>https://Linlin-resh.github.io/tags/metabolic-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/metabolic-networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Metrics</title>
+      <link>https://Linlin-resh.github.io/tags/metrics/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/metrics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Modularity</title>
+      <link>https://Linlin-resh.github.io/tags/modularity/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/modularity/</guid>
       <description></description>
     </item>
     <item>
       <title>Monthly-Update</title>
-      <link>http://localhost:1313/tags/monthly-update/</link>
+      <link>https://Linlin-resh.github.io/tags/monthly-update/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/monthly-update/</guid>
+      <guid>https://Linlin-resh.github.io/tags/monthly-update/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multilayer-Networks</title>
+      <link>https://Linlin-resh.github.io/tags/multilayer-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/multilayer-networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multiplex-Networks</title>
+      <link>https://Linlin-resh.github.io/tags/multiplex-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/multiplex-networks/</guid>
       <description></description>
     </item>
     <item>
       <title>Nanowires</title>
-      <link>http://localhost:1313/tags/nanowires/</link>
+      <link>https://Linlin-resh.github.io/tags/nanowires/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/nanowires/</guid>
+      <guid>https://Linlin-resh.github.io/tags/nanowires/</guid>
       <description></description>
     </item>
     <item>
       <title>Network-Analysis</title>
-      <link>http://localhost:1313/tags/network-analysis/</link>
+      <link>https://Linlin-resh.github.io/tags/network-analysis/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/network-analysis/</guid>
+      <guid>https://Linlin-resh.github.io/tags/network-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Control</title>
+      <link>https://Linlin-resh.github.io/tags/network-control/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/network-control/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Dynamics</title>
+      <link>https://Linlin-resh.github.io/tags/network-dynamics/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/network-dynamics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Evolution</title>
+      <link>https://Linlin-resh.github.io/tags/network-evolution/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/network-evolution/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Inference</title>
+      <link>https://Linlin-resh.github.io/tags/network-inference/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/network-inference/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Models</title>
+      <link>https://Linlin-resh.github.io/tags/network-models/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/network-models/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Optimization</title>
+      <link>https://Linlin-resh.github.io/tags/network-optimization/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/network-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Processes</title>
+      <link>https://Linlin-resh.github.io/tags/network-processes/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/network-processes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Reconstruction</title>
+      <link>https://Linlin-resh.github.io/tags/network-reconstruction/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/network-reconstruction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Resilience</title>
+      <link>https://Linlin-resh.github.io/tags/network-resilience/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/network-resilience/</guid>
       <description></description>
     </item>
     <item>
       <title>Network-Theory</title>
-      <link>http://localhost:1313/tags/network-theory/</link>
+      <link>https://Linlin-resh.github.io/tags/network-theory/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/network-theory/</guid>
+      <guid>https://Linlin-resh.github.io/tags/network-theory/</guid>
       <description></description>
     </item>
     <item>
       <title>Networkx</title>
-      <link>http://localhost:1313/tags/networkx/</link>
+      <link>https://Linlin-resh.github.io/tags/networkx/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/networkx/</guid>
+      <guid>https://Linlin-resh.github.io/tags/networkx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open-Problems</title>
+      <link>https://Linlin-resh.github.io/tags/open-problems/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/open-problems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Optimization-Algorithms</title>
+      <link>https://Linlin-resh.github.io/tags/optimization-algorithms/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/optimization-algorithms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Percolation</title>
+      <link>https://Linlin-resh.github.io/tags/percolation/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/percolation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Protein-Networks</title>
+      <link>https://Linlin-resh.github.io/tags/protein-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/protein-networks/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
+      <link>https://Linlin-resh.github.io/tags/python/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/python/</guid>
+      <guid>https://Linlin-resh.github.io/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Random-Graphs</title>
-      <link>http://localhost:1313/tags/random-graphs/</link>
+      <link>https://Linlin-resh.github.io/tags/random-graphs/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/random-graphs/</guid>
+      <guid>https://Linlin-resh.github.io/tags/random-graphs/</guid>
       <description></description>
     </item>
     <item>
       <title>Reading-Notes</title>
-      <link>http://localhost:1313/tags/reading-notes/</link>
+      <link>https://Linlin-resh.github.io/tags/reading-notes/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/reading-notes/</guid>
+      <guid>https://Linlin-resh.github.io/tags/reading-notes/</guid>
       <description></description>
     </item>
     <item>
       <title>Research-Progress</title>
-      <link>http://localhost:1313/tags/research-progress/</link>
+      <link>https://Linlin-resh.github.io/tags/research-progress/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/research-progress/</guid>
+      <guid>https://Linlin-resh.github.io/tags/research-progress/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Robustness</title>
+      <link>https://Linlin-resh.github.io/tags/robustness/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/robustness/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scale-Free</title>
+      <link>https://Linlin-resh.github.io/tags/scale-free/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/scale-free/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Small-World</title>
+      <link>https://Linlin-resh.github.io/tags/small-world/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/small-world/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Social-Networks</title>
+      <link>https://Linlin-resh.github.io/tags/social-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/social-networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spectral-Clustering</title>
+      <link>https://Linlin-resh.github.io/tags/spectral-clustering/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/spectral-clustering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Statistical-Inference</title>
+      <link>https://Linlin-resh.github.io/tags/statistical-inference/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/statistical-inference/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Statistics</title>
+      <link>https://Linlin-resh.github.io/tags/statistics/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/statistics/</guid>
       <description></description>
     </item>
     <item>
       <title>Tag1</title>
-      <link>http://localhost:1313/tags/tag1/</link>
+      <link>https://Linlin-resh.github.io/tags/tag1/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tag1/</guid>
+      <guid>https://Linlin-resh.github.io/tags/tag1/</guid>
       <description></description>
     </item>
     <item>
       <title>Tag2</title>
-      <link>http://localhost:1313/tags/tag2/</link>
+      <link>https://Linlin-resh.github.io/tags/tag2/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tag2/</guid>
+      <guid>https://Linlin-resh.github.io/tags/tag2/</guid>
       <description></description>
     </item>
     <item>
       <title>Tag3</title>
-      <link>http://localhost:1313/tags/tag3/</link>
+      <link>https://Linlin-resh.github.io/tags/tag3/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tag3/</guid>
+      <guid>https://Linlin-resh.github.io/tags/tag3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Technological-Networks</title>
+      <link>https://Linlin-resh.github.io/tags/technological-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/technological-networks/</guid>
       <description></description>
     </item>
     <item>
       <title>Template</title>
-      <link>http://localhost:1313/tags/template/</link>
+      <link>https://Linlin-resh.github.io/tags/template/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/template/</guid>
+      <guid>https://Linlin-resh.github.io/tags/template/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Temporal-Networks</title>
+      <link>https://Linlin-resh.github.io/tags/temporal-networks/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/temporal-networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Test</title>
+      <link>https://Linlin-resh.github.io/tags/test/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/test/</guid>
       <description></description>
     </item>
     <item>
       <title>Tools</title>
-      <link>http://localhost:1313/tags/tools/</link>
+      <link>https://Linlin-resh.github.io/tags/tools/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tools/</guid>
+      <guid>https://Linlin-resh.github.io/tags/tools/</guid>
       <description></description>
     </item>
     <item>
       <title>Transformer</title>
-      <link>http://localhost:1313/tags/transformer/</link>
+      <link>https://Linlin-resh.github.io/tags/transformer/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/transformer/</guid>
+      <guid>https://Linlin-resh.github.io/tags/transformer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>https://Linlin-resh.github.io/tags/web/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/tags/web/</guid>
       <description></description>
     </item>
   </channel>

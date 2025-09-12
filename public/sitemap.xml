@@ -2,106 +2,316 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/20250829-test-auto-post/</loc>
+    <loc>https://Linlin-resh.github.io/posts/20250829-test-auto-post/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/20250829-template/</loc>
+    <loc>https://Linlin-resh.github.io/posts/20250829-template/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://Linlin-resh.github.io/about/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/code-snippets/</loc>
+    <loc>https://Linlin-resh.github.io/tags/biological-networks/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/graph-neural-networks/</loc>
+    <loc>https://Linlin-resh.github.io/tags/citation-networks/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/graph-theory/</loc>
+    <loc>https://Linlin-resh.github.io/tags/code-snippets/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ideas/</loc>
+    <loc>https://Linlin-resh.github.io/tags/community-detection/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/machine-learning/</loc>
+    <loc>https://Linlin-resh.github.io/tags/configuration-model/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/materials-science/</loc>
+    <loc>https://Linlin-resh.github.io/tags/control-theory/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/mathematics/</loc>
+    <loc>https://Linlin-resh.github.io/tags/controllability/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/monthly-update/</loc>
+    <loc>https://Linlin-resh.github.io/tags/data-collection/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/nanowires/</loc>
+    <loc>https://Linlin-resh.github.io/tags/design-principles/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/network-analysis/</loc>
+    <loc>https://Linlin-resh.github.io/tags/emerging-trends/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/network-theory/</loc>
+    <loc>https://Linlin-resh.github.io/tags/epidemic-spreading/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/networkx/</loc>
+    <loc>https://Linlin-resh.github.io/tags/erdos-renyi/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://Linlin-resh.github.io/tags/failure-analysis/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/python/</loc>
+    <loc>https://Linlin-resh.github.io/tags/future-directions/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/random-graphs/</loc>
+    <loc>https://Linlin-resh.github.io/tags/graph-neural-networks/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/reading-notes-newman-ch3/</loc>
+    <loc>https://Linlin-resh.github.io/tags/graph-theory/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/reading-notes/</loc>
+    <loc>https://Linlin-resh.github.io/tags/ideas/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/progress-2025-08/</loc>
+    <loc>https://Linlin-resh.github.io/tags/information-networks/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/research-progress/</loc>
+    <loc>https://Linlin-resh.github.io/tags/infrastructure/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://Linlin-resh.github.io/tags/internet/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/tool-snippets-structural-gt/</loc>
+    <loc>https://Linlin-resh.github.io/tags/introduction/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tag1/</loc>
+    <loc>https://Linlin-resh.github.io/tags/katex/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tag2/</loc>
+    <loc>https://Linlin-resh.github.io/tags/linear-algebra/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tag3/</loc>
+    <loc>https://Linlin-resh.github.io/tags/machine-learning/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://Linlin-resh.github.io/tags/materials-science/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/template/</loc>
+    <loc>https://Linlin-resh.github.io/tags/math/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tools/</loc>
+    <loc>https://Linlin-resh.github.io/posts/math-test/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/transformer/</loc>
+    <loc>https://Linlin-resh.github.io/tags/mathematics/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/idea-transformer-for-local-graph/</loc>
+    <loc>https://Linlin-resh.github.io/tags/mathjax/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/404/</loc>
+    <loc>https://Linlin-resh.github.io/tags/measures/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://Linlin-resh.github.io/tags/metabolic-networks/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>https://Linlin-resh.github.io/tags/metrics/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/modularity/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/monthly-update/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/multilayer-networks/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/multiplex-networks/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/nanowires/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-analysis/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-control/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-dynamics/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-evolution/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-inference/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-models/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-optimization/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-processes/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-reconstruction/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-resilience/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/network-theory/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/networkx/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/open-problems/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/optimization-algorithms/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/percolation/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/protein-networks/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/python/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/math-quick-test/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/random-graphs/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch1/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch11/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch12/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch13/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch15/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch16/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch17/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch18/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch2/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch3/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch5/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch6/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch7/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch8/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/reading-notes-newman-ch9/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/reading-notes/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/progress-2025-08/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/research-progress/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/robustness/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/scale-free/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/small-world/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/social-networks/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/spectral-clustering/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/statistical-inference/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/statistics/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/tool-snippets-structural-gt/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/tag1/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/tag2/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/tag3/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/technological-networks/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/template/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/temporal-networks/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/test/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/tools/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/transformer/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/posts/idea-transformer-for-local-graph/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/tags/web/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/404/</loc>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/categories/</loc>
+  </url><url>
+    <loc>https://Linlin-resh.github.io/search/</loc>
   </url>
 </urlset>

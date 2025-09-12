@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.149.0"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Notes on AI4Science &amp; Graph Theory</title>
+
+<meta name="description" content="Thoughts on Partially Disordered Networks, Silver Nanowires, Graph Theory, and Machine Learning">
+<meta name="author" content="Linlin-resh">
+<link rel="canonical" href="https://Linlin-resh.github.io/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://Linlin-resh.github.io/index.xml">
+<link rel="alternate" type="application/json" href="https://Linlin-resh.github.io/index.json">
+<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://Linlin-resh.github.io/">
+  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:title" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:description" content="Thoughts on Partially Disordered Networks, Silver Nanowires, Graph Theory, and Machine Learning">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes on AI4Science &amp; Graph Theory">
+<meta name="twitter:description" content="Thoughts on Partially Disordered Networks, Silver Nanowires, Graph Theory, and Machine Learning">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Notes on AI4Science \u0026 Graph Theory",
+  "url": "https://Linlin-resh.github.io/",
+  "description": "Thoughts on Partially Disordered Networks, Silver Nanowires, Graph Theory, and Machine Learning",
+  "logo": "https://Linlin-resh.github.io/favicon.ico",
+  "sameAs": [
+      
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Linlin-resh.github.io/" title="Home">
+                    <span class="active">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading Notes: Newman&#39;s Networks Chapter 15 - Multilayer Networks
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Chapter 15 of Newman’s Networks: An Introduction explores multilayer networks - networks that consist of multiple layers, each representing different types of relationships or interactions. This chapter covers the mathematical framework, analysis methods, and applications of multilayer networks.
+15.1 Multilayer Network Structure Definition Multilayer network is a collection of networks with:
+Nodes: Can exist in multiple layers Intra-layer edges: Connections within each layer Inter-layer edges: Connections between layers Layers: Different types of relationships or time periods Mathematical Representation Supra-adjacency Matrix Supra-adjacency matrix: $$A = \bigoplus_{\alpha} A^{\alpha} &#43; \bigoplus_{\alpha \neq \beta} C^{\alpha \beta}$$
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2175 words&nbsp;·&nbsp;Linlin-resh</footer>
+  <a class="entry-link" aria-label="post link to Reading Notes: Newman&#39;s Networks Chapter 15 - Multilayer Networks" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch15/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading Notes: Newman&#39;s Networks Chapter 16 - Network Resilience
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Chapter 16 of Newman’s Networks: An Introduction explores network resilience - the ability of networks to maintain their functionality under stress, attacks, or failures. This chapter covers robustness measures, failure analysis, and strategies for enhancing network resilience.
+16.1 Robustness Measures Connectivity Robustness Robustness Function Robustness function: $$R(p) = \frac{1}{n} \sum_{i=1}^n \frac{S_i(p)}{n}$$
+Where:
+$p$: Fraction of nodes removed $S_i(p)$: Size of largest component after removing $i$ nodes $n$: Total number of nodes Properties:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2288 words&nbsp;·&nbsp;Linlin-resh</footer>
+  <a class="entry-link" aria-label="post link to Reading Notes: Newman&#39;s Networks Chapter 16 - Network Resilience" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch16/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading Notes: Newman&#39;s Networks Chapter 17 - Network Optimization
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Chapter 17 of Newman’s Networks: An Introduction explores network optimization - the process of designing and modifying networks to achieve desired properties or performance. This chapter covers optimization problems, algorithms, and applications to real-world network design.
+17.1 Network Design Problems Basic Optimization Problems Minimum Spanning Tree Problem: Find minimum weight spanning tree
+Mathematical formulation: $$\min_{T} \sum_{(i,j) \in T} w_{ij}$$
+Constraints:
+$T$ is a spanning tree $w_{ij}$ is the weight of edge $(i,j)$ Algorithms:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;12 min&nbsp;·&nbsp;2543 words&nbsp;·&nbsp;Linlin-resh</footer>
+  <a class="entry-link" aria-label="post link to Reading Notes: Newman&#39;s Networks Chapter 17 - Network Optimization" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch17/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Chapter 18 of Newman’s Networks: An Introduction explores future directions in network science - the emerging trends, open problems, and research frontiers that will shape the field in the coming years. This chapter covers machine learning, quantum networks, and other cutting-edge developments.
+18.1 Machine Learning on Networks Graph Neural Networks Graph Convolutional Networks (GCNs) Layer update: $$H^{(l&#43;1)} = \sigma(\tilde{A} H^{(l)} W^{(l)})$$
+Where:
+$\tilde{A} = D^{-1/2} A D^{-1/2}$: Normalized adjacency matrix $H^{(l)}$: Node features at layer $l$ $W^{(l)}$: Weight matrix at layer $l$ $\sigma$: Activation function Applications:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;2005 words&nbsp;·&nbsp;Linlin-resh</footer>
+  <a class="entry-link" aria-label="post link to Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch18/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Chapter 2 of Newman’s Networks: An Introduction focuses on technological networks - the man-made infrastructure networks that form the backbone of modern society. These networks exhibit fascinating structural properties that differ significantly from random networks, with important implications for their design, operation, and robustness.
+2.1 The Internet Network Structure The Internet is a hierarchical network with multiple layers:
+Physical layer: Fiber optic cables, routers, switches Logical layer: IP addresses and routing protocols Application layer: Web servers, email servers, etc. Topological Properties Degree Distribution The Internet’s degree distribution follows a power law:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1137 words&nbsp;·&nbsp;Linlin-resh</footer>
+  <a class="entry-link" aria-label="post link to Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch2/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Chapter 3 of Newman’s Networks: An Introduction explores social networks - the webs of relationships that connect individuals in society. Social networks exhibit unique structural properties that reflect human behavior patterns and have profound implications for information spread, influence, and social dynamics.
+3.1 Data Collection Methods Survey-Based Methods Interviews and Questionnaires Face-to-face interviews provide high-quality data but are:
+Expensive: Require trained interviewers Time-consuming: Limited sample sizes Subject to bias: Social desirability effects Mathematical framework for survey design:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1453 words&nbsp;·&nbsp;Linlin-resh</footer>
+  <a class="entry-link" aria-label="post link to Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Chapter 4 of Newman’s Networks: An Introduction examines information networks - the complex webs that connect information, knowledge, and ideas. These networks, including the World Wide Web and citation networks, exhibit unique structural properties that reflect how information is created, linked, and accessed in our digital age.
+4.1 The World Wide Web Network Structure The Web is a directed network where:
+Nodes: Web pages (HTML documents) Edges: Hyperlinks (directional connections) Scale: Billions of pages, trillions of links Topological Properties Degree Distributions The Web exhibits power-law degree distributions for both in-degree and out-degree:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1647 words&nbsp;·&nbsp;Linlin-resh</footer>
+  <a class="entry-link" aria-label="post link to Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading Notes: Newman&#39;s Networks Chapter 5 - Biological Networks
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Chapter 5 of Newman’s Networks: An Introduction explores biological networks - the complex webs of interactions that govern life at multiple scales. From molecular interactions to ecosystem dynamics, biological networks exhibit unique structural properties that reflect evolutionary pressures and functional constraints.
+5.1 Protein-Protein Interaction Networks Network Structure Protein-protein interaction (PPI) networks represent:
+Nodes: Proteins Edges: Physical interactions between proteins Scale: ~20,000 human proteins, ~100,000 interactions Properties: Undirected, weighted (interaction strength) Topological Properties Degree Distribution PPI networks exhibit power-law degree distributions:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1687 words&nbsp;·&nbsp;Linlin-resh</footer>
+  <a class="entry-link" aria-label="post link to Reading Notes: Newman&#39;s Networks Chapter 5 - Biological Networks" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch5/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading Notes: Newman&#39;s Networks Chapter 6 - Mathematical Foundations
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Chapter 6 of Newman’s Networks: An Introduction establishes the mathematical foundations of network analysis. This chapter provides the essential mathematical tools and concepts needed to understand and analyze complex networks, from basic graph theory to advanced matrix methods.
+6.1 Graph Theory Fundamentals Basic Definitions Graph Components A graph $G = (V, E)$ consists of:
+Vertices (nodes): $V = {v_1, v_2, \ldots, v_n}$ Edges (links): $E = {(v_i, v_j) : v_i, v_j \in V}$ Order: $n = |V|$ (number of vertices) Size: $m = |E|$ (number of edges) Graph Types Undirected graph: Edges have no direction
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1711 words&nbsp;·&nbsp;Linlin-resh</footer>
+  <a class="entry-link" aria-label="post link to Reading Notes: Newman&#39;s Networks Chapter 6 - Mathematical Foundations" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading Notes: Newman&#39;s Networks Chapter 7 - Network Measures and Metrics
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Chapter 7 of Newman’s Networks: An Introduction focuses on network measures and metrics - the quantitative tools used to characterize and compare networks. This chapter provides a comprehensive overview of the mathematical foundations and practical applications of network measurement.
+7.1 Basic Network Measures Degree-Based Measures Degree Distribution Definition: The probability distribution of node degrees.
+Mathematical formulation: $$P(k) = \frac{\text{Number of nodes with degree } k}{n}$$
+Properties:
+Normalization: $\sum_{k=0}^{\infty} P(k) = 1$ Average degree: $\langle k \rangle = \sum_{k=0}^{\infty} k P(k)$ Second moment: $\langle k^2 \rangle = \sum_{k=0}^{\infty} k^2 P(k)$ Degree Moments First moment (average degree): $$\langle k \rangle = \frac{2m}{n}$$
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;1977 words&nbsp;·&nbsp;Linlin-resh</footer>
+  <a class="entry-link" aria-label="post link to Reading Notes: Newman&#39;s Networks Chapter 7 - Network Measures and Metrics" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch7/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://Linlin-resh.github.io/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://Linlin-resh.github.io/page/3/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

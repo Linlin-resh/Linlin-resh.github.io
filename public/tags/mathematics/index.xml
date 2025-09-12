@@ -2,18 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Mathematics on Notes on AI4Science &amp; Graph Theory</title>
-    <link>http://localhost:1313/tags/mathematics/</link>
+    <link>https://Linlin-resh.github.io/tags/mathematics/</link>
     <description>Recent content in Mathematics on Notes on AI4Science &amp; Graph Theory</description>
     <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/mathematics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://Linlin-resh.github.io/tags/mathematics/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs</title>
-      <link>http://localhost:1313/posts/reading-notes-newman-ch3/</link>
+      <title>Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction</title>
+      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch1/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/reading-notes-newman-ch3/</guid>
-      <description>Key insights from Chapter 3 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; on random graph theory and its applications</description>
+      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch1/</guid>
+      <description>Comprehensive study notes for Chapter 1 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering fundamental concepts, mathematical definitions, and real-world network examples</description>
+    </item>
+    <item>
+      <title>Reading Notes: Newman&#39;s Networks Chapter 6 - Mathematical Foundations</title>
+      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch6/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch6/</guid>
+      <description>Study notes for Chapter 6 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering graph theory, matrix representations, and mathematical foundations of network analysis</description>
     </item>
   </channel>
 </rss>

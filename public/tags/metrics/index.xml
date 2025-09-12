@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Metrics on Notes on AI4Science &amp; Graph Theory</title>
+    <link>https://Linlin-resh.github.io/tags/metrics/</link>
+    <description>Recent content in Metrics on Notes on AI4Science &amp; Graph Theory</description>
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://Linlin-resh.github.io/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reading Notes: Newman&#39;s Networks Chapter 7 - Network Measures and Metrics</title>
+      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch7/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch7/</guid>
+      <description>Study notes for Chapter 7 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering network measures, metrics, and their mathematical foundations</description>
+    </item>
+  </channel>
+</rss>

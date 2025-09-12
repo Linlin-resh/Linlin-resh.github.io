@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics | Notes on AI4Science &amp; Graph Theory</title>
+<meta name="keywords" content="reading-notes, network-theory, network-dynamics, temporal-networks, network-evolution">
+<meta name="description" content="Study notes for Chapter 13 of Newman&#39;s &#39;Networks: An Introduction&#39; covering temporal networks, network evolution, and dynamic processes">
+<meta name="author" content="Linlin-resh">
+<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch13/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch13/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch13/">
+  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics">
+  <meta property="og:description" content="Study notes for Chapter 13 of Newman&#39;s &#39;Networks: An Introduction&#39; covering temporal networks, network evolution, and dynamic processes">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Reading-Notes">
+    <meta property="article:tag" content="Network-Theory">
+    <meta property="article:tag" content="Network-Dynamics">
+    <meta property="article:tag" content="Temporal-Networks">
+    <meta property="article:tag" content="Network-Evolution">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics">
+<meta name="twitter:description" content="Study notes for Chapter 13 of Newman&#39;s &#39;Networks: An Introduction&#39; covering temporal networks, network evolution, and dynamic processes">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Linlin-resh.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading Notes: Newman's Networks Chapter 13 - Network Dynamics",
+      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch13/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading Notes: Newman's Networks Chapter 13 - Network Dynamics",
+  "name": "Reading Notes: Newman\u0027s Networks Chapter 13 - Network Dynamics",
+  "description": "Study notes for Chapter 13 of Newman's 'Networks: An Introduction' covering temporal networks, network evolution, and dynamic processes",
+  "keywords": [
+    "reading-notes", "network-theory", "network-dynamics", "temporal-networks", "network-evolution"
+  ],
+  "articleBody": "Introduction Chapter 13 of Newman’s Networks: An Introduction explores network dynamics - the temporal evolution of network structure and the dynamic processes that occur on networks. This chapter covers temporal networks, network evolution models, and the interplay between network structure and dynamics.\n13.1 Temporal Networks Definition Temporal network is a sequence of networks over time:\n$$G(t) = (V, E(t)) \\quad \\text{for } t \\in [0, T]$$\nWhere:\n$V$: Set of nodes (usually constant) $E(t)$: Set of edges at time $t$ (varies with time) $T$: Total time period Representation Time-Varying Adjacency Matrix Adjacency matrix: $$A_{ij}(t) = \\begin{cases} 1 \u0026 \\text{if edge } (i,j) \\text{ exists at time } t \\ 0 \u0026 \\text{otherwise} \\end{cases}$$\nProperties:\nSymmetric: $A_{ij}(t) = A_{ji}(t)$ for undirected networks Time-dependent: $A(t)$ changes over time Binary: $A_{ij}(t) \\in {0, 1}$ for unweighted networks Aggregated Network Aggregated adjacency matrix: $$A_{ij} = \\int_0^T A_{ij}(t) , dt$$\nDiscrete version: $$A_{ij} = \\sum_{t=1}^T A_{ij}(t)$$\nProperties:\nWeighted: $A_{ij} \\in [0, T]$ represents total connection time Static: Single network representing entire time period Temporal Measures Temporal Degree Temporal degree of node $i$: $$k_i(t) = \\sum_{j} A_{ij}(t)$$\nAverage temporal degree: $$\\langle k_i \\rangle = \\frac{1}{T} \\int_0^T k_i(t) , dt$$\nTemporal Clustering Temporal clustering coefficient: $$C_i(t) = \\frac{2e_i(t)}{k_i(t)(k_i(t)-1)}$$\nWhere $e_i(t)$ is the number of edges between neighbors of node $i$ at time $t$.\nAverage temporal clustering: $$\\langle C_i \\rangle = \\frac{1}{T} \\int_0^T C_i(t) , dt$$\nTemporal Path Length Temporal path from $i$ to $j$:\nSequence of edges $(i, v_1, t_1), (v_1, v_2, t_2), \\ldots, (v_k, j, t_k)$ Where $t_1 \u003c t_2 \u003c \\ldots \u003c t_k$ (causality constraint) Temporal distance: $$d_{ij}^T = \\min{\\text{length of temporal path from } i \\text{ to } j}$$\n13.2 Dynamic Processes on Temporal Networks SIR Model on Temporal Networks Model Definition Temporal SIR model: $$\\frac{dS_i}{dt} = -\\beta S_i \\sum_{j} A_{ij}(t) I_j$$ $$\\frac{dI_i}{dt} = \\beta S_i \\sum_{j} A_{ij}(t) I_j - \\gamma I_i$$ $$\\frac{dR_i}{dt} = \\gamma I_i$$\nWhere:\n$A_{ij}(t)$: Temporal adjacency matrix $\\beta$: Infection rate $\\gamma$: Recovery rate Basic Reproduction Number Temporal basic reproduction number: $$R_0^T = \\frac{\\beta}{\\gamma} \\frac{\\langle k^2 \\rangle_T}{\\langle k \\rangle_T}$$\nWhere:\n$\\langle k \\rangle_T = \\frac{1}{T} \\int_0^T \\langle k(t) \\rangle , dt$ $\\langle k^2 \\rangle_T = \\frac{1}{T} \\int_0^T \\langle k^2(t) \\rangle , dt$ Critical Threshold Epidemic threshold: $$R_0^T \u003e 1$$\nCritical infection rate: $$\\beta_c^T = \\frac{\\gamma \\langle k \\rangle_T}{\\langle k^2 \\rangle_T}$$\nSynchronization on Temporal Networks Kuramoto Model Temporal Kuramoto model: $$\\frac{d\\theta_i}{dt} = \\omega_i + \\frac{K}{N} \\sum_{j} A_{ij}(t) \\sin(\\theta_j - \\theta_i)$$\nWhere:\n$\\theta_i(t)$: Phase of oscillator $i$ at time $t$ $\\omega_i$: Natural frequency $K$: Coupling strength $A_{ij}(t)$: Temporal adjacency matrix Order Parameter Temporal order parameter: $$r(t) = \\left| \\frac{1}{N} \\sum_{j=1}^N e^{i\\theta_j(t)} \\right|$$\nAverage order parameter: $$\\langle r \\rangle = \\frac{1}{T} \\int_0^T r(t) , dt$$\nSynchronization Threshold Critical coupling: $$K_c^T = \\frac{2}{\\pi g(0)} \\frac{\\langle k^2 \\rangle_T}{\\langle k \\rangle_T}$$\nWhere $g(0)$ is the frequency distribution at zero.\n13.3 Network Evolution Models Growing Networks Preferential Attachment Temporal preferential attachment: $$\\Pi(k_i, t) = \\frac{k_i(t) + a}{\\sum_j (k_j(t) + a)}$$\nWhere:\n$k_i(t)$: Degree of node $i$ at time $t$ $a$: Initial attractiveness parameter Degree evolution: $$\\frac{dk_i}{dt} = m \\Pi(k_i, t)$$\nWhere $m$ is the number of edges added per time step.\nSolution Degree distribution: $$P(k) \\sim k^{-\\gamma}$$\nWhere $\\gamma = 3 + \\frac{a}{m}$.\nDegree evolution: $$k_i(t) = m \\left(\\frac{t}{t_i}\\right)^{\\beta}$$\nWhere $\\beta = \\frac{1}{2}$ for $a = 0$.\nAging and Preferential Attachment Model Definition Aging model: $$\\Pi(k_i, t, t_i) = \\frac{k_i(t) e^{-\\alpha(t-t_i)}}{\\sum_j k_j(t) e^{-\\alpha(t-t_j)}}$$\nWhere:\n$t_i$: Time when node $i$ was added $\\alpha$: Aging parameter Degree Distribution For $\\alpha \u003e 0$: $$P(k) \\sim k^{-\\gamma} e^{-\\beta k}$$\nWhere:\n$\\gamma = 3 + \\frac{a}{m}$ $\\beta = \\frac{\\alpha}{m}$ For $\\alpha = 0$: Standard preferential attachment\nFitness Models Model Definition Fitness model: $$\\Pi(k_i, \\eta_i) = \\frac{\\eta_i k_i(t)}{\\sum_j \\eta_j k_j(t)}$$\nWhere $\\eta_i$ is the fitness of node $i$.\nDegree Distribution Fitness distribution: $$P(k) \\sim k^{-\\gamma} \\int \\eta^{\\gamma-1} \\rho(\\eta) , d\\eta$$\nWhere $\\rho(\\eta)$ is the fitness distribution.\nPower-law exponent: $$\\gamma = 1 + \\frac{1}{\\langle \\eta \\rangle}$$\n13.4 Network Rewiring Random Rewiring Model Definition Random rewiring:\nRemove edge with probability $p$ Add new edge randomly Repeat for all edges Rewiring probability: $$P(\\text{rewire}) = p$$\nDegree Distribution For small $p$: Slight deviation from original distribution For large $p$: Approaches random network distribution\nPreferential Rewiring Model Definition Preferential rewiring:\nRemove edge with probability $p$ Add edge preferentially (high-degree nodes) Repeat for all edges Rewiring probability: $$P(\\text{rewire to node } i) = \\frac{k_i}{\\sum_j k_j}$$\nDegree Distribution Maintains scale-free structure for appropriate $p$\nSocial Rewiring Model Definition Social rewiring:\nTriadic closure: Prefer to connect to friends of friends Homophily: Prefer to connect to similar nodes Geographic proximity: Prefer to connect to nearby nodes Rewiring probability: $$P(\\text{rewire to node } j) = \\frac{w_{ij}}{\\sum_k w_{ik}}$$\nWhere $w_{ij}$ is the weight of connection to node $j$.\n13.5 Applications to Materials Science Defect Network Evolution Model Defect network evolution:\nNodes: Defect sites Edges: Defect interactions Growth: New defects appear over time Rewiring: Defects can move and reconnect Mathematical model: $$\\frac{dk_i}{dt} = m \\Pi(k_i, t) - \\gamma k_i$$\nWhere:\n$m$: Rate of new defect formation $\\gamma$: Rate of defect annihilation $\\Pi(k_i, t)$: Preferential attachment probability Phase Transitions Defect percolation: $$P(\\text{percolation}) = 1 - \\sum_{k=0}^{\\infty} P(k) (1-p)^k$$\nCritical defect concentration: $$c_c = \\frac{1}{\\kappa - 1}$$\nWhere $\\kappa = \\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}$.\nNanowire Network Growth Model Nanowire network growth:\nNodes: Nanowire junctions Edges: Nanowire segments Growth: New nanowires are added Rewiring: Nanowires can break and reconnect Mathematical model: $$\\frac{dk_i}{dt} = m \\Pi(k_i, t) - \\lambda k_i$$\nWhere:\n$m$: Rate of new nanowire formation $\\lambda$: Rate of nanowire breaking $\\Pi(k_i, t)$: Preferential attachment probability Electrical Properties Conductivity evolution: $$\\sigma(t) = \\sigma_0 \\left(\\frac{k(t)}{k_0}\\right)^{\\alpha}$$\nWhere:\n$\\sigma_0$: Initial conductivity $k_0$: Initial average degree $\\alpha$: Conductivity exponent Phase Transition Dynamics Model Phase transition dynamics:\nNodes: Atomic sites Edges: Chemical bonds Dynamics: Bonds form and break over time Mathematical model: $$\\frac{dA_{ij}}{dt} = \\beta A_{ij} (1 - A_{ij}) - \\gamma A_{ij}$$\nWhere:\n$\\beta$: Bond formation rate $\\gamma$: Bond breaking rate $A_{ij}$: Bond strength between sites $i$ and $j$ Order Parameter Order parameter evolution: $$\\frac{d\\phi}{dt} = -\\frac{\\partial F}{\\partial \\phi}$$\nWhere $F$ is the free energy: $$F = \\frac{1}{2} \\sum_{i,j} A_{ij} (1 - A_{ij}) + \\frac{1}{2} \\sum_{i,j} A_{ij} A_{ji}$$\nCode Example: Network Dynamics import networkx as nx import numpy as np import matplotlib.pyplot as plt from scipy.integrate import odeint from collections import defaultdict def generate_temporal_network(n, T, p=0.1): \"\"\"Generate temporal network with random rewiring\"\"\" # Start with random network G = nx.erdos_renyi_graph(n, 0.1) # Generate temporal sequence temporal_networks = [] current_G = G.copy() for t in range(T): # Random rewiring edges_to_remove = [] for edge in current_G.edges(): if np.random.random() \u003c p: edges_to_remove.append(edge) # Remove edges current_G.remove_edges_from(edges_to_remove) # Add new edges for _ in range(len(edges_to_remove)): i, j = np.random.choice(n, 2, replace=False) current_G.add_edge(i, j) temporal_networks.append(current_G.copy()) return temporal_networks def simulate_temporal_sir(G_temporal, beta=0.1, gamma=0.05, initial_infected=1): \"\"\"Simulate SIR model on temporal network\"\"\" n = G_temporal[0].number_of_nodes() T = len(G_temporal) # Initial conditions S = np.ones(n) I = np.zeros(n) R = np.zeros(n) # Initial infected nodes infected_nodes = np.random.choice(n, initial_infected, replace=False) S[infected_nodes] = 0 I[infected_nodes] = 1 # Store results S_history = [S.copy()] I_history = [I.copy()] R_history = [R.copy()] # Simulate dynamics for t in range(T): G = G_temporal[t] # SIR dynamics dS_dt = np.zeros(n) dI_dt = np.zeros(n) dR_dt = np.zeros(n) for i in range(n): # Infection rate infection_rate = 0 for j in G.neighbors(i): infection_rate += I[j] infection_rate *= beta * S[i] # Recovery rate recovery_rate = gamma * I[i] dS_dt[i] = -infection_rate dI_dt[i] = infection_rate - recovery_rate dR_dt[i] = recovery_rate # Update states S += dS_dt I += dI_dt R += dR_dt # Ensure non-negative values S = np.maximum(S, 0) I = np.maximum(I, 0) R = np.maximum(R, 0) # Store results S_history.append(S.copy()) I_history.append(I.copy()) R_history.append(R.copy()) return S_history, I_history, R_history def simulate_temporal_kuramoto(G_temporal, K=1.0, omega=None): \"\"\"Simulate Kuramoto model on temporal network\"\"\" n = G_temporal[0].number_of_nodes() T = len(G_temporal) # Natural frequencies if omega is None: omega = np.random.normal(0, 1, n) # Initial phases theta = np.random.uniform(0, 2*np.pi, n) # Store results theta_history = [theta.copy()] r_history = [] # Simulate dynamics for t in range(T): G = G_temporal[t] # Kuramoto dynamics dtheta_dt = np.zeros(n) for i in range(n): coupling = 0 for j in G.neighbors(i): coupling += np.sin(theta[j] - theta[i]) coupling *= K / n dtheta_dt[i] = omega[i] + coupling # Update phases theta += dtheta_dt # Calculate order parameter r = np.abs(np.mean(np.exp(1j * theta))) r_history.append(r) # Store results theta_history.append(theta.copy()) return theta_history, r_history def simulate_network_growth(n, T, m=1, alpha=0.1): \"\"\"Simulate network growth with preferential attachment and aging\"\"\" # Start with small network G = nx.complete_graph(min(3, n)) node_times = list(range(min(3, n))) # Store degree evolution degree_history = [] for t in range(min(3, n), n): # Add new node G.add_node(t) node_times.append(t) # Add edges with preferential attachment and aging for _ in range(m): # Calculate attachment probabilities probs = [] for i in G.nodes(): if i != t: k_i = G.degree(i) age_factor = np.exp(-alpha * (t - node_times[i])) probs.append(k_i * age_factor) # Normalize probabilities probs = np.array(probs) probs = probs / np.sum(probs) # Choose node to connect to if len(probs) \u003e 0: target = np.random.choice(list(G.nodes())[:-1], p=probs) G.add_edge(t, target) # Store degree distribution degrees = [G.degree(i) for i in G.nodes()] degree_history.append(degrees.copy()) return G, degree_history def analyze_temporal_network(G_temporal): \"\"\"Analyze temporal network properties\"\"\" T = len(G_temporal) n = G_temporal[0].number_of_nodes() # Calculate temporal measures temporal_degrees = [] temporal_clustering = [] temporal_path_lengths = [] for t in range(T): G = G_temporal[t] # Degree distribution degrees = [G.degree(i) for i in G.nodes()] temporal_degrees.append(degrees) # Clustering coefficient clustering = nx.average_clustering(G) temporal_clustering.append(clustering) # Path length if nx.is_connected(G): path_length = nx.average_shortest_path_length(G) else: # Analyze largest component largest_cc = max(nx.connected_components(G), key=len) subgraph = G.subgraph(largest_cc) path_length = nx.average_shortest_path_length(subgraph) temporal_path_lengths.append(path_length) # Calculate aggregated measures avg_degree = np.mean([np.mean(degrees) for degrees in temporal_degrees]) avg_clustering = np.mean(temporal_clustering) avg_path_length = np.mean(temporal_path_lengths) return { 'temporal_degrees': temporal_degrees, 'temporal_clustering': temporal_clustering, 'temporal_path_lengths': temporal_path_lengths, 'avg_degree': avg_degree, 'avg_clustering': avg_clustering, 'avg_path_length': avg_path_length } def plot_temporal_analysis(G_temporal, S_history, I_history, R_history, theta_history, r_history, degree_history): \"\"\"Plot temporal network analysis results\"\"\" fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12)) # SIR dynamics t_sir = range(len(S_history)) S_avg = [np.mean(S) for S in S_history] I_avg = [np.mean(I) for I in I_history] R_avg = [np.mean(R) for R in R_history] ax1.plot(t_sir, S_avg, 'b-', label='Susceptible', linewidth=2) ax1.plot(t_sir, I_avg, 'r-', label='Infected', linewidth=2) ax1.plot(t_sir, R_avg, 'g-', label='Recovered', linewidth=2) ax1.set_xlabel('Time') ax1.set_ylabel('Fraction') ax1.set_title('Temporal SIR Dynamics') ax1.legend() ax1.grid(True, alpha=0.3) # Synchronization dynamics t_sync = range(len(r_history)) ax2.plot(t_sync, r_history, 'b-', linewidth=2) ax2.set_xlabel('Time') ax2.set_ylabel('Order Parameter r') ax2.set_title('Temporal Synchronization') ax2.grid(True, alpha=0.3) # Degree evolution t_deg = range(len(degree_history)) avg_degrees = [np.mean(degrees) for degrees in degree_history] ax3.plot(t_deg, avg_degrees, 'b-', linewidth=2) ax3.set_xlabel('Time') ax3.set_ylabel('Average Degree') ax3.set_title('Network Growth') ax3.grid(True, alpha=0.3) # Network visualization at different times times_to_plot = [0, len(G_temporal)//2, len(G_temporal)-1] for i, t in enumerate(times_to_plot): G = G_temporal[t] pos = nx.spring_layout(G, k=1, iterations=50) # Plot in subplot ax = plt.subplot(2, 2, 4) nx.draw(G, pos, ax=ax, node_size=30, node_color='lightblue', edge_color='gray', alpha=0.6) ax.set_title(f'Network at t={t}') ax.axis('off') plt.tight_layout() plt.show() # Example: Temporal network analysis n, T = 50, 100 G_temporal = generate_temporal_network(n, T, p=0.1) # Simulate SIR dynamics S_history, I_history, R_history = simulate_temporal_sir(G_temporal, beta=0.1, gamma=0.05) # Simulate synchronization theta_history, r_history = simulate_temporal_kuramoto(G_temporal, K=1.0) # Simulate network growth G_grown, degree_history = simulate_network_growth(100, 50, m=2, alpha=0.1) # Analyze temporal network temporal_analysis = analyze_temporal_network(G_temporal) print(\"Temporal Network Analysis:\") print(f\"Average degree: {temporal_analysis['avg_degree']:.3f}\") print(f\"Average clustering: {temporal_analysis['avg_clustering']:.3f}\") print(f\"Average path length: {temporal_analysis['avg_path_length']:.3f}\") # Plot results plot_temporal_analysis(G_temporal, S_history, I_history, R_history, theta_history, r_history, degree_history) Key Takeaways Temporal networks: Networks that change over time Dynamic processes: SIR, synchronization, and other processes on temporal networks Network evolution: Growth, rewiring, and aging models Mathematical analysis: Differential equations and probability theory Applications: Important for materials science and complex systems Simulation: Computational methods for studying network dynamics Emergent properties: How network structure affects dynamic behavior References Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press. Holme, P., \u0026 Saramäki, J. (2012). Temporal networks. Physics Reports, 519(3), 97-125. Barabási, A. L., \u0026 Albert, R. (1999). Emergence of scaling in random networks. Science, 286(5439), 509-512. Kuramoto, Y. (1984). Chemical Oscillations, Waves, and Turbulence. Springer. Network dynamics provides insights into how networks evolve over time and how dynamic processes unfold on them, with important applications in understanding materials behavior and system evolution.\n",
+  "wordCount" : "1968",
+  "inLanguage": "en",
+  "datePublished": "2025-08-29T00:00:00Z",
+  "dateModified": "2025-08-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Linlin-resh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch13/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Notes on AI4Science \u0026 Graph Theory",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Linlin-resh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Linlin-resh.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics
+    </h1>
+    <div class="post-description">
+      Study notes for Chapter 13 of Newman&#39;s &#39;Networks: An Introduction&#39; covering temporal networks, network evolution, and dynamic processes
+    </div>
+    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;1968 words&nbsp;·&nbsp;Linlin-resh
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#131-temporal-networks" aria-label="13.1 Temporal Networks">13.1 Temporal Networks</a><ul>
+                        
+                <li>
+                    <a href="#definition" aria-label="Definition">Definition</a></li>
+                <li>
+                    <a href="#representation" aria-label="Representation">Representation</a><ul>
+                        
+                <li>
+                    <a href="#time-varying-adjacency-matrix" aria-label="Time-Varying Adjacency Matrix">Time-Varying Adjacency Matrix</a></li>
+                <li>
+                    <a href="#aggregated-network" aria-label="Aggregated Network">Aggregated Network</a></li></ul>
+                </li>
+                <li>
+                    <a href="#temporal-measures" aria-label="Temporal Measures">Temporal Measures</a><ul>
+                        
+                <li>
+                    <a href="#temporal-degree" aria-label="Temporal Degree">Temporal Degree</a></li>
+                <li>
+                    <a href="#temporal-clustering" aria-label="Temporal Clustering">Temporal Clustering</a></li>
+                <li>
+                    <a href="#temporal-path-length" aria-label="Temporal Path Length">Temporal Path Length</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#132-dynamic-processes-on-temporal-networks" aria-label="13.2 Dynamic Processes on Temporal Networks">13.2 Dynamic Processes on Temporal Networks</a><ul>
+                        
+                <li>
+                    <a href="#sir-model-on-temporal-networks" aria-label="SIR Model on Temporal Networks">SIR Model on Temporal Networks</a><ul>
+                        
+                <li>
+                    <a href="#model-definition" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#basic-reproduction-number" aria-label="Basic Reproduction Number">Basic Reproduction Number</a></li>
+                <li>
+                    <a href="#critical-threshold" aria-label="Critical Threshold">Critical Threshold</a></li></ul>
+                </li>
+                <li>
+                    <a href="#synchronization-on-temporal-networks" aria-label="Synchronization on Temporal Networks">Synchronization on Temporal Networks</a><ul>
+                        
+                <li>
+                    <a href="#kuramoto-model" aria-label="Kuramoto Model">Kuramoto Model</a></li>
+                <li>
+                    <a href="#order-parameter" aria-label="Order Parameter">Order Parameter</a></li>
+                <li>
+                    <a href="#synchronization-threshold" aria-label="Synchronization Threshold">Synchronization Threshold</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#133-network-evolution-models" aria-label="13.3 Network Evolution Models">13.3 Network Evolution Models</a><ul>
+                        
+                <li>
+                    <a href="#growing-networks" aria-label="Growing Networks">Growing Networks</a><ul>
+                        
+                <li>
+                    <a href="#preferential-attachment" aria-label="Preferential Attachment">Preferential Attachment</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li></ul>
+                </li>
+                <li>
+                    <a href="#aging-and-preferential-attachment" aria-label="Aging and Preferential Attachment">Aging and Preferential Attachment</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-1" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#degree-distribution" aria-label="Degree Distribution">Degree Distribution</a></li></ul>
+                </li>
+                <li>
+                    <a href="#fitness-models" aria-label="Fitness Models">Fitness Models</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-2" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#degree-distribution-1" aria-label="Degree Distribution">Degree Distribution</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#134-network-rewiring" aria-label="13.4 Network Rewiring">13.4 Network Rewiring</a><ul>
+                        
+                <li>
+                    <a href="#random-rewiring" aria-label="Random Rewiring">Random Rewiring</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-3" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#degree-distribution-2" aria-label="Degree Distribution">Degree Distribution</a></li></ul>
+                </li>
+                <li>
+                    <a href="#preferential-rewiring" aria-label="Preferential Rewiring">Preferential Rewiring</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-4" aria-label="Model Definition">Model Definition</a></li>
+                <li>
+                    <a href="#degree-distribution-3" aria-label="Degree Distribution">Degree Distribution</a></li></ul>
+                </li>
+                <li>
+                    <a href="#social-rewiring" aria-label="Social Rewiring">Social Rewiring</a><ul>
+                        
+                <li>
+                    <a href="#model-definition-5" aria-label="Model Definition">Model Definition</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#135-applications-to-materials-science" aria-label="13.5 Applications to Materials Science">13.5 Applications to Materials Science</a><ul>
+                        
+                <li>
+                    <a href="#defect-network-evolution" aria-label="Defect Network Evolution">Defect Network Evolution</a><ul>
+                        
+                <li>
+                    <a href="#model" aria-label="Model">Model</a></li>
+                <li>
+                    <a href="#phase-transitions" aria-label="Phase Transitions">Phase Transitions</a></li></ul>
+                </li>
+                <li>
+                    <a href="#nanowire-network-growth" aria-label="Nanowire Network Growth">Nanowire Network Growth</a><ul>
+                        
+                <li>
+                    <a href="#model-1" aria-label="Model">Model</a></li>
+                <li>
+                    <a href="#electrical-properties" aria-label="Electrical Properties">Electrical Properties</a></li></ul>
+                </li>
+                <li>
+                    <a href="#phase-transition-dynamics" aria-label="Phase Transition Dynamics">Phase Transition Dynamics</a><ul>
+                        
+                <li>
+                    <a href="#model-2" aria-label="Model">Model</a></li>
+                <li>
+                    <a href="#order-parameter-1" aria-label="Order Parameter">Order Parameter</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#code-example-network-dynamics" aria-label="Code Example: Network Dynamics">Code Example: Network Dynamics</a></li>
+                <li>
+                    <a href="#key-takeaways" aria-label="Key Takeaways">Key Takeaways</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Chapter 13 of Newman&rsquo;s <em>Networks: An Introduction</em> explores <strong>network dynamics</strong> - the temporal evolution of network structure and the dynamic processes that occur on networks. This chapter covers temporal networks, network evolution models, and the interplay between network structure and dynamics.</p>
+<h2 id="131-temporal-networks">13.1 Temporal Networks<a hidden class="anchor" aria-hidden="true" href="#131-temporal-networks">#</a></h2>
+<h3 id="definition">Definition<a hidden class="anchor" aria-hidden="true" href="#definition">#</a></h3>
+<p><strong>Temporal network</strong> is a sequence of networks over time:</p>
+<p>$$G(t) = (V, E(t)) \quad \text{for } t \in [0, T]$$</p>
+<p>Where:</p>
+<ul>
+<li>$V$: Set of nodes (usually constant)</li>
+<li>$E(t)$: Set of edges at time $t$ (varies with time)</li>
+<li>$T$: Total time period</li>
+</ul>
+<h3 id="representation">Representation<a hidden class="anchor" aria-hidden="true" href="#representation">#</a></h3>
+<h4 id="time-varying-adjacency-matrix">Time-Varying Adjacency Matrix<a hidden class="anchor" aria-hidden="true" href="#time-varying-adjacency-matrix">#</a></h4>
+<p><strong>Adjacency matrix</strong>:
+$$A_{ij}(t) = \begin{cases}
+1 &amp; \text{if edge } (i,j) \text{ exists at time } t \
+0 &amp; \text{otherwise}
+\end{cases}$$</p>
+<p><strong>Properties</strong>:</p>
+<ul>
+<li><strong>Symmetric</strong>: $A_{ij}(t) = A_{ji}(t)$ for undirected networks</li>
+<li><strong>Time-dependent</strong>: $A(t)$ changes over time</li>
+<li><strong>Binary</strong>: $A_{ij}(t) \in {0, 1}$ for unweighted networks</li>
+</ul>
+<h4 id="aggregated-network">Aggregated Network<a hidden class="anchor" aria-hidden="true" href="#aggregated-network">#</a></h4>
+<p><strong>Aggregated adjacency matrix</strong>:
+$$A_{ij} = \int_0^T A_{ij}(t) , dt$$</p>
+<p><strong>Discrete version</strong>:
+$$A_{ij} = \sum_{t=1}^T A_{ij}(t)$$</p>
+<p><strong>Properties</strong>:</p>
+<ul>
+<li><strong>Weighted</strong>: $A_{ij} \in [0, T]$ represents total connection time</li>
+<li><strong>Static</strong>: Single network representing entire time period</li>
+</ul>
+<h3 id="temporal-measures">Temporal Measures<a hidden class="anchor" aria-hidden="true" href="#temporal-measures">#</a></h3>
+<h4 id="temporal-degree">Temporal Degree<a hidden class="anchor" aria-hidden="true" href="#temporal-degree">#</a></h4>
+<p><strong>Temporal degree</strong> of node $i$:
+$$k_i(t) = \sum_{j} A_{ij}(t)$$</p>
+<p><strong>Average temporal degree</strong>:
+$$\langle k_i \rangle = \frac{1}{T} \int_0^T k_i(t) , dt$$</p>
+<h4 id="temporal-clustering">Temporal Clustering<a hidden class="anchor" aria-hidden="true" href="#temporal-clustering">#</a></h4>
+<p><strong>Temporal clustering coefficient</strong>:
+$$C_i(t) = \frac{2e_i(t)}{k_i(t)(k_i(t)-1)}$$</p>
+<p>Where $e_i(t)$ is the number of edges between neighbors of node $i$ at time $t$.</p>
+<p><strong>Average temporal clustering</strong>:
+$$\langle C_i \rangle = \frac{1}{T} \int_0^T C_i(t) , dt$$</p>
+<h4 id="temporal-path-length">Temporal Path Length<a hidden class="anchor" aria-hidden="true" href="#temporal-path-length">#</a></h4>
+<p><strong>Temporal path</strong> from $i$ to $j$:</p>
+<ul>
+<li>Sequence of edges $(i, v_1, t_1), (v_1, v_2, t_2), \ldots, (v_k, j, t_k)$</li>
+<li>Where $t_1 &lt; t_2 &lt; \ldots &lt; t_k$ (causality constraint)</li>
+</ul>
+<p><strong>Temporal distance</strong>:
+$$d_{ij}^T = \min{\text{length of temporal path from } i \text{ to } j}$$</p>
+<h2 id="132-dynamic-processes-on-temporal-networks">13.2 Dynamic Processes on Temporal Networks<a hidden class="anchor" aria-hidden="true" href="#132-dynamic-processes-on-temporal-networks">#</a></h2>
+<h3 id="sir-model-on-temporal-networks">SIR Model on Temporal Networks<a hidden class="anchor" aria-hidden="true" href="#sir-model-on-temporal-networks">#</a></h3>
+<h4 id="model-definition">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition">#</a></h4>
+<p><strong>Temporal SIR model</strong>:
+$$\frac{dS_i}{dt} = -\beta S_i \sum_{j} A_{ij}(t) I_j$$
+$$\frac{dI_i}{dt} = \beta S_i \sum_{j} A_{ij}(t) I_j - \gamma I_i$$
+$$\frac{dR_i}{dt} = \gamma I_i$$</p>
+<p>Where:</p>
+<ul>
+<li>$A_{ij}(t)$: Temporal adjacency matrix</li>
+<li>$\beta$: Infection rate</li>
+<li>$\gamma$: Recovery rate</li>
+</ul>
+<h4 id="basic-reproduction-number">Basic Reproduction Number<a hidden class="anchor" aria-hidden="true" href="#basic-reproduction-number">#</a></h4>
+<p><strong>Temporal basic reproduction number</strong>:
+$$R_0^T = \frac{\beta}{\gamma} \frac{\langle k^2 \rangle_T}{\langle k \rangle_T}$$</p>
+<p>Where:</p>
+<ul>
+<li>$\langle k \rangle_T = \frac{1}{T} \int_0^T \langle k(t) \rangle , dt$</li>
+<li>$\langle k^2 \rangle_T = \frac{1}{T} \int_0^T \langle k^2(t) \rangle , dt$</li>
+</ul>
+<h4 id="critical-threshold">Critical Threshold<a hidden class="anchor" aria-hidden="true" href="#critical-threshold">#</a></h4>
+<p><strong>Epidemic threshold</strong>:
+$$R_0^T &gt; 1$$</p>
+<p><strong>Critical infection rate</strong>:
+$$\beta_c^T = \frac{\gamma \langle k \rangle_T}{\langle k^2 \rangle_T}$$</p>
+<h3 id="synchronization-on-temporal-networks">Synchronization on Temporal Networks<a hidden class="anchor" aria-hidden="true" href="#synchronization-on-temporal-networks">#</a></h3>
+<h4 id="kuramoto-model">Kuramoto Model<a hidden class="anchor" aria-hidden="true" href="#kuramoto-model">#</a></h4>
+<p><strong>Temporal Kuramoto model</strong>:
+$$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j} A_{ij}(t) \sin(\theta_j - \theta_i)$$</p>
+<p>Where:</p>
+<ul>
+<li>$\theta_i(t)$: Phase of oscillator $i$ at time $t$</li>
+<li>$\omega_i$: Natural frequency</li>
+<li>$K$: Coupling strength</li>
+<li>$A_{ij}(t)$: Temporal adjacency matrix</li>
+</ul>
+<h4 id="order-parameter">Order Parameter<a hidden class="anchor" aria-hidden="true" href="#order-parameter">#</a></h4>
+<p><strong>Temporal order parameter</strong>:
+$$r(t) = \left| \frac{1}{N} \sum_{j=1}^N e^{i\theta_j(t)} \right|$$</p>
+<p><strong>Average order parameter</strong>:
+$$\langle r \rangle = \frac{1}{T} \int_0^T r(t) , dt$$</p>
+<h4 id="synchronization-threshold">Synchronization Threshold<a hidden class="anchor" aria-hidden="true" href="#synchronization-threshold">#</a></h4>
+<p><strong>Critical coupling</strong>:
+$$K_c^T = \frac{2}{\pi g(0)} \frac{\langle k^2 \rangle_T}{\langle k \rangle_T}$$</p>
+<p>Where $g(0)$ is the frequency distribution at zero.</p>
+<h2 id="133-network-evolution-models">13.3 Network Evolution Models<a hidden class="anchor" aria-hidden="true" href="#133-network-evolution-models">#</a></h2>
+<h3 id="growing-networks">Growing Networks<a hidden class="anchor" aria-hidden="true" href="#growing-networks">#</a></h3>
+<h4 id="preferential-attachment">Preferential Attachment<a hidden class="anchor" aria-hidden="true" href="#preferential-attachment">#</a></h4>
+<p><strong>Temporal preferential attachment</strong>:
+$$\Pi(k_i, t) = \frac{k_i(t) + a}{\sum_j (k_j(t) + a)}$$</p>
+<p>Where:</p>
+<ul>
+<li>$k_i(t)$: Degree of node $i$ at time $t$</li>
+<li>$a$: Initial attractiveness parameter</li>
+</ul>
+<p><strong>Degree evolution</strong>:
+$$\frac{dk_i}{dt} = m \Pi(k_i, t)$$</p>
+<p>Where $m$ is the number of edges added per time step.</p>
+<h4 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h4>
+<p><strong>Degree distribution</strong>:
+$$P(k) \sim k^{-\gamma}$$</p>
+<p>Where $\gamma = 3 + \frac{a}{m}$.</p>
+<p><strong>Degree evolution</strong>:
+$$k_i(t) = m \left(\frac{t}{t_i}\right)^{\beta}$$</p>
+<p>Where $\beta = \frac{1}{2}$ for $a = 0$.</p>
+<h3 id="aging-and-preferential-attachment">Aging and Preferential Attachment<a hidden class="anchor" aria-hidden="true" href="#aging-and-preferential-attachment">#</a></h3>
+<h4 id="model-definition-1">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-1">#</a></h4>
+<p><strong>Aging model</strong>:
+$$\Pi(k_i, t, t_i) = \frac{k_i(t) e^{-\alpha(t-t_i)}}{\sum_j k_j(t) e^{-\alpha(t-t_j)}}$$</p>
+<p>Where:</p>
+<ul>
+<li>$t_i$: Time when node $i$ was added</li>
+<li>$\alpha$: Aging parameter</li>
+</ul>
+<h4 id="degree-distribution">Degree Distribution<a hidden class="anchor" aria-hidden="true" href="#degree-distribution">#</a></h4>
+<p><strong>For $\alpha &gt; 0$</strong>:
+$$P(k) \sim k^{-\gamma} e^{-\beta k}$$</p>
+<p>Where:</p>
+<ul>
+<li>$\gamma = 3 + \frac{a}{m}$</li>
+<li>$\beta = \frac{\alpha}{m}$</li>
+</ul>
+<p><strong>For $\alpha = 0$</strong>: Standard preferential attachment</p>
+<h3 id="fitness-models">Fitness Models<a hidden class="anchor" aria-hidden="true" href="#fitness-models">#</a></h3>
+<h4 id="model-definition-2">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-2">#</a></h4>
+<p><strong>Fitness model</strong>:
+$$\Pi(k_i, \eta_i) = \frac{\eta_i k_i(t)}{\sum_j \eta_j k_j(t)}$$</p>
+<p>Where $\eta_i$ is the fitness of node $i$.</p>
+<h4 id="degree-distribution-1">Degree Distribution<a hidden class="anchor" aria-hidden="true" href="#degree-distribution-1">#</a></h4>
+<p><strong>Fitness distribution</strong>:
+$$P(k) \sim k^{-\gamma} \int \eta^{\gamma-1} \rho(\eta) , d\eta$$</p>
+<p>Where $\rho(\eta)$ is the fitness distribution.</p>
+<p><strong>Power-law exponent</strong>:
+$$\gamma = 1 + \frac{1}{\langle \eta \rangle}$$</p>
+<h2 id="134-network-rewiring">13.4 Network Rewiring<a hidden class="anchor" aria-hidden="true" href="#134-network-rewiring">#</a></h2>
+<h3 id="random-rewiring">Random Rewiring<a hidden class="anchor" aria-hidden="true" href="#random-rewiring">#</a></h3>
+<h4 id="model-definition-3">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-3">#</a></h4>
+<p><strong>Random rewiring</strong>:</p>
+<ol>
+<li>Remove edge with probability $p$</li>
+<li>Add new edge randomly</li>
+<li>Repeat for all edges</li>
+</ol>
+<p><strong>Rewiring probability</strong>:
+$$P(\text{rewire}) = p$$</p>
+<h4 id="degree-distribution-2">Degree Distribution<a hidden class="anchor" aria-hidden="true" href="#degree-distribution-2">#</a></h4>
+<p><strong>For small $p$</strong>: Slight deviation from original distribution
+<strong>For large $p$</strong>: Approaches random network distribution</p>
+<h3 id="preferential-rewiring">Preferential Rewiring<a hidden class="anchor" aria-hidden="true" href="#preferential-rewiring">#</a></h3>
+<h4 id="model-definition-4">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-4">#</a></h4>
+<p><strong>Preferential rewiring</strong>:</p>
+<ol>
+<li>Remove edge with probability $p$</li>
+<li>Add edge preferentially (high-degree nodes)</li>
+<li>Repeat for all edges</li>
+</ol>
+<p><strong>Rewiring probability</strong>:
+$$P(\text{rewire to node } i) = \frac{k_i}{\sum_j k_j}$$</p>
+<h4 id="degree-distribution-3">Degree Distribution<a hidden class="anchor" aria-hidden="true" href="#degree-distribution-3">#</a></h4>
+<p><strong>Maintains scale-free structure</strong> for appropriate $p$</p>
+<h3 id="social-rewiring">Social Rewiring<a hidden class="anchor" aria-hidden="true" href="#social-rewiring">#</a></h3>
+<h4 id="model-definition-5">Model Definition<a hidden class="anchor" aria-hidden="true" href="#model-definition-5">#</a></h4>
+<p><strong>Social rewiring</strong>:</p>
+<ul>
+<li><strong>Triadic closure</strong>: Prefer to connect to friends of friends</li>
+<li><strong>Homophily</strong>: Prefer to connect to similar nodes</li>
+<li><strong>Geographic proximity</strong>: Prefer to connect to nearby nodes</li>
+</ul>
+<p><strong>Rewiring probability</strong>:
+$$P(\text{rewire to node } j) = \frac{w_{ij}}{\sum_k w_{ik}}$$</p>
+<p>Where $w_{ij}$ is the weight of connection to node $j$.</p>
+<h2 id="135-applications-to-materials-science">13.5 Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#135-applications-to-materials-science">#</a></h2>
+<h3 id="defect-network-evolution">Defect Network Evolution<a hidden class="anchor" aria-hidden="true" href="#defect-network-evolution">#</a></h3>
+<h4 id="model">Model<a hidden class="anchor" aria-hidden="true" href="#model">#</a></h4>
+<p><strong>Defect network evolution</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Defect sites</li>
+<li><strong>Edges</strong>: Defect interactions</li>
+<li><strong>Growth</strong>: New defects appear over time</li>
+<li><strong>Rewiring</strong>: Defects can move and reconnect</li>
+</ul>
+<p><strong>Mathematical model</strong>:
+$$\frac{dk_i}{dt} = m \Pi(k_i, t) - \gamma k_i$$</p>
+<p>Where:</p>
+<ul>
+<li>$m$: Rate of new defect formation</li>
+<li>$\gamma$: Rate of defect annihilation</li>
+<li>$\Pi(k_i, t)$: Preferential attachment probability</li>
+</ul>
+<h4 id="phase-transitions">Phase Transitions<a hidden class="anchor" aria-hidden="true" href="#phase-transitions">#</a></h4>
+<p><strong>Defect percolation</strong>:
+$$P(\text{percolation}) = 1 - \sum_{k=0}^{\infty} P(k) (1-p)^k$$</p>
+<p><strong>Critical defect concentration</strong>:
+$$c_c = \frac{1}{\kappa - 1}$$</p>
+<p>Where $\kappa = \frac{\langle k^2 \rangle}{\langle k \rangle}$.</p>
+<h3 id="nanowire-network-growth">Nanowire Network Growth<a hidden class="anchor" aria-hidden="true" href="#nanowire-network-growth">#</a></h3>
+<h4 id="model-1">Model<a hidden class="anchor" aria-hidden="true" href="#model-1">#</a></h4>
+<p><strong>Nanowire network growth</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Nanowire junctions</li>
+<li><strong>Edges</strong>: Nanowire segments</li>
+<li><strong>Growth</strong>: New nanowires are added</li>
+<li><strong>Rewiring</strong>: Nanowires can break and reconnect</li>
+</ul>
+<p><strong>Mathematical model</strong>:
+$$\frac{dk_i}{dt} = m \Pi(k_i, t) - \lambda k_i$$</p>
+<p>Where:</p>
+<ul>
+<li>$m$: Rate of new nanowire formation</li>
+<li>$\lambda$: Rate of nanowire breaking</li>
+<li>$\Pi(k_i, t)$: Preferential attachment probability</li>
+</ul>
+<h4 id="electrical-properties">Electrical Properties<a hidden class="anchor" aria-hidden="true" href="#electrical-properties">#</a></h4>
+<p><strong>Conductivity evolution</strong>:
+$$\sigma(t) = \sigma_0 \left(\frac{k(t)}{k_0}\right)^{\alpha}$$</p>
+<p>Where:</p>
+<ul>
+<li>$\sigma_0$: Initial conductivity</li>
+<li>$k_0$: Initial average degree</li>
+<li>$\alpha$: Conductivity exponent</li>
+</ul>
+<h3 id="phase-transition-dynamics">Phase Transition Dynamics<a hidden class="anchor" aria-hidden="true" href="#phase-transition-dynamics">#</a></h3>
+<h4 id="model-2">Model<a hidden class="anchor" aria-hidden="true" href="#model-2">#</a></h4>
+<p><strong>Phase transition dynamics</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Atomic sites</li>
+<li><strong>Edges</strong>: Chemical bonds</li>
+<li><strong>Dynamics</strong>: Bonds form and break over time</li>
+</ul>
+<p><strong>Mathematical model</strong>:
+$$\frac{dA_{ij}}{dt} = \beta A_{ij} (1 - A_{ij}) - \gamma A_{ij}$$</p>
+<p>Where:</p>
+<ul>
+<li>$\beta$: Bond formation rate</li>
+<li>$\gamma$: Bond breaking rate</li>
+<li>$A_{ij}$: Bond strength between sites $i$ and $j$</li>
+</ul>
+<h4 id="order-parameter-1">Order Parameter<a hidden class="anchor" aria-hidden="true" href="#order-parameter-1">#</a></h4>
+<p><strong>Order parameter evolution</strong>:
+$$\frac{d\phi}{dt} = -\frac{\partial F}{\partial \phi}$$</p>
+<p>Where $F$ is the free energy:
+$$F = \frac{1}{2} \sum_{i,j} A_{ij} (1 - A_{ij}) + \frac{1}{2} \sum_{i,j} A_{ij} A_{ji}$$</p>
+<h2 id="code-example-network-dynamics">Code Example: Network Dynamics<a hidden class="anchor" aria-hidden="true" href="#code-example-network-dynamics">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> scipy.integrate <span style="color:#ff79c6">import</span> odeint
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> collections <span style="color:#ff79c6">import</span> defaultdict
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">generate_temporal_network</span>(n, T, p<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.1</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Generate temporal network with random rewiring&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Start with random network</span>
+</span></span><span style="display:flex;"><span>    G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>erdos_renyi_graph(n, <span style="color:#bd93f9">0.1</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Generate temporal sequence</span>
+</span></span><span style="display:flex;"><span>    temporal_networks <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    current_G <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>copy()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> t <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(T):
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Random rewiring</span>
+</span></span><span style="display:flex;"><span>        edges_to_remove <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> edge <span style="color:#ff79c6">in</span> current_G<span style="color:#ff79c6">.</span>edges():
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>random() <span style="color:#ff79c6">&lt;</span> p:
+</span></span><span style="display:flex;"><span>                edges_to_remove<span style="color:#ff79c6">.</span>append(edge)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Remove edges</span>
+</span></span><span style="display:flex;"><span>        current_G<span style="color:#ff79c6">.</span>remove_edges_from(edges_to_remove)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Add new edges</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(edges_to_remove)):
+</span></span><span style="display:flex;"><span>            i, j <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>choice(n, <span style="color:#bd93f9">2</span>, replace<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>)
+</span></span><span style="display:flex;"><span>            current_G<span style="color:#ff79c6">.</span>add_edge(i, j)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        temporal_networks<span style="color:#ff79c6">.</span>append(current_G<span style="color:#ff79c6">.</span>copy())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> temporal_networks
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">simulate_temporal_sir</span>(G_temporal, beta<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.1</span>, gamma<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.05</span>, initial_infected<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Simulate SIR model on temporal network&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G_temporal[<span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    T <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(G_temporal)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Initial conditions</span>
+</span></span><span style="display:flex;"><span>    S <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>ones(n)
+</span></span><span style="display:flex;"><span>    I <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>    R <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Initial infected nodes</span>
+</span></span><span style="display:flex;"><span>    infected_nodes <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>choice(n, initial_infected, replace<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>)
+</span></span><span style="display:flex;"><span>    S[infected_nodes] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    I[infected_nodes] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Store results</span>
+</span></span><span style="display:flex;"><span>    S_history <span style="color:#ff79c6">=</span> [S<span style="color:#ff79c6">.</span>copy()]
+</span></span><span style="display:flex;"><span>    I_history <span style="color:#ff79c6">=</span> [I<span style="color:#ff79c6">.</span>copy()]
+</span></span><span style="display:flex;"><span>    R_history <span style="color:#ff79c6">=</span> [R<span style="color:#ff79c6">.</span>copy()]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Simulate dynamics</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> t <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(T):
+</span></span><span style="display:flex;"><span>        G <span style="color:#ff79c6">=</span> G_temporal[t]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># SIR dynamics</span>
+</span></span><span style="display:flex;"><span>        dS_dt <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>        dI_dt <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>        dR_dt <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Infection rate</span>
+</span></span><span style="display:flex;"><span>            infection_rate <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span> j <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>neighbors(i):
+</span></span><span style="display:flex;"><span>                infection_rate <span style="color:#ff79c6">+=</span> I[j]
+</span></span><span style="display:flex;"><span>            infection_rate <span style="color:#ff79c6">*=</span> beta <span style="color:#ff79c6">*</span> S[i]
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Recovery rate</span>
+</span></span><span style="display:flex;"><span>            recovery_rate <span style="color:#ff79c6">=</span> gamma <span style="color:#ff79c6">*</span> I[i]
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            dS_dt[i] <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span>infection_rate
+</span></span><span style="display:flex;"><span>            dI_dt[i] <span style="color:#ff79c6">=</span> infection_rate <span style="color:#ff79c6">-</span> recovery_rate
+</span></span><span style="display:flex;"><span>            dR_dt[i] <span style="color:#ff79c6">=</span> recovery_rate
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Update states</span>
+</span></span><span style="display:flex;"><span>        S <span style="color:#ff79c6">+=</span> dS_dt
+</span></span><span style="display:flex;"><span>        I <span style="color:#ff79c6">+=</span> dI_dt
+</span></span><span style="display:flex;"><span>        R <span style="color:#ff79c6">+=</span> dR_dt
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Ensure non-negative values</span>
+</span></span><span style="display:flex;"><span>        S <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>maximum(S, <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>        I <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>maximum(I, <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>        R <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>maximum(R, <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Store results</span>
+</span></span><span style="display:flex;"><span>        S_history<span style="color:#ff79c6">.</span>append(S<span style="color:#ff79c6">.</span>copy())
+</span></span><span style="display:flex;"><span>        I_history<span style="color:#ff79c6">.</span>append(I<span style="color:#ff79c6">.</span>copy())
+</span></span><span style="display:flex;"><span>        R_history<span style="color:#ff79c6">.</span>append(R<span style="color:#ff79c6">.</span>copy())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> S_history, I_history, R_history
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">simulate_temporal_kuramoto</span>(G_temporal, K<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1.0</span>, omega<span style="color:#ff79c6">=</span><span style="color:#ff79c6">None</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Simulate Kuramoto model on temporal network&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G_temporal[<span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    T <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(G_temporal)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Natural frequencies</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> omega <span style="color:#ff79c6">is</span> <span style="color:#ff79c6">None</span>:
+</span></span><span style="display:flex;"><span>        omega <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>normal(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>, n)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Initial phases</span>
+</span></span><span style="display:flex;"><span>    theta <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>uniform(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>np<span style="color:#ff79c6">.</span>pi, n)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Store results</span>
+</span></span><span style="display:flex;"><span>    theta_history <span style="color:#ff79c6">=</span> [theta<span style="color:#ff79c6">.</span>copy()]
+</span></span><span style="display:flex;"><span>    r_history <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Simulate dynamics</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> t <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(T):
+</span></span><span style="display:flex;"><span>        G <span style="color:#ff79c6">=</span> G_temporal[t]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Kuramoto dynamics</span>
+</span></span><span style="display:flex;"><span>        dtheta_dt <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros(n)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+</span></span><span style="display:flex;"><span>            coupling <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span> j <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>neighbors(i):
+</span></span><span style="display:flex;"><span>                coupling <span style="color:#ff79c6">+=</span> np<span style="color:#ff79c6">.</span>sin(theta[j] <span style="color:#ff79c6">-</span> theta[i])
+</span></span><span style="display:flex;"><span>            coupling <span style="color:#ff79c6">*=</span> K <span style="color:#ff79c6">/</span> n
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            dtheta_dt[i] <span style="color:#ff79c6">=</span> omega[i] <span style="color:#ff79c6">+</span> coupling
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Update phases</span>
+</span></span><span style="display:flex;"><span>        theta <span style="color:#ff79c6">+=</span> dtheta_dt
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Calculate order parameter</span>
+</span></span><span style="display:flex;"><span>        r <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>abs(np<span style="color:#ff79c6">.</span>mean(np<span style="color:#ff79c6">.</span>exp(<span style="color:#bd93f9">1</span>j <span style="color:#ff79c6">*</span> theta)))
+</span></span><span style="display:flex;"><span>        r_history<span style="color:#ff79c6">.</span>append(r)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Store results</span>
+</span></span><span style="display:flex;"><span>        theta_history<span style="color:#ff79c6">.</span>append(theta<span style="color:#ff79c6">.</span>copy())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> theta_history, r_history
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">simulate_network_growth</span>(n, T, m<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.1</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Simulate network growth with preferential attachment and aging&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Start with small network</span>
+</span></span><span style="display:flex;"><span>    G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>complete_graph(<span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#bd93f9">3</span>, n))
+</span></span><span style="display:flex;"><span>    node_times <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(<span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#bd93f9">3</span>, n)))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Store degree evolution</span>
+</span></span><span style="display:flex;"><span>    degree_history <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> t <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#bd93f9">3</span>, n), n):
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Add new node</span>
+</span></span><span style="display:flex;"><span>        G<span style="color:#ff79c6">.</span>add_node(t)
+</span></span><span style="display:flex;"><span>        node_times<span style="color:#ff79c6">.</span>append(t)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Add edges with preferential attachment and aging</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(m):
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Calculate attachment probabilities</span>
+</span></span><span style="display:flex;"><span>            probs <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>nodes():
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">if</span> i <span style="color:#ff79c6">!=</span> t:
+</span></span><span style="display:flex;"><span>                    k_i <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>degree(i)
+</span></span><span style="display:flex;"><span>                    age_factor <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>exp(<span style="color:#ff79c6">-</span>alpha <span style="color:#ff79c6">*</span> (t <span style="color:#ff79c6">-</span> node_times[i]))
+</span></span><span style="display:flex;"><span>                    probs<span style="color:#ff79c6">.</span>append(k_i <span style="color:#ff79c6">*</span> age_factor)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Normalize probabilities</span>
+</span></span><span style="display:flex;"><span>            probs <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>array(probs)
+</span></span><span style="display:flex;"><span>            probs <span style="color:#ff79c6">=</span> probs <span style="color:#ff79c6">/</span> np<span style="color:#ff79c6">.</span>sum(probs)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Choose node to connect to</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(probs) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>:
+</span></span><span style="display:flex;"><span>                target <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>choice(<span style="color:#8be9fd;font-style:italic">list</span>(G<span style="color:#ff79c6">.</span>nodes())[:<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>], p<span style="color:#ff79c6">=</span>probs)
+</span></span><span style="display:flex;"><span>                G<span style="color:#ff79c6">.</span>add_edge(t, target)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Store degree distribution</span>
+</span></span><span style="display:flex;"><span>        degrees <span style="color:#ff79c6">=</span> [G<span style="color:#ff79c6">.</span>degree(i) <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>nodes()]
+</span></span><span style="display:flex;"><span>        degree_history<span style="color:#ff79c6">.</span>append(degrees<span style="color:#ff79c6">.</span>copy())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> G, degree_history
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_temporal_network</span>(G_temporal):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze temporal network properties&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    T <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(G_temporal)
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G_temporal[<span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Calculate temporal measures</span>
+</span></span><span style="display:flex;"><span>    temporal_degrees <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    temporal_clustering <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    temporal_path_lengths <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> t <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(T):
+</span></span><span style="display:flex;"><span>        G <span style="color:#ff79c6">=</span> G_temporal[t]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Degree distribution</span>
+</span></span><span style="display:flex;"><span>        degrees <span style="color:#ff79c6">=</span> [G<span style="color:#ff79c6">.</span>degree(i) <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>nodes()]
+</span></span><span style="display:flex;"><span>        temporal_degrees<span style="color:#ff79c6">.</span>append(degrees)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Clustering coefficient</span>
+</span></span><span style="display:flex;"><span>        clustering <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_clustering(G)
+</span></span><span style="display:flex;"><span>        temporal_clustering<span style="color:#ff79c6">.</span>append(clustering)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Path length</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> nx<span style="color:#ff79c6">.</span>is_connected(G):
+</span></span><span style="display:flex;"><span>            path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(G)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Analyze largest component</span>
+</span></span><span style="display:flex;"><span>            largest_cc <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(nx<span style="color:#ff79c6">.</span>connected_components(G), key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)
+</span></span><span style="display:flex;"><span>            subgraph <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>subgraph(largest_cc)
+</span></span><span style="display:flex;"><span>            path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(subgraph)
+</span></span><span style="display:flex;"><span>        temporal_path_lengths<span style="color:#ff79c6">.</span>append(path_length)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Calculate aggregated measures</span>
+</span></span><span style="display:flex;"><span>    avg_degree <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>mean([np<span style="color:#ff79c6">.</span>mean(degrees) <span style="color:#ff79c6">for</span> degrees <span style="color:#ff79c6">in</span> temporal_degrees])
+</span></span><span style="display:flex;"><span>    avg_clustering <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>mean(temporal_clustering)
+</span></span><span style="display:flex;"><span>    avg_path_length <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>mean(temporal_path_lengths)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;temporal_degrees&#39;</span>: temporal_degrees,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;temporal_clustering&#39;</span>: temporal_clustering,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;temporal_path_lengths&#39;</span>: temporal_path_lengths,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_degree&#39;</span>: avg_degree,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_clustering&#39;</span>: avg_clustering,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_path_length&#39;</span>: avg_path_length
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">plot_temporal_analysis</span>(G_temporal, S_history, I_history, R_history, 
+</span></span><span style="display:flex;"><span>                          theta_history, r_history, degree_history):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Plot temporal network analysis results&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    fig, ((ax1, ax2), (ax3, ax4)) <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">15</span>, <span style="color:#bd93f9">12</span>))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># SIR dynamics</span>
+</span></span><span style="display:flex;"><span>    t_sir <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(S_history))
+</span></span><span style="display:flex;"><span>    S_avg <span style="color:#ff79c6">=</span> [np<span style="color:#ff79c6">.</span>mean(S) <span style="color:#ff79c6">for</span> S <span style="color:#ff79c6">in</span> S_history]
+</span></span><span style="display:flex;"><span>    I_avg <span style="color:#ff79c6">=</span> [np<span style="color:#ff79c6">.</span>mean(I) <span style="color:#ff79c6">for</span> I <span style="color:#ff79c6">in</span> I_history]
+</span></span><span style="display:flex;"><span>    R_avg <span style="color:#ff79c6">=</span> [np<span style="color:#ff79c6">.</span>mean(R) <span style="color:#ff79c6">for</span> R <span style="color:#ff79c6">in</span> R_history]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>plot(t_sir, S_avg, <span style="color:#f1fa8c">&#39;b-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Susceptible&#39;</span>, linewidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>plot(t_sir, I_avg, <span style="color:#f1fa8c">&#39;r-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Infected&#39;</span>, linewidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>plot(t_sir, R_avg, <span style="color:#f1fa8c">&#39;g-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Recovered&#39;</span>, linewidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Time&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Fraction&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Temporal SIR Dynamics&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>legend()
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Synchronization dynamics</span>
+</span></span><span style="display:flex;"><span>    t_sync <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(r_history))
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>plot(t_sync, r_history, <span style="color:#f1fa8c">&#39;b-&#39;</span>, linewidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Time&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Order Parameter r&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Temporal Synchronization&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Degree evolution</span>
+</span></span><span style="display:flex;"><span>    t_deg <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(degree_history))
+</span></span><span style="display:flex;"><span>    avg_degrees <span style="color:#ff79c6">=</span> [np<span style="color:#ff79c6">.</span>mean(degrees) <span style="color:#ff79c6">for</span> degrees <span style="color:#ff79c6">in</span> degree_history]
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>plot(t_deg, avg_degrees, <span style="color:#f1fa8c">&#39;b-&#39;</span>, linewidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Time&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Average Degree&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Network Growth&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Network visualization at different times</span>
+</span></span><span style="display:flex;"><span>    times_to_plot <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">0</span>, <span style="color:#8be9fd;font-style:italic">len</span>(G_temporal)<span style="color:#ff79c6">//</span><span style="color:#bd93f9">2</span>, <span style="color:#8be9fd;font-style:italic">len</span>(G_temporal)<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i, t <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(times_to_plot):
+</span></span><span style="display:flex;"><span>        G <span style="color:#ff79c6">=</span> G_temporal[t]
+</span></span><span style="display:flex;"><span>        pos <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>spring_layout(G, k<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, iterations<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Plot in subplot</span>
+</span></span><span style="display:flex;"><span>        ax <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplot(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">4</span>)
+</span></span><span style="display:flex;"><span>        nx<span style="color:#ff79c6">.</span>draw(G, pos, ax<span style="color:#ff79c6">=</span>ax, node_size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">30</span>, node_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;lightblue&#39;</span>, 
+</span></span><span style="display:flex;"><span>                edge_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;gray&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.6</span>)
+</span></span><span style="display:flex;"><span>        ax<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;Network at t=</span><span style="color:#f1fa8c">{</span>t<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>)
+</span></span><span style="display:flex;"><span>        ax<span style="color:#ff79c6">.</span>axis(<span style="color:#f1fa8c">&#39;off&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>tight_layout()
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Temporal network analysis</span>
+</span></span><span style="display:flex;"><span>n, T <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">50</span>, <span style="color:#bd93f9">100</span>
+</span></span><span style="display:flex;"><span>G_temporal <span style="color:#ff79c6">=</span> generate_temporal_network(n, T, p<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Simulate SIR dynamics</span>
+</span></span><span style="display:flex;"><span>S_history, I_history, R_history <span style="color:#ff79c6">=</span> simulate_temporal_sir(G_temporal, beta<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.1</span>, gamma<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.05</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Simulate synchronization</span>
+</span></span><span style="display:flex;"><span>theta_history, r_history <span style="color:#ff79c6">=</span> simulate_temporal_kuramoto(G_temporal, K<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1.0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Simulate network growth</span>
+</span></span><span style="display:flex;"><span>G_grown, degree_history <span style="color:#ff79c6">=</span> simulate_network_growth(<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>, m<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Analyze temporal network</span>
+</span></span><span style="display:flex;"><span>temporal_analysis <span style="color:#ff79c6">=</span> analyze_temporal_network(G_temporal)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Temporal Network Analysis:&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Average degree: </span><span style="color:#f1fa8c">{</span>temporal_analysis[<span style="color:#f1fa8c">&#39;avg_degree&#39;</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Average clustering: </span><span style="color:#f1fa8c">{</span>temporal_analysis[<span style="color:#f1fa8c">&#39;avg_clustering&#39;</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Average path length: </span><span style="color:#f1fa8c">{</span>temporal_analysis[<span style="color:#f1fa8c">&#39;avg_path_length&#39;</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Plot results</span>
+</span></span><span style="display:flex;"><span>plot_temporal_analysis(G_temporal, S_history, I_history, R_history, 
+</span></span><span style="display:flex;"><span>                      theta_history, r_history, degree_history)
+</span></span></code></pre></div><h2 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h2>
+<ol>
+<li><strong>Temporal networks</strong>: Networks that change over time</li>
+<li><strong>Dynamic processes</strong>: SIR, synchronization, and other processes on temporal networks</li>
+<li><strong>Network evolution</strong>: Growth, rewiring, and aging models</li>
+<li><strong>Mathematical analysis</strong>: Differential equations and probability theory</li>
+<li><strong>Applications</strong>: Important for materials science and complex systems</li>
+<li><strong>Simulation</strong>: Computational methods for studying network dynamics</li>
+<li><strong>Emergent properties</strong>: How network structure affects dynamic behavior</li>
+</ol>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ol>
+<li>Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press.</li>
+<li>Holme, P., &amp; Saramäki, J. (2012). Temporal networks. Physics Reports, 519(3), 97-125.</li>
+<li>Barabási, A. L., &amp; Albert, R. (1999). Emergence of scaling in random networks. Science, 286(5439), 509-512.</li>
+<li>Kuramoto, Y. (1984). Chemical Oscillations, Waves, and Turbulence. Springer.</li>
+</ol>
+<hr>
+<p><em>Network dynamics provides insights into how networks evolve over time and how dynamic processes unfold on them, with important applications in understanding materials behavior and system evolution.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-dynamics/">Network-Dynamics</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/temporal-networks/">Temporal-Networks</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-evolution/">Network-Evolution</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics on x"
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2013%20-%20Network%20Dynamics&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch13%2f&amp;hashtags=reading-notes%2cnetwork-theory%2cnetwork-dynamics%2ctemporal-networks%2cnetwork-evolution">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch13%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2013%20-%20Network%20Dynamics&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2013%20-%20Network%20Dynamics&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch13%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch13%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2013%20-%20Network%20Dynamics">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch13%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics on whatsapp"
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2013%20-%20Network%20Dynamics%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch13%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics on telegram"
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2013%20-%20Network%20Dynamics&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch13%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2013%20-%20Network%20Dynamics&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch13%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

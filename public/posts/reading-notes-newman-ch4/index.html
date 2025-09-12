@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks | Notes on AI4Science &amp; Graph Theory</title>
+<meta name="keywords" content="reading-notes, network-theory, information-networks, web, citation-networks">
+<meta name="description" content="Study notes for Chapter 4 of Newman&#39;s &#39;Networks: An Introduction&#39; covering the World Wide Web, citation networks, and information flow dynamics">
+<meta name="author" content="Linlin-resh">
+<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/">
+  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks">
+  <meta property="og:description" content="Study notes for Chapter 4 of Newman&#39;s &#39;Networks: An Introduction&#39; covering the World Wide Web, citation networks, and information flow dynamics">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Reading-Notes">
+    <meta property="article:tag" content="Network-Theory">
+    <meta property="article:tag" content="Information-Networks">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Citation-Networks">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks">
+<meta name="twitter:description" content="Study notes for Chapter 4 of Newman&#39;s &#39;Networks: An Introduction&#39; covering the World Wide Web, citation networks, and information flow dynamics">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Linlin-resh.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading Notes: Newman's Networks Chapter 4 - Information Networks",
+      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading Notes: Newman's Networks Chapter 4 - Information Networks",
+  "name": "Reading Notes: Newman\u0027s Networks Chapter 4 - Information Networks",
+  "description": "Study notes for Chapter 4 of Newman's 'Networks: An Introduction' covering the World Wide Web, citation networks, and information flow dynamics",
+  "keywords": [
+    "reading-notes", "network-theory", "information-networks", "web", "citation-networks"
+  ],
+  "articleBody": "Introduction Chapter 4 of Newman’s Networks: An Introduction examines information networks - the complex webs that connect information, knowledge, and ideas. These networks, including the World Wide Web and citation networks, exhibit unique structural properties that reflect how information is created, linked, and accessed in our digital age.\n4.1 The World Wide Web Network Structure The Web is a directed network where:\nNodes: Web pages (HTML documents) Edges: Hyperlinks (directional connections) Scale: Billions of pages, trillions of links Topological Properties Degree Distributions The Web exhibits power-law degree distributions for both in-degree and out-degree:\nIn-degree distribution (pages linking to a page): $$P_{\\text{in}}(k) \\sim k^{-\\gamma_{\\text{in}}}$$\nWhere $\\gamma_{\\text{in}} \\approx 2.1$ for the Web.\nOut-degree distribution (pages linked by a page): $$P_{\\text{out}}(k) \\sim k^{-\\gamma_{\\text{out}}}$$\nWhere $\\gamma_{\\text{out}} \\approx 2.7$ for the Web.\nMathematical Analysis Cumulative distribution functions:\n$$P_{\\text{in}}(K \\geq k) \\sim k^{-(\\gamma_{\\text{in}}-1)}$$ $$P_{\\text{out}}(K \\geq k) \\sim k^{-(\\gamma_{\\text{out}}-1)}$$\nMoment analysis:\nFirst moments: $\\langle k_{\\text{in}} \\rangle = \\langle k_{\\text{out}} \\rangle = \\frac{m}{n}$ Second moments: $\\langle k_{\\text{in}}^2 \\rangle$, $\\langle k_{\\text{out}}^2 \\rangle$ Web Graph Components Strongly Connected Components A strongly connected component (SCC) is a set of nodes where every node is reachable from every other node.\nWeb structure:\nGiant SCC: ~30% of all pages In-component: Pages that can reach the giant SCC Out-component: Pages reachable from the giant SCC Tendrils: Small disconnected components Mathematical Framework Reachability matrix: $$R_{ij} = \\begin{cases} 1 \u0026 \\text{if there exists a path from } i \\text{ to } j \\ 0 \u0026 \\text{otherwise} \\end{cases}$$\nStrong connectivity: $$S_{ij} = R_{ij} \\cdot R_{ji}$$\nPageRank Algorithm Mathematical Definition PageRank of page $i$:\n$$PR(i) = \\frac{1-d}{n} + d \\sum_{j \\in \\text{in}(i)} \\frac{PR(j)}{k_{\\text{out}}(j)}$$\nWhere:\n$d$: Damping factor (typically 0.85) $n$: Total number of pages $\\text{in}(i)$: Pages linking to page $i$ $k_{\\text{out}}(j)$: Out-degree of page $j$ Matrix Form PageRank vector: $$\\mathbf{PR} = (1-d) \\frac{\\mathbf{1}}{n} + d \\mathbf{M} \\mathbf{PR}$$\nWhere $\\mathbf{M}$ is the stochastic matrix: $$M_{ij} = \\frac{A_{ji}}{k_{\\text{out}}(j)}$$\nEigenvalue equation: $$\\mathbf{PR} = \\mathbf{M}^T \\mathbf{PR}$$\nPower Iteration Method Iterative solution: $$\\mathbf{PR}^{(t+1)} = (1-d) \\frac{\\mathbf{1}}{n} + d \\mathbf{M}^T \\mathbf{PR}^{(t)}$$\nConvergence criterion: $$||\\mathbf{PR}^{(t+1)} - \\mathbf{PR}^{(t)}||_1 \u003c \\epsilon$$\nWeb Crawling and Sampling Breadth-First Search (BFS) Algorithm:\nStart with seed pages Visit all neighbors of current pages Add unvisited pages to queue Repeat until queue is empty Bias: Favors high-degree pages\nRandom Walk Sampling Random walk with transition probabilities: $$P_{ij} = \\frac{A_{ij}}{k_{\\text{out}}(i)}$$\nStationary distribution: $$\\pi_i = \\frac{k_{\\text{in}}(i)}{\\sum_j k_{\\text{in}}(j)}$$\nMetropolis-Hastings correction: $$P_{\\text{accept}} = \\min\\left(1, \\frac{k_{\\text{out}}(j)}{k_{\\text{out}}(i)}\\right)$$\n4.2 Citation Networks Network Structure Citation networks are directed acyclic graphs (DAGs) where:\nNodes: Academic papers Edges: Citations (paper A cites paper B) Properties: Acyclic (no paper cites itself directly or indirectly) Degree Distributions In-Degree (Citations Received) Power-law distribution: $$P_{\\text{in}}(k) \\sim k^{-\\gamma_{\\text{citations}}}$$\nWhere $\\gamma_{\\text{citations}} \\approx 3.0$ for citation networks.\nOut-Degree (References Made) Distribution: $$P_{\\text{out}}(k) \\sim \\text{Poisson}(\\lambda)$$\nWhere $\\lambda \\approx 20-30$ references per paper.\nCitation Dynamics Aging Effect Citation rate as a function of time: $$r(t) = r_0 e^{-\\alpha t}$$\nWhere:\n$r_0$: Initial citation rate $\\alpha$: Aging parameter $t$: Time since publication Cumulative Citations Total citations after time $T$: $$C(T) = \\int_0^T r(t) , dt = \\frac{r_0}{\\alpha}(1 - e^{-\\alpha T})$$\nLong-term behavior: $$C(\\infty) = \\frac{r_0}{\\alpha}$$\nImpact Metrics H-Index Definition: A scientist has index $h$ if $h$ of their papers have at least $h$ citations each.\nMathematical formulation: $$h = \\max{k : \\text{number of papers with } \\geq k \\text{ citations} \\geq k}$$\nG-Index Definition: The largest number $g$ such that the top $g$ papers have at least $g^2$ total citations.\nMathematical formulation: $$g = \\max{k : \\sum_{i=1}^k c_i \\geq k^2}$$\nWhere $c_i$ are citations sorted in descending order.\nPageRank for Citations Citation PageRank: $$CPR(i) = \\frac{1-d}{n} + d \\sum_{j \\in \\text{cites}(i)} \\frac{CPR(j)}{k_{\\text{out}}(j)}$$\nAdvantages over simple citation count:\nConsiders quality of citing papers Reduces self-citation effects Accounts for citation patterns 4.3 Other Information Networks Patent Citation Networks Network Properties Nodes: Patents Edges: Patent citations Scale: Millions of patents, tens of millions of citations Temporal: Citations can only go forward in time Innovation Metrics Patent impact: $$I_i = \\sum_{j \\in \\text{cited by } i} w_j \\cdot CPR(j)$$\nWhere $w_j$ is the weight of patent $j$.\nSoftware Dependency Networks Network Structure Nodes: Software packages Edges: Dependencies (package A depends on package B) Properties: Directed, often acyclic Vulnerability Analysis Cascade failure probability: $$P_{\\text{fail}}(i) = 1 - \\prod_{j \\in \\text{dependencies}(i)} (1 - P_{\\text{fail}}(j))$$\nSystem reliability: $$R = \\prod_{i \\in \\text{critical packages}} (1 - P_{\\text{fail}}(i))$$\nKnowledge Graphs Semantic Networks Nodes: Concepts, entities Edges: Semantic relationships Properties: Multi-relational, weighted Graph Embeddings Node2Vec algorithm: $$\\max_f \\sum_{u \\in V} \\log P(N_S(u)|f(u))$$\nWhere $N_S(u)$ is the neighborhood of node $u$ under sampling strategy $S$.\n4.4 Information Spreading Models SIR Model for Information Model Dynamics States:\nSusceptible (S): Haven’t received information Infected (I): Have information and can spread it Recovered (R): Have information but won’t spread it Mathematical Formulation Differential equations: $$\\frac{dS}{dt} = -\\beta SI$$ $$\\frac{dI}{dt} = \\beta SI - \\gamma I$$ $$\\frac{dR}{dt} = \\gamma I$$\nConservation: $S + I + R = N$ (constant)\nBasic Reproduction Number $$R_0 = \\frac{\\beta N}{\\gamma}$$\nEpidemic threshold: $R_0 \u003e 1$\nComplex Contagion Threshold Models Activation condition: $$\\sum_{j \\in \\text{active neighbors}} w_{ji} \\geq \\theta_i$$\nWhere:\n$w_{ji}$: Influence weight $\\theta_i$: Activation threshold Mathematical Analysis Cascade condition: $$\\frac{\\langle k^2 \\rangle}{\\langle k \\rangle} \u003e \\frac{1}{\\theta}$$\nWhere $\\theta$ is the average threshold.\n4.5 Applications to Materials Science Scientific Collaboration Networks Co-authorship Networks Network structure:\nNodes: Researchers Edges: Co-authorship relationships Weights: Number of joint publications Mathematical properties:\nDegree distribution: Power-law with $\\gamma \\approx 2.1$ Clustering: High ($C \\approx 0.3$) Path length: Short ($L \\approx 6$) Knowledge Transfer Information flow between research groups: $$F_{ij} = \\sum_{k} \\frac{A_{ik} A_{jk}}{k_k}$$\nWhere $A_{ik}$ is the collaboration strength between groups $i$ and $k$.\nResearch Impact Networks Citation Networks in Materials Science Top journals:\nNature Materials Advanced Materials Materials Today Journal of Materials Chemistry Impact factors: $$IF = \\frac{\\text{Citations in year } t}{\\text{Articles published in years } t-1, t-2}$$\nCollaboration Patterns Geographic clustering:\nLocal collaboration: Same institution National collaboration: Same country International collaboration: Different countries Mathematical modeling: $$P(\\text{collaboration}) = \\frac{1}{1 + e^{-\\alpha \\cdot \\text{distance}}}$$\nCode Example: Information Network Analysis import networkx as nx import numpy as np import matplotlib.pyplot as plt from collections import Counter def analyze_information_network(G, network_type=\"web\"): \"\"\"Analyze information network properties\"\"\" # Basic statistics n = G.number_of_nodes() m = G.number_of_edges() density = m / (n * (n - 1)) # Degree analysis in_degrees = [d for n, d in G.in_degree()] out_degrees = [d for n, d in G.out_degree()] # Power-law fitting for in-degree if len(in_degrees) \u003e 1: in_degree_dist = Counter(in_degrees) k_values = list(in_degree_dist.keys()) counts = list(in_degree_dist.values()) if len(k_values) \u003e 1: log_k = np.log(k_values[1:]) # Skip k=0 log_counts = np.log(counts[1:]) if len(log_k) \u003e 1: gamma_in = -np.polyfit(log_k, log_counts, 1)[0] else: gamma_in = None else: gamma_in = None else: gamma_in = None # Strongly connected components sccs = list(nx.strongly_connected_components(G)) scc_sizes = [len(scc) for scc in sccs] giant_scc_size = max(scc_sizes) if scc_sizes else 0 # PageRank analysis try: pagerank = nx.pagerank(G, alpha=0.85) pagerank_values = list(pagerank.values()) max_pagerank = max(pagerank_values) min_pagerank = min(pagerank_values) except: pagerank = None max_pagerank = min_pagerank = None # Hubs and authorities (HITS algorithm) try: hubs, authorities = nx.hits(G) hub_values = list(hubs.values()) authority_values = list(authorities.values()) except: hub_values = authority_values = None # Clustering (for undirected version) G_undirected = G.to_undirected() clustering = nx.average_clustering(G_undirected) # Path length analysis if nx.is_weakly_connected(G): avg_path_length = nx.average_shortest_path_length(G.to_undirected()) else: # Analyze largest weakly connected component largest_wcc = max(nx.weakly_connected_components(G), key=len) subgraph = G.subgraph(largest_wcc).to_undirected() avg_path_length = nx.average_shortest_path_length(subgraph) return { 'network_type': network_type, 'nodes': n, 'edges': m, 'density': density, 'avg_in_degree': np.mean(in_degrees), 'avg_out_degree': np.mean(out_degrees), 'gamma_in_estimate': gamma_in, 'num_sccs': len(sccs), 'giant_scc_size': giant_scc_size, 'giant_scc_fraction': giant_scc_size / n if n \u003e 0 else 0, 'max_pagerank': max_pagerank, 'min_pagerank': min_pagerank, 'clustering': clustering, 'avg_path_length': avg_path_length } def plot_degree_distributions(G, title=\"Information Network Degree Distributions\"): \"\"\"Plot in-degree and out-degree distributions\"\"\" in_degrees = [d for n, d in G.in_degree()] out_degrees = [d for n, d in G.out_degree()] fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6)) # In-degree distribution in_degree_dist = Counter(in_degrees) k_values = list(in_degree_dist.keys()) counts = list(in_degree_dist.values()) ax1.loglog(k_values, counts, 'bo', markersize=8) ax1.set_xlabel('In-Degree k') ax1.set_ylabel('Count') ax1.set_title('In-Degree Distribution') ax1.grid(True, alpha=0.3) # Out-degree distribution out_degree_dist = Counter(out_degrees) k_values = list(out_degree_dist.keys()) counts = list(out_degree_dist.values()) ax2.loglog(k_values, counts, 'ro', markersize=8) ax2.set_xlabel('Out-Degree k') ax2.set_ylabel('Count') ax2.set_title('Out-Degree Distribution') ax2.grid(True, alpha=0.3) plt.suptitle(title) plt.tight_layout() plt.show() def analyze_citation_network(citations): \"\"\"Analyze citation network properties\"\"\" # Create citation network G = nx.DiGraph() for citing, cited in citations: G.add_edge(citing, cited) # Basic analysis results = analyze_information_network(G, \"citation\") # Citation-specific metrics in_degrees = [d for n, d in G.in_degree()] # H-index calculation def calculate_h_index(citations): citations_sorted = sorted(citations, reverse=True) h = 0 for i, c in enumerate(citations_sorted): if c \u003e= i + 1: h = i + 1 else: break return h h_index = calculate_h_index(in_degrees) # G-index calculation def calculate_g_index(citations): citations_sorted = sorted(citations, reverse=True) g = 0 total_citations = 0 for i, c in enumerate(citations_sorted): total_citations += c if total_citations \u003e= (i + 1) ** 2: g = i + 1 else: break return g g_index = calculate_g_index(in_degrees) results['h_index'] = h_index results['g_index'] = g_index return results # Example: Analyze a web-like network G = nx.scale_free_graph(1000, alpha=0.41, beta=0.54, gamma=0.05, delta_in=0.2, delta_out=0) results = analyze_information_network(G, \"web_simulation\") print(\"Information Network Analysis Results:\") for key, value in results.items(): print(f\"{key}: {value}\") # Plot degree distributions plot_degree_distributions(G, \"Simulated Web Network\") Key Takeaways Directed networks: Information networks are typically directed with asymmetric relationships Power-law distributions: Both in-degree and out-degree often follow power laws Scale-free structure: Few highly connected nodes, many sparsely connected nodes PageRank importance: Algorithm for ranking nodes based on network structure Citation dynamics: Citations follow predictable patterns over time Impact metrics: H-index, G-index, and PageRank provide different measures of impact Applications: Direct relevance to scientific collaboration and knowledge transfer References Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press. Page, L., Brin, S., Motwani, R., \u0026 Winograd, T. (1999). The PageRank citation ranking: Bringing order to the web. Stanford InfoLab. Barabási, A. L., \u0026 Albert, R. (1999). Emergence of scaling in random networks. Science, 286(5439), 509-512. Hirsch, J. E. (2005). An index to quantify an individual’s scientific research output. Proceedings of the National Academy of Sciences, 102(46), 16569-16572. Information networks provide insights into how knowledge is created, linked, and accessed, with important applications in scientific collaboration and research impact assessment.\n",
+  "wordCount" : "1647",
+  "inLanguage": "en",
+  "datePublished": "2025-08-29T00:00:00Z",
+  "dateModified": "2025-08-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Linlin-resh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Notes on AI4Science \u0026 Graph Theory",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Linlin-resh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Linlin-resh.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks
+    </h1>
+    <div class="post-description">
+      Study notes for Chapter 4 of Newman&#39;s &#39;Networks: An Introduction&#39; covering the World Wide Web, citation networks, and information flow dynamics
+    </div>
+    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1647 words&nbsp;·&nbsp;Linlin-resh
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#41-the-world-wide-web" aria-label="4.1 The World Wide Web">4.1 The World Wide Web</a><ul>
+                        
+                <li>
+                    <a href="#network-structure" aria-label="Network Structure">Network Structure</a></li>
+                <li>
+                    <a href="#topological-properties" aria-label="Topological Properties">Topological Properties</a><ul>
+                        
+                <li>
+                    <a href="#degree-distributions" aria-label="Degree Distributions">Degree Distributions</a></li>
+                <li>
+                    <a href="#mathematical-analysis" aria-label="Mathematical Analysis">Mathematical Analysis</a></li></ul>
+                </li>
+                <li>
+                    <a href="#web-graph-components" aria-label="Web Graph Components">Web Graph Components</a><ul>
+                        
+                <li>
+                    <a href="#strongly-connected-components" aria-label="Strongly Connected Components">Strongly Connected Components</a></li>
+                <li>
+                    <a href="#mathematical-framework" aria-label="Mathematical Framework">Mathematical Framework</a></li></ul>
+                </li>
+                <li>
+                    <a href="#pagerank-algorithm" aria-label="PageRank Algorithm">PageRank Algorithm</a><ul>
+                        
+                <li>
+                    <a href="#mathematical-definition" aria-label="Mathematical Definition">Mathematical Definition</a></li>
+                <li>
+                    <a href="#matrix-form" aria-label="Matrix Form">Matrix Form</a></li>
+                <li>
+                    <a href="#power-iteration-method" aria-label="Power Iteration Method">Power Iteration Method</a></li></ul>
+                </li>
+                <li>
+                    <a href="#web-crawling-and-sampling" aria-label="Web Crawling and Sampling">Web Crawling and Sampling</a><ul>
+                        
+                <li>
+                    <a href="#breadth-first-search-bfs" aria-label="Breadth-First Search (BFS)">Breadth-First Search (BFS)</a></li>
+                <li>
+                    <a href="#random-walk-sampling" aria-label="Random Walk Sampling">Random Walk Sampling</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#42-citation-networks" aria-label="4.2 Citation Networks">4.2 Citation Networks</a><ul>
+                        
+                <li>
+                    <a href="#network-structure-1" aria-label="Network Structure">Network Structure</a></li>
+                <li>
+                    <a href="#degree-distributions-1" aria-label="Degree Distributions">Degree Distributions</a><ul>
+                        
+                <li>
+                    <a href="#in-degree-citations-received" aria-label="In-Degree (Citations Received)">In-Degree (Citations Received)</a></li>
+                <li>
+                    <a href="#out-degree-references-made" aria-label="Out-Degree (References Made)">Out-Degree (References Made)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#citation-dynamics" aria-label="Citation Dynamics">Citation Dynamics</a><ul>
+                        
+                <li>
+                    <a href="#aging-effect" aria-label="Aging Effect">Aging Effect</a></li>
+                <li>
+                    <a href="#cumulative-citations" aria-label="Cumulative Citations">Cumulative Citations</a></li></ul>
+                </li>
+                <li>
+                    <a href="#impact-metrics" aria-label="Impact Metrics">Impact Metrics</a><ul>
+                        
+                <li>
+                    <a href="#h-index" aria-label="H-Index">H-Index</a></li>
+                <li>
+                    <a href="#g-index" aria-label="G-Index">G-Index</a></li>
+                <li>
+                    <a href="#pagerank-for-citations" aria-label="PageRank for Citations">PageRank for Citations</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#43-other-information-networks" aria-label="4.3 Other Information Networks">4.3 Other Information Networks</a><ul>
+                        
+                <li>
+                    <a href="#patent-citation-networks" aria-label="Patent Citation Networks">Patent Citation Networks</a><ul>
+                        
+                <li>
+                    <a href="#network-properties" aria-label="Network Properties">Network Properties</a></li>
+                <li>
+                    <a href="#innovation-metrics" aria-label="Innovation Metrics">Innovation Metrics</a></li></ul>
+                </li>
+                <li>
+                    <a href="#software-dependency-networks" aria-label="Software Dependency Networks">Software Dependency Networks</a><ul>
+                        
+                <li>
+                    <a href="#network-structure-2" aria-label="Network Structure">Network Structure</a></li>
+                <li>
+                    <a href="#vulnerability-analysis" aria-label="Vulnerability Analysis">Vulnerability Analysis</a></li></ul>
+                </li>
+                <li>
+                    <a href="#knowledge-graphs" aria-label="Knowledge Graphs">Knowledge Graphs</a><ul>
+                        
+                <li>
+                    <a href="#semantic-networks" aria-label="Semantic Networks">Semantic Networks</a></li>
+                <li>
+                    <a href="#graph-embeddings" aria-label="Graph Embeddings">Graph Embeddings</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#44-information-spreading-models" aria-label="4.4 Information Spreading Models">4.4 Information Spreading Models</a><ul>
+                        
+                <li>
+                    <a href="#sir-model-for-information" aria-label="SIR Model for Information">SIR Model for Information</a><ul>
+                        
+                <li>
+                    <a href="#model-dynamics" aria-label="Model Dynamics">Model Dynamics</a></li>
+                <li>
+                    <a href="#mathematical-formulation" aria-label="Mathematical Formulation">Mathematical Formulation</a></li>
+                <li>
+                    <a href="#basic-reproduction-number" aria-label="Basic Reproduction Number">Basic Reproduction Number</a></li></ul>
+                </li>
+                <li>
+                    <a href="#complex-contagion" aria-label="Complex Contagion">Complex Contagion</a><ul>
+                        
+                <li>
+                    <a href="#threshold-models" aria-label="Threshold Models">Threshold Models</a></li>
+                <li>
+                    <a href="#mathematical-analysis-1" aria-label="Mathematical Analysis">Mathematical Analysis</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#45-applications-to-materials-science" aria-label="4.5 Applications to Materials Science">4.5 Applications to Materials Science</a><ul>
+                        
+                <li>
+                    <a href="#scientific-collaboration-networks" aria-label="Scientific Collaboration Networks">Scientific Collaboration Networks</a><ul>
+                        
+                <li>
+                    <a href="#co-authorship-networks" aria-label="Co-authorship Networks">Co-authorship Networks</a></li>
+                <li>
+                    <a href="#knowledge-transfer" aria-label="Knowledge Transfer">Knowledge Transfer</a></li></ul>
+                </li>
+                <li>
+                    <a href="#research-impact-networks" aria-label="Research Impact Networks">Research Impact Networks</a><ul>
+                        
+                <li>
+                    <a href="#citation-networks-in-materials-science" aria-label="Citation Networks in Materials Science">Citation Networks in Materials Science</a></li>
+                <li>
+                    <a href="#collaboration-patterns" aria-label="Collaboration Patterns">Collaboration Patterns</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#code-example-information-network-analysis" aria-label="Code Example: Information Network Analysis">Code Example: Information Network Analysis</a></li>
+                <li>
+                    <a href="#key-takeaways" aria-label="Key Takeaways">Key Takeaways</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Chapter 4 of Newman&rsquo;s <em>Networks: An Introduction</em> examines <strong>information networks</strong> - the complex webs that connect information, knowledge, and ideas. These networks, including the World Wide Web and citation networks, exhibit unique structural properties that reflect how information is created, linked, and accessed in our digital age.</p>
+<h2 id="41-the-world-wide-web">4.1 The World Wide Web<a hidden class="anchor" aria-hidden="true" href="#41-the-world-wide-web">#</a></h2>
+<h3 id="network-structure">Network Structure<a hidden class="anchor" aria-hidden="true" href="#network-structure">#</a></h3>
+<p>The Web is a <strong>directed network</strong> where:</p>
+<ul>
+<li><strong>Nodes</strong>: Web pages (HTML documents)</li>
+<li><strong>Edges</strong>: Hyperlinks (directional connections)</li>
+<li><strong>Scale</strong>: Billions of pages, trillions of links</li>
+</ul>
+<h3 id="topological-properties">Topological Properties<a hidden class="anchor" aria-hidden="true" href="#topological-properties">#</a></h3>
+<h4 id="degree-distributions">Degree Distributions<a hidden class="anchor" aria-hidden="true" href="#degree-distributions">#</a></h4>
+<p>The Web exhibits <strong>power-law degree distributions</strong> for both in-degree and out-degree:</p>
+<p><strong>In-degree distribution</strong> (pages linking to a page):
+$$P_{\text{in}}(k) \sim k^{-\gamma_{\text{in}}}$$</p>
+<p>Where $\gamma_{\text{in}} \approx 2.1$ for the Web.</p>
+<p><strong>Out-degree distribution</strong> (pages linked by a page):
+$$P_{\text{out}}(k) \sim k^{-\gamma_{\text{out}}}$$</p>
+<p>Where $\gamma_{\text{out}} \approx 2.7$ for the Web.</p>
+<h4 id="mathematical-analysis">Mathematical Analysis<a hidden class="anchor" aria-hidden="true" href="#mathematical-analysis">#</a></h4>
+<p><strong>Cumulative distribution functions</strong>:</p>
+<p>$$P_{\text{in}}(K \geq k) \sim k^{-(\gamma_{\text{in}}-1)}$$
+$$P_{\text{out}}(K \geq k) \sim k^{-(\gamma_{\text{out}}-1)}$$</p>
+<p><strong>Moment analysis</strong>:</p>
+<ul>
+<li><strong>First moments</strong>: $\langle k_{\text{in}} \rangle = \langle k_{\text{out}} \rangle = \frac{m}{n}$</li>
+<li><strong>Second moments</strong>: $\langle k_{\text{in}}^2 \rangle$, $\langle k_{\text{out}}^2 \rangle$</li>
+</ul>
+<h3 id="web-graph-components">Web Graph Components<a hidden class="anchor" aria-hidden="true" href="#web-graph-components">#</a></h3>
+<h4 id="strongly-connected-components">Strongly Connected Components<a hidden class="anchor" aria-hidden="true" href="#strongly-connected-components">#</a></h4>
+<p>A <strong>strongly connected component</strong> (SCC) is a set of nodes where every node is reachable from every other node.</p>
+<p><strong>Web structure</strong>:</p>
+<ul>
+<li><strong>Giant SCC</strong>: ~30% of all pages</li>
+<li><strong>In-component</strong>: Pages that can reach the giant SCC</li>
+<li><strong>Out-component</strong>: Pages reachable from the giant SCC</li>
+<li><strong>Tendrils</strong>: Small disconnected components</li>
+</ul>
+<h4 id="mathematical-framework">Mathematical Framework<a hidden class="anchor" aria-hidden="true" href="#mathematical-framework">#</a></h4>
+<p><strong>Reachability matrix</strong>:
+$$R_{ij} = \begin{cases}
+1 &amp; \text{if there exists a path from } i \text{ to } j \
+0 &amp; \text{otherwise}
+\end{cases}$$</p>
+<p><strong>Strong connectivity</strong>:
+$$S_{ij} = R_{ij} \cdot R_{ji}$$</p>
+<h3 id="pagerank-algorithm">PageRank Algorithm<a hidden class="anchor" aria-hidden="true" href="#pagerank-algorithm">#</a></h3>
+<h4 id="mathematical-definition">Mathematical Definition<a hidden class="anchor" aria-hidden="true" href="#mathematical-definition">#</a></h4>
+<p><strong>PageRank</strong> of page $i$:</p>
+<p>$$PR(i) = \frac{1-d}{n} + d \sum_{j \in \text{in}(i)} \frac{PR(j)}{k_{\text{out}}(j)}$$</p>
+<p>Where:</p>
+<ul>
+<li>$d$: Damping factor (typically 0.85)</li>
+<li>$n$: Total number of pages</li>
+<li>$\text{in}(i)$: Pages linking to page $i$</li>
+<li>$k_{\text{out}}(j)$: Out-degree of page $j$</li>
+</ul>
+<h4 id="matrix-form">Matrix Form<a hidden class="anchor" aria-hidden="true" href="#matrix-form">#</a></h4>
+<p><strong>PageRank vector</strong>:
+$$\mathbf{PR} = (1-d) \frac{\mathbf{1}}{n} + d \mathbf{M} \mathbf{PR}$$</p>
+<p>Where $\mathbf{M}$ is the <strong>stochastic matrix</strong>:
+$$M_{ij} = \frac{A_{ji}}{k_{\text{out}}(j)}$$</p>
+<p><strong>Eigenvalue equation</strong>:
+$$\mathbf{PR} = \mathbf{M}^T \mathbf{PR}$$</p>
+<h4 id="power-iteration-method">Power Iteration Method<a hidden class="anchor" aria-hidden="true" href="#power-iteration-method">#</a></h4>
+<p><strong>Iterative solution</strong>:
+$$\mathbf{PR}^{(t+1)} = (1-d) \frac{\mathbf{1}}{n} + d \mathbf{M}^T \mathbf{PR}^{(t)}$$</p>
+<p><strong>Convergence criterion</strong>:
+$$||\mathbf{PR}^{(t+1)} - \mathbf{PR}^{(t)}||_1 &lt; \epsilon$$</p>
+<h3 id="web-crawling-and-sampling">Web Crawling and Sampling<a hidden class="anchor" aria-hidden="true" href="#web-crawling-and-sampling">#</a></h3>
+<h4 id="breadth-first-search-bfs">Breadth-First Search (BFS)<a hidden class="anchor" aria-hidden="true" href="#breadth-first-search-bfs">#</a></h4>
+<p><strong>Algorithm</strong>:</p>
+<ol>
+<li>Start with seed pages</li>
+<li>Visit all neighbors of current pages</li>
+<li>Add unvisited pages to queue</li>
+<li>Repeat until queue is empty</li>
+</ol>
+<p><strong>Bias</strong>: Favors high-degree pages</p>
+<h4 id="random-walk-sampling">Random Walk Sampling<a hidden class="anchor" aria-hidden="true" href="#random-walk-sampling">#</a></h4>
+<p><strong>Random walk</strong> with transition probabilities:
+$$P_{ij} = \frac{A_{ij}}{k_{\text{out}}(i)}$$</p>
+<p><strong>Stationary distribution</strong>:
+$$\pi_i = \frac{k_{\text{in}}(i)}{\sum_j k_{\text{in}}(j)}$$</p>
+<p><strong>Metropolis-Hastings correction</strong>:
+$$P_{\text{accept}} = \min\left(1, \frac{k_{\text{out}}(j)}{k_{\text{out}}(i)}\right)$$</p>
+<h2 id="42-citation-networks">4.2 Citation Networks<a hidden class="anchor" aria-hidden="true" href="#42-citation-networks">#</a></h2>
+<h3 id="network-structure-1">Network Structure<a hidden class="anchor" aria-hidden="true" href="#network-structure-1">#</a></h3>
+<p><strong>Citation networks</strong> are directed acyclic graphs (DAGs) where:</p>
+<ul>
+<li><strong>Nodes</strong>: Academic papers</li>
+<li><strong>Edges</strong>: Citations (paper A cites paper B)</li>
+<li><strong>Properties</strong>: Acyclic (no paper cites itself directly or indirectly)</li>
+</ul>
+<h3 id="degree-distributions-1">Degree Distributions<a hidden class="anchor" aria-hidden="true" href="#degree-distributions-1">#</a></h3>
+<h4 id="in-degree-citations-received">In-Degree (Citations Received)<a hidden class="anchor" aria-hidden="true" href="#in-degree-citations-received">#</a></h4>
+<p><strong>Power-law distribution</strong>:
+$$P_{\text{in}}(k) \sim k^{-\gamma_{\text{citations}}}$$</p>
+<p>Where $\gamma_{\text{citations}} \approx 3.0$ for citation networks.</p>
+<h4 id="out-degree-references-made">Out-Degree (References Made)<a hidden class="anchor" aria-hidden="true" href="#out-degree-references-made">#</a></h4>
+<p><strong>Distribution</strong>:
+$$P_{\text{out}}(k) \sim \text{Poisson}(\lambda)$$</p>
+<p>Where $\lambda \approx 20-30$ references per paper.</p>
+<h3 id="citation-dynamics">Citation Dynamics<a hidden class="anchor" aria-hidden="true" href="#citation-dynamics">#</a></h3>
+<h4 id="aging-effect">Aging Effect<a hidden class="anchor" aria-hidden="true" href="#aging-effect">#</a></h4>
+<p><strong>Citation rate</strong> as a function of time:
+$$r(t) = r_0 e^{-\alpha t}$$</p>
+<p>Where:</p>
+<ul>
+<li>$r_0$: Initial citation rate</li>
+<li>$\alpha$: Aging parameter</li>
+<li>$t$: Time since publication</li>
+</ul>
+<h4 id="cumulative-citations">Cumulative Citations<a hidden class="anchor" aria-hidden="true" href="#cumulative-citations">#</a></h4>
+<p><strong>Total citations</strong> after time $T$:
+$$C(T) = \int_0^T r(t) , dt = \frac{r_0}{\alpha}(1 - e^{-\alpha T})$$</p>
+<p><strong>Long-term behavior</strong>:
+$$C(\infty) = \frac{r_0}{\alpha}$$</p>
+<h3 id="impact-metrics">Impact Metrics<a hidden class="anchor" aria-hidden="true" href="#impact-metrics">#</a></h3>
+<h4 id="h-index">H-Index<a hidden class="anchor" aria-hidden="true" href="#h-index">#</a></h4>
+<p><strong>Definition</strong>: A scientist has index $h$ if $h$ of their papers have at least $h$ citations each.</p>
+<p><strong>Mathematical formulation</strong>:
+$$h = \max{k : \text{number of papers with } \geq k \text{ citations} \geq k}$$</p>
+<h4 id="g-index">G-Index<a hidden class="anchor" aria-hidden="true" href="#g-index">#</a></h4>
+<p><strong>Definition</strong>: The largest number $g$ such that the top $g$ papers have at least $g^2$ total citations.</p>
+<p><strong>Mathematical formulation</strong>:
+$$g = \max{k : \sum_{i=1}^k c_i \geq k^2}$$</p>
+<p>Where $c_i$ are citations sorted in descending order.</p>
+<h4 id="pagerank-for-citations">PageRank for Citations<a hidden class="anchor" aria-hidden="true" href="#pagerank-for-citations">#</a></h4>
+<p><strong>Citation PageRank</strong>:
+$$CPR(i) = \frac{1-d}{n} + d \sum_{j \in \text{cites}(i)} \frac{CPR(j)}{k_{\text{out}}(j)}$$</p>
+<p><strong>Advantages over simple citation count</strong>:</p>
+<ul>
+<li>Considers <strong>quality</strong> of citing papers</li>
+<li>Reduces <strong>self-citation</strong> effects</li>
+<li>Accounts for <strong>citation patterns</strong></li>
+</ul>
+<h2 id="43-other-information-networks">4.3 Other Information Networks<a hidden class="anchor" aria-hidden="true" href="#43-other-information-networks">#</a></h2>
+<h3 id="patent-citation-networks">Patent Citation Networks<a hidden class="anchor" aria-hidden="true" href="#patent-citation-networks">#</a></h3>
+<h4 id="network-properties">Network Properties<a hidden class="anchor" aria-hidden="true" href="#network-properties">#</a></h4>
+<ul>
+<li><strong>Nodes</strong>: Patents</li>
+<li><strong>Edges</strong>: Patent citations</li>
+<li><strong>Scale</strong>: Millions of patents, tens of millions of citations</li>
+<li><strong>Temporal</strong>: Citations can only go forward in time</li>
+</ul>
+<h4 id="innovation-metrics">Innovation Metrics<a hidden class="anchor" aria-hidden="true" href="#innovation-metrics">#</a></h4>
+<p><strong>Patent impact</strong>:
+$$I_i = \sum_{j \in \text{cited by } i} w_j \cdot CPR(j)$$</p>
+<p>Where $w_j$ is the weight of patent $j$.</p>
+<h3 id="software-dependency-networks">Software Dependency Networks<a hidden class="anchor" aria-hidden="true" href="#software-dependency-networks">#</a></h3>
+<h4 id="network-structure-2">Network Structure<a hidden class="anchor" aria-hidden="true" href="#network-structure-2">#</a></h4>
+<ul>
+<li><strong>Nodes</strong>: Software packages</li>
+<li><strong>Edges</strong>: Dependencies (package A depends on package B)</li>
+<li><strong>Properties</strong>: Directed, often acyclic</li>
+</ul>
+<h4 id="vulnerability-analysis">Vulnerability Analysis<a hidden class="anchor" aria-hidden="true" href="#vulnerability-analysis">#</a></h4>
+<p><strong>Cascade failure</strong> probability:
+$$P_{\text{fail}}(i) = 1 - \prod_{j \in \text{dependencies}(i)} (1 - P_{\text{fail}}(j))$$</p>
+<p><strong>System reliability</strong>:
+$$R = \prod_{i \in \text{critical packages}} (1 - P_{\text{fail}}(i))$$</p>
+<h3 id="knowledge-graphs">Knowledge Graphs<a hidden class="anchor" aria-hidden="true" href="#knowledge-graphs">#</a></h3>
+<h4 id="semantic-networks">Semantic Networks<a hidden class="anchor" aria-hidden="true" href="#semantic-networks">#</a></h4>
+<ul>
+<li><strong>Nodes</strong>: Concepts, entities</li>
+<li><strong>Edges</strong>: Semantic relationships</li>
+<li><strong>Properties</strong>: Multi-relational, weighted</li>
+</ul>
+<h4 id="graph-embeddings">Graph Embeddings<a hidden class="anchor" aria-hidden="true" href="#graph-embeddings">#</a></h4>
+<p><strong>Node2Vec</strong> algorithm:
+$$\max_f \sum_{u \in V} \log P(N_S(u)|f(u))$$</p>
+<p>Where $N_S(u)$ is the neighborhood of node $u$ under sampling strategy $S$.</p>
+<h2 id="44-information-spreading-models">4.4 Information Spreading Models<a hidden class="anchor" aria-hidden="true" href="#44-information-spreading-models">#</a></h2>
+<h3 id="sir-model-for-information">SIR Model for Information<a hidden class="anchor" aria-hidden="true" href="#sir-model-for-information">#</a></h3>
+<h4 id="model-dynamics">Model Dynamics<a hidden class="anchor" aria-hidden="true" href="#model-dynamics">#</a></h4>
+<p><strong>States</strong>:</p>
+<ul>
+<li><strong>Susceptible (S)</strong>: Haven&rsquo;t received information</li>
+<li><strong>Infected (I)</strong>: Have information and can spread it</li>
+<li><strong>Recovered (R)</strong>: Have information but won&rsquo;t spread it</li>
+</ul>
+<h4 id="mathematical-formulation">Mathematical Formulation<a hidden class="anchor" aria-hidden="true" href="#mathematical-formulation">#</a></h4>
+<p><strong>Differential equations</strong>:
+$$\frac{dS}{dt} = -\beta SI$$
+$$\frac{dI}{dt} = \beta SI - \gamma I$$
+$$\frac{dR}{dt} = \gamma I$$</p>
+<p><strong>Conservation</strong>: $S + I + R = N$ (constant)</p>
+<h4 id="basic-reproduction-number">Basic Reproduction Number<a hidden class="anchor" aria-hidden="true" href="#basic-reproduction-number">#</a></h4>
+<p>$$R_0 = \frac{\beta N}{\gamma}$$</p>
+<p><strong>Epidemic threshold</strong>: $R_0 &gt; 1$</p>
+<h3 id="complex-contagion">Complex Contagion<a hidden class="anchor" aria-hidden="true" href="#complex-contagion">#</a></h3>
+<h4 id="threshold-models">Threshold Models<a hidden class="anchor" aria-hidden="true" href="#threshold-models">#</a></h4>
+<p><strong>Activation condition</strong>:
+$$\sum_{j \in \text{active neighbors}} w_{ji} \geq \theta_i$$</p>
+<p>Where:</p>
+<ul>
+<li>$w_{ji}$: Influence weight</li>
+<li>$\theta_i$: Activation threshold</li>
+</ul>
+<h4 id="mathematical-analysis-1">Mathematical Analysis<a hidden class="anchor" aria-hidden="true" href="#mathematical-analysis-1">#</a></h4>
+<p><strong>Cascade condition</strong>:
+$$\frac{\langle k^2 \rangle}{\langle k \rangle} &gt; \frac{1}{\theta}$$</p>
+<p>Where $\theta$ is the average threshold.</p>
+<h2 id="45-applications-to-materials-science">4.5 Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#45-applications-to-materials-science">#</a></h2>
+<h3 id="scientific-collaboration-networks">Scientific Collaboration Networks<a hidden class="anchor" aria-hidden="true" href="#scientific-collaboration-networks">#</a></h3>
+<h4 id="co-authorship-networks">Co-authorship Networks<a hidden class="anchor" aria-hidden="true" href="#co-authorship-networks">#</a></h4>
+<p><strong>Network structure</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Researchers</li>
+<li><strong>Edges</strong>: Co-authorship relationships</li>
+<li><strong>Weights</strong>: Number of joint publications</li>
+</ul>
+<p><strong>Mathematical properties</strong>:</p>
+<ul>
+<li><strong>Degree distribution</strong>: Power-law with $\gamma \approx 2.1$</li>
+<li><strong>Clustering</strong>: High ($C \approx 0.3$)</li>
+<li><strong>Path length</strong>: Short ($L \approx 6$)</li>
+</ul>
+<h4 id="knowledge-transfer">Knowledge Transfer<a hidden class="anchor" aria-hidden="true" href="#knowledge-transfer">#</a></h4>
+<p><strong>Information flow</strong> between research groups:
+$$F_{ij} = \sum_{k} \frac{A_{ik} A_{jk}}{k_k}$$</p>
+<p>Where $A_{ik}$ is the collaboration strength between groups $i$ and $k$.</p>
+<h3 id="research-impact-networks">Research Impact Networks<a hidden class="anchor" aria-hidden="true" href="#research-impact-networks">#</a></h3>
+<h4 id="citation-networks-in-materials-science">Citation Networks in Materials Science<a hidden class="anchor" aria-hidden="true" href="#citation-networks-in-materials-science">#</a></h4>
+<p><strong>Top journals</strong>:</p>
+<ul>
+<li>Nature Materials</li>
+<li>Advanced Materials</li>
+<li>Materials Today</li>
+<li>Journal of Materials Chemistry</li>
+</ul>
+<p><strong>Impact factors</strong>:
+$$IF = \frac{\text{Citations in year } t}{\text{Articles published in years } t-1, t-2}$$</p>
+<h4 id="collaboration-patterns">Collaboration Patterns<a hidden class="anchor" aria-hidden="true" href="#collaboration-patterns">#</a></h4>
+<p><strong>Geographic clustering</strong>:</p>
+<ul>
+<li><strong>Local collaboration</strong>: Same institution</li>
+<li><strong>National collaboration</strong>: Same country</li>
+<li><strong>International collaboration</strong>: Different countries</li>
+</ul>
+<p><strong>Mathematical modeling</strong>:
+$$P(\text{collaboration}) = \frac{1}{1 + e^{-\alpha \cdot \text{distance}}}$$</p>
+<h2 id="code-example-information-network-analysis">Code Example: Information Network Analysis<a hidden class="anchor" aria-hidden="true" href="#code-example-information-network-analysis">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> collections <span style="color:#ff79c6">import</span> Counter
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_information_network</span>(G, network_type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;web&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze information network properties&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Basic statistics</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    m <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_edges()
+</span></span><span style="display:flex;"><span>    density <span style="color:#ff79c6">=</span> m <span style="color:#ff79c6">/</span> (n <span style="color:#ff79c6">*</span> (n <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Degree analysis</span>
+</span></span><span style="display:flex;"><span>    in_degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>in_degree()]
+</span></span><span style="display:flex;"><span>    out_degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>out_degree()]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Power-law fitting for in-degree</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(in_degrees) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>        in_degree_dist <span style="color:#ff79c6">=</span> Counter(in_degrees)
+</span></span><span style="display:flex;"><span>        k_values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(in_degree_dist<span style="color:#ff79c6">.</span>keys())
+</span></span><span style="display:flex;"><span>        counts <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(in_degree_dist<span style="color:#ff79c6">.</span>values())
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(k_values) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>            log_k <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>log(k_values[<span style="color:#bd93f9">1</span>:])  <span style="color:#6272a4"># Skip k=0</span>
+</span></span><span style="display:flex;"><span>            log_counts <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>log(counts[<span style="color:#bd93f9">1</span>:])
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(log_k) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>                gamma_in <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span>np<span style="color:#ff79c6">.</span>polyfit(log_k, log_counts, <span style="color:#bd93f9">1</span>)[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>                gamma_in <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            gamma_in <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        gamma_in <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Strongly connected components</span>
+</span></span><span style="display:flex;"><span>    sccs <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(nx<span style="color:#ff79c6">.</span>strongly_connected_components(G))
+</span></span><span style="display:flex;"><span>    scc_sizes <span style="color:#ff79c6">=</span> [<span style="color:#8be9fd;font-style:italic">len</span>(scc) <span style="color:#ff79c6">for</span> scc <span style="color:#ff79c6">in</span> sccs]
+</span></span><span style="display:flex;"><span>    giant_scc_size <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(scc_sizes) <span style="color:#ff79c6">if</span> scc_sizes <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># PageRank analysis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">try</span>:
+</span></span><span style="display:flex;"><span>        pagerank <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>pagerank(G, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.85</span>)
+</span></span><span style="display:flex;"><span>        pagerank_values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(pagerank<span style="color:#ff79c6">.</span>values())
+</span></span><span style="display:flex;"><span>        max_pagerank <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(pagerank_values)
+</span></span><span style="display:flex;"><span>        min_pagerank <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">min</span>(pagerank_values)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">except</span>:
+</span></span><span style="display:flex;"><span>        pagerank <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>        max_pagerank <span style="color:#ff79c6">=</span> min_pagerank <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Hubs and authorities (HITS algorithm)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">try</span>:
+</span></span><span style="display:flex;"><span>        hubs, authorities <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>hits(G)
+</span></span><span style="display:flex;"><span>        hub_values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(hubs<span style="color:#ff79c6">.</span>values())
+</span></span><span style="display:flex;"><span>        authority_values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(authorities<span style="color:#ff79c6">.</span>values())
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">except</span>:
+</span></span><span style="display:flex;"><span>        hub_values <span style="color:#ff79c6">=</span> authority_values <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Clustering (for undirected version)</span>
+</span></span><span style="display:flex;"><span>    G_undirected <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>to_undirected()
+</span></span><span style="display:flex;"><span>    clustering <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_clustering(G_undirected)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Path length analysis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> nx<span style="color:#ff79c6">.</span>is_weakly_connected(G):
+</span></span><span style="display:flex;"><span>        avg_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(G<span style="color:#ff79c6">.</span>to_undirected())
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Analyze largest weakly connected component</span>
+</span></span><span style="display:flex;"><span>        largest_wcc <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(nx<span style="color:#ff79c6">.</span>weakly_connected_components(G), key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)
+</span></span><span style="display:flex;"><span>        subgraph <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>subgraph(largest_wcc)<span style="color:#ff79c6">.</span>to_undirected()
+</span></span><span style="display:flex;"><span>        avg_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(subgraph)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;network_type&#39;</span>: network_type,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;nodes&#39;</span>: n,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;edges&#39;</span>: m,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;density&#39;</span>: density,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_in_degree&#39;</span>: np<span style="color:#ff79c6">.</span>mean(in_degrees),
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_out_degree&#39;</span>: np<span style="color:#ff79c6">.</span>mean(out_degrees),
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;gamma_in_estimate&#39;</span>: gamma_in,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;num_sccs&#39;</span>: <span style="color:#8be9fd;font-style:italic">len</span>(sccs),
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;giant_scc_size&#39;</span>: giant_scc_size,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;giant_scc_fraction&#39;</span>: giant_scc_size <span style="color:#ff79c6">/</span> n <span style="color:#ff79c6">if</span> n <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;max_pagerank&#39;</span>: max_pagerank,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;min_pagerank&#39;</span>: min_pagerank,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;clustering&#39;</span>: clustering,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_path_length&#39;</span>: avg_path_length
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">plot_degree_distributions</span>(G, title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Information Network Degree Distributions&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Plot in-degree and out-degree distributions&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    in_degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>in_degree()]
+</span></span><span style="display:flex;"><span>    out_degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>out_degree()]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    fig, (ax1, ax2) <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">15</span>, <span style="color:#bd93f9">6</span>))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># In-degree distribution</span>
+</span></span><span style="display:flex;"><span>    in_degree_dist <span style="color:#ff79c6">=</span> Counter(in_degrees)
+</span></span><span style="display:flex;"><span>    k_values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(in_degree_dist<span style="color:#ff79c6">.</span>keys())
+</span></span><span style="display:flex;"><span>    counts <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(in_degree_dist<span style="color:#ff79c6">.</span>values())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>loglog(k_values, counts, <span style="color:#f1fa8c">&#39;bo&#39;</span>, markersize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;In-Degree k&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Count&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;In-Degree Distribution&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Out-degree distribution</span>
+</span></span><span style="display:flex;"><span>    out_degree_dist <span style="color:#ff79c6">=</span> Counter(out_degrees)
+</span></span><span style="display:flex;"><span>    k_values <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(out_degree_dist<span style="color:#ff79c6">.</span>keys())
+</span></span><span style="display:flex;"><span>    counts <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(out_degree_dist<span style="color:#ff79c6">.</span>values())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>loglog(k_values, counts, <span style="color:#f1fa8c">&#39;ro&#39;</span>, markersize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">8</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Out-Degree k&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Count&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Out-Degree Distribution&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>suptitle(title)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>tight_layout()
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_citation_network</span>(citations):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze citation network properties&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Create citation network</span>
+</span></span><span style="display:flex;"><span>    G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>DiGraph()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> citing, cited <span style="color:#ff79c6">in</span> citations:
+</span></span><span style="display:flex;"><span>        G<span style="color:#ff79c6">.</span>add_edge(citing, cited)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Basic analysis</span>
+</span></span><span style="display:flex;"><span>    results <span style="color:#ff79c6">=</span> analyze_information_network(G, <span style="color:#f1fa8c">&#34;citation&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Citation-specific metrics</span>
+</span></span><span style="display:flex;"><span>    in_degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>in_degree()]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># H-index calculation</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">calculate_h_index</span>(citations):
+</span></span><span style="display:flex;"><span>        citations_sorted <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(citations, reverse<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span>        h <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i, c <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(citations_sorted):
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> c <span style="color:#ff79c6">&gt;=</span> i <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>                h <span style="color:#ff79c6">=</span> i <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> h
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    h_index <span style="color:#ff79c6">=</span> calculate_h_index(in_degrees)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># G-index calculation</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">calculate_g_index</span>(citations):
+</span></span><span style="display:flex;"><span>        citations_sorted <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(citations, reverse<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span>        g <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>        total_citations <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i, c <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(citations_sorted):
+</span></span><span style="display:flex;"><span>            total_citations <span style="color:#ff79c6">+=</span> c
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> total_citations <span style="color:#ff79c6">&gt;=</span> (i <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2</span>:
+</span></span><span style="display:flex;"><span>                g <span style="color:#ff79c6">=</span> i <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> g
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    g_index <span style="color:#ff79c6">=</span> calculate_g_index(in_degrees)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    results[<span style="color:#f1fa8c">&#39;h_index&#39;</span>] <span style="color:#ff79c6">=</span> h_index
+</span></span><span style="display:flex;"><span>    results[<span style="color:#f1fa8c">&#39;g_index&#39;</span>] <span style="color:#ff79c6">=</span> g_index
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> results
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Analyze a web-like network</span>
+</span></span><span style="display:flex;"><span>G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>scale_free_graph(<span style="color:#bd93f9">1000</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.41</span>, beta<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.54</span>, gamma<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.05</span>, delta_in<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.2</span>, delta_out<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>results <span style="color:#ff79c6">=</span> analyze_information_network(G, <span style="color:#f1fa8c">&#34;web_simulation&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Information Network Analysis Results:&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> key, value <span style="color:#ff79c6">in</span> results<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{</span>key<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">: </span><span style="color:#f1fa8c">{</span>value<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Plot degree distributions</span>
+</span></span><span style="display:flex;"><span>plot_degree_distributions(G, <span style="color:#f1fa8c">&#34;Simulated Web Network&#34;</span>)
+</span></span></code></pre></div><h2 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h2>
+<ol>
+<li><strong>Directed networks</strong>: Information networks are typically directed with asymmetric relationships</li>
+<li><strong>Power-law distributions</strong>: Both in-degree and out-degree often follow power laws</li>
+<li><strong>Scale-free structure</strong>: Few highly connected nodes, many sparsely connected nodes</li>
+<li><strong>PageRank importance</strong>: Algorithm for ranking nodes based on network structure</li>
+<li><strong>Citation dynamics</strong>: Citations follow predictable patterns over time</li>
+<li><strong>Impact metrics</strong>: H-index, G-index, and PageRank provide different measures of impact</li>
+<li><strong>Applications</strong>: Direct relevance to scientific collaboration and knowledge transfer</li>
+</ol>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ol>
+<li>Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press.</li>
+<li>Page, L., Brin, S., Motwani, R., &amp; Winograd, T. (1999). The PageRank citation ranking: Bringing order to the web. Stanford InfoLab.</li>
+<li>Barabási, A. L., &amp; Albert, R. (1999). Emergence of scaling in random networks. Science, 286(5439), 509-512.</li>
+<li>Hirsch, J. E. (2005). An index to quantify an individual&rsquo;s scientific research output. Proceedings of the National Academy of Sciences, 102(46), 16569-16572.</li>
+</ol>
+<hr>
+<p><em>Information networks provide insights into how knowledge is created, linked, and accessed, with important applications in scientific collaboration and research impact assessment.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/information-networks/">Information-Networks</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/web/">Web</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/citation-networks/">Citation-Networks</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks on x"
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%204%20-%20Information%20Networks&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch4%2f&amp;hashtags=reading-notes%2cnetwork-theory%2cinformation-networks%2cweb%2ccitation-networks">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch4%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%204%20-%20Information%20Networks&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%204%20-%20Information%20Networks&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch4%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch4%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%204%20-%20Information%20Networks">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch4%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks on whatsapp"
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%204%20-%20Information%20Networks%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch4%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks on telegram"
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%204%20-%20Information%20Networks&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch4%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%204%20-%20Information%20Networks&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch4%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

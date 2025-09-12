@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction | Notes on AI4Science &amp; Graph Theory</title>
+<meta name="keywords" content="reading-notes, network-theory, mathematics, introduction">
+<meta name="description" content="Comprehensive study notes for Chapter 1 of Newman&#39;s &#39;Networks: An Introduction&#39; covering fundamental concepts, mathematical definitions, and real-world network examples">
+<meta name="author" content="Linlin-resh">
+<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch1/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch1/">
+  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction">
+  <meta property="og:description" content="Comprehensive study notes for Chapter 1 of Newman&#39;s &#39;Networks: An Introduction&#39; covering fundamental concepts, mathematical definitions, and real-world network examples">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Reading-Notes">
+    <meta property="article:tag" content="Network-Theory">
+    <meta property="article:tag" content="Mathematics">
+    <meta property="article:tag" content="Introduction">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction">
+<meta name="twitter:description" content="Comprehensive study notes for Chapter 1 of Newman&#39;s &#39;Networks: An Introduction&#39; covering fundamental concepts, mathematical definitions, and real-world network examples">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Linlin-resh.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading Notes: Newman's Networks Chapter 1 - Introduction",
+      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading Notes: Newman's Networks Chapter 1 - Introduction",
+  "name": "Reading Notes: Newman\u0027s Networks Chapter 1 - Introduction",
+  "description": "Comprehensive study notes for Chapter 1 of Newman's 'Networks: An Introduction' covering fundamental concepts, mathematical definitions, and real-world network examples",
+  "keywords": [
+    "reading-notes", "network-theory", "mathematics", "introduction"
+  ],
+  "articleBody": "Introduction Chapter 1 of Newman’s seminal work Networks: An Introduction serves as the foundation for understanding network science. This chapter establishes the mathematical framework, introduces key concepts, and provides compelling real-world examples that demonstrate the ubiquity and importance of networks in our world.\n1.1 Why Networks Matter The Ubiquity of Networks Networks are everywhere in both natural and artificial systems:\nBiological systems: Neural networks, protein interaction networks, metabolic pathways Social systems: Friendship networks, collaboration networks, communication networks Technological systems: Internet, power grids, transportation networks Information systems: World Wide Web, citation networks, knowledge graphs Why Study Networks? Understanding network structure helps us:\nPredict system behavior and evolution Optimize performance and efficiency Identify critical components and vulnerabilities Design better systems based on network principles 1.2 Real-World Network Examples The Internet The Internet represents one of the most studied technological networks:\nNodes: Routers, servers, and end-user devices Edges: Physical and logical connections Scale: Billions of nodes, trillions of connections Properties: High clustering, short path lengths, scale-free degree distribution Social Networks Human social networks exhibit fascinating properties:\nSix degrees of separation: Any two people are connected by at most 6 steps Small-world effect: Short average path lengths despite large size Homophily: People tend to connect with similar others Community structure: Dense clusters with sparse interconnections Biological Networks Protein-Protein Interaction Networks Nodes: Proteins Edges: Physical interactions between proteins Scale: ~20,000 human proteins, ~100,000 interactions Properties: Scale-free, modular structure, essential proteins are highly connected Metabolic Networks Nodes: Metabolites (small molecules) Edges: Biochemical reactions Scale: Thousands of metabolites and reactions Properties: Hierarchical organization, conserved across species 1.3 Fundamental Network Properties Degree Distribution The degree $k_i$ of node $i$ is the number of edges connected to it.\nFor a network with $n$ nodes, the degree distribution $P(k)$ gives the probability that a randomly chosen node has degree $k$:\n$$P(k) = \\frac{\\text{Number of nodes with degree } k}{n}$$\nMathematical Properties Normalization: $\\sum_{k=0}^{\\infty} P(k) = 1$ Average degree: $\\langle k \\rangle = \\sum_{k=0}^{\\infty} k P(k)$ Second moment: $\\langle k^2 \\rangle = \\sum_{k=0}^{\\infty} k^2 P(k)$ Clustering Coefficient The local clustering coefficient $C_i$ measures how tightly connected the neighbors of node $i$ are:\n$$C_i = \\frac{\\text{Number of triangles containing node } i}{\\binom{k_i}{2}} = \\frac{2e_i}{k_i(k_i-1)}$$\nWhere $e_i$ is the number of edges between neighbors of node $i$.\nThe global clustering coefficient is the average:\n$$C = \\frac{1}{n} \\sum_{i=1}^{n} C_i$$\nPhysical Interpretation $C_i = 1$: All neighbors of $i$ are connected (complete subgraph) $C_i = 0$: No connections between neighbors of $i$ High clustering indicates local order and community structure Path Length and Diameter Shortest Path Length The shortest path length $d_{ij}$ between nodes $i$ and $j$ is the minimum number of edges in any path connecting them.\nAverage Path Length $$L = \\frac{1}{\\binom{n}{2}} \\sum_{i",
+  "wordCount" : "1034",
+  "inLanguage": "en",
+  "datePublished": "2025-08-29T00:00:00Z",
+  "dateModified": "2025-08-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Linlin-resh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Notes on AI4Science \u0026 Graph Theory",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Linlin-resh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Linlin-resh.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction
+    </h1>
+    <div class="post-description">
+      Comprehensive study notes for Chapter 1 of Newman&#39;s &#39;Networks: An Introduction&#39; covering fundamental concepts, mathematical definitions, and real-world network examples
+    </div>
+    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;1034 words&nbsp;·&nbsp;Linlin-resh
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#11-why-networks-matter" aria-label="1.1 Why Networks Matter">1.1 Why Networks Matter</a><ul>
+                        
+                <li>
+                    <a href="#the-ubiquity-of-networks" aria-label="The Ubiquity of Networks">The Ubiquity of Networks</a></li>
+                <li>
+                    <a href="#why-study-networks" aria-label="Why Study Networks?">Why Study Networks?</a></li></ul>
+                </li>
+                <li>
+                    <a href="#12-real-world-network-examples" aria-label="1.2 Real-World Network Examples">1.2 Real-World Network Examples</a><ul>
+                        
+                <li>
+                    <a href="#the-internet" aria-label="The Internet">The Internet</a></li>
+                <li>
+                    <a href="#social-networks" aria-label="Social Networks">Social Networks</a></li>
+                <li>
+                    <a href="#biological-networks" aria-label="Biological Networks">Biological Networks</a><ul>
+                        
+                <li>
+                    <a href="#protein-protein-interaction-networks" aria-label="Protein-Protein Interaction Networks">Protein-Protein Interaction Networks</a></li>
+                <li>
+                    <a href="#metabolic-networks" aria-label="Metabolic Networks">Metabolic Networks</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#13-fundamental-network-properties" aria-label="1.3 Fundamental Network Properties">1.3 Fundamental Network Properties</a><ul>
+                        
+                <li>
+                    <a href="#degree-distribution" aria-label="Degree Distribution">Degree Distribution</a><ul>
+                        
+                <li>
+                    <a href="#mathematical-properties" aria-label="Mathematical Properties">Mathematical Properties</a></li></ul>
+                </li>
+                <li>
+                    <a href="#clustering-coefficient" aria-label="Clustering Coefficient">Clustering Coefficient</a><ul>
+                        
+                <li>
+                    <a href="#physical-interpretation" aria-label="Physical Interpretation">Physical Interpretation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#path-length-and-diameter" aria-label="Path Length and Diameter">Path Length and Diameter</a><ul>
+                        
+                <li>
+                    <a href="#shortest-path-length" aria-label="Shortest Path Length">Shortest Path Length</a></li>
+                <li>
+                    <a href="#average-path-length" aria-label="Average Path Length">Average Path Length</a></li>
+                <li>
+                    <a href="#network-diameter" aria-label="Network Diameter">Network Diameter</a></li></ul>
+                </li>
+                <li>
+                    <a href="#small-world-effect" aria-label="Small-World Effect">Small-World Effect</a></li></ul>
+                </li>
+                <li>
+                    <a href="#14-scale-free-networks" aria-label="1.4 Scale-Free Networks">1.4 Scale-Free Networks</a><ul>
+                        
+                <li>
+                    <a href="#power-law-degree-distribution" aria-label="Power-Law Degree Distribution">Power-Law Degree Distribution</a><ul>
+                        
+                <li>
+                    <a href="#mathematical-properties-1" aria-label="Mathematical Properties">Mathematical Properties</a></li></ul>
+                </li>
+                <li>
+                    <a href="#real-world-examples" aria-label="Real-World Examples">Real-World Examples</a><ul>
+                        
+                <li>
+                    <a href="#world-wide-web" aria-label="World Wide Web">World Wide Web</a></li>
+                <li>
+                    <a href="#internet-router-network" aria-label="Internet Router Network">Internet Router Network</a></li>
+                <li>
+                    <a href="#scientific-collaboration-networks" aria-label="Scientific Collaboration Networks">Scientific Collaboration Networks</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#15-network-robustness-and-vulnerability" aria-label="1.5 Network Robustness and Vulnerability">1.5 Network Robustness and Vulnerability</a><ul>
+                        
+                <li>
+                    <a href="#attack-tolerance" aria-label="Attack Tolerance">Attack Tolerance</a></li>
+                <li>
+                    <a href="#mathematical-framework" aria-label="Mathematical Framework">Mathematical Framework</a></li></ul>
+                </li>
+                <li>
+                    <a href="#16-applications-to-materials-science" aria-label="1.6 Applications to Materials Science">1.6 Applications to Materials Science</a><ul>
+                        
+                <li>
+                    <a href="#silver-nanowire-networks" aria-label="Silver Nanowire Networks">Silver Nanowire Networks</a><ul>
+                        
+                <li>
+                    <a href="#percolation-theory" aria-label="Percolation Theory">Percolation Theory</a></li></ul>
+                </li>
+                <li>
+                    <a href="#partially-disordered-materials" aria-label="Partially Disordered Materials">Partially Disordered Materials</a></li></ul>
+                </li>
+                <li>
+                    <a href="#code-example-basic-network-analysis" aria-label="Code Example: Basic Network Analysis">Code Example: Basic Network Analysis</a></li>
+                <li>
+                    <a href="#key-takeaways" aria-label="Key Takeaways">Key Takeaways</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Chapter 1 of Newman&rsquo;s seminal work <em>Networks: An Introduction</em> serves as the foundation for understanding network science. This chapter establishes the mathematical framework, introduces key concepts, and provides compelling real-world examples that demonstrate the ubiquity and importance of networks in our world.</p>
+<h2 id="11-why-networks-matter">1.1 Why Networks Matter<a hidden class="anchor" aria-hidden="true" href="#11-why-networks-matter">#</a></h2>
+<h3 id="the-ubiquity-of-networks">The Ubiquity of Networks<a hidden class="anchor" aria-hidden="true" href="#the-ubiquity-of-networks">#</a></h3>
+<p>Networks are <strong>everywhere</strong> in both natural and artificial systems:</p>
+<ul>
+<li><strong>Biological systems</strong>: Neural networks, protein interaction networks, metabolic pathways</li>
+<li><strong>Social systems</strong>: Friendship networks, collaboration networks, communication networks</li>
+<li><strong>Technological systems</strong>: Internet, power grids, transportation networks</li>
+<li><strong>Information systems</strong>: World Wide Web, citation networks, knowledge graphs</li>
+</ul>
+<h3 id="why-study-networks">Why Study Networks?<a hidden class="anchor" aria-hidden="true" href="#why-study-networks">#</a></h3>
+<p>Understanding network structure helps us:</p>
+<ul>
+<li><strong>Predict system behavior</strong> and evolution</li>
+<li><strong>Optimize performance</strong> and efficiency</li>
+<li><strong>Identify critical components</strong> and vulnerabilities</li>
+<li><strong>Design better systems</strong> based on network principles</li>
+</ul>
+<h2 id="12-real-world-network-examples">1.2 Real-World Network Examples<a hidden class="anchor" aria-hidden="true" href="#12-real-world-network-examples">#</a></h2>
+<h3 id="the-internet">The Internet<a hidden class="anchor" aria-hidden="true" href="#the-internet">#</a></h3>
+<p>The Internet represents one of the most studied technological networks:</p>
+<ul>
+<li><strong>Nodes</strong>: Routers, servers, and end-user devices</li>
+<li><strong>Edges</strong>: Physical and logical connections</li>
+<li><strong>Scale</strong>: Billions of nodes, trillions of connections</li>
+<li><strong>Properties</strong>: High clustering, short path lengths, scale-free degree distribution</li>
+</ul>
+<h3 id="social-networks">Social Networks<a hidden class="anchor" aria-hidden="true" href="#social-networks">#</a></h3>
+<p>Human social networks exhibit fascinating properties:</p>
+<ul>
+<li><strong>Six degrees of separation</strong>: Any two people are connected by at most 6 steps</li>
+<li><strong>Small-world effect</strong>: Short average path lengths despite large size</li>
+<li><strong>Homophily</strong>: People tend to connect with similar others</li>
+<li><strong>Community structure</strong>: Dense clusters with sparse interconnections</li>
+</ul>
+<h3 id="biological-networks">Biological Networks<a hidden class="anchor" aria-hidden="true" href="#biological-networks">#</a></h3>
+<h4 id="protein-protein-interaction-networks">Protein-Protein Interaction Networks<a hidden class="anchor" aria-hidden="true" href="#protein-protein-interaction-networks">#</a></h4>
+<ul>
+<li><strong>Nodes</strong>: Proteins</li>
+<li><strong>Edges</strong>: Physical interactions between proteins</li>
+<li><strong>Scale</strong>: ~20,000 human proteins, ~100,000 interactions</li>
+<li><strong>Properties</strong>: Scale-free, modular structure, essential proteins are highly connected</li>
+</ul>
+<h4 id="metabolic-networks">Metabolic Networks<a hidden class="anchor" aria-hidden="true" href="#metabolic-networks">#</a></h4>
+<ul>
+<li><strong>Nodes</strong>: Metabolites (small molecules)</li>
+<li><strong>Edges</strong>: Biochemical reactions</li>
+<li><strong>Scale</strong>: Thousands of metabolites and reactions</li>
+<li><strong>Properties</strong>: Hierarchical organization, conserved across species</li>
+</ul>
+<h2 id="13-fundamental-network-properties">1.3 Fundamental Network Properties<a hidden class="anchor" aria-hidden="true" href="#13-fundamental-network-properties">#</a></h2>
+<h3 id="degree-distribution">Degree Distribution<a hidden class="anchor" aria-hidden="true" href="#degree-distribution">#</a></h3>
+<p>The <strong>degree</strong> $k_i$ of node $i$ is the number of edges connected to it.</p>
+<p>For a network with $n$ nodes, the <strong>degree distribution</strong> $P(k)$ gives the probability that a randomly chosen node has degree $k$:</p>
+<p>$$P(k) = \frac{\text{Number of nodes with degree } k}{n}$$</p>
+<h4 id="mathematical-properties">Mathematical Properties<a hidden class="anchor" aria-hidden="true" href="#mathematical-properties">#</a></h4>
+<ul>
+<li><strong>Normalization</strong>: $\sum_{k=0}^{\infty} P(k) = 1$</li>
+<li><strong>Average degree</strong>: $\langle k \rangle = \sum_{k=0}^{\infty} k P(k)$</li>
+<li><strong>Second moment</strong>: $\langle k^2 \rangle = \sum_{k=0}^{\infty} k^2 P(k)$</li>
+</ul>
+<h3 id="clustering-coefficient">Clustering Coefficient<a hidden class="anchor" aria-hidden="true" href="#clustering-coefficient">#</a></h3>
+<p>The <strong>local clustering coefficient</strong> $C_i$ measures how tightly connected the neighbors of node $i$ are:</p>
+<p>$$C_i = \frac{\text{Number of triangles containing node } i}{\binom{k_i}{2}} = \frac{2e_i}{k_i(k_i-1)}$$</p>
+<p>Where $e_i$ is the number of edges between neighbors of node $i$.</p>
+<p>The <strong>global clustering coefficient</strong> is the average:</p>
+<p>$$C = \frac{1}{n} \sum_{i=1}^{n} C_i$$</p>
+<h4 id="physical-interpretation">Physical Interpretation<a hidden class="anchor" aria-hidden="true" href="#physical-interpretation">#</a></h4>
+<ul>
+<li>$C_i = 1$: All neighbors of $i$ are connected (complete subgraph)</li>
+<li>$C_i = 0$: No connections between neighbors of $i$</li>
+<li>High clustering indicates <strong>local order</strong> and <strong>community structure</strong></li>
+</ul>
+<h3 id="path-length-and-diameter">Path Length and Diameter<a hidden class="anchor" aria-hidden="true" href="#path-length-and-diameter">#</a></h3>
+<h4 id="shortest-path-length">Shortest Path Length<a hidden class="anchor" aria-hidden="true" href="#shortest-path-length">#</a></h4>
+<p>The <strong>shortest path length</strong> $d_{ij}$ between nodes $i$ and $j$ is the minimum number of edges in any path connecting them.</p>
+<h4 id="average-path-length">Average Path Length<a hidden class="anchor" aria-hidden="true" href="#average-path-length">#</a></h4>
+<p>$$L = \frac{1}{\binom{n}{2}} \sum_{i&lt;j} d_{ij} = \frac{2}{n(n-1)} \sum_{i&lt;j} d_{ij}$$</p>
+<h4 id="network-diameter">Network Diameter<a hidden class="anchor" aria-hidden="true" href="#network-diameter">#</a></h4>
+<p>$$D = \max_{i,j} d_{ij}$$</p>
+<h3 id="small-world-effect">Small-World Effect<a hidden class="anchor" aria-hidden="true" href="#small-world-effect">#</a></h3>
+<p>Many real networks exhibit the <strong>small-world property</strong>:</p>
+<ul>
+<li><strong>Short average path length</strong>: $L \sim \log n$ (much smaller than $n$)</li>
+<li><strong>High clustering</strong>: $C \gg C_{\text{random}}$ (much higher than random networks)</li>
+</ul>
+<p>This combination is rare in random networks but common in real-world systems.</p>
+<h2 id="14-scale-free-networks">1.4 Scale-Free Networks<a hidden class="anchor" aria-hidden="true" href="#14-scale-free-networks">#</a></h2>
+<h3 id="power-law-degree-distribution">Power-Law Degree Distribution<a hidden class="anchor" aria-hidden="true" href="#power-law-degree-distribution">#</a></h3>
+<p>Many real networks follow a <strong>power-law degree distribution</strong>:</p>
+<p>$$P(k) \sim k^{-\gamma}$$</p>
+<p>Where $\gamma$ is the <strong>exponent</strong> (typically $2 &lt; \gamma &lt; 3$).</p>
+<h4 id="mathematical-properties-1">Mathematical Properties<a hidden class="anchor" aria-hidden="true" href="#mathematical-properties-1">#</a></h4>
+<ul>
+<li><strong>Heavy-tailed</strong>: Few high-degree nodes, many low-degree nodes</li>
+<li><strong>Scale-invariant</strong>: No characteristic scale</li>
+<li><strong>Infinite variance</strong>: When $\gamma \leq 3$, $\langle k^2 \rangle$ diverges</li>
+</ul>
+<h3 id="real-world-examples">Real-World Examples<a hidden class="anchor" aria-hidden="true" href="#real-world-examples">#</a></h3>
+<h4 id="world-wide-web">World Wide Web<a hidden class="anchor" aria-hidden="true" href="#world-wide-web">#</a></h4>
+<ul>
+<li><strong>In-degree</strong>: $\gamma \approx 2.1$ (pages linking to a page)</li>
+<li><strong>Out-degree</strong>: $\gamma \approx 2.7$ (pages linked by a page)</li>
+</ul>
+<h4 id="internet-router-network">Internet Router Network<a hidden class="anchor" aria-hidden="true" href="#internet-router-network">#</a></h4>
+<ul>
+<li><strong>Degree distribution</strong>: $\gamma \approx 2.2$</li>
+<li><strong>Implication</strong>: Few highly connected routers, many peripheral ones</li>
+</ul>
+<h4 id="scientific-collaboration-networks">Scientific Collaboration Networks<a hidden class="anchor" aria-hidden="true" href="#scientific-collaboration-networks">#</a></h4>
+<ul>
+<li><strong>Degree distribution</strong>: $\gamma \approx 2.1$</li>
+<li><strong>Implication</strong>: Few highly collaborative scientists, many with few collaborators</li>
+</ul>
+<h2 id="15-network-robustness-and-vulnerability">1.5 Network Robustness and Vulnerability<a hidden class="anchor" aria-hidden="true" href="#15-network-robustness-and-vulnerability">#</a></h2>
+<h3 id="attack-tolerance">Attack Tolerance<a hidden class="anchor" aria-hidden="true" href="#attack-tolerance">#</a></h3>
+<p>Scale-free networks exhibit <strong>robustness against random failures</strong> but <strong>vulnerability to targeted attacks</strong>:</p>
+<ul>
+<li><strong>Random failures</strong>: Removing random nodes rarely affects connectivity</li>
+<li><strong>Targeted attacks</strong>: Removing high-degree nodes quickly fragments the network</li>
+</ul>
+<h3 id="mathematical-framework">Mathematical Framework<a hidden class="anchor" aria-hidden="true" href="#mathematical-framework">#</a></h3>
+<p>The <strong>percolation threshold</strong> $p_c$ is the critical fraction of nodes that must be removed to fragment the network:</p>
+<p>$$p_c = 1 - \frac{1}{\kappa - 1}$$</p>
+<p>Where $\kappa = \frac{\langle k^2 \rangle}{\langle k \rangle}$ is the <strong>degree ratio</strong>.</p>
+<h2 id="16-applications-to-materials-science">1.6 Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#16-applications-to-materials-science">#</a></h2>
+<h3 id="silver-nanowire-networks">Silver Nanowire Networks<a hidden class="anchor" aria-hidden="true" href="#silver-nanowire-networks">#</a></h3>
+<p>Network concepts apply directly to nanowire systems:</p>
+<ul>
+<li><strong>Nodes</strong>: Nanowire junctions</li>
+<li><strong>Edges</strong>: Nanowire segments</li>
+<li><strong>Properties</strong>: Percolation threshold, electrical conductivity, mechanical strength</li>
+</ul>
+<h4 id="percolation-theory">Percolation Theory<a hidden class="anchor" aria-hidden="true" href="#percolation-theory">#</a></h4>
+<p>The <strong>percolation probability</strong> $P(p)$ gives the probability that a randomly chosen node belongs to the giant component:</p>
+<p>$$P(p) = 1 - \sum_{k=0}^{\infty} P(k) (1-p)^k$$</p>
+<h3 id="partially-disordered-materials">Partially Disordered Materials<a hidden class="anchor" aria-hidden="true" href="#partially-disordered-materials">#</a></h3>
+<p>Network analysis helps understand:</p>
+<ul>
+<li><strong>Local order parameters</strong> in disordered regions</li>
+<li><strong>Defect clustering</strong> and percolation</li>
+<li><strong>Phase transition</strong> mechanisms</li>
+<li><strong>Property-structure relationships</strong></li>
+</ul>
+<h2 id="code-example-basic-network-analysis">Code Example: Basic Network Analysis<a hidden class="anchor" aria-hidden="true" href="#code-example-basic-network-analysis">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_network_properties</span>(G):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze fundamental network properties&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Basic statistics</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    m <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_edges()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Degree distribution</span>
+</span></span><span style="display:flex;"><span>    degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>degree()]
+</span></span><span style="display:flex;"><span>    avg_degree <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>mean(degrees)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Clustering coefficient</span>
+</span></span><span style="display:flex;"><span>    clustering <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_clustering(G)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Path length (for connected components)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> nx<span style="color:#ff79c6">.</span>is_connected(G):
+</span></span><span style="display:flex;"><span>        avg_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(G)
+</span></span><span style="display:flex;"><span>        diameter <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>diameter(G)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># For disconnected graphs, analyze largest component</span>
+</span></span><span style="display:flex;"><span>        largest_cc <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(nx<span style="color:#ff79c6">.</span>connected_components(G), key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)
+</span></span><span style="display:flex;"><span>        subgraph <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>subgraph(largest_cc)
+</span></span><span style="display:flex;"><span>        avg_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(subgraph)
+</span></span><span style="display:flex;"><span>        diameter <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>diameter(subgraph)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;nodes&#39;</span>: n,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;edges&#39;</span>: m,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_degree&#39;</span>: avg_degree,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;clustering&#39;</span>: clustering,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_path_length&#39;</span>: avg_path_length,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;diameter&#39;</span>: diameter
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Analyze a scale-free network</span>
+</span></span><span style="display:flex;"><span>G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>barabasi_albert_graph(<span style="color:#bd93f9">1000</span>, <span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span>properties <span style="color:#ff79c6">=</span> analyze_network_properties(G)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Network properties:&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> key, value <span style="color:#ff79c6">in</span> properties<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{</span>key<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">: </span><span style="color:#f1fa8c">{</span>value<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.4f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span></code></pre></div><h2 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h2>
+<ol>
+<li><strong>Networks are universal</strong>: They appear in virtually every complex system</li>
+<li><strong>Mathematical framework</strong>: Degree distribution, clustering, and path length are fundamental measures</li>
+<li><strong>Scale-free property</strong>: Many real networks follow power-law degree distributions</li>
+<li><strong>Small-world effect</strong>: Short path lengths with high clustering are common</li>
+<li><strong>Robustness-vulnerability trade-off</strong>: Scale-free networks are robust to random failures but vulnerable to targeted attacks</li>
+<li><strong>Materials applications</strong>: Network concepts directly apply to nanowire systems and disordered materials</li>
+</ol>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ol>
+<li>Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press.</li>
+<li>Barabási, A. L., &amp; Albert, R. (1999). Emergence of scaling in random networks. Science, 286(5439), 509-512.</li>
+<li>Watts, D. J., &amp; Strogatz, S. H. (1998). Collective dynamics of &lsquo;small-world&rsquo; networks. Nature, 393(6684), 440-442.</li>
+</ol>
+<hr>
+<p><em>This is the first in a series of chapter-by-chapter study notes for Newman&rsquo;s Networks textbook. Each chapter builds upon the previous ones, so understanding these fundamental concepts is crucial for the advanced topics to come.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/mathematics/">Mathematics</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/introduction/">Introduction</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction on x"
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%201%20-%20Introduction&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch1%2f&amp;hashtags=reading-notes%2cnetwork-theory%2cmathematics%2cintroduction">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch1%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%201%20-%20Introduction&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%201%20-%20Introduction&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch1%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch1%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%201%20-%20Introduction">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch1%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction on whatsapp"
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%201%20-%20Introduction%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch1%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction on telegram"
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%201%20-%20Introduction&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch1%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%201%20-%20Introduction&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch1%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

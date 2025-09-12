@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Network-Analysis on Notes on AI4Science &amp; Graph Theory</title>
-    <link>http://localhost:1313/tags/network-analysis/</link>
+    <link>https://Linlin-resh.github.io/tags/network-analysis/</link>
     <description>Recent content in Network-Analysis on Notes on AI4Science &amp; Graph Theory</description>
     <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/network-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://Linlin-resh.github.io/tags/network-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reading Notes: Newman&#39;s Networks Chapter 15 - Multilayer Networks</title>
+      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch15/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch15/</guid>
+      <description>Study notes for Chapter 15 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering multilayer networks, multiplex networks, and their analysis</description>
+    </item>
     <item>
       <title>Research Progress Update: August 2025</title>
-      <link>http://localhost:1313/posts/progress-2025-08/</link>
+      <link>https://Linlin-resh.github.io/posts/progress-2025-08/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/progress-2025-08/</guid>
+      <guid>https://Linlin-resh.github.io/posts/progress-2025-08/</guid>
       <description>Monthly research progress summary covering network analysis, nanowire characterization, and machine learning developments</description>
     </item>
   </channel>

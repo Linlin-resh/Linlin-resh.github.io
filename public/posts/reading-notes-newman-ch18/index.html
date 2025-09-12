@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions | Notes on AI4Science &amp; Graph Theory</title>
+<meta name="keywords" content="reading-notes, network-theory, future-directions, emerging-trends, open-problems">
+<meta name="description" content="Study notes for Chapter 18 of Newman&#39;s &#39;Networks: An Introduction&#39; covering emerging trends, future research directions, and open problems in network science">
+<meta name="author" content="Linlin-resh">
+<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch18/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch18/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch18/">
+  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions">
+  <meta property="og:description" content="Study notes for Chapter 18 of Newman&#39;s &#39;Networks: An Introduction&#39; covering emerging trends, future research directions, and open problems in network science">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Reading-Notes">
+    <meta property="article:tag" content="Network-Theory">
+    <meta property="article:tag" content="Future-Directions">
+    <meta property="article:tag" content="Emerging-Trends">
+    <meta property="article:tag" content="Open-Problems">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions">
+<meta name="twitter:description" content="Study notes for Chapter 18 of Newman&#39;s &#39;Networks: An Introduction&#39; covering emerging trends, future research directions, and open problems in network science">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Linlin-resh.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading Notes: Newman's Networks Chapter 18 - Future Directions",
+      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch18/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading Notes: Newman's Networks Chapter 18 - Future Directions",
+  "name": "Reading Notes: Newman\u0027s Networks Chapter 18 - Future Directions",
+  "description": "Study notes for Chapter 18 of Newman's 'Networks: An Introduction' covering emerging trends, future research directions, and open problems in network science",
+  "keywords": [
+    "reading-notes", "network-theory", "future-directions", "emerging-trends", "open-problems"
+  ],
+  "articleBody": "Introduction Chapter 18 of Newman’s Networks: An Introduction explores future directions in network science - the emerging trends, open problems, and research frontiers that will shape the field in the coming years. This chapter covers machine learning, quantum networks, and other cutting-edge developments.\n18.1 Machine Learning on Networks Graph Neural Networks Graph Convolutional Networks (GCNs) Layer update: $$H^{(l+1)} = \\sigma(\\tilde{A} H^{(l)} W^{(l)})$$\nWhere:\n$\\tilde{A} = D^{-1/2} A D^{-1/2}$: Normalized adjacency matrix $H^{(l)}$: Node features at layer $l$ $W^{(l)}$: Weight matrix at layer $l$ $\\sigma$: Activation function Applications:\nNode classification: Predict node labels Link prediction: Predict missing edges Graph classification: Classify entire graphs Graph Attention Networks (GATs) Attention mechanism: $$\\alpha_{ij} = \\frac{\\exp(e_{ij})}{\\sum_{k \\in \\mathcal{N}i} \\exp(e{ik})}$$\nWhere:\n$e_{ij} = \\text{LeakyReLU}(a^T [W h_i || W h_j])$ $a$: Attention vector $W$: Weight matrix $h_i$: Node features Node update: $$h_i’ = \\sigma\\left(\\sum_{j \\in \\mathcal{N}i} \\alpha{ij} W h_j\\right)$$\nAdvantages:\nAdaptive: Attention weights adapt to different nodes Interpretable: Attention weights show importance Flexible: Can handle different graph structures Graph Transformer Networks Self-attention mechanism: $$\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right) V$$\nWhere:\n$Q, K, V$: Query, key, value matrices $d_k$: Dimension of key vectors Multi-head attention: $$\\text{MultiHead}(Q, K, V) = \\text{Concat}(\\text{head}_1, \\ldots, \\text{head}_h) W^O$$\nWhere:\n$\\text{head}_i = \\text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$ $W_i^Q, W_i^K, W_i^V$: Weight matrices for head $i$ Deep Learning Applications Network Embedding Node2Vec: $$\\max_f \\sum_{u \\in V} \\log P(N_S(u)|f(u))$$\nWhere:\n$f$: Embedding function $N_S(u)$: Neighborhood of node $u$ $S$: Sampling strategy Graph2Vec: $$\\max_f \\sum_{G \\in \\mathcal{G}} \\log P(\\text{context}(G)|f(G))$$\nWhere:\n$f$: Graph embedding function $\\text{context}(G)$: Context of graph $G$ Network Generation Variational Autoencoders (VAEs): $$\\mathcal{L} = \\mathbb{E}{q\\phi(z|G)}[\\log p_\\theta(G|z)] - D_{KL}(q_\\phi(z|G) || p(z))$$\nWhere:\n$q_\\phi(z|G)$: Encoder $p_\\theta(G|z)$: Decoder $D_{KL}$: Kullback-Leibler divergence Generative Adversarial Networks (GANs): $$\\min_G \\max_D V(D, G) = \\mathbb{E}{x \\sim p{data}}[\\log D(x)] + \\mathbb{E}_{z \\sim p_z}[\\log(1 - D(G(z)))]$$\nWhere:\n$G$: Generator $D$: Discriminator $p_{data}$: Data distribution $p_z$: Noise distribution 18.2 Quantum Networks Quantum Graph Theory Quantum States Quantum state: $$|\\psi\\rangle = \\sum_{i} \\alpha_i |i\\rangle$$\nWhere:\n$\\alpha_i$: Complex amplitudes $|i\\rangle$: Basis states $\\sum_i |\\alpha_i|^2 = 1$: Normalization Density matrix: $$\\rho = \\sum_i p_i |\\psi_i\\rangle\\langle\\psi_i|$$\nWhere $p_i$ are probabilities.\nQuantum Entanglement Entangled state: $$|\\psi\\rangle = \\frac{1}{\\sqrt{2}}(|00\\rangle + |11\\rangle)$$\nProperties:\nNon-local: Cannot be written as product state Correlated: Measurements are correlated Useful: For quantum communication and computation Quantum Network Models Quantum Random Walks Quantum walk: $$|\\psi(t)\\rangle = U^t |\\psi(0)\\rangle$$\nWhere:\n$U$: Unitary evolution operator $|\\psi(0)\\rangle$: Initial state $|\\psi(t)\\rangle$: State at time $t$ Properties:\nUnitary: Preserves probability Reversible: Can go backwards in time Fast: Can be faster than classical walks Quantum Percolation Quantum percolation: $$P(\\text{percolation}) = 1 - \\sum_{k=0}^{\\infty} P(k) (1-p)^k$$\nWhere:\n$P(k)$: Quantum degree distribution $p$: Quantum edge probability Critical threshold: $$p_c = \\frac{1}{\\kappa - 1}$$\nWhere $\\kappa = \\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}$.\nQuantum Applications Quantum Communication Quantum teleportation:\nEntangle: Create entangled pair Measure: Measure qubit and entangled pair Transmit: Send measurement results Reconstruct: Reconstruct original qubit Quantum key distribution:\nGenerate: Generate random key Encode: Encode key in quantum states Transmit: Send quantum states Decode: Decode key from quantum states Quantum Computing Quantum algorithms:\nShor’s algorithm: Factor integers Grover’s algorithm: Search databases Quantum simulation: Simulate quantum systems Quantum error correction:\nStabilizer codes: Detect and correct errors Surface codes: Topological error correction Concatenated codes: Hierarchical error correction 18.3 Temporal and Dynamic Networks Temporal Network Analysis Time-Varying Networks Temporal network: $$G(t) = (V, E(t)) \\quad \\text{for } t \\in [0, T]$$\nProperties:\nNodes: Usually constant Edges: Vary with time Dynamics: Can be continuous or discrete Temporal Measures Temporal degree: $$k_i(t) = \\sum_{j} A_{ij}(t)$$\nTemporal clustering: $$C_i(t) = \\frac{2e_i(t)}{k_i(t)(k_i(t)-1)}$$\nTemporal path length: $$d_{ij}^T = \\min{\\text{length of temporal path from } i \\text{ to } j}$$\nDynamic Network Models Preferential Attachment with Aging Model: $$\\Pi(k_i, t, t_i) = \\frac{k_i(t) e^{-\\alpha(t-t_i)}}{\\sum_j k_j(t) e^{-\\alpha(t-t_j)}}$$\nWhere:\n$k_i(t)$: Degree of node $i$ at time $t$ $t_i$: Time when node $i$ was added $\\alpha$: Aging parameter Degree distribution: $$P(k) \\sim k^{-\\gamma} e^{-\\beta k}$$\nWhere $\\gamma$ and $\\beta$ depend on $\\alpha$.\nFitness Models Model: $$\\Pi(k_i, \\eta_i) = \\frac{\\eta_i k_i(t)}{\\sum_j \\eta_j k_j(t)}$$\nWhere $\\eta_i$ is the fitness of node $i$.\nDegree distribution: $$P(k) \\sim k^{-\\gamma} \\int \\eta^{\\gamma-1} \\rho(\\eta) , d\\eta$$\nWhere $\\rho(\\eta)$ is the fitness distribution.\n18.4 Multilayer and Multiplex Networks Multilayer Network Analysis Supra-adjacency Matrix Supra-adjacency matrix: $$A = \\bigoplus_{\\alpha} A^{\\alpha} + \\bigoplus_{\\alpha \\neq \\beta} C^{\\alpha \\beta}$$\nWhere:\n$A^{\\alpha}$: Adjacency matrix of layer $\\alpha$ $C^{\\alpha \\beta}$: Inter-layer coupling matrix Multilayer Measures Multilayer degree: $$k_i = \\sum_{\\alpha} k_i^{\\alpha}$$\nParticipation coefficient: $$P_i = 1 - \\sum_{\\alpha} \\left(\\frac{k_i^{\\alpha}}{k_i}\\right)^2$$\nMultilayer clustering: $$C_i = \\frac{\\sum_{\\alpha} C_i^{\\alpha}}{L}$$\nMultiplex Networks Multiplex Structure Multiplex network: Each layer represents different type of relationship\nMathematical representation: $$A_{ij}^{\\alpha \\beta} = \\begin{cases} A_{ij}^{\\alpha} \u0026 \\text{if } \\alpha = \\beta \\ 0 \u0026 \\text{if } \\alpha \\neq \\beta \\end{cases}$$\nMultiplex Measures Overlapping degree: $$o_i = \\sum_{\\alpha} \\mathbb{I}(k_i^{\\alpha} \u003e 0)$$\nMultiplex clustering: $$C_i = \\frac{\\sum_{\\alpha} C_i^{\\alpha}}{L}$$\nMultiplex PageRank: $$PR_i^{\\alpha} = (1-d) \\frac{1}{nL} + d \\sum_{j, \\beta} \\frac{A_{ij}^{\\alpha \\beta} PR_j^{\\beta}}{k_j^{\\beta}}$$\n18.5 Applications to Materials Science AI-Driven Materials Design Network-Based Property Prediction Property prediction: $$P = f(\\text{network features}) + \\epsilon$$\nWhere:\n$P$: Material property $f$: Machine learning function $\\text{network features}$: Network descriptors $\\epsilon$: Error term Network features:\nTopological: Degree, clustering, path length Spectral: Eigenvalues, eigenvectors Dynamic: Synchronization, percolation Materials Discovery High-throughput screening:\nGenerate: Generate large number of candidate materials Predict: Predict properties using ML models Filter: Filter promising candidates Validate: Validate predictions experimentally Inverse design:\nSpecify: Specify desired properties Optimize: Optimize network structure Generate: Generate material structure Validate: Validate experimentally Quantum Materials Quantum Network Models Superconductors:\nNodes: Cooper pairs Edges: Josephson junctions Properties: Zero resistance, Meissner effect Topological insulators:\nNodes: Electronic states Edges: Hopping integrals Properties: Topological protection, edge states Quantum dots:\nNodes: Quantum states Edges: Tunneling Properties: Quantized energy levels Quantum Applications Quantum sensors:\nSensitivity: Higher than classical sensors Precision: Better than classical sensors Applications: Magnetic field sensing, temperature sensing Quantum computers:\nSpeed: Exponential speedup for certain problems Applications: Cryptography, optimization, simulation Challenges: Error correction, scalability 18.6 Open Problems and Challenges Theoretical Challenges Network Dynamics Open problems:\nSynchronization: General conditions for synchronization Percolation: Critical behavior in complex networks Cascades: Prediction and control of cascades Evolution: Understanding network evolution Mathematical challenges:\nNonlinear dynamics: Complex nonlinear systems Stochastic processes: Random network evolution Phase transitions: Critical phenomena Stability: Network stability analysis Network Inference Open problems:\nMissing data: Inference from partial observations Noisy data: Inference from noisy observations Dynamic networks: Inference from temporal data Multilayer networks: Inference from multilayer data Mathematical challenges:\nStatistical inference: Bayesian methods Machine learning: Deep learning approaches Optimization: Non-convex optimization Validation: Model validation and selection Practical Challenges Scalability Computational challenges:\nLarge networks: Networks with millions of nodes Real-time analysis: Analysis in real-time Memory requirements: Efficient memory usage Parallel computing: Distributed algorithms Solutions:\nApproximation algorithms: Fast approximate methods Sampling: Network sampling techniques Distributed computing: Parallel algorithms Cloud computing: Scalable infrastructure Data Quality Data challenges:\nIncomplete data: Missing nodes and edges Noisy data: Measurement errors Bias: Sampling bias Privacy: Privacy concerns Solutions:\nData cleaning: Preprocessing techniques Imputation: Missing data imputation Validation: Data validation methods Privacy: Privacy-preserving methods Code Example: Future Directions import networkx as nx import numpy as np import matplotlib.pyplot as plt from sklearn.neural_network import MLPRegressor from sklearn.model_selection import train_test_split from sklearn.metrics import mean_squared_error, r2_score import torch import torch.nn as nn import torch.optim as optim class GraphNeuralNetwork(nn.Module): \"\"\"Simple Graph Neural Network implementation\"\"\" def __init__(self, input_dim, hidden_dim, output_dim): super(GraphNeuralNetwork, self).__init__() self.input_dim = input_dim self.hidden_dim = hidden_dim self.output_dim = output_dim # Graph convolution layers self.conv1 = nn.Linear(input_dim, hidden_dim) self.conv2 = nn.Linear(hidden_dim, hidden_dim) self.conv3 = nn.Linear(hidden_dim, output_dim) # Activation functions self.relu = nn.ReLU() self.dropout = nn.Dropout(0.5) def forward(self, x, adj): \"\"\"Forward pass\"\"\" # First convolution x = self.conv1(x) x = self.relu(x) x = self.dropout(x) # Graph convolution x = torch.matmul(adj, x) # Second convolution x = self.conv2(x) x = self.relu(x) x = self.dropout(x) # Graph convolution x = torch.matmul(adj, x) # Output layer x = self.conv3(x) return x def generate_network_features(G): \"\"\"Generate network features for machine learning\"\"\" n = G.number_of_nodes() features = np.zeros((n, 10)) # 10 features per node # Degree features degrees = [G.degree(i) for i in G.nodes()] features[:, 0] = degrees features[:, 1] = np.array(degrees) / np.max(degrees) if np.max(degrees) \u003e 0 else 0 # Clustering features clustering = nx.clustering(G) features[:, 2] = [clustering[i] for i in G.nodes()] # Centrality features betweenness = nx.betweenness_centrality(G) closeness = nx.closeness_centrality(G) eigenvector = nx.eigenvector_centrality(G, max_iter=1000) features[:, 3] = [betweenness[i] for i in G.nodes()] features[:, 4] = [closeness[i] for i in G.nodes()] features[:, 5] = [eigenvector[i] for i in G.nodes()] # Path length features if nx.is_connected(G): path_lengths = dict(nx.all_pairs_shortest_path_length(G)) avg_path_lengths = [np.mean(list(path_lengths[i].values())) for i in G.nodes()] features[:, 6] = avg_path_lengths else: features[:, 6] = 0 # Spectral features L = nx.laplacian_matrix(G).toarray() eigenvals = np.linalg.eigvals(L) eigenvals = np.real(eigenvals) eigenvals = np.sort(eigenvals) features[:, 7] = eigenvals[1] if len(eigenvals) \u003e 1 else 0 # Algebraic connectivity features[:, 8] = eigenvals[-1] if len(eigenvals) \u003e 0 else 0 # Largest eigenvalue features[:, 9] = np.sum(eigenvals) # Trace return features def predict_network_properties(G, target_property='efficiency'): \"\"\"Predict network properties using machine learning\"\"\" # Generate features features = generate_network_features(G) # Generate target values if target_property == 'efficiency': target = nx.global_efficiency(G) elif target_property == 'clustering': target = nx.average_clustering(G) elif target_property == 'path_length': target = nx.average_shortest_path_length(G) if nx.is_connected(G) else 0 else: target = 0 # Create training data X = features y = np.full((G.number_of_nodes(), 1), target) # Train model model = MLPRegressor(hidden_layer_sizes=(50, 50), max_iter=1000, random_state=42) model.fit(X, y) # Predict y_pred = model.predict(X) return model, y_pred, target def simulate_quantum_walk(G, steps=100): \"\"\"Simulate quantum walk on network\"\"\" n = G.number_of_nodes() # Create adjacency matrix A = nx.adjacency_matrix(G).toarray() # Normalize adjacency matrix D = np.diag(np.sum(A, axis=1)) D_inv = np.linalg.inv(D) A_norm = D_inv @ A # Create unitary evolution operator U = np.eye(n) + 1j * A_norm U = U / np.linalg.norm(U) # Initial state (uniform superposition) psi = np.ones(n) / np.sqrt(n) # Simulate quantum walk psi_history = [psi.copy()] for t in range(steps): psi = U @ psi psi_history.append(psi.copy()) return psi_history def analyze_temporal_network(networks): \"\"\"Analyze temporal network properties\"\"\" n = len(networks) properties = { 'density': [], 'clustering': [], 'efficiency': [], 'path_length': [] } for G in networks: properties['density'].append(nx.density(G)) properties['clustering'].append(nx.average_clustering(G)) properties['efficiency'].append(nx.global_efficiency(G)) if nx.is_connected(G): properties['path_length'].append(nx.average_shortest_path_length(G)) else: properties['path_length'].append(0) return properties def plot_future_directions(G, title=\"Future Directions in Network Science\"): \"\"\"Plot future directions analysis\"\"\" fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12)) # Network visualization pos = nx.spring_layout(G, k=1, iterations=50) nx.draw(G, pos, ax=ax1, node_color='lightblue', edge_color='gray', alpha=0.6, node_size=50) ax1.set_title('Network Structure') ax1.axis('off') # Machine learning prediction model, y_pred, target = predict_network_properties(G, 'efficiency') ax2.scatter([target] * G.number_of_nodes(), y_pred, alpha=0.7, s=100) ax2.plot([0, 1], [0, 1], 'r--', alpha=0.5) ax2.set_xlabel('Actual Efficiency') ax2.set_ylabel('Predicted Efficiency') ax2.set_title('ML Property Prediction') ax2.grid(True, alpha=0.3) # Quantum walk simulation psi_history = simulate_quantum_walk(G, steps=50) probabilities = [np.abs(psi)**2 for psi in psi_history] time_steps = range(len(probabilities)) for i in range(min(5, G.number_of_nodes())): probs = [p[i] for p in probabilities] ax3.plot(time_steps, probs, alpha=0.7, label=f'Node {i}') ax3.set_xlabel('Time Steps') ax3.set_ylabel('Probability') ax3.set_title('Quantum Walk Simulation') ax3.legend() ax3.grid(True, alpha=0.3) # Temporal network analysis # Generate temporal networks temporal_networks = [] for t in range(10): G_temp = G.copy() # Randomly remove some edges edges_to_remove = np.random.choice(list(G_temp.edges()), size=int(0.1 * G_temp.number_of_edges()), replace=False) G_temp.remove_edges_from(edges_to_remove) temporal_networks.append(G_temp) temporal_properties = analyze_temporal_network(temporal_networks) time_steps = range(len(temporal_networks)) ax4.plot(time_steps, temporal_properties['efficiency'], 'b-', label='Efficiency', linewidth=2) ax4.plot(time_steps, temporal_properties['clustering'], 'r-', label='Clustering', linewidth=2) ax4.set_xlabel('Time Steps') ax4.set_ylabel('Property Value') ax4.set_title('Temporal Network Properties') ax4.legend() ax4.grid(True, alpha=0.3) plt.tight_layout() plt.show() # Example: Future directions analysis G = nx.barabasi_albert_graph(50, 3) # Machine learning analysis model, y_pred, target = predict_network_properties(G, 'efficiency') print(f\"Target efficiency: {target:.3f}\") print(f\"Predicted efficiency: {np.mean(y_pred):.3f}\") # Quantum walk analysis psi_history = simulate_quantum_walk(G, steps=50) final_probabilities = np.abs(psi_history[-1])**2 print(f\"Quantum walk final probabilities: {final_probabilities[:5]}\") # Plot results plot_future_directions(G, \"Future Directions in Network Science\") Key Takeaways Machine learning: Graph neural networks and deep learning on networks Quantum networks: Quantum graph theory and quantum applications Temporal networks: Dynamic network analysis and modeling Multilayer networks: Complex network structures and analysis Materials science: AI-driven materials design and quantum materials Open problems: Theoretical and practical challenges Future research: Emerging trends and research directions References Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press. Kipf, T. N., \u0026 Welling, M. (2016). Semi-supervised classification with graph convolutional networks. arXiv preprint arXiv:1609.02907. Veličković, P., et al. (2017). Graph attention networks. arXiv preprint arXiv:1710.10903. Nielsen, M. A., \u0026 Chuang, I. L. (2010). Quantum Computation and Quantum Information. Cambridge University Press. The future of network science lies in the integration of machine learning, quantum computing, and advanced mathematical techniques, with important applications in materials science and beyond.\n",
+  "wordCount" : "2005",
+  "inLanguage": "en",
+  "datePublished": "2025-08-29T00:00:00Z",
+  "dateModified": "2025-08-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Linlin-resh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch18/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Notes on AI4Science \u0026 Graph Theory",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Linlin-resh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Linlin-resh.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions
+    </h1>
+    <div class="post-description">
+      Study notes for Chapter 18 of Newman&#39;s &#39;Networks: An Introduction&#39; covering emerging trends, future research directions, and open problems in network science
+    </div>
+    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;2005 words&nbsp;·&nbsp;Linlin-resh
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#181-machine-learning-on-networks" aria-label="18.1 Machine Learning on Networks">18.1 Machine Learning on Networks</a><ul>
+                        
+                <li>
+                    <a href="#graph-neural-networks" aria-label="Graph Neural Networks">Graph Neural Networks</a><ul>
+                        
+                <li>
+                    <a href="#graph-convolutional-networks-gcns" aria-label="Graph Convolutional Networks (GCNs)">Graph Convolutional Networks (GCNs)</a></li>
+                <li>
+                    <a href="#graph-attention-networks-gats" aria-label="Graph Attention Networks (GATs)">Graph Attention Networks (GATs)</a></li>
+                <li>
+                    <a href="#graph-transformer-networks" aria-label="Graph Transformer Networks">Graph Transformer Networks</a></li></ul>
+                </li>
+                <li>
+                    <a href="#deep-learning-applications" aria-label="Deep Learning Applications">Deep Learning Applications</a><ul>
+                        
+                <li>
+                    <a href="#network-embedding" aria-label="Network Embedding">Network Embedding</a></li>
+                <li>
+                    <a href="#network-generation" aria-label="Network Generation">Network Generation</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#182-quantum-networks" aria-label="18.2 Quantum Networks">18.2 Quantum Networks</a><ul>
+                        
+                <li>
+                    <a href="#quantum-graph-theory" aria-label="Quantum Graph Theory">Quantum Graph Theory</a><ul>
+                        
+                <li>
+                    <a href="#quantum-states" aria-label="Quantum States">Quantum States</a></li>
+                <li>
+                    <a href="#quantum-entanglement" aria-label="Quantum Entanglement">Quantum Entanglement</a></li></ul>
+                </li>
+                <li>
+                    <a href="#quantum-network-models" aria-label="Quantum Network Models">Quantum Network Models</a><ul>
+                        
+                <li>
+                    <a href="#quantum-random-walks" aria-label="Quantum Random Walks">Quantum Random Walks</a></li>
+                <li>
+                    <a href="#quantum-percolation" aria-label="Quantum Percolation">Quantum Percolation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#quantum-applications" aria-label="Quantum Applications">Quantum Applications</a><ul>
+                        
+                <li>
+                    <a href="#quantum-communication" aria-label="Quantum Communication">Quantum Communication</a></li>
+                <li>
+                    <a href="#quantum-computing" aria-label="Quantum Computing">Quantum Computing</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#183-temporal-and-dynamic-networks" aria-label="18.3 Temporal and Dynamic Networks">18.3 Temporal and Dynamic Networks</a><ul>
+                        
+                <li>
+                    <a href="#temporal-network-analysis" aria-label="Temporal Network Analysis">Temporal Network Analysis</a><ul>
+                        
+                <li>
+                    <a href="#time-varying-networks" aria-label="Time-Varying Networks">Time-Varying Networks</a></li>
+                <li>
+                    <a href="#temporal-measures" aria-label="Temporal Measures">Temporal Measures</a></li></ul>
+                </li>
+                <li>
+                    <a href="#dynamic-network-models" aria-label="Dynamic Network Models">Dynamic Network Models</a><ul>
+                        
+                <li>
+                    <a href="#preferential-attachment-with-aging" aria-label="Preferential Attachment with Aging">Preferential Attachment with Aging</a></li>
+                <li>
+                    <a href="#fitness-models" aria-label="Fitness Models">Fitness Models</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#184-multilayer-and-multiplex-networks" aria-label="18.4 Multilayer and Multiplex Networks">18.4 Multilayer and Multiplex Networks</a><ul>
+                        
+                <li>
+                    <a href="#multilayer-network-analysis" aria-label="Multilayer Network Analysis">Multilayer Network Analysis</a><ul>
+                        
+                <li>
+                    <a href="#supra-adjacency-matrix" aria-label="Supra-adjacency Matrix">Supra-adjacency Matrix</a></li>
+                <li>
+                    <a href="#multilayer-measures" aria-label="Multilayer Measures">Multilayer Measures</a></li></ul>
+                </li>
+                <li>
+                    <a href="#multiplex-networks" aria-label="Multiplex Networks">Multiplex Networks</a><ul>
+                        
+                <li>
+                    <a href="#multiplex-structure" aria-label="Multiplex Structure">Multiplex Structure</a></li>
+                <li>
+                    <a href="#multiplex-measures" aria-label="Multiplex Measures">Multiplex Measures</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#185-applications-to-materials-science" aria-label="18.5 Applications to Materials Science">18.5 Applications to Materials Science</a><ul>
+                        
+                <li>
+                    <a href="#ai-driven-materials-design" aria-label="AI-Driven Materials Design">AI-Driven Materials Design</a><ul>
+                        
+                <li>
+                    <a href="#network-based-property-prediction" aria-label="Network-Based Property Prediction">Network-Based Property Prediction</a></li>
+                <li>
+                    <a href="#materials-discovery" aria-label="Materials Discovery">Materials Discovery</a></li></ul>
+                </li>
+                <li>
+                    <a href="#quantum-materials" aria-label="Quantum Materials">Quantum Materials</a><ul>
+                        
+                <li>
+                    <a href="#quantum-network-models-1" aria-label="Quantum Network Models">Quantum Network Models</a></li>
+                <li>
+                    <a href="#quantum-applications-1" aria-label="Quantum Applications">Quantum Applications</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#186-open-problems-and-challenges" aria-label="18.6 Open Problems and Challenges">18.6 Open Problems and Challenges</a><ul>
+                        
+                <li>
+                    <a href="#theoretical-challenges" aria-label="Theoretical Challenges">Theoretical Challenges</a><ul>
+                        
+                <li>
+                    <a href="#network-dynamics" aria-label="Network Dynamics">Network Dynamics</a></li>
+                <li>
+                    <a href="#network-inference" aria-label="Network Inference">Network Inference</a></li></ul>
+                </li>
+                <li>
+                    <a href="#practical-challenges" aria-label="Practical Challenges">Practical Challenges</a><ul>
+                        
+                <li>
+                    <a href="#scalability" aria-label="Scalability">Scalability</a></li>
+                <li>
+                    <a href="#data-quality" aria-label="Data Quality">Data Quality</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#code-example-future-directions" aria-label="Code Example: Future Directions">Code Example: Future Directions</a></li>
+                <li>
+                    <a href="#key-takeaways" aria-label="Key Takeaways">Key Takeaways</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Chapter 18 of Newman&rsquo;s <em>Networks: An Introduction</em> explores <strong>future directions</strong> in network science - the emerging trends, open problems, and research frontiers that will shape the field in the coming years. This chapter covers machine learning, quantum networks, and other cutting-edge developments.</p>
+<h2 id="181-machine-learning-on-networks">18.1 Machine Learning on Networks<a hidden class="anchor" aria-hidden="true" href="#181-machine-learning-on-networks">#</a></h2>
+<h3 id="graph-neural-networks">Graph Neural Networks<a hidden class="anchor" aria-hidden="true" href="#graph-neural-networks">#</a></h3>
+<h4 id="graph-convolutional-networks-gcns">Graph Convolutional Networks (GCNs)<a hidden class="anchor" aria-hidden="true" href="#graph-convolutional-networks-gcns">#</a></h4>
+<p><strong>Layer update</strong>:
+$$H^{(l+1)} = \sigma(\tilde{A} H^{(l)} W^{(l)})$$</p>
+<p>Where:</p>
+<ul>
+<li>$\tilde{A} = D^{-1/2} A D^{-1/2}$: Normalized adjacency matrix</li>
+<li>$H^{(l)}$: Node features at layer $l$</li>
+<li>$W^{(l)}$: Weight matrix at layer $l$</li>
+<li>$\sigma$: Activation function</li>
+</ul>
+<p><strong>Applications</strong>:</p>
+<ul>
+<li><strong>Node classification</strong>: Predict node labels</li>
+<li><strong>Link prediction</strong>: Predict missing edges</li>
+<li><strong>Graph classification</strong>: Classify entire graphs</li>
+</ul>
+<h4 id="graph-attention-networks-gats">Graph Attention Networks (GATs)<a hidden class="anchor" aria-hidden="true" href="#graph-attention-networks-gats">#</a></h4>
+<p><strong>Attention mechanism</strong>:
+$$\alpha_{ij} = \frac{\exp(e_{ij})}{\sum_{k \in \mathcal{N}<em>i} \exp(e</em>{ik})}$$</p>
+<p>Where:</p>
+<ul>
+<li>$e_{ij} = \text{LeakyReLU}(a^T [W h_i || W h_j])$</li>
+<li>$a$: Attention vector</li>
+<li>$W$: Weight matrix</li>
+<li>$h_i$: Node features</li>
+</ul>
+<p><strong>Node update</strong>:
+$$h_i&rsquo; = \sigma\left(\sum_{j \in \mathcal{N}<em>i} \alpha</em>{ij} W h_j\right)$$</p>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li><strong>Adaptive</strong>: Attention weights adapt to different nodes</li>
+<li><strong>Interpretable</strong>: Attention weights show importance</li>
+<li><strong>Flexible</strong>: Can handle different graph structures</li>
+</ul>
+<h4 id="graph-transformer-networks">Graph Transformer Networks<a hidden class="anchor" aria-hidden="true" href="#graph-transformer-networks">#</a></h4>
+<p><strong>Self-attention mechanism</strong>:
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V$$</p>
+<p>Where:</p>
+<ul>
+<li>$Q, K, V$: Query, key, value matrices</li>
+<li>$d_k$: Dimension of key vectors</li>
+</ul>
+<p><strong>Multi-head attention</strong>:
+$$\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h) W^O$$</p>
+<p>Where:</p>
+<ul>
+<li>$\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$</li>
+<li>$W_i^Q, W_i^K, W_i^V$: Weight matrices for head $i$</li>
+</ul>
+<h3 id="deep-learning-applications">Deep Learning Applications<a hidden class="anchor" aria-hidden="true" href="#deep-learning-applications">#</a></h3>
+<h4 id="network-embedding">Network Embedding<a hidden class="anchor" aria-hidden="true" href="#network-embedding">#</a></h4>
+<p><strong>Node2Vec</strong>:
+$$\max_f \sum_{u \in V} \log P(N_S(u)|f(u))$$</p>
+<p>Where:</p>
+<ul>
+<li>$f$: Embedding function</li>
+<li>$N_S(u)$: Neighborhood of node $u$</li>
+<li>$S$: Sampling strategy</li>
+</ul>
+<p><strong>Graph2Vec</strong>:
+$$\max_f \sum_{G \in \mathcal{G}} \log P(\text{context}(G)|f(G))$$</p>
+<p>Where:</p>
+<ul>
+<li>$f$: Graph embedding function</li>
+<li>$\text{context}(G)$: Context of graph $G$</li>
+</ul>
+<h4 id="network-generation">Network Generation<a hidden class="anchor" aria-hidden="true" href="#network-generation">#</a></h4>
+<p><strong>Variational Autoencoders (VAEs)</strong>:
+$$\mathcal{L} = \mathbb{E}<em>{q</em>\phi(z|G)}[\log p_\theta(G|z)] - D_{KL}(q_\phi(z|G) || p(z))$$</p>
+<p>Where:</p>
+<ul>
+<li>$q_\phi(z|G)$: Encoder</li>
+<li>$p_\theta(G|z)$: Decoder</li>
+<li>$D_{KL}$: Kullback-Leibler divergence</li>
+</ul>
+<p><strong>Generative Adversarial Networks (GANs)</strong>:
+$$\min_G \max_D V(D, G) = \mathbb{E}<em>{x \sim p</em>{data}}[\log D(x)] + \mathbb{E}_{z \sim p_z}[\log(1 - D(G(z)))]$$</p>
+<p>Where:</p>
+<ul>
+<li>$G$: Generator</li>
+<li>$D$: Discriminator</li>
+<li>$p_{data}$: Data distribution</li>
+<li>$p_z$: Noise distribution</li>
+</ul>
+<h2 id="182-quantum-networks">18.2 Quantum Networks<a hidden class="anchor" aria-hidden="true" href="#182-quantum-networks">#</a></h2>
+<h3 id="quantum-graph-theory">Quantum Graph Theory<a hidden class="anchor" aria-hidden="true" href="#quantum-graph-theory">#</a></h3>
+<h4 id="quantum-states">Quantum States<a hidden class="anchor" aria-hidden="true" href="#quantum-states">#</a></h4>
+<p><strong>Quantum state</strong>:
+$$|\psi\rangle = \sum_{i} \alpha_i |i\rangle$$</p>
+<p>Where:</p>
+<ul>
+<li>$\alpha_i$: Complex amplitudes</li>
+<li>$|i\rangle$: Basis states</li>
+<li>$\sum_i |\alpha_i|^2 = 1$: Normalization</li>
+</ul>
+<p><strong>Density matrix</strong>:
+$$\rho = \sum_i p_i |\psi_i\rangle\langle\psi_i|$$</p>
+<p>Where $p_i$ are probabilities.</p>
+<h4 id="quantum-entanglement">Quantum Entanglement<a hidden class="anchor" aria-hidden="true" href="#quantum-entanglement">#</a></h4>
+<p><strong>Entangled state</strong>:
+$$|\psi\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$$</p>
+<p><strong>Properties</strong>:</p>
+<ul>
+<li><strong>Non-local</strong>: Cannot be written as product state</li>
+<li><strong>Correlated</strong>: Measurements are correlated</li>
+<li><strong>Useful</strong>: For quantum communication and computation</li>
+</ul>
+<h3 id="quantum-network-models">Quantum Network Models<a hidden class="anchor" aria-hidden="true" href="#quantum-network-models">#</a></h3>
+<h4 id="quantum-random-walks">Quantum Random Walks<a hidden class="anchor" aria-hidden="true" href="#quantum-random-walks">#</a></h4>
+<p><strong>Quantum walk</strong>:
+$$|\psi(t)\rangle = U^t |\psi(0)\rangle$$</p>
+<p>Where:</p>
+<ul>
+<li>$U$: Unitary evolution operator</li>
+<li>$|\psi(0)\rangle$: Initial state</li>
+<li>$|\psi(t)\rangle$: State at time $t$</li>
+</ul>
+<p><strong>Properties</strong>:</p>
+<ul>
+<li><strong>Unitary</strong>: Preserves probability</li>
+<li><strong>Reversible</strong>: Can go backwards in time</li>
+<li><strong>Fast</strong>: Can be faster than classical walks</li>
+</ul>
+<h4 id="quantum-percolation">Quantum Percolation<a hidden class="anchor" aria-hidden="true" href="#quantum-percolation">#</a></h4>
+<p><strong>Quantum percolation</strong>:
+$$P(\text{percolation}) = 1 - \sum_{k=0}^{\infty} P(k) (1-p)^k$$</p>
+<p>Where:</p>
+<ul>
+<li>$P(k)$: Quantum degree distribution</li>
+<li>$p$: Quantum edge probability</li>
+</ul>
+<p><strong>Critical threshold</strong>:
+$$p_c = \frac{1}{\kappa - 1}$$</p>
+<p>Where $\kappa = \frac{\langle k^2 \rangle}{\langle k \rangle}$.</p>
+<h3 id="quantum-applications">Quantum Applications<a hidden class="anchor" aria-hidden="true" href="#quantum-applications">#</a></h3>
+<h4 id="quantum-communication">Quantum Communication<a hidden class="anchor" aria-hidden="true" href="#quantum-communication">#</a></h4>
+<p><strong>Quantum teleportation</strong>:</p>
+<ol>
+<li><strong>Entangle</strong>: Create entangled pair</li>
+<li><strong>Measure</strong>: Measure qubit and entangled pair</li>
+<li><strong>Transmit</strong>: Send measurement results</li>
+<li><strong>Reconstruct</strong>: Reconstruct original qubit</li>
+</ol>
+<p><strong>Quantum key distribution</strong>:</p>
+<ol>
+<li><strong>Generate</strong>: Generate random key</li>
+<li><strong>Encode</strong>: Encode key in quantum states</li>
+<li><strong>Transmit</strong>: Send quantum states</li>
+<li><strong>Decode</strong>: Decode key from quantum states</li>
+</ol>
+<h4 id="quantum-computing">Quantum Computing<a hidden class="anchor" aria-hidden="true" href="#quantum-computing">#</a></h4>
+<p><strong>Quantum algorithms</strong>:</p>
+<ul>
+<li><strong>Shor&rsquo;s algorithm</strong>: Factor integers</li>
+<li><strong>Grover&rsquo;s algorithm</strong>: Search databases</li>
+<li><strong>Quantum simulation</strong>: Simulate quantum systems</li>
+</ul>
+<p><strong>Quantum error correction</strong>:</p>
+<ul>
+<li><strong>Stabilizer codes</strong>: Detect and correct errors</li>
+<li><strong>Surface codes</strong>: Topological error correction</li>
+<li><strong>Concatenated codes</strong>: Hierarchical error correction</li>
+</ul>
+<h2 id="183-temporal-and-dynamic-networks">18.3 Temporal and Dynamic Networks<a hidden class="anchor" aria-hidden="true" href="#183-temporal-and-dynamic-networks">#</a></h2>
+<h3 id="temporal-network-analysis">Temporal Network Analysis<a hidden class="anchor" aria-hidden="true" href="#temporal-network-analysis">#</a></h3>
+<h4 id="time-varying-networks">Time-Varying Networks<a hidden class="anchor" aria-hidden="true" href="#time-varying-networks">#</a></h4>
+<p><strong>Temporal network</strong>:
+$$G(t) = (V, E(t)) \quad \text{for } t \in [0, T]$$</p>
+<p><strong>Properties</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Usually constant</li>
+<li><strong>Edges</strong>: Vary with time</li>
+<li><strong>Dynamics</strong>: Can be continuous or discrete</li>
+</ul>
+<h4 id="temporal-measures">Temporal Measures<a hidden class="anchor" aria-hidden="true" href="#temporal-measures">#</a></h4>
+<p><strong>Temporal degree</strong>:
+$$k_i(t) = \sum_{j} A_{ij}(t)$$</p>
+<p><strong>Temporal clustering</strong>:
+$$C_i(t) = \frac{2e_i(t)}{k_i(t)(k_i(t)-1)}$$</p>
+<p><strong>Temporal path length</strong>:
+$$d_{ij}^T = \min{\text{length of temporal path from } i \text{ to } j}$$</p>
+<h3 id="dynamic-network-models">Dynamic Network Models<a hidden class="anchor" aria-hidden="true" href="#dynamic-network-models">#</a></h3>
+<h4 id="preferential-attachment-with-aging">Preferential Attachment with Aging<a hidden class="anchor" aria-hidden="true" href="#preferential-attachment-with-aging">#</a></h4>
+<p><strong>Model</strong>:
+$$\Pi(k_i, t, t_i) = \frac{k_i(t) e^{-\alpha(t-t_i)}}{\sum_j k_j(t) e^{-\alpha(t-t_j)}}$$</p>
+<p>Where:</p>
+<ul>
+<li>$k_i(t)$: Degree of node $i$ at time $t$</li>
+<li>$t_i$: Time when node $i$ was added</li>
+<li>$\alpha$: Aging parameter</li>
+</ul>
+<p><strong>Degree distribution</strong>:
+$$P(k) \sim k^{-\gamma} e^{-\beta k}$$</p>
+<p>Where $\gamma$ and $\beta$ depend on $\alpha$.</p>
+<h4 id="fitness-models">Fitness Models<a hidden class="anchor" aria-hidden="true" href="#fitness-models">#</a></h4>
+<p><strong>Model</strong>:
+$$\Pi(k_i, \eta_i) = \frac{\eta_i k_i(t)}{\sum_j \eta_j k_j(t)}$$</p>
+<p>Where $\eta_i$ is the fitness of node $i$.</p>
+<p><strong>Degree distribution</strong>:
+$$P(k) \sim k^{-\gamma} \int \eta^{\gamma-1} \rho(\eta) , d\eta$$</p>
+<p>Where $\rho(\eta)$ is the fitness distribution.</p>
+<h2 id="184-multilayer-and-multiplex-networks">18.4 Multilayer and Multiplex Networks<a hidden class="anchor" aria-hidden="true" href="#184-multilayer-and-multiplex-networks">#</a></h2>
+<h3 id="multilayer-network-analysis">Multilayer Network Analysis<a hidden class="anchor" aria-hidden="true" href="#multilayer-network-analysis">#</a></h3>
+<h4 id="supra-adjacency-matrix">Supra-adjacency Matrix<a hidden class="anchor" aria-hidden="true" href="#supra-adjacency-matrix">#</a></h4>
+<p><strong>Supra-adjacency matrix</strong>:
+$$A = \bigoplus_{\alpha} A^{\alpha} + \bigoplus_{\alpha \neq \beta} C^{\alpha \beta}$$</p>
+<p>Where:</p>
+<ul>
+<li>$A^{\alpha}$: Adjacency matrix of layer $\alpha$</li>
+<li>$C^{\alpha \beta}$: Inter-layer coupling matrix</li>
+</ul>
+<h4 id="multilayer-measures">Multilayer Measures<a hidden class="anchor" aria-hidden="true" href="#multilayer-measures">#</a></h4>
+<p><strong>Multilayer degree</strong>:
+$$k_i = \sum_{\alpha} k_i^{\alpha}$$</p>
+<p><strong>Participation coefficient</strong>:
+$$P_i = 1 - \sum_{\alpha} \left(\frac{k_i^{\alpha}}{k_i}\right)^2$$</p>
+<p><strong>Multilayer clustering</strong>:
+$$C_i = \frac{\sum_{\alpha} C_i^{\alpha}}{L}$$</p>
+<h3 id="multiplex-networks">Multiplex Networks<a hidden class="anchor" aria-hidden="true" href="#multiplex-networks">#</a></h3>
+<h4 id="multiplex-structure">Multiplex Structure<a hidden class="anchor" aria-hidden="true" href="#multiplex-structure">#</a></h4>
+<p><strong>Multiplex network</strong>: Each layer represents different type of relationship</p>
+<p><strong>Mathematical representation</strong>:
+$$A_{ij}^{\alpha \beta} = \begin{cases}
+A_{ij}^{\alpha} &amp; \text{if } \alpha = \beta \
+0 &amp; \text{if } \alpha \neq \beta
+\end{cases}$$</p>
+<h4 id="multiplex-measures">Multiplex Measures<a hidden class="anchor" aria-hidden="true" href="#multiplex-measures">#</a></h4>
+<p><strong>Overlapping degree</strong>:
+$$o_i = \sum_{\alpha} \mathbb{I}(k_i^{\alpha} &gt; 0)$$</p>
+<p><strong>Multiplex clustering</strong>:
+$$C_i = \frac{\sum_{\alpha} C_i^{\alpha}}{L}$$</p>
+<p><strong>Multiplex PageRank</strong>:
+$$PR_i^{\alpha} = (1-d) \frac{1}{nL} + d \sum_{j, \beta} \frac{A_{ij}^{\alpha \beta} PR_j^{\beta}}{k_j^{\beta}}$$</p>
+<h2 id="185-applications-to-materials-science">18.5 Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#185-applications-to-materials-science">#</a></h2>
+<h3 id="ai-driven-materials-design">AI-Driven Materials Design<a hidden class="anchor" aria-hidden="true" href="#ai-driven-materials-design">#</a></h3>
+<h4 id="network-based-property-prediction">Network-Based Property Prediction<a hidden class="anchor" aria-hidden="true" href="#network-based-property-prediction">#</a></h4>
+<p><strong>Property prediction</strong>:
+$$P = f(\text{network features}) + \epsilon$$</p>
+<p>Where:</p>
+<ul>
+<li>$P$: Material property</li>
+<li>$f$: Machine learning function</li>
+<li>$\text{network features}$: Network descriptors</li>
+<li>$\epsilon$: Error term</li>
+</ul>
+<p><strong>Network features</strong>:</p>
+<ul>
+<li><strong>Topological</strong>: Degree, clustering, path length</li>
+<li><strong>Spectral</strong>: Eigenvalues, eigenvectors</li>
+<li><strong>Dynamic</strong>: Synchronization, percolation</li>
+</ul>
+<h4 id="materials-discovery">Materials Discovery<a hidden class="anchor" aria-hidden="true" href="#materials-discovery">#</a></h4>
+<p><strong>High-throughput screening</strong>:</p>
+<ol>
+<li><strong>Generate</strong>: Generate large number of candidate materials</li>
+<li><strong>Predict</strong>: Predict properties using ML models</li>
+<li><strong>Filter</strong>: Filter promising candidates</li>
+<li><strong>Validate</strong>: Validate predictions experimentally</li>
+</ol>
+<p><strong>Inverse design</strong>:</p>
+<ol>
+<li><strong>Specify</strong>: Specify desired properties</li>
+<li><strong>Optimize</strong>: Optimize network structure</li>
+<li><strong>Generate</strong>: Generate material structure</li>
+<li><strong>Validate</strong>: Validate experimentally</li>
+</ol>
+<h3 id="quantum-materials">Quantum Materials<a hidden class="anchor" aria-hidden="true" href="#quantum-materials">#</a></h3>
+<h4 id="quantum-network-models-1">Quantum Network Models<a hidden class="anchor" aria-hidden="true" href="#quantum-network-models-1">#</a></h4>
+<p><strong>Superconductors</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Cooper pairs</li>
+<li><strong>Edges</strong>: Josephson junctions</li>
+<li><strong>Properties</strong>: Zero resistance, Meissner effect</li>
+</ul>
+<p><strong>Topological insulators</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Electronic states</li>
+<li><strong>Edges</strong>: Hopping integrals</li>
+<li><strong>Properties</strong>: Topological protection, edge states</li>
+</ul>
+<p><strong>Quantum dots</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Quantum states</li>
+<li><strong>Edges</strong>: Tunneling</li>
+<li><strong>Properties</strong>: Quantized energy levels</li>
+</ul>
+<h4 id="quantum-applications-1">Quantum Applications<a hidden class="anchor" aria-hidden="true" href="#quantum-applications-1">#</a></h4>
+<p><strong>Quantum sensors</strong>:</p>
+<ul>
+<li><strong>Sensitivity</strong>: Higher than classical sensors</li>
+<li><strong>Precision</strong>: Better than classical sensors</li>
+<li><strong>Applications</strong>: Magnetic field sensing, temperature sensing</li>
+</ul>
+<p><strong>Quantum computers</strong>:</p>
+<ul>
+<li><strong>Speed</strong>: Exponential speedup for certain problems</li>
+<li><strong>Applications</strong>: Cryptography, optimization, simulation</li>
+<li><strong>Challenges</strong>: Error correction, scalability</li>
+</ul>
+<h2 id="186-open-problems-and-challenges">18.6 Open Problems and Challenges<a hidden class="anchor" aria-hidden="true" href="#186-open-problems-and-challenges">#</a></h2>
+<h3 id="theoretical-challenges">Theoretical Challenges<a hidden class="anchor" aria-hidden="true" href="#theoretical-challenges">#</a></h3>
+<h4 id="network-dynamics">Network Dynamics<a hidden class="anchor" aria-hidden="true" href="#network-dynamics">#</a></h4>
+<p><strong>Open problems</strong>:</p>
+<ul>
+<li><strong>Synchronization</strong>: General conditions for synchronization</li>
+<li><strong>Percolation</strong>: Critical behavior in complex networks</li>
+<li><strong>Cascades</strong>: Prediction and control of cascades</li>
+<li><strong>Evolution</strong>: Understanding network evolution</li>
+</ul>
+<p><strong>Mathematical challenges</strong>:</p>
+<ul>
+<li><strong>Nonlinear dynamics</strong>: Complex nonlinear systems</li>
+<li><strong>Stochastic processes</strong>: Random network evolution</li>
+<li><strong>Phase transitions</strong>: Critical phenomena</li>
+<li><strong>Stability</strong>: Network stability analysis</li>
+</ul>
+<h4 id="network-inference">Network Inference<a hidden class="anchor" aria-hidden="true" href="#network-inference">#</a></h4>
+<p><strong>Open problems</strong>:</p>
+<ul>
+<li><strong>Missing data</strong>: Inference from partial observations</li>
+<li><strong>Noisy data</strong>: Inference from noisy observations</li>
+<li><strong>Dynamic networks</strong>: Inference from temporal data</li>
+<li><strong>Multilayer networks</strong>: Inference from multilayer data</li>
+</ul>
+<p><strong>Mathematical challenges</strong>:</p>
+<ul>
+<li><strong>Statistical inference</strong>: Bayesian methods</li>
+<li><strong>Machine learning</strong>: Deep learning approaches</li>
+<li><strong>Optimization</strong>: Non-convex optimization</li>
+<li><strong>Validation</strong>: Model validation and selection</li>
+</ul>
+<h3 id="practical-challenges">Practical Challenges<a hidden class="anchor" aria-hidden="true" href="#practical-challenges">#</a></h3>
+<h4 id="scalability">Scalability<a hidden class="anchor" aria-hidden="true" href="#scalability">#</a></h4>
+<p><strong>Computational challenges</strong>:</p>
+<ul>
+<li><strong>Large networks</strong>: Networks with millions of nodes</li>
+<li><strong>Real-time analysis</strong>: Analysis in real-time</li>
+<li><strong>Memory requirements</strong>: Efficient memory usage</li>
+<li><strong>Parallel computing</strong>: Distributed algorithms</li>
+</ul>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li><strong>Approximation algorithms</strong>: Fast approximate methods</li>
+<li><strong>Sampling</strong>: Network sampling techniques</li>
+<li><strong>Distributed computing</strong>: Parallel algorithms</li>
+<li><strong>Cloud computing</strong>: Scalable infrastructure</li>
+</ul>
+<h4 id="data-quality">Data Quality<a hidden class="anchor" aria-hidden="true" href="#data-quality">#</a></h4>
+<p><strong>Data challenges</strong>:</p>
+<ul>
+<li><strong>Incomplete data</strong>: Missing nodes and edges</li>
+<li><strong>Noisy data</strong>: Measurement errors</li>
+<li><strong>Bias</strong>: Sampling bias</li>
+<li><strong>Privacy</strong>: Privacy concerns</li>
+</ul>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li><strong>Data cleaning</strong>: Preprocessing techniques</li>
+<li><strong>Imputation</strong>: Missing data imputation</li>
+<li><strong>Validation</strong>: Data validation methods</li>
+<li><strong>Privacy</strong>: Privacy-preserving methods</li>
+</ul>
+<h2 id="code-example-future-directions">Code Example: Future Directions<a hidden class="anchor" aria-hidden="true" href="#code-example-future-directions">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.neural_network <span style="color:#ff79c6">import</span> MLPRegressor
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.model_selection <span style="color:#ff79c6">import</span> train_test_split
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.metrics <span style="color:#ff79c6">import</span> mean_squared_error, r2_score
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> torch
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> torch.nn <span style="color:#ff79c6">as</span> nn
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> torch.optim <span style="color:#ff79c6">as</span> optim
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">GraphNeuralNetwork</span>(nn<span style="color:#ff79c6">.</span>Module):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Simple Graph Neural Network implementation&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">__init__</span>(<span style="font-style:italic">self</span>, input_dim, hidden_dim, output_dim):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">super</span>(GraphNeuralNetwork, <span style="font-style:italic">self</span>)<span style="color:#ff79c6">.</span><span style="color:#50fa7b">__init__</span>()
+</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>input_dim <span style="color:#ff79c6">=</span> input_dim
+</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>hidden_dim <span style="color:#ff79c6">=</span> hidden_dim
+</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>output_dim <span style="color:#ff79c6">=</span> output_dim
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Graph convolution layers</span>
+</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>conv1 <span style="color:#ff79c6">=</span> nn<span style="color:#ff79c6">.</span>Linear(input_dim, hidden_dim)
+</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>conv2 <span style="color:#ff79c6">=</span> nn<span style="color:#ff79c6">.</span>Linear(hidden_dim, hidden_dim)
+</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>conv3 <span style="color:#ff79c6">=</span> nn<span style="color:#ff79c6">.</span>Linear(hidden_dim, output_dim)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Activation functions</span>
+</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>relu <span style="color:#ff79c6">=</span> nn<span style="color:#ff79c6">.</span>ReLU()
+</span></span><span style="display:flex;"><span>        <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>dropout <span style="color:#ff79c6">=</span> nn<span style="color:#ff79c6">.</span>Dropout(<span style="color:#bd93f9">0.5</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">forward</span>(<span style="font-style:italic">self</span>, x, adj):
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;&#34;&#34;Forward pass&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># First convolution</span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>conv1(x)
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>relu(x)
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>dropout(x)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Graph convolution</span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> torch<span style="color:#ff79c6">.</span>matmul(adj, x)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Second convolution</span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>conv2(x)
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>relu(x)
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>dropout(x)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Graph convolution</span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> torch<span style="color:#ff79c6">.</span>matmul(adj, x)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Output layer</span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> <span style="font-style:italic">self</span><span style="color:#ff79c6">.</span>conv3(x)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> x
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">generate_network_features</span>(G):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Generate network features for machine learning&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    features <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>zeros((n, <span style="color:#bd93f9">10</span>))  <span style="color:#6272a4"># 10 features per node</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Degree features</span>
+</span></span><span style="display:flex;"><span>    degrees <span style="color:#ff79c6">=</span> [G<span style="color:#ff79c6">.</span>degree(i) <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>nodes()]
+</span></span><span style="display:flex;"><span>    features[:, <span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">=</span> degrees
+</span></span><span style="display:flex;"><span>    features[:, <span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>array(degrees) <span style="color:#ff79c6">/</span> np<span style="color:#ff79c6">.</span>max(degrees) <span style="color:#ff79c6">if</span> np<span style="color:#ff79c6">.</span>max(degrees) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Clustering features</span>
+</span></span><span style="display:flex;"><span>    clustering <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>clustering(G)
+</span></span><span style="display:flex;"><span>    features[:, <span style="color:#bd93f9">2</span>] <span style="color:#ff79c6">=</span> [clustering[i] <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>nodes()]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Centrality features</span>
+</span></span><span style="display:flex;"><span>    betweenness <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>betweenness_centrality(G)
+</span></span><span style="display:flex;"><span>    closeness <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>closeness_centrality(G)
+</span></span><span style="display:flex;"><span>    eigenvector <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>eigenvector_centrality(G, max_iter<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1000</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    features[:, <span style="color:#bd93f9">3</span>] <span style="color:#ff79c6">=</span> [betweenness[i] <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>nodes()]
+</span></span><span style="display:flex;"><span>    features[:, <span style="color:#bd93f9">4</span>] <span style="color:#ff79c6">=</span> [closeness[i] <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>nodes()]
+</span></span><span style="display:flex;"><span>    features[:, <span style="color:#bd93f9">5</span>] <span style="color:#ff79c6">=</span> [eigenvector[i] <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>nodes()]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Path length features</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> nx<span style="color:#ff79c6">.</span>is_connected(G):
+</span></span><span style="display:flex;"><span>        path_lengths <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(nx<span style="color:#ff79c6">.</span>all_pairs_shortest_path_length(G))
+</span></span><span style="display:flex;"><span>        avg_path_lengths <span style="color:#ff79c6">=</span> [np<span style="color:#ff79c6">.</span>mean(<span style="color:#8be9fd;font-style:italic">list</span>(path_lengths[i]<span style="color:#ff79c6">.</span>values())) <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>nodes()]
+</span></span><span style="display:flex;"><span>        features[:, <span style="color:#bd93f9">6</span>] <span style="color:#ff79c6">=</span> avg_path_lengths
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        features[:, <span style="color:#bd93f9">6</span>] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Spectral features</span>
+</span></span><span style="display:flex;"><span>    L <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>laplacian_matrix(G)<span style="color:#ff79c6">.</span>toarray()
+</span></span><span style="display:flex;"><span>    eigenvals <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linalg<span style="color:#ff79c6">.</span>eigvals(L)
+</span></span><span style="display:flex;"><span>    eigenvals <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>real(eigenvals)
+</span></span><span style="display:flex;"><span>    eigenvals <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>sort(eigenvals)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    features[:, <span style="color:#bd93f9">7</span>] <span style="color:#ff79c6">=</span> eigenvals[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(eigenvals) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">0</span>  <span style="color:#6272a4"># Algebraic connectivity</span>
+</span></span><span style="display:flex;"><span>    features[:, <span style="color:#bd93f9">8</span>] <span style="color:#ff79c6">=</span> eigenvals[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(eigenvals) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">0</span>  <span style="color:#6272a4"># Largest eigenvalue</span>
+</span></span><span style="display:flex;"><span>    features[:, <span style="color:#bd93f9">9</span>] <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>sum(eigenvals)  <span style="color:#6272a4"># Trace</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> features
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">predict_network_properties</span>(G, target_property<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;efficiency&#39;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Predict network properties using machine learning&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Generate features</span>
+</span></span><span style="display:flex;"><span>    features <span style="color:#ff79c6">=</span> generate_network_features(G)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Generate target values</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> target_property <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;efficiency&#39;</span>:
+</span></span><span style="display:flex;"><span>        target <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>global_efficiency(G)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">elif</span> target_property <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;clustering&#39;</span>:
+</span></span><span style="display:flex;"><span>        target <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_clustering(G)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">elif</span> target_property <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;path_length&#39;</span>:
+</span></span><span style="display:flex;"><span>        target <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(G) <span style="color:#ff79c6">if</span> nx<span style="color:#ff79c6">.</span>is_connected(G) <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        target <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Create training data</span>
+</span></span><span style="display:flex;"><span>    X <span style="color:#ff79c6">=</span> features
+</span></span><span style="display:flex;"><span>    y <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>full((G<span style="color:#ff79c6">.</span>number_of_nodes(), <span style="color:#bd93f9">1</span>), target)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Train model</span>
+</span></span><span style="display:flex;"><span>    model <span style="color:#ff79c6">=</span> MLPRegressor(hidden_layer_sizes<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">50</span>, <span style="color:#bd93f9">50</span>), max_iter<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1000</span>, random_state<span style="color:#ff79c6">=</span><span style="color:#bd93f9">42</span>)
+</span></span><span style="display:flex;"><span>    model<span style="color:#ff79c6">.</span>fit(X, y)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Predict</span>
+</span></span><span style="display:flex;"><span>    y_pred <span style="color:#ff79c6">=</span> model<span style="color:#ff79c6">.</span>predict(X)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> model, y_pred, target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">simulate_quantum_walk</span>(G, steps<span style="color:#ff79c6">=</span><span style="color:#bd93f9">100</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Simulate quantum walk on network&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Create adjacency matrix</span>
+</span></span><span style="display:flex;"><span>    A <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>adjacency_matrix(G)<span style="color:#ff79c6">.</span>toarray()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Normalize adjacency matrix</span>
+</span></span><span style="display:flex;"><span>    D <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>diag(np<span style="color:#ff79c6">.</span>sum(A, axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>))
+</span></span><span style="display:flex;"><span>    D_inv <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linalg<span style="color:#ff79c6">.</span>inv(D)
+</span></span><span style="display:flex;"><span>    A_norm <span style="color:#ff79c6">=</span> D_inv <span style="color:#ff79c6">@</span> A
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Create unitary evolution operator</span>
+</span></span><span style="display:flex;"><span>    U <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>eye(n) <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>j <span style="color:#ff79c6">*</span> A_norm
+</span></span><span style="display:flex;"><span>    U <span style="color:#ff79c6">=</span> U <span style="color:#ff79c6">/</span> np<span style="color:#ff79c6">.</span>linalg<span style="color:#ff79c6">.</span>norm(U)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Initial state (uniform superposition)</span>
+</span></span><span style="display:flex;"><span>    psi <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>ones(n) <span style="color:#ff79c6">/</span> np<span style="color:#ff79c6">.</span>sqrt(n)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Simulate quantum walk</span>
+</span></span><span style="display:flex;"><span>    psi_history <span style="color:#ff79c6">=</span> [psi<span style="color:#ff79c6">.</span>copy()]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> t <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(steps):
+</span></span><span style="display:flex;"><span>        psi <span style="color:#ff79c6">=</span> U <span style="color:#ff79c6">@</span> psi
+</span></span><span style="display:flex;"><span>        psi_history<span style="color:#ff79c6">.</span>append(psi<span style="color:#ff79c6">.</span>copy())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> psi_history
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_temporal_network</span>(networks):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze temporal network properties&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(networks)
+</span></span><span style="display:flex;"><span>    properties <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;density&#39;</span>: [],
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;clustering&#39;</span>: [],
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;efficiency&#39;</span>: [],
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;path_length&#39;</span>: []
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> G <span style="color:#ff79c6">in</span> networks:
+</span></span><span style="display:flex;"><span>        properties[<span style="color:#f1fa8c">&#39;density&#39;</span>]<span style="color:#ff79c6">.</span>append(nx<span style="color:#ff79c6">.</span>density(G))
+</span></span><span style="display:flex;"><span>        properties[<span style="color:#f1fa8c">&#39;clustering&#39;</span>]<span style="color:#ff79c6">.</span>append(nx<span style="color:#ff79c6">.</span>average_clustering(G))
+</span></span><span style="display:flex;"><span>        properties[<span style="color:#f1fa8c">&#39;efficiency&#39;</span>]<span style="color:#ff79c6">.</span>append(nx<span style="color:#ff79c6">.</span>global_efficiency(G))
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> nx<span style="color:#ff79c6">.</span>is_connected(G):
+</span></span><span style="display:flex;"><span>            properties[<span style="color:#f1fa8c">&#39;path_length&#39;</span>]<span style="color:#ff79c6">.</span>append(nx<span style="color:#ff79c6">.</span>average_shortest_path_length(G))
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            properties[<span style="color:#f1fa8c">&#39;path_length&#39;</span>]<span style="color:#ff79c6">.</span>append(<span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> properties
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">plot_future_directions</span>(G, title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Future Directions in Network Science&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Plot future directions analysis&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    fig, ((ax1, ax2), (ax3, ax4)) <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">15</span>, <span style="color:#bd93f9">12</span>))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Network visualization</span>
+</span></span><span style="display:flex;"><span>    pos <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>spring_layout(G, k<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, iterations<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
+</span></span><span style="display:flex;"><span>    nx<span style="color:#ff79c6">.</span>draw(G, pos, ax<span style="color:#ff79c6">=</span>ax1, node_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;lightblue&#39;</span>, 
+</span></span><span style="display:flex;"><span>            edge_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;gray&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.6</span>, node_size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Network Structure&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#ff79c6">.</span>axis(<span style="color:#f1fa8c">&#39;off&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Machine learning prediction</span>
+</span></span><span style="display:flex;"><span>    model, y_pred, target <span style="color:#ff79c6">=</span> predict_network_properties(G, <span style="color:#f1fa8c">&#39;efficiency&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>scatter([target] <span style="color:#ff79c6">*</span> G<span style="color:#ff79c6">.</span>number_of_nodes(), y_pred, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.7</span>, s<span style="color:#ff79c6">=</span><span style="color:#bd93f9">100</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>plot([<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>], [<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>], <span style="color:#f1fa8c">&#39;r--&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.5</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Actual Efficiency&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Predicted Efficiency&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;ML Property Prediction&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax2<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Quantum walk simulation</span>
+</span></span><span style="display:flex;"><span>    psi_history <span style="color:#ff79c6">=</span> simulate_quantum_walk(G, steps<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
+</span></span><span style="display:flex;"><span>    probabilities <span style="color:#ff79c6">=</span> [np<span style="color:#ff79c6">.</span>abs(psi)<span style="color:#ff79c6">**</span><span style="color:#bd93f9">2</span> <span style="color:#ff79c6">for</span> psi <span style="color:#ff79c6">in</span> psi_history]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    time_steps <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(probabilities))
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#bd93f9">5</span>, G<span style="color:#ff79c6">.</span>number_of_nodes())):
+</span></span><span style="display:flex;"><span>        probs <span style="color:#ff79c6">=</span> [p[i] <span style="color:#ff79c6">for</span> p <span style="color:#ff79c6">in</span> probabilities]
+</span></span><span style="display:flex;"><span>        ax3<span style="color:#ff79c6">.</span>plot(time_steps, probs, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.7</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;Node </span><span style="color:#f1fa8c">{</span>i<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Time Steps&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Probability&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Quantum Walk Simulation&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>legend()
+</span></span><span style="display:flex;"><span>    ax3<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Temporal network analysis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Generate temporal networks</span>
+</span></span><span style="display:flex;"><span>    temporal_networks <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> t <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">10</span>):
+</span></span><span style="display:flex;"><span>        G_temp <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>copy()
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Randomly remove some edges</span>
+</span></span><span style="display:flex;"><span>        edges_to_remove <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>choice(<span style="color:#8be9fd;font-style:italic">list</span>(G_temp<span style="color:#ff79c6">.</span>edges()), 
+</span></span><span style="display:flex;"><span>                                         size<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">int</span>(<span style="color:#bd93f9">0.1</span> <span style="color:#ff79c6">*</span> G_temp<span style="color:#ff79c6">.</span>number_of_edges()), 
+</span></span><span style="display:flex;"><span>                                         replace<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>)
+</span></span><span style="display:flex;"><span>        G_temp<span style="color:#ff79c6">.</span>remove_edges_from(edges_to_remove)
+</span></span><span style="display:flex;"><span>        temporal_networks<span style="color:#ff79c6">.</span>append(G_temp)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    temporal_properties <span style="color:#ff79c6">=</span> analyze_temporal_network(temporal_networks)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    time_steps <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(temporal_networks))
+</span></span><span style="display:flex;"><span>    ax4<span style="color:#ff79c6">.</span>plot(time_steps, temporal_properties[<span style="color:#f1fa8c">&#39;efficiency&#39;</span>], <span style="color:#f1fa8c">&#39;b-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Efficiency&#39;</span>, linewidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>    ax4<span style="color:#ff79c6">.</span>plot(time_steps, temporal_properties[<span style="color:#f1fa8c">&#39;clustering&#39;</span>], <span style="color:#f1fa8c">&#39;r-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Clustering&#39;</span>, linewidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>    ax4<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;Time Steps&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax4<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;Property Value&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax4<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;Temporal Network Properties&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax4<span style="color:#ff79c6">.</span>legend()
+</span></span><span style="display:flex;"><span>    ax4<span style="color:#ff79c6">.</span>grid(<span style="color:#ff79c6">True</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>tight_layout()
+</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Future directions analysis</span>
+</span></span><span style="display:flex;"><span>G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>barabasi_albert_graph(<span style="color:#bd93f9">50</span>, <span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Machine learning analysis</span>
+</span></span><span style="display:flex;"><span>model, y_pred, target <span style="color:#ff79c6">=</span> predict_network_properties(G, <span style="color:#f1fa8c">&#39;efficiency&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Target efficiency: </span><span style="color:#f1fa8c">{</span>target<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Predicted efficiency: </span><span style="color:#f1fa8c">{</span>np<span style="color:#ff79c6">.</span>mean(y_pred)<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.3f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Quantum walk analysis</span>
+</span></span><span style="display:flex;"><span>psi_history <span style="color:#ff79c6">=</span> simulate_quantum_walk(G, steps<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
+</span></span><span style="display:flex;"><span>final_probabilities <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>abs(psi_history[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>])<span style="color:#ff79c6">**</span><span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Quantum walk final probabilities: </span><span style="color:#f1fa8c">{</span>final_probabilities[:<span style="color:#bd93f9">5</span>]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Plot results</span>
+</span></span><span style="display:flex;"><span>plot_future_directions(G, <span style="color:#f1fa8c">&#34;Future Directions in Network Science&#34;</span>)
+</span></span></code></pre></div><h2 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h2>
+<ol>
+<li><strong>Machine learning</strong>: Graph neural networks and deep learning on networks</li>
+<li><strong>Quantum networks</strong>: Quantum graph theory and quantum applications</li>
+<li><strong>Temporal networks</strong>: Dynamic network analysis and modeling</li>
+<li><strong>Multilayer networks</strong>: Complex network structures and analysis</li>
+<li><strong>Materials science</strong>: AI-driven materials design and quantum materials</li>
+<li><strong>Open problems</strong>: Theoretical and practical challenges</li>
+<li><strong>Future research</strong>: Emerging trends and research directions</li>
+</ol>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ol>
+<li>Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press.</li>
+<li>Kipf, T. N., &amp; Welling, M. (2016). Semi-supervised classification with graph convolutional networks. arXiv preprint arXiv:1609.02907.</li>
+<li>Veličković, P., et al. (2017). Graph attention networks. arXiv preprint arXiv:1710.10903.</li>
+<li>Nielsen, M. A., &amp; Chuang, I. L. (2010). Quantum Computation and Quantum Information. Cambridge University Press.</li>
+</ol>
+<hr>
+<p><em>The future of network science lies in the integration of machine learning, quantum computing, and advanced mathematical techniques, with important applications in materials science and beyond.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/future-directions/">Future-Directions</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/emerging-trends/">Emerging-Trends</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/open-problems/">Open-Problems</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions on x"
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2018%20-%20Future%20Directions&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch18%2f&amp;hashtags=reading-notes%2cnetwork-theory%2cfuture-directions%2cemerging-trends%2copen-problems">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch18%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2018%20-%20Future%20Directions&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2018%20-%20Future%20Directions&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch18%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch18%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2018%20-%20Future%20Directions">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch18%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions on whatsapp"
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2018%20-%20Future%20Directions%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch18%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions on telegram"
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2018%20-%20Future%20Directions&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch18%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2018%20-%20Future%20Directions&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch18%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Random-Graphs on Notes on AI4Science &amp; Graph Theory</title>
-    <link>http://localhost:1313/tags/random-graphs/</link>
+    <link>https://Linlin-resh.github.io/tags/random-graphs/</link>
     <description>Recent content in Random-Graphs on Notes on AI4Science &amp; Graph Theory</description>
     <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/random-graphs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://Linlin-resh.github.io/tags/random-graphs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Reading Notes: Newman&#39;s Networks Chapter 3 - Random Graphs</title>
-      <link>http://localhost:1313/posts/reading-notes-newman-ch3/</link>
+      <title>Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs</title>
+      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch8/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/reading-notes-newman-ch3/</guid>
-      <description>Key insights from Chapter 3 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; on random graph theory and its applications</description>
+      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch8/</guid>
+      <description>Study notes for Chapter 8 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering Erdős-Rényi model, configuration model, and random graph theory</description>
     </item>
   </channel>
 </rss>

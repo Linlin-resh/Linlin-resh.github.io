@@ -73,11 +73,29 @@ theme = 'PaperMod'
     url = '/search/'
     weight = 5
 
-# Math formula support (KaTeX)
+# Math formula support (MathJax for better rendering)
 [params.math]
   enable = true
-  provider = 'katex'
+  provider = 'mathjax'
   defer = true
+  # MathJax configuration
+  [params.math.mathjax]
+    enable = true
+    version = '3.2.2'
+    # Inline math delimiters
+    inlineMath = [['$', '$'], ['\\(', '\\)']]
+    # Display math delimiters  
+    displayMath = [['$$', '$$'], ['\\[', '\\]']]
+    # Process escapes
+    processEscapes = true
+    # Process environments
+    processEnvironments = true
+    # Skip HTML tags
+    skipHtmlTags = ['script', 'noscript', 'style', 'textarea', 'pre']
+    # Ignore HTML class
+    ignoreHtmlClass = 'tex2jax_ignore'
+    # Process HTML class
+    processHtmlClass = 'tex2jax_process'
 
 # Code highlighting
 [markup]
@@ -85,6 +103,10 @@ theme = 'PaperMod'
     style = 'dracula'
     lineNos = false
     copy = true
+
+# Custom CSS for math enhancement
+[params.assets]
+  customCSS = ['css/math-enhancement.css']
 
 # Output formats
 [outputs]

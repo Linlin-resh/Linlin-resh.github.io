@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks | Notes on AI4Science &amp; Graph Theory</title>
+<meta name="keywords" content="reading-notes, network-theory, technological-networks, internet, infrastructure">
+<meta name="description" content="Study notes for Chapter 2 of Newman&#39;s &#39;Networks: An Introduction&#39; covering Internet, power grids, transportation networks, and their structural properties">
+<meta name="author" content="Linlin-resh">
+<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch2/">
+  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
+  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks">
+  <meta property="og:description" content="Study notes for Chapter 2 of Newman&#39;s &#39;Networks: An Introduction&#39; covering Internet, power grids, transportation networks, and their structural properties">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Reading-Notes">
+    <meta property="article:tag" content="Network-Theory">
+    <meta property="article:tag" content="Technological-Networks">
+    <meta property="article:tag" content="Internet">
+    <meta property="article:tag" content="Infrastructure">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks">
+<meta name="twitter:description" content="Study notes for Chapter 2 of Newman&#39;s &#39;Networks: An Introduction&#39; covering Internet, power grids, transportation networks, and their structural properties">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Linlin-resh.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading Notes: Newman's Networks Chapter 2 - Technological Networks",
+      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading Notes: Newman's Networks Chapter 2 - Technological Networks",
+  "name": "Reading Notes: Newman\u0027s Networks Chapter 2 - Technological Networks",
+  "description": "Study notes for Chapter 2 of Newman's 'Networks: An Introduction' covering Internet, power grids, transportation networks, and their structural properties",
+  "keywords": [
+    "reading-notes", "network-theory", "technological-networks", "internet", "infrastructure"
+  ],
+  "articleBody": "Introduction Chapter 2 of Newman’s Networks: An Introduction focuses on technological networks - the man-made infrastructure networks that form the backbone of modern society. These networks exhibit fascinating structural properties that differ significantly from random networks, with important implications for their design, operation, and robustness.\n2.1 The Internet Network Structure The Internet is a hierarchical network with multiple layers:\nPhysical layer: Fiber optic cables, routers, switches Logical layer: IP addresses and routing protocols Application layer: Web servers, email servers, etc. Topological Properties Degree Distribution The Internet’s degree distribution follows a power law:\n$$P(k) \\sim k^{-\\gamma}$$\nWhere $\\gamma \\approx 2.2$ for the Internet router network.\nMathematical Analysis For a power-law distribution with exponent $\\gamma$:\nFirst moment (average degree): $\\langle k \\rangle = \\int_{k_{\\min}}^{\\infty} k \\cdot P(k) , dk$ Second moment: $\\langle k^2 \\rangle = \\int_{k_{\\min}}^{\\infty} k^2 \\cdot P(k) , dk$ When $\\gamma \u003c 3$, the second moment diverges, indicating scale-free behavior.\nReal-World Measurements AS-level network: ~50,000 autonomous systems Router-level network: ~200,000 routers Average degree: ~3-4 connections per router Clustering coefficient: ~0.3 (much higher than random networks) Robustness Analysis Random Failures The Internet exhibits robustness against random failures:\n$$P_{\\text{connectivity}} = 1 - \\exp\\left(-\\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}\\right)$$\nTargeted Attacks However, it’s vulnerable to targeted attacks on high-degree nodes:\nRemoving top 1% of nodes can fragment the network Critical infrastructure (major ISPs) are prime targets 2.2 Power Grids Network Representation Power grids can be modeled as networks where:\nNodes: Power plants, substations, transformers Edges: Transmission lines, distribution lines Weights: Electrical capacity, impedance Structural Properties Hierarchical Organization Power grids exhibit three-tier hierarchy:\nTransmission network: High-voltage long-distance lines Sub-transmission network: Medium-voltage regional distribution Distribution network: Low-voltage local distribution Mathematical Modeling The electrical flow through the network follows Kirchhoff’s laws:\n$$\\sum_{j} I_{ij} = 0 \\quad \\text{(current conservation)}$$\n$$\\sum_{\\text{loop}} V_{ij} = 0 \\quad \\text{(voltage conservation)}$$\nWhere $I_{ij}$ is current and $V_{ij}$ is voltage between nodes $i$ and $j$.\nCascading Failures Load Redistribution Model When a line fails, its load redistributes to other lines:\n$$L_i(t+1) = L_i(t) + \\sum_{j \\in \\text{failed}} \\frac{L_j(t)}{|\\text{neighbors}(j)|}$$\nCritical Threshold The system becomes unstable when:\n$$\\frac{\\text{total load}}{\\text{total capacity}} \u003e \\theta_c$$\nWhere $\\theta_c \\approx 0.6$ for typical power grids.\nReal-World Examples North American Power Grid Nodes: ~15,000 substations Edges: ~20,000 transmission lines Average degree: ~2.7 Clustering coefficient: ~0.08 European Power Grid Nodes: ~3,000 substations Edges: ~4,000 transmission lines Average degree: ~2.7 Clustering coefficient: ~0.1 2.3 Transportation Networks Road Networks Network Properties Nodes: Intersections, highway interchanges Edges: Road segments Weights: Travel time, distance, capacity Scale-Free Characteristics Many road networks exhibit scale-free properties:\nHighway networks: $\\gamma \\approx 2.0-2.5$ Urban road networks: $\\gamma \\approx 2.5-3.0$ Efficiency Metrics Network efficiency measures how well the network facilitates movement:\n$$E = \\frac{1}{n(n-1)} \\sum_{i \\neq j} \\frac{1}{d_{ij}}$$\nWhere $d_{ij}$ is the shortest path length between nodes $i$ and $j$.\nAirline Networks Hub-and-Spoke Structure Airlines use hub-and-spoke topology:\nHub airports: Major connection points (high degree) Spoke airports: Regional airports (low degree) Scale-free distribution: $\\gamma \\approx 1.8-2.2$ Mathematical Analysis The betweenness centrality of a node measures its importance as a connector:\n$$C_B(v) = \\sum_{s \\neq v \\neq t} \\frac{\\sigma_{st}(v)}{\\sigma_{st}}$$\nWhere $\\sigma_{st}(v)$ is the number of shortest paths between $s$ and $t$ that pass through $v$.\nRailway Networks Network Characteristics Nodes: Stations, junctions Edges: Railway tracks Weights: Travel time, frequency Small-World Properties Railway networks often exhibit small-world characteristics:\nHigh clustering: Stations in the same region are well-connected Short path lengths: Efficient long-distance connections 2.4 Communication Networks Telephone Networks Historical Evolution Circuit-switched networks: Traditional telephone systems Packet-switched networks: Modern IP-based systems Mobile networks: Cellular infrastructure Network Topology Traditional telephone networks have hierarchical structure:\nLocal exchanges: Connect to subscribers Tandem exchanges: Connect local exchanges Toll exchanges: Long-distance connections Mobile Networks Cellular Architecture Base stations: Network nodes Cells: Coverage areas Handoffs: Dynamic edge creation/deletion Mathematical Modeling The coverage area of a base station follows:\n$$A = \\pi R^2$$\nWhere $R$ is the cell radius, determined by:\n$$R = \\sqrt{\\frac{P_t G_t G_r \\lambda^2}{(4\\pi)^2 P_r}}$$\n$P_t$: Transmit power $G_t, G_r$: Antenna gains $\\lambda$: Wavelength $P_r$: Required received power 2.5 Applications to Materials Science Nanowire Networks Network Formation Silver nanowire networks can be modeled as random geometric graphs:\nNodes: Nanowire junctions Edges: Nanowire segments Weights: Electrical resistance Percolation Theory The percolation threshold determines when the network becomes conductive:\n$$p_c = \\frac{1}{\\langle k \\rangle}$$\nFor nanowire networks, this corresponds to the critical density for electrical connectivity.\nElectrical Properties The conductivity of the network follows:\n$$\\sigma \\sim (p - p_c)^t$$\nWhere $t \\approx 2.0$ is the conductivity exponent.\nSmart Materials Self-Assembling Networks Materials that form networks through self-assembly:\nBlock copolymers: Form ordered network structures Liquid crystals: Create defect networks Colloidal systems: Generate percolating networks Code Example: Network Analysis import networkx as nx import numpy as np import matplotlib.pyplot as plt def analyze_technological_network(G, network_type=\"generic\"): \"\"\"Analyze technological network properties\"\"\" # Basic statistics n = G.number_of_nodes() m = G.number_of_edges() density = 2 * m / (n * (n - 1)) # Degree analysis degrees = [d for n, d in G.degree()] avg_degree = np.mean(degrees) # Power-law fitting (simplified) degree_counts = np.bincount(degrees) non_zero = degree_counts[degree_counts \u003e 0] if len(non_zero) \u003e 1: # Simple power-law estimation x = np.arange(1, len(non_zero) + 1) y = non_zero[1:] if len(y) \u003e 0: log_x = np.log(x) log_y = np.log(y) # Linear regression in log space gamma = -np.polyfit(log_x, log_y, 1)[0] else: gamma = None else: gamma = None # Clustering and path length clustering = nx.average_clustering(G) if nx.is_connected(G): avg_path_length = nx.average_shortest_path_length(G) diameter = nx.diameter(G) else: # Analyze largest component largest_cc = max(nx.connected_components(G), key=len) subgraph = G.subgraph(largest_cc) avg_path_length = nx.average_shortest_path_length(subgraph) diameter = nx.diameter(subgraph) # Robustness analysis # Random node removal random_removal = [] for p in np.linspace(0, 0.5, 11): n_remove = int(p * n) if n_remove \u003e 0: nodes_to_remove = np.random.choice(list(G.nodes()), n_remove, replace=False) G_temp = G.copy() G_temp.remove_nodes_from(nodes_to_remove) if G_temp.number_of_nodes() \u003e 0: largest_cc = max(nx.connected_components(G_temp), key=len) random_removal.append(len(largest_cc) / n) else: random_removal.append(0) else: random_removal.append(1.0) return { 'network_type': network_type, 'nodes': n, 'edges': m, 'density': density, 'avg_degree': avg_degree, 'gamma_estimate': gamma, 'clustering': clustering, 'avg_path_length': avg_path_length, 'diameter': diameter, 'random_removal': random_removal } # Example: Analyze a scale-free network G = nx.barabasi_albert_graph(1000, 3) results = analyze_technological_network(G, \"scale-free\") print(f\"Network Analysis Results:\") for key, value in results.items(): if key != 'random_removal': print(f\"{key}: {value}\") Key Takeaways Technological networks are scale-free: Most exhibit power-law degree distributions Hierarchical organization: Many have clear hierarchical structures Robustness-vulnerability trade-off: Robust to random failures, vulnerable to targeted attacks Small-world properties: Short path lengths despite large size Real-world applications: Direct relevance to materials science and engineering Mathematical modeling: Network theory provides powerful tools for analysis References Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press. Albert, R., Jeong, H., \u0026 Barabási, A. L. (2000). Error and attack tolerance of complex networks. Nature, 406(6794), 378-382. Crucitti, P., Latora, V., \u0026 Marchiori, M. (2004). Model for cascading failures in complex networks. Physical Review E, 69(4), 045104. This chapter demonstrates how network theory applies to real-world technological systems, providing both theoretical insights and practical applications for materials science research.\n",
+  "wordCount" : "1137",
+  "inLanguage": "en",
+  "datePublished": "2025-08-29T00:00:00Z",
+  "dateModified": "2025-08-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Linlin-resh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Notes on AI4Science \u0026 Graph Theory",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Linlin-resh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Linlin-resh.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks
+    </h1>
+    <div class="post-description">
+      Study notes for Chapter 2 of Newman&#39;s &#39;Networks: An Introduction&#39; covering Internet, power grids, transportation networks, and their structural properties
+    </div>
+    <div class="post-meta"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1137 words&nbsp;·&nbsp;Linlin-resh
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#21-the-internet" aria-label="2.1 The Internet">2.1 The Internet</a><ul>
+                        
+                <li>
+                    <a href="#network-structure" aria-label="Network Structure">Network Structure</a></li>
+                <li>
+                    <a href="#topological-properties" aria-label="Topological Properties">Topological Properties</a><ul>
+                        
+                <li>
+                    <a href="#degree-distribution" aria-label="Degree Distribution">Degree Distribution</a></li>
+                <li>
+                    <a href="#mathematical-analysis" aria-label="Mathematical Analysis">Mathematical Analysis</a></li>
+                <li>
+                    <a href="#real-world-measurements" aria-label="Real-World Measurements">Real-World Measurements</a></li></ul>
+                </li>
+                <li>
+                    <a href="#robustness-analysis" aria-label="Robustness Analysis">Robustness Analysis</a><ul>
+                        
+                <li>
+                    <a href="#random-failures" aria-label="Random Failures">Random Failures</a></li>
+                <li>
+                    <a href="#targeted-attacks" aria-label="Targeted Attacks">Targeted Attacks</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#22-power-grids" aria-label="2.2 Power Grids">2.2 Power Grids</a><ul>
+                        
+                <li>
+                    <a href="#network-representation" aria-label="Network Representation">Network Representation</a></li>
+                <li>
+                    <a href="#structural-properties" aria-label="Structural Properties">Structural Properties</a><ul>
+                        
+                <li>
+                    <a href="#hierarchical-organization" aria-label="Hierarchical Organization">Hierarchical Organization</a></li>
+                <li>
+                    <a href="#mathematical-modeling" aria-label="Mathematical Modeling">Mathematical Modeling</a></li></ul>
+                </li>
+                <li>
+                    <a href="#cascading-failures" aria-label="Cascading Failures">Cascading Failures</a><ul>
+                        
+                <li>
+                    <a href="#load-redistribution-model" aria-label="Load Redistribution Model">Load Redistribution Model</a></li>
+                <li>
+                    <a href="#critical-threshold" aria-label="Critical Threshold">Critical Threshold</a></li></ul>
+                </li>
+                <li>
+                    <a href="#real-world-examples" aria-label="Real-World Examples">Real-World Examples</a><ul>
+                        
+                <li>
+                    <a href="#north-american-power-grid" aria-label="North American Power Grid">North American Power Grid</a></li>
+                <li>
+                    <a href="#european-power-grid" aria-label="European Power Grid">European Power Grid</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#23-transportation-networks" aria-label="2.3 Transportation Networks">2.3 Transportation Networks</a><ul>
+                        
+                <li>
+                    <a href="#road-networks" aria-label="Road Networks">Road Networks</a><ul>
+                        
+                <li>
+                    <a href="#network-properties" aria-label="Network Properties">Network Properties</a></li>
+                <li>
+                    <a href="#scale-free-characteristics" aria-label="Scale-Free Characteristics">Scale-Free Characteristics</a></li>
+                <li>
+                    <a href="#efficiency-metrics" aria-label="Efficiency Metrics">Efficiency Metrics</a></li></ul>
+                </li>
+                <li>
+                    <a href="#airline-networks" aria-label="Airline Networks">Airline Networks</a><ul>
+                        
+                <li>
+                    <a href="#hub-and-spoke-structure" aria-label="Hub-and-Spoke Structure">Hub-and-Spoke Structure</a></li>
+                <li>
+                    <a href="#mathematical-analysis-1" aria-label="Mathematical Analysis">Mathematical Analysis</a></li></ul>
+                </li>
+                <li>
+                    <a href="#railway-networks" aria-label="Railway Networks">Railway Networks</a><ul>
+                        
+                <li>
+                    <a href="#network-characteristics" aria-label="Network Characteristics">Network Characteristics</a></li>
+                <li>
+                    <a href="#small-world-properties" aria-label="Small-World Properties">Small-World Properties</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#24-communication-networks" aria-label="2.4 Communication Networks">2.4 Communication Networks</a><ul>
+                        
+                <li>
+                    <a href="#telephone-networks" aria-label="Telephone Networks">Telephone Networks</a><ul>
+                        
+                <li>
+                    <a href="#historical-evolution" aria-label="Historical Evolution">Historical Evolution</a></li>
+                <li>
+                    <a href="#network-topology" aria-label="Network Topology">Network Topology</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mobile-networks" aria-label="Mobile Networks">Mobile Networks</a><ul>
+                        
+                <li>
+                    <a href="#cellular-architecture" aria-label="Cellular Architecture">Cellular Architecture</a></li>
+                <li>
+                    <a href="#mathematical-modeling-1" aria-label="Mathematical Modeling">Mathematical Modeling</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#25-applications-to-materials-science" aria-label="2.5 Applications to Materials Science">2.5 Applications to Materials Science</a><ul>
+                        
+                <li>
+                    <a href="#nanowire-networks" aria-label="Nanowire Networks">Nanowire Networks</a><ul>
+                        
+                <li>
+                    <a href="#network-formation" aria-label="Network Formation">Network Formation</a></li>
+                <li>
+                    <a href="#percolation-theory" aria-label="Percolation Theory">Percolation Theory</a></li>
+                <li>
+                    <a href="#electrical-properties" aria-label="Electrical Properties">Electrical Properties</a></li></ul>
+                </li>
+                <li>
+                    <a href="#smart-materials" aria-label="Smart Materials">Smart Materials</a><ul>
+                        
+                <li>
+                    <a href="#self-assembling-networks" aria-label="Self-Assembling Networks">Self-Assembling Networks</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#code-example-network-analysis" aria-label="Code Example: Network Analysis">Code Example: Network Analysis</a></li>
+                <li>
+                    <a href="#key-takeaways" aria-label="Key Takeaways">Key Takeaways</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Chapter 2 of Newman&rsquo;s <em>Networks: An Introduction</em> focuses on <strong>technological networks</strong> - the man-made infrastructure networks that form the backbone of modern society. These networks exhibit fascinating structural properties that differ significantly from random networks, with important implications for their design, operation, and robustness.</p>
+<h2 id="21-the-internet">2.1 The Internet<a hidden class="anchor" aria-hidden="true" href="#21-the-internet">#</a></h2>
+<h3 id="network-structure">Network Structure<a hidden class="anchor" aria-hidden="true" href="#network-structure">#</a></h3>
+<p>The Internet is a <strong>hierarchical network</strong> with multiple layers:</p>
+<ul>
+<li><strong>Physical layer</strong>: Fiber optic cables, routers, switches</li>
+<li><strong>Logical layer</strong>: IP addresses and routing protocols</li>
+<li><strong>Application layer</strong>: Web servers, email servers, etc.</li>
+</ul>
+<h3 id="topological-properties">Topological Properties<a hidden class="anchor" aria-hidden="true" href="#topological-properties">#</a></h3>
+<h4 id="degree-distribution">Degree Distribution<a hidden class="anchor" aria-hidden="true" href="#degree-distribution">#</a></h4>
+<p>The Internet&rsquo;s degree distribution follows a <strong>power law</strong>:</p>
+<p>$$P(k) \sim k^{-\gamma}$$</p>
+<p>Where $\gamma \approx 2.2$ for the Internet router network.</p>
+<h4 id="mathematical-analysis">Mathematical Analysis<a hidden class="anchor" aria-hidden="true" href="#mathematical-analysis">#</a></h4>
+<p>For a power-law distribution with exponent $\gamma$:</p>
+<ul>
+<li><strong>First moment</strong> (average degree): $\langle k \rangle = \int_{k_{\min}}^{\infty} k \cdot P(k) , dk$</li>
+<li><strong>Second moment</strong>: $\langle k^2 \rangle = \int_{k_{\min}}^{\infty} k^2 \cdot P(k) , dk$</li>
+</ul>
+<p>When $\gamma &lt; 3$, the second moment diverges, indicating <strong>scale-free behavior</strong>.</p>
+<h4 id="real-world-measurements">Real-World Measurements<a hidden class="anchor" aria-hidden="true" href="#real-world-measurements">#</a></h4>
+<ul>
+<li><strong>AS-level network</strong>: ~50,000 autonomous systems</li>
+<li><strong>Router-level network</strong>: ~200,000 routers</li>
+<li><strong>Average degree</strong>: ~3-4 connections per router</li>
+<li><strong>Clustering coefficient</strong>: ~0.3 (much higher than random networks)</li>
+</ul>
+<h3 id="robustness-analysis">Robustness Analysis<a hidden class="anchor" aria-hidden="true" href="#robustness-analysis">#</a></h3>
+<h4 id="random-failures">Random Failures<a hidden class="anchor" aria-hidden="true" href="#random-failures">#</a></h4>
+<p>The Internet exhibits <strong>robustness against random failures</strong>:</p>
+<p>$$P_{\text{connectivity}} = 1 - \exp\left(-\frac{\langle k^2 \rangle}{\langle k \rangle}\right)$$</p>
+<h4 id="targeted-attacks">Targeted Attacks<a hidden class="anchor" aria-hidden="true" href="#targeted-attacks">#</a></h4>
+<p>However, it&rsquo;s <strong>vulnerable to targeted attacks</strong> on high-degree nodes:</p>
+<ul>
+<li>Removing top 1% of nodes can fragment the network</li>
+<li><strong>Critical infrastructure</strong> (major ISPs) are prime targets</li>
+</ul>
+<h2 id="22-power-grids">2.2 Power Grids<a hidden class="anchor" aria-hidden="true" href="#22-power-grids">#</a></h2>
+<h3 id="network-representation">Network Representation<a hidden class="anchor" aria-hidden="true" href="#network-representation">#</a></h3>
+<p>Power grids can be modeled as networks where:</p>
+<ul>
+<li><strong>Nodes</strong>: Power plants, substations, transformers</li>
+<li><strong>Edges</strong>: Transmission lines, distribution lines</li>
+<li><strong>Weights</strong>: Electrical capacity, impedance</li>
+</ul>
+<h3 id="structural-properties">Structural Properties<a hidden class="anchor" aria-hidden="true" href="#structural-properties">#</a></h3>
+<h4 id="hierarchical-organization">Hierarchical Organization<a hidden class="anchor" aria-hidden="true" href="#hierarchical-organization">#</a></h4>
+<p>Power grids exhibit <strong>three-tier hierarchy</strong>:</p>
+<ol>
+<li><strong>Transmission network</strong>: High-voltage long-distance lines</li>
+<li><strong>Sub-transmission network</strong>: Medium-voltage regional distribution</li>
+<li><strong>Distribution network</strong>: Low-voltage local distribution</li>
+</ol>
+<h4 id="mathematical-modeling">Mathematical Modeling<a hidden class="anchor" aria-hidden="true" href="#mathematical-modeling">#</a></h4>
+<p>The <strong>electrical flow</strong> through the network follows Kirchhoff&rsquo;s laws:</p>
+<p>$$\sum_{j} I_{ij} = 0 \quad \text{(current conservation)}$$</p>
+<p>$$\sum_{\text{loop}} V_{ij} = 0 \quad \text{(voltage conservation)}$$</p>
+<p>Where $I_{ij}$ is current and $V_{ij}$ is voltage between nodes $i$ and $j$.</p>
+<h3 id="cascading-failures">Cascading Failures<a hidden class="anchor" aria-hidden="true" href="#cascading-failures">#</a></h3>
+<h4 id="load-redistribution-model">Load Redistribution Model<a hidden class="anchor" aria-hidden="true" href="#load-redistribution-model">#</a></h4>
+<p>When a line fails, its load redistributes to other lines:</p>
+<p>$$L_i(t+1) = L_i(t) + \sum_{j \in \text{failed}} \frac{L_j(t)}{|\text{neighbors}(j)|}$$</p>
+<h4 id="critical-threshold">Critical Threshold<a hidden class="anchor" aria-hidden="true" href="#critical-threshold">#</a></h4>
+<p>The system becomes unstable when:</p>
+<p>$$\frac{\text{total load}}{\text{total capacity}} &gt; \theta_c$$</p>
+<p>Where $\theta_c \approx 0.6$ for typical power grids.</p>
+<h3 id="real-world-examples">Real-World Examples<a hidden class="anchor" aria-hidden="true" href="#real-world-examples">#</a></h3>
+<h4 id="north-american-power-grid">North American Power Grid<a hidden class="anchor" aria-hidden="true" href="#north-american-power-grid">#</a></h4>
+<ul>
+<li><strong>Nodes</strong>: ~15,000 substations</li>
+<li><strong>Edges</strong>: ~20,000 transmission lines</li>
+<li><strong>Average degree</strong>: ~2.7</li>
+<li><strong>Clustering coefficient</strong>: ~0.08</li>
+</ul>
+<h4 id="european-power-grid">European Power Grid<a hidden class="anchor" aria-hidden="true" href="#european-power-grid">#</a></h4>
+<ul>
+<li><strong>Nodes</strong>: ~3,000 substations</li>
+<li><strong>Edges</strong>: ~4,000 transmission lines</li>
+<li><strong>Average degree</strong>: ~2.7</li>
+<li><strong>Clustering coefficient</strong>: ~0.1</li>
+</ul>
+<h2 id="23-transportation-networks">2.3 Transportation Networks<a hidden class="anchor" aria-hidden="true" href="#23-transportation-networks">#</a></h2>
+<h3 id="road-networks">Road Networks<a hidden class="anchor" aria-hidden="true" href="#road-networks">#</a></h3>
+<h4 id="network-properties">Network Properties<a hidden class="anchor" aria-hidden="true" href="#network-properties">#</a></h4>
+<ul>
+<li><strong>Nodes</strong>: Intersections, highway interchanges</li>
+<li><strong>Edges</strong>: Road segments</li>
+<li><strong>Weights</strong>: Travel time, distance, capacity</li>
+</ul>
+<h4 id="scale-free-characteristics">Scale-Free Characteristics<a hidden class="anchor" aria-hidden="true" href="#scale-free-characteristics">#</a></h4>
+<p>Many road networks exhibit <strong>scale-free properties</strong>:</p>
+<ul>
+<li><strong>Highway networks</strong>: $\gamma \approx 2.0-2.5$</li>
+<li><strong>Urban road networks</strong>: $\gamma \approx 2.5-3.0$</li>
+</ul>
+<h4 id="efficiency-metrics">Efficiency Metrics<a hidden class="anchor" aria-hidden="true" href="#efficiency-metrics">#</a></h4>
+<p><strong>Network efficiency</strong> measures how well the network facilitates movement:</p>
+<p>$$E = \frac{1}{n(n-1)} \sum_{i \neq j} \frac{1}{d_{ij}}$$</p>
+<p>Where $d_{ij}$ is the shortest path length between nodes $i$ and $j$.</p>
+<h3 id="airline-networks">Airline Networks<a hidden class="anchor" aria-hidden="true" href="#airline-networks">#</a></h3>
+<h4 id="hub-and-spoke-structure">Hub-and-Spoke Structure<a hidden class="anchor" aria-hidden="true" href="#hub-and-spoke-structure">#</a></h4>
+<p>Airlines use <strong>hub-and-spoke topology</strong>:</p>
+<ul>
+<li><strong>Hub airports</strong>: Major connection points (high degree)</li>
+<li><strong>Spoke airports</strong>: Regional airports (low degree)</li>
+<li><strong>Scale-free distribution</strong>: $\gamma \approx 1.8-2.2$</li>
+</ul>
+<h4 id="mathematical-analysis-1">Mathematical Analysis<a hidden class="anchor" aria-hidden="true" href="#mathematical-analysis-1">#</a></h4>
+<p>The <strong>betweenness centrality</strong> of a node measures its importance as a connector:</p>
+<p>$$C_B(v) = \sum_{s \neq v \neq t} \frac{\sigma_{st}(v)}{\sigma_{st}}$$</p>
+<p>Where $\sigma_{st}(v)$ is the number of shortest paths between $s$ and $t$ that pass through $v$.</p>
+<h3 id="railway-networks">Railway Networks<a hidden class="anchor" aria-hidden="true" href="#railway-networks">#</a></h3>
+<h4 id="network-characteristics">Network Characteristics<a hidden class="anchor" aria-hidden="true" href="#network-characteristics">#</a></h4>
+<ul>
+<li><strong>Nodes</strong>: Stations, junctions</li>
+<li><strong>Edges</strong>: Railway tracks</li>
+<li><strong>Weights</strong>: Travel time, frequency</li>
+</ul>
+<h4 id="small-world-properties">Small-World Properties<a hidden class="anchor" aria-hidden="true" href="#small-world-properties">#</a></h4>
+<p>Railway networks often exhibit <strong>small-world characteristics</strong>:</p>
+<ul>
+<li><strong>High clustering</strong>: Stations in the same region are well-connected</li>
+<li><strong>Short path lengths</strong>: Efficient long-distance connections</li>
+</ul>
+<h2 id="24-communication-networks">2.4 Communication Networks<a hidden class="anchor" aria-hidden="true" href="#24-communication-networks">#</a></h2>
+<h3 id="telephone-networks">Telephone Networks<a hidden class="anchor" aria-hidden="true" href="#telephone-networks">#</a></h3>
+<h4 id="historical-evolution">Historical Evolution<a hidden class="anchor" aria-hidden="true" href="#historical-evolution">#</a></h4>
+<ul>
+<li><strong>Circuit-switched networks</strong>: Traditional telephone systems</li>
+<li><strong>Packet-switched networks</strong>: Modern IP-based systems</li>
+<li><strong>Mobile networks</strong>: Cellular infrastructure</li>
+</ul>
+<h4 id="network-topology">Network Topology<a hidden class="anchor" aria-hidden="true" href="#network-topology">#</a></h4>
+<p>Traditional telephone networks have <strong>hierarchical structure</strong>:</p>
+<ol>
+<li><strong>Local exchanges</strong>: Connect to subscribers</li>
+<li><strong>Tandem exchanges</strong>: Connect local exchanges</li>
+<li><strong>Toll exchanges</strong>: Long-distance connections</li>
+</ol>
+<h3 id="mobile-networks">Mobile Networks<a hidden class="anchor" aria-hidden="true" href="#mobile-networks">#</a></h3>
+<h4 id="cellular-architecture">Cellular Architecture<a hidden class="anchor" aria-hidden="true" href="#cellular-architecture">#</a></h4>
+<ul>
+<li><strong>Base stations</strong>: Network nodes</li>
+<li><strong>Cells</strong>: Coverage areas</li>
+<li><strong>Handoffs</strong>: Dynamic edge creation/deletion</li>
+</ul>
+<h4 id="mathematical-modeling-1">Mathematical Modeling<a hidden class="anchor" aria-hidden="true" href="#mathematical-modeling-1">#</a></h4>
+<p>The <strong>coverage area</strong> of a base station follows:</p>
+<p>$$A = \pi R^2$$</p>
+<p>Where $R$ is the cell radius, determined by:</p>
+<p>$$R = \sqrt{\frac{P_t G_t G_r \lambda^2}{(4\pi)^2 P_r}}$$</p>
+<ul>
+<li>$P_t$: Transmit power</li>
+<li>$G_t, G_r$: Antenna gains</li>
+<li>$\lambda$: Wavelength</li>
+<li>$P_r$: Required received power</li>
+</ul>
+<h2 id="25-applications-to-materials-science">2.5 Applications to Materials Science<a hidden class="anchor" aria-hidden="true" href="#25-applications-to-materials-science">#</a></h2>
+<h3 id="nanowire-networks">Nanowire Networks<a hidden class="anchor" aria-hidden="true" href="#nanowire-networks">#</a></h3>
+<h4 id="network-formation">Network Formation<a hidden class="anchor" aria-hidden="true" href="#network-formation">#</a></h4>
+<p>Silver nanowire networks can be modeled as <strong>random geometric graphs</strong>:</p>
+<ul>
+<li><strong>Nodes</strong>: Nanowire junctions</li>
+<li><strong>Edges</strong>: Nanowire segments</li>
+<li><strong>Weights</strong>: Electrical resistance</li>
+</ul>
+<h4 id="percolation-theory">Percolation Theory<a hidden class="anchor" aria-hidden="true" href="#percolation-theory">#</a></h4>
+<p>The <strong>percolation threshold</strong> determines when the network becomes conductive:</p>
+<p>$$p_c = \frac{1}{\langle k \rangle}$$</p>
+<p>For nanowire networks, this corresponds to the <strong>critical density</strong> for electrical connectivity.</p>
+<h4 id="electrical-properties">Electrical Properties<a hidden class="anchor" aria-hidden="true" href="#electrical-properties">#</a></h4>
+<p>The <strong>conductivity</strong> of the network follows:</p>
+<p>$$\sigma \sim (p - p_c)^t$$</p>
+<p>Where $t \approx 2.0$ is the <strong>conductivity exponent</strong>.</p>
+<h3 id="smart-materials">Smart Materials<a hidden class="anchor" aria-hidden="true" href="#smart-materials">#</a></h3>
+<h4 id="self-assembling-networks">Self-Assembling Networks<a hidden class="anchor" aria-hidden="true" href="#self-assembling-networks">#</a></h4>
+<p>Materials that form networks through <strong>self-assembly</strong>:</p>
+<ul>
+<li><strong>Block copolymers</strong>: Form ordered network structures</li>
+<li><strong>Liquid crystals</strong>: Create defect networks</li>
+<li><strong>Colloidal systems</strong>: Generate percolating networks</li>
+</ul>
+<h2 id="code-example-network-analysis">Code Example: Network Analysis<a hidden class="anchor" aria-hidden="true" href="#code-example-network-analysis">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">analyze_technological_network</span>(G, network_type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;generic&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;Analyze technological network properties&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Basic statistics</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_nodes()
+</span></span><span style="display:flex;"><span>    m <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>number_of_edges()
+</span></span><span style="display:flex;"><span>    density <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span> <span style="color:#ff79c6">*</span> m <span style="color:#ff79c6">/</span> (n <span style="color:#ff79c6">*</span> (n <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Degree analysis</span>
+</span></span><span style="display:flex;"><span>    degrees <span style="color:#ff79c6">=</span> [d <span style="color:#ff79c6">for</span> n, d <span style="color:#ff79c6">in</span> G<span style="color:#ff79c6">.</span>degree()]
+</span></span><span style="display:flex;"><span>    avg_degree <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>mean(degrees)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Power-law fitting (simplified)</span>
+</span></span><span style="display:flex;"><span>    degree_counts <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>bincount(degrees)
+</span></span><span style="display:flex;"><span>    non_zero <span style="color:#ff79c6">=</span> degree_counts[degree_counts <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(non_zero) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Simple power-law estimation</span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>arange(<span style="color:#bd93f9">1</span>, <span style="color:#8be9fd;font-style:italic">len</span>(non_zero) <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>        y <span style="color:#ff79c6">=</span> non_zero[<span style="color:#bd93f9">1</span>:]
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(y) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>:
+</span></span><span style="display:flex;"><span>            log_x <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>log(x)
+</span></span><span style="display:flex;"><span>            log_y <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>log(y)
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># Linear regression in log space</span>
+</span></span><span style="display:flex;"><span>            gamma <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span>np<span style="color:#ff79c6">.</span>polyfit(log_x, log_y, <span style="color:#bd93f9">1</span>)[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            gamma <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        gamma <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Clustering and path length</span>
+</span></span><span style="display:flex;"><span>    clustering <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_clustering(G)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> nx<span style="color:#ff79c6">.</span>is_connected(G):
+</span></span><span style="display:flex;"><span>        avg_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(G)
+</span></span><span style="display:flex;"><span>        diameter <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>diameter(G)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># Analyze largest component</span>
+</span></span><span style="display:flex;"><span>        largest_cc <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(nx<span style="color:#ff79c6">.</span>connected_components(G), key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)
+</span></span><span style="display:flex;"><span>        subgraph <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>subgraph(largest_cc)
+</span></span><span style="display:flex;"><span>        avg_path_length <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>average_shortest_path_length(subgraph)
+</span></span><span style="display:flex;"><span>        diameter <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>diameter(subgraph)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Robustness analysis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Random node removal</span>
+</span></span><span style="display:flex;"><span>    random_removal <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> p <span style="color:#ff79c6">in</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">0.5</span>, <span style="color:#bd93f9">11</span>):
+</span></span><span style="display:flex;"><span>        n_remove <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">int</span>(p <span style="color:#ff79c6">*</span> n)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> n_remove <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>:
+</span></span><span style="display:flex;"><span>            nodes_to_remove <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>choice(<span style="color:#8be9fd;font-style:italic">list</span>(G<span style="color:#ff79c6">.</span>nodes()), n_remove, replace<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>)
+</span></span><span style="display:flex;"><span>            G_temp <span style="color:#ff79c6">=</span> G<span style="color:#ff79c6">.</span>copy()
+</span></span><span style="display:flex;"><span>            G_temp<span style="color:#ff79c6">.</span>remove_nodes_from(nodes_to_remove)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> G_temp<span style="color:#ff79c6">.</span>number_of_nodes() <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>:
+</span></span><span style="display:flex;"><span>                largest_cc <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(nx<span style="color:#ff79c6">.</span>connected_components(G_temp), key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)
+</span></span><span style="display:flex;"><span>                random_removal<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">len</span>(largest_cc) <span style="color:#ff79c6">/</span> n)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>                random_removal<span style="color:#ff79c6">.</span>append(<span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            random_removal<span style="color:#ff79c6">.</span>append(<span style="color:#bd93f9">1.0</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;network_type&#39;</span>: network_type,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;nodes&#39;</span>: n,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;edges&#39;</span>: m,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;density&#39;</span>: density,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_degree&#39;</span>: avg_degree,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;gamma_estimate&#39;</span>: gamma,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;clustering&#39;</span>: clustering,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;avg_path_length&#39;</span>: avg_path_length,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;diameter&#39;</span>: diameter,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;random_removal&#39;</span>: random_removal
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Example: Analyze a scale-free network</span>
+</span></span><span style="display:flex;"><span>G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>barabasi_albert_graph(<span style="color:#bd93f9">1000</span>, <span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span>results <span style="color:#ff79c6">=</span> analyze_technological_network(G, <span style="color:#f1fa8c">&#34;scale-free&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Network Analysis Results:&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> key, value <span style="color:#ff79c6">in</span> results<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> key <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#39;random_removal&#39;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{</span>key<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">: </span><span style="color:#f1fa8c">{</span>value<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span></code></pre></div><h2 id="key-takeaways">Key Takeaways<a hidden class="anchor" aria-hidden="true" href="#key-takeaways">#</a></h2>
+<ol>
+<li><strong>Technological networks are scale-free</strong>: Most exhibit power-law degree distributions</li>
+<li><strong>Hierarchical organization</strong>: Many have clear hierarchical structures</li>
+<li><strong>Robustness-vulnerability trade-off</strong>: Robust to random failures, vulnerable to targeted attacks</li>
+<li><strong>Small-world properties</strong>: Short path lengths despite large size</li>
+<li><strong>Real-world applications</strong>: Direct relevance to materials science and engineering</li>
+<li><strong>Mathematical modeling</strong>: Network theory provides powerful tools for analysis</li>
+</ol>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ol>
+<li>Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press.</li>
+<li>Albert, R., Jeong, H., &amp; Barabási, A. L. (2000). Error and attack tolerance of complex networks. Nature, 406(6794), 378-382.</li>
+<li>Crucitti, P., Latora, V., &amp; Marchiori, M. (2004). Model for cascading failures in complex networks. Physical Review E, 69(4), 045104.</li>
+</ol>
+<hr>
+<p><em>This chapter demonstrates how network theory applies to real-world technological systems, providing both theoretical insights and practical applications for materials science research.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/technological-networks/">Technological-Networks</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/internet/">Internet</a></li>
+      <li><a href="https://Linlin-resh.github.io/tags/infrastructure/">Infrastructure</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks on x"
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%202%20-%20Technological%20Networks&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch2%2f&amp;hashtags=reading-notes%2cnetwork-theory%2ctechnological-networks%2cinternet%2cinfrastructure">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch2%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%202%20-%20Technological%20Networks&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%202%20-%20Technological%20Networks&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch2%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch2%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%202%20-%20Technological%20Networks">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch2%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks on whatsapp"
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%202%20-%20Technological%20Networks%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch2%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks on telegram"
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%202%20-%20Technological%20Networks&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch2%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%202%20-%20Technological%20Networks&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch2%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

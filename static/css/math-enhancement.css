@@ -1,0 +1,216 @@
+/* Math formula enhancement styles */
+
+/* MathJax configuration and styling */
+.MathJax {
+  font-size: 1.1em !important;
+  line-height: 1.6 !important;
+  color: var(--primary) !important;
+}
+
+/* Display math formulas (block-level) */
+.MathJax_Display {
+  margin: 1.5em 0 !important;
+  padding: 1em 0 !important;
+  text-align: center !important;
+  background-color: var(--code-bg);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Inline math formulas */
+.MathJax_Inline {
+  margin: 0 0.3em !important;
+  vertical-align: baseline !important;
+  padding: 0.2em 0.4em !important;
+  background-color: var(--code-bg);
+  border-radius: 4px;
+  font-size: 0.95em !important;
+}
+
+/* Math formula containers for better organization */
+.math-container {
+  margin: 2em 0;
+  padding: 1.5em;
+  background-color: var(--code-bg);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.math-container .MathJax_Display {
+  margin: 0.5em 0 !important;
+  padding: 0.5em 0 !important;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Formula numbering */
+.MathJax_Display {
+  counter-increment: equation;
+  position: relative;
+}
+
+.MathJax_Display::after {
+  content: "(" counter(equation) ")";
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary);
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+/* Reset counter for each article */
+.post-content {
+  counter-reset: equation;
+}
+
+/* Dark mode math styling */
+@media (prefers-color-scheme: dark) {
+  .MathJax {
+    color: var(--primary) !important;
+  }
+  
+  .MathJax_Display {
+    background-color: var(--code-block-bg);
+    border-left-color: var(--primary);
+  }
+  
+  .MathJax_Inline {
+    background-color: var(--code-block-bg);
+  }
+}
+
+/* Light mode math styling */
+@media (prefers-color-scheme: light) {
+  .MathJax_Display {
+    background-color: #f8f9fa;
+    border-left-color: #007bff;
+  }
+  
+  .MathJax_Inline {
+    background-color: #f8f9fa;
+  }
+}
+
+/* Responsive math formulas */
+@media (max-width: 768px) {
+  .MathJax {
+    font-size: 0.9em !important;
+  }
+  
+  .MathJax_Display {
+    margin: 1em 0 !important;
+    padding: 0.8em 0 !important;
+    font-size: 0.9em !important;
+  }
+  
+  .MathJax_Display::after {
+    position: static;
+    display: block;
+    text-align: center;
+    margin-top: 0.5em;
+    transform: none;
+  }
+  
+  .math-container {
+    margin: 1.5em 0;
+    padding: 1em;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .MathJax {
+    font-size: 0.8em !important;
+  }
+  
+  .MathJax_Display {
+    font-size: 0.8em !important;
+    margin: 0.8em 0 !important;
+    padding: 0.6em 0 !important;
+  }
+  
+  .MathJax_Inline {
+    font-size: 0.85em !important;
+    padding: 0.1em 0.3em !important;
+  }
+}
+
+/* Math formula alignment and spacing */
+.post-content p {
+  margin-bottom: 1.5em;
+}
+
+.post-content p:has(.MathJax_Inline) {
+  line-height: 1.8;
+}
+
+/* Better spacing around math blocks */
+.post-content h1 + .MathJax_Display,
+.post-content h2 + .MathJax_Display,
+.post-content h3 + .MathJax_Display {
+  margin-top: 1em !important;
+}
+
+.post-content .MathJax_Display + p {
+  margin-top: 1.5em;
+}
+
+/* Code blocks with math */
+.post-content pre code {
+  font-family: 'Source Code Pro', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* Table styling for mathematical content */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95em;
+  background-color: var(--theme);
+}
+
+.post-content th, .post-content td {
+  padding: 0.8em 1em;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-content th {
+  background-color: var(--code-bg);
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.post-content td {
+  color: var(--content);
+}
+
+/* Math in tables */
+.post-content table .MathJax_Inline {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+/* Print styles for math */
+@media print {
+  .MathJax {
+    font-size: 1em !important;
+  }
+  
+  .MathJax_Display {
+    page-break-inside: avoid;
+    margin: 1em 0 !important;
+  }
+  
+  .math-container {
+    page-break-inside: avoid;
+  }
+}
