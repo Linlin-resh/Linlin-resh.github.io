@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/posts/reading-notes-newman-ch7.md",
+                "file": "content/posts/reading-notes-newman-ch15.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "reading-notes-newman-ch7"
+              "title": "reading-notes-newman-ch15"
             }
           }
         ]
@@ -177,8 +177,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "542fd694e5629b68",
+  "active": "ee05ae44a8b29585",
   "lastOpenFiles": [
+    "content/posts/reading-notes-newman-ch13.md",
+    "content/posts/reading-notes-newman-ch12.md",
+    "content/posts/reading-notes-newman-ch11.md",
+    "content/posts/reading-notes-newman-ch14.md",
+    "content/posts/reading-notes-newman-ch17.md",
+    "content/posts/reading-notes-newman-ch15.md",
+    "content/posts/reading-notes-newman-ch10.md",
+    "content/posts/reading-notes-newman-ch7.md",
+    "content/posts/reading-notes-newman-ch4.md",
+    "content/posts/reading-notes-newman-ch2.md",
     "MATH_OPTIMIZATION_SUMMARY.md",
     "layouts/partials/extend_head.html",
     "public/posts/math-quick-test/index.html",
@@ -193,7 +203,6 @@
     "public/tags/network-reconstruction/page/1/index.html",
     "MATH_RENDERING_OPTIMIZATION.md",
     "content/posts/math-test.md",
-    "content/posts/reading-notes-newman-ch4.md",
     "OBSIDIAN_WORKFLOW.md",
     "00 - Site MOC.md",
     "content/about/_index.md",

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control | Notes on AI4Science &amp; Graph Theory</title>
 <meta name="keywords" content="reading-notes, network-theory, network-control, controllability, control-theory">
 <meta name="description" content="Study notes for Chapter 14 of Newman&#39;s &#39;Networks: An Introduction&#39; covering network controllability, control theory, and applications to complex systems">
 <meta name="author" content="Linlin-resh">
-<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/">
+<link rel="canonical" href="http://localhost:1313/posts/reading-notes-newman-ch14/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/reading-notes-newman-ch14/">
 <noscript>
     <style>
         #theme-toggle,
@@ -55,7 +55,7 @@
         }
 
     </style>
-</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+</noscript><link rel="stylesheet" href="http://localhost:1313/css/math-enhancement.css"><script>
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -78,78 +78,7 @@
 <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/">
-  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
-  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control">
-  <meta property="og:description" content="Study notes for Chapter 14 of Newman&#39;s &#39;Networks: An Introduction&#39; covering network controllability, control theory, and applications to complex systems">
-  <meta property="og:locale" content="en-us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
-    <meta property="article:tag" content="Reading-Notes">
-    <meta property="article:tag" content="Network-Theory">
-    <meta property="article:tag" content="Network-Control">
-    <meta property="article:tag" content="Controllability">
-    <meta property="article:tag" content="Control-Theory">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control">
-<meta name="twitter:description" content="Study notes for Chapter 14 of Newman&#39;s &#39;Networks: An Introduction&#39; covering network controllability, control theory, and applications to complex systems">
 
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://Linlin-resh.github.io/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Reading Notes: Newman's Networks Chapter 14 - Network Control",
-      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Reading Notes: Newman's Networks Chapter 14 - Network Control",
-  "name": "Reading Notes: Newman\u0027s Networks Chapter 14 - Network Control",
-  "description": "Study notes for Chapter 14 of Newman's 'Networks: An Introduction' covering network controllability, control theory, and applications to complex systems",
-  "keywords": [
-    "reading-notes", "network-theory", "network-control", "controllability", "control-theory"
-  ],
-  "articleBody": "Introduction Chapter 14 of Newman’s Networks: An Introduction explores network control - the theory and methods for controlling complex networks to achieve desired behaviors. This chapter covers controllability theory, control strategies, and applications to understanding and manipulating network dynamics.\n14.1 Controllability Theory Linear Controllability System Model Linear time-invariant system: $$\\frac{dx}{dt} = Ax + Bu$$\nWhere:\n$x \\in \\mathbb{R}^n$: State vector $u \\in \\mathbb{R}^m$: Control input $A \\in \\mathbb{R}^{n \\times n}$: System matrix $B \\in \\mathbb{R}^{n \\times m}$: Input matrix Controllability Matrix Controllability matrix: $$\\mathcal{C} = [B, AB, A^2B, \\ldots, A^{n-1}B]$$\nControllability condition: System is controllable if and only if $$\\text{rank}(\\mathcal{C}) = n$$\nKalman’s Controllability Test Theorem: The system is controllable if and only if the controllability matrix has full rank.\nProof: Based on Cayley-Hamilton theorem and linear algebra.\nStructural Controllability Definition Structural controllability: System is structurally controllable if it is controllable for almost all parameter values.\nAdvantage: Depends only on network topology, not specific parameter values.\nMinimum Number of Drivers Theorem: Minimum number of driver nodes needed for structural controllability is: $$N_D = \\max_i \\mu_i$$\nWhere $\\mu_i$ is the geometric multiplicity of eigenvalue $\\lambda_i$ of $A$.\nDriver Node Selection Algorithm:\nFind maximum matching in bipartite graph Unmatched nodes are driver nodes Minimum number of drivers = $n - |M|$ Where $|M|$ is the size of maximum matching.\nEnergy Control Control Energy Control energy: $$E = \\int_0^T ||u(t)||^2 dt$$\nMinimum energy control: $$u^*(t) = B^T e^{A^T(T-t)} W^{-1}(T) x_f$$\nWhere $W(T)$ is the controllability Gramian: $$W(T) = \\int_0^T e^{At} BB^T e^{A^T t} dt$$\nControllability Gramian Properties:\nSymmetric: $W(T) = W^T(T)$ Positive definite: If system is controllable Energy bound: $E \\geq x_f^T W^{-1}(T) x_f$ Optimal Control Linear Quadratic Regulator (LQR) Cost function: $$J = \\int_0^T (x^T Q x + u^T R u) dt$$\nWhere:\n$Q \\geq 0$: State weight matrix $R \u003e 0$: Control weight matrix Optimal control: $$u^*(t) = -R^{-1} B^T P(t) x(t)$$\nWhere $P(t)$ satisfies the Riccati equation: $$-\\frac{dP}{dt} = A^T P + PA - PBR^{-1}B^T P + Q$$\nSteady-State Solution Algebraic Riccati equation: $$A^T P + PA - PBR^{-1}B^T P + Q = 0$$\nOptimal control: $$u^*(t) = -R^{-1} B^T P x(t)$$\n14.2 Network Controllability Controllability of Complex Networks Driver Node Analysis Driver nodes: Nodes that need external control input\nControllable nodes: Nodes that can be controlled by driver nodes\nMathematical formulation: $$\\min_{B} ||B||_0 \\quad \\text{subject to } \\text{rank}(\\mathcal{C}) = n$$\nWhere $||B||_0$ is the number of non-zero columns in $B$.\nControllability Gramian Network controllability Gramian: $$W = \\int_0^{\\infty} e^{At} BB^T e^{A^T t} dt$$\nProperties:\nTrace: $\\text{tr}(W)$ measures controllability Determinant: $\\det(W)$ measures controllability Eigenvalues: $\\lambda_i(W)$ measure controllability in different directions Control Centrality Definition Control centrality of node $i$: $$C_i = \\text{tr}(W_i)$$\nWhere $W_i$ is the controllability Gramian when node $i$ is the only driver.\nProperties Range: $C_i \\geq 0$\nInterpretation: Higher $C_i$ means node $i$ is more important for control\nCalculation: $C_i = \\sum_{j=1}^n \\frac{1}{\\lambda_j^2}$ where $\\lambda_j$ are eigenvalues of $A$.\nControllability and Network Structure Degree and Controllability High-degree nodes: Often important for control\nLow-degree nodes: May be easier to control\nMathematical relationship: $$C_i \\sim k_i^{\\alpha}$$\nWhere $\\alpha$ depends on network structure.\nClustering and Controllability High clustering: May reduce controllability\nLow clustering: May increase controllability\nMathematical relationship: $$C_i \\sim C_i^{-\\beta}$$\nWhere $\\beta$ depends on network structure.\n14.3 Control Strategies Centralized Control Single Controller Control law: $$u(t) = -K x(t)$$\nWhere $K$ is the feedback gain matrix.\nDesign: $K = R^{-1} B^T P$\nAdvantages: Optimal performance Disadvantages: Requires global information\nMultiple Controllers Control law: $$u_i(t) = -K_i x_i(t) + \\sum_{j \\in \\mathcal{N}i} K{ij} x_j(t)$$\nWhere:\n$K_i$: Local feedback gain $K_{ij}$: Coupling gain $\\mathcal{N}_i$: Neighbors of node $i$ Decentralized Control Local Control Control law: $$u_i(t) = -K_i x_i(t)$$\nDesign: Each controller uses only local information\nAdvantages: Scalable, robust Disadvantages: May not achieve global optimum\nDistributed Control Control law: $$u_i(t) = -K_i x_i(t) + \\sum_{j \\in \\mathcal{N}i} K{ij} (x_j(t) - x_i(t))$$\nDesign: Controllers communicate with neighbors\nAdvantages: Better performance than local control Disadvantages: Requires communication\nAdaptive Control Model Reference Adaptive Control Reference model: $$\\frac{dx_m}{dt} = A_m x_m + B_m r$$\nControl law: $$u(t) = K_x(t) x(t) + K_r(t) r(t)$$\nAdaptation law: $$\\frac{dK_x}{dt} = -\\Gamma_x x(t) e^T(t) P B$$ $$\\frac{dK_r}{dt} = -\\Gamma_r r(t) e^T(t) P B$$\nWhere $e(t) = x(t) - x_m(t)$ is the tracking error.\nSelf-Tuning Control Parameter estimation: $$\\hat{\\theta}(t) = \\hat{\\theta}(t-1) + \\Gamma \\phi(t) e(t)$$\nControl law: $$u(t) = \\hat{\\theta}^T(t) \\phi(t)$$\nWhere $\\phi(t)$ is the regressor vector.\n14.4 Applications to Materials Science Defect Control Problem Given: Defect network with dynamics $$\\frac{dx_i}{dt} = f_i(x_i) + \\sum_{j} A_{ij} g_{ij}(x_i, x_j) + u_i$$\nGoal: Control defect density to desired level\nControl objective: $$\\min_{u} \\int_0^T ||x(t) - x_d||^2 dt$$\nSolution Optimal control: $$u_i^*(t) = -R^{-1} B^T P (x_i(t) - x_{d,i})$$\nFeedback gain: $$K = R^{-1} B^T P$$\nStability: Guaranteed if $A$ is Hurwitz\nPhase Control Problem Given: Phase transition dynamics $$\\frac{d\\phi}{dt} = f(\\phi) + u$$\nGoal: Control phase to desired value\nControl objective: $$\\min_{u} \\int_0^T (\\phi(t) - \\phi_d)^2 dt$$\nSolution Optimal control: $$u^*(t) = -R^{-1} B^T P (\\phi(t) - \\phi_d)$$\nPhase transition: Controlled by external field\nNanowire Network Control Problem Given: Nanowire network with electrical dynamics $$\\frac{dV_i}{dt} = \\frac{1}{C_i} \\sum_{j} \\frac{V_j - V_i}{R_{ij}} + u_i$$\nGoal: Control voltage distribution\nControl objective: $$\\min_{u} \\int_0^T ||V(t) - V_d||^2 dt$$\nSolution Optimal control: $$u_i^*(t) = -R^{-1} C_i (V_i(t) - V_{d,i})$$\nElectrical properties: Controlled by external current\n14.5 Robust Control Robust Controllability Definition Robust controllability: System remains controllable under parameter uncertainty\nMathematical condition: $$\\text{rank}(\\mathcal{C}(\\theta)) = n \\quad \\forall \\theta \\in \\Theta$$\nWhere $\\Theta$ is the uncertainty set.\nRobust Control Design Control law: $$u(t) = -K(\\theta) x(t)$$\nDesign: $K(\\theta)$ minimizes worst-case performance\nPerformance: $$J = \\max_{\\theta \\in \\Theta} \\int_0^T (x^T Q x + u^T R u) dt$$\nH∞ Control Problem Given: System with disturbances $$\\frac{dx}{dt} = Ax + Bu + B_w w$$ $$z = Cx + Du$$\nGoal: Minimize effect of disturbances\nPerformance: $$||T_{zw}||_{\\infty} \u003c \\gamma$$\nWhere $T_{zw}$ is the transfer function from $w$ to $z$.\nSolution Control law: $$u(t) = -K x(t)$$\nDesign: $K$ minimizes $||T_{zw}||_{\\infty}$\nRiccati equation: $$A^T P + PA - P(BR^{-1}B^T - \\gamma^{-2}B_w B_w^T) P + C^T C = 0$$\nCode Example: Network Control import networkx as nx import numpy as np import matplotlib.pyplot as plt from scipy.linalg import solve_continuous_are, eig from scipy.optimize import minimize from sklearn.linear_model import LinearRegression def check_controllability(A, B): \"\"\"Check if system is controllable\"\"\" n = A.shape[0] # Build controllability matrix C = B A_power = np.eye(n) for i in range(1, n): A_power = A_power @ A C = np.hstack([C, A_power @ B]) # Check rank rank = np.linalg.matrix_rank(C) is_controllable = rank == n return is_controllable, rank, C def find_driver_nodes(A): \"\"\"Find minimum number of driver nodes for structural controllability\"\"\" n = A.shape[0] # Create bipartite graph G_bipartite = nx.Graph() # Add nodes for i in range(n): G_bipartite.add_node(f'x_{i}', bipartite=0) G_bipartite.add_node(f'y_{i}', bipartite=1) # Add edges for i in range(n): for j in range(n): if A[i, j] != 0: G_bipartite.add_edge(f'x_{i}', f'y_{j}') # Find maximum matching matching = nx.bipartite.maximum_matching(G_bipartite) # Find unmatched nodes matched_x = set() for x, y in matching.items(): if x.startswith('x_'): matched_x.add(x) # Driver nodes are unmatched x nodes driver_nodes = [] for i in range(n): if f'x_{i}' not in matched_x: driver_nodes.append(i) return driver_nodes, len(driver_nodes) def design_lqr_controller(A, B, Q, R): \"\"\"Design LQR controller\"\"\" # Solve algebraic Riccati equation P = solve_continuous_are(A, B, Q, R) # Calculate feedback gain K = np.linalg.inv(R) @ B.T @ P # Calculate closed-loop matrix A_cl = A - B @ K # Check stability eigenvals = eig(A_cl)[0] is_stable = np.all(np.real(eigenvals) \u003c 0) return K, P, A_cl, is_stable def simulate_controlled_system(A, B, K, x0, T, dt=0.01): \"\"\"Simulate controlled system\"\"\" n = A.shape[0] steps = int(T / dt) # Initialize x = x0.copy() x_history = [x.copy()] u_history = [] # Simulate for t in range(steps): # Calculate control input u = -K @ x u_history.append(u.copy()) # Update state x = x + dt * (A @ x + B @ u) x_history.append(x.copy()) return np.array(x_history), np.array(u_history) def calculate_control_energy(u_history, dt): \"\"\"Calculate control energy\"\"\" energy = np.sum(np.sum(u_history**2, axis=1)) * dt return energy def design_robust_controller(A, B, Q, R, uncertainty_set): \"\"\"Design robust controller for uncertain system\"\"\" def objective(K_flat): K = K_flat.reshape(B.shape[1], A.shape[0]) # Check stability for all parameter values max_eigenval = -np.inf for A_uncertain in uncertainty_set: A_cl = A_uncertain - B @ K eigenvals = eig(A_cl)[0] max_eigenval = max(max_eigenval, np.max(np.real(eigenvals))) # Return negative of maximum real part (we want it to be negative) return -max_eigenval # Initial guess K0 = np.random.randn(B.shape[1], A.shape[0]) # Optimize result = minimize(objective, K0.flatten(), method='BFGS') K_robust = result.x.reshape(B.shape[1], A.shape[0]) return K_robust def analyze_control_centrality(A, B): \"\"\"Analyze control centrality of nodes\"\"\" n = A.shape[0] control_centrality = np.zeros(n) for i in range(n): # Create B matrix with only node i as driver B_i = np.zeros((n, 1)) B_i[i, 0] = 1 # Check controllability is_controllable, rank, C = check_controllability(A, B_i) if is_controllable: # Calculate controllability Gramian try: P = solve_continuous_are(A, B_i, np.eye(n), np.eye(1)) control_centrality[i] = np.trace(P) except: control_centrality[i] = 0 else: control_centrality[i] = 0 return control_centrality def plot_control_analysis(A, B, K, x_history, u_history, control_centrality): \"\"\"Plot control analysis results\"\"\" fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12)) # State evolution t = np.linspace(0, len(x_history)-1, len(x_history)) for i in range(min(5, x_history.shape[1])): ax1.plot(t, x_history[:, i], label=f'State {i}', linewidth=2) ax1.set_xlabel('Time') ax1.set_ylabel('State Value') ax1.set_title('State Evolution') ax1.legend() ax1.grid(True, alpha=0.3) # Control input t_u = np.linspace(0, len(u_history)-1, len(u_history)) for i in range(min(5, u_history.shape[1])): ax2.plot(t_u, u_history[:, i], label=f'Control {i}', linewidth=2) ax2.set_xlabel('Time') ax2.set_ylabel('Control Input') ax2.set_title('Control Input Evolution') ax2.legend() ax2.grid(True, alpha=0.3) # Control centrality nodes = range(len(control_centrality)) bars = ax3.bar(nodes, control_centrality, alpha=0.7, color='skyblue') ax3.set_xlabel('Node Index') ax3.set_ylabel('Control Centrality') ax3.set_title('Control Centrality of Nodes') ax3.grid(True, alpha=0.3) # Network visualization with control centrality G = nx.from_numpy_array(A) pos = nx.spring_layout(G, k=1, iterations=50) # Color nodes by control centrality node_colors = control_centrality node_sizes = 100 + 50 * control_centrality / np.max(control_centrality) nx.draw(G, pos, ax=ax4, node_color=node_colors, node_size=node_sizes, edge_color='gray', alpha=0.6, cmap='viridis') ax4.set_title('Network with Control Centrality') ax4.axis('off') plt.tight_layout() plt.show() # Example: Network control analysis n = 20 G = nx.barabasi_albert_graph(n, 3) A = nx.adjacency_matrix(G).toarray() # Add self-loops for stability A = A - np.diag(np.sum(A, axis=1)) # Create control input matrix (all nodes can be controlled) B = np.eye(n) # Check controllability is_controllable, rank, C = check_controllability(A, B) print(f\"System is controllable: {is_controllable}\") print(f\"Controllability rank: {rank}/{n}\") # Find driver nodes driver_nodes, n_drivers = find_driver_nodes(A) print(f\"Driver nodes: {driver_nodes}\") print(f\"Number of drivers: {n_drivers}\") # Design LQR controller Q = np.eye(n) R = 0.1 * np.eye(n) K, P, A_cl, is_stable = design_lqr_controller(A, B, Q, R) print(f\"Controller is stable: {is_stable}\") # Simulate controlled system x0 = np.random.randn(n) T = 10 x_history, u_history = simulate_controlled_system(A, B, K, x0, T) # Calculate control energy energy = calculate_control_energy(u_history, 0.01) print(f\"Control energy: {energy:.3f}\") # Analyze control centrality control_centrality = analyze_control_centrality(A, B) print(f\"Control centrality range: {np.min(control_centrality):.3f} - {np.max(control_centrality):.3f}\") # Plot results plot_control_analysis(A, B, K, x_history, u_history, control_centrality) Key Takeaways Controllability theory: Mathematical foundation for network control Driver nodes: Minimum set of nodes needed for control Control strategies: Centralized, decentralized, and adaptive control Energy optimization: LQR and other optimal control methods Robust control: Control under uncertainty Applications: Important for materials science and complex systems Control centrality: Measures importance of nodes for control References Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press. Liu, Y. Y., Slotine, J. J., \u0026 Barabási, A. L. (2011). Controllability of complex networks. Nature, 473(7346), 167-173. Kalman, R. E. (1960). On the general theory of control systems. IRE Transactions on Automatic Control, 5(4), 110-110. Lewis, F. L., Vrabie, D., \u0026 Syrmos, V. L. (2012). Optimal Control. John Wiley \u0026 Sons. Network control provides powerful tools for understanding and manipulating complex systems, with important applications in materials science and engineering.\n",
-  "wordCount" : "1896",
-  "inLanguage": "en",
-  "datePublished": "2025-08-29T00:00:00Z",
-  "dateModified": "2025-08-29T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "Linlin-resh"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Notes on AI4Science \u0026 Graph Theory",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://Linlin-resh.github.io/favicon.ico"
-    }
-  }
-}
-</script>
 </head>
 
 <body class="" id="top">
@@ -167,7 +96,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -193,27 +122,27 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://Linlin-resh.github.io/" title="Home">
+                <a href="http://localhost:1313/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                <a href="http://localhost:1313/posts/" title="Blog">
                     <span>Blog</span>
                 </a>
             </li>
             <li>
-                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://Linlin-resh.github.io/about/" title="About">
+                <a href="http://localhost:1313/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
             <li>
-                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -897,17 +826,17 @@ $$A^T P + PA - P(BR^{-1}B^T - \gamma^{-2}B_w B_w^T) P + C^T C = 0$$</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
-      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
-      <li><a href="https://Linlin-resh.github.io/tags/network-control/">Network-Control</a></li>
-      <li><a href="https://Linlin-resh.github.io/tags/controllability/">Controllability</a></li>
-      <li><a href="https://Linlin-resh.github.io/tags/control-theory/">Control-Theory</a></li>
+      <li><a href="http://localhost:1313/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="http://localhost:1313/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="http://localhost:1313/tags/network-control/">Network-Control</a></li>
+      <li><a href="http://localhost:1313/tags/controllability/">Controllability</a></li>
+      <li><a href="http://localhost:1313/tags/control-theory/">Control-Theory</a></li>
     </ul>
 
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on x"
-            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f&amp;hashtags=reading-notes%2cnetwork-theory%2cnetwork-control%2ccontrollability%2ccontrol-theory">
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch14%2f&amp;hashtags=reading-notes%2cnetwork-theory%2cnetwork-control%2ccontrollability%2ccontrol-theory">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -916,7 +845,7 @@ $$A^T P + PA - P(BR^{-1}B^T - \gamma^{-2}B_w B_w^T) P + C^T C = 0$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f">
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch14%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;source=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch14%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -925,7 +854,7 @@ $$A^T P + PA - P(BR^{-1}B^T - \gamma^{-2}B_w B_w^T) P + C^T C = 0$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on reddit"
-            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control">
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch14%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -934,7 +863,7 @@ $$A^T P + PA - P(BR^{-1}B^T - \gamma^{-2}B_w B_w^T) P + C^T C = 0$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on facebook"
-            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f">
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch14%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
@@ -943,7 +872,7 @@ $$A^T P + PA - P(BR^{-1}B^T - \gamma^{-2}B_w B_w^T) P + C^T C = 0$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on whatsapp"
-            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f">
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control%20-%20http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch14%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -952,7 +881,7 @@ $$A^T P + PA - P(BR^{-1}B^T - \gamma^{-2}B_w B_w^T) P + C^T C = 0$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on telegram"
-            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f">
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch14%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -961,7 +890,7 @@ $$A^T P + PA - P(BR^{-1}B^T - \gamma^{-2}B_w B_w^T) P + C^T C = 0$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch14%2f">
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2014%20-%20Network%20Control&u=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch14%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path
@@ -976,7 +905,7 @@ $$A^T P + PA - P(BR^{-1}B^T - \gamma^{-2}B_w B_w^T) P + C^T C = 0$$</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">Notes on AI4Science &amp; Graph Theory</a></span> · 
 
     <span>
         Powered by

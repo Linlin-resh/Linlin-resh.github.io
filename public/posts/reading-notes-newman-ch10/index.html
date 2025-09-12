@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes | Notes on AI4Science &amp; Graph Theory</title>
 <meta name="keywords" content="reading-notes, network-theory, network-processes, percolation, epidemic-spreading">
 <meta name="description" content="Study notes for Chapter 10 of Newman&#39;s &#39;Networks: An Introduction&#39; covering percolation, epidemic spreading, synchronization, and other dynamic processes on networks">
 <meta name="author" content="Linlin-resh">
-<link rel="canonical" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/">
+<link rel="canonical" href="http://localhost:1313/posts/reading-notes-newman-ch10/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.36819bea596090d8b48cf10d9831382996197aa7e4fc86f792f7c08c9ca4d23b.css" integrity="sha256-NoGb6llgkNi0jPENmDE4KZYZeqfk/Ib3kvfAjJyk0js=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://Linlin-resh.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://Linlin-resh.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://Linlin-resh.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://Linlin-resh.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://Linlin-resh.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/reading-notes-newman-ch10/">
 <noscript>
     <style>
         #theme-toggle,
@@ -55,7 +55,7 @@
         }
 
     </style>
-</noscript><link rel="stylesheet" href="https://Linlin-resh.github.io/css/math-enhancement.css"><script>
+</noscript><link rel="stylesheet" href="http://localhost:1313/css/math-enhancement.css"><script>
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -78,78 +78,7 @@
 <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<meta property="og:url" content="https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/">
-  <meta property="og:site_name" content="Notes on AI4Science & Graph Theory">
-  <meta property="og:title" content="Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes">
-  <meta property="og:description" content="Study notes for Chapter 10 of Newman&#39;s &#39;Networks: An Introduction&#39; covering percolation, epidemic spreading, synchronization, and other dynamic processes on networks">
-  <meta property="og:locale" content="en-us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
-    <meta property="article:tag" content="Reading-Notes">
-    <meta property="article:tag" content="Network-Theory">
-    <meta property="article:tag" content="Network-Processes">
-    <meta property="article:tag" content="Percolation">
-    <meta property="article:tag" content="Epidemic-Spreading">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes">
-<meta name="twitter:description" content="Study notes for Chapter 10 of Newman&#39;s &#39;Networks: An Introduction&#39; covering percolation, epidemic spreading, synchronization, and other dynamic processes on networks">
 
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://Linlin-resh.github.io/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Reading Notes: Newman's Networks Chapter 10 - Network Processes",
-      "item": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Reading Notes: Newman's Networks Chapter 10 - Network Processes",
-  "name": "Reading Notes: Newman\u0027s Networks Chapter 10 - Network Processes",
-  "description": "Study notes for Chapter 10 of Newman's 'Networks: An Introduction' covering percolation, epidemic spreading, synchronization, and other dynamic processes on networks",
-  "keywords": [
-    "reading-notes", "network-theory", "network-processes", "percolation", "epidemic-spreading"
-  ],
-  "articleBody": "Introduction Chapter 10 of Newman’s Networks: An Introduction explores network processes - the dynamic phenomena that occur on networks. This chapter covers percolation, epidemic spreading, synchronization, and other processes that reveal how network structure affects system behavior.\n10.1 Percolation Theory Bond Percolation Model Definition Bond percolation on a network:\nInitial state: All edges present Process: Remove edges with probability $1-p$ Question: What is the probability of a giant connected component? Mathematical Analysis Percolation probability: $$P(p) = 1 - \\sum_{k=0}^{\\infty} P(k) (1-p)^k$$\nWhere $P(k)$ is the degree distribution.\nCritical threshold: $$p_c = \\frac{1}{\\kappa - 1}$$\nWhere $\\kappa = \\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}$ is the degree ratio.\nPhase Transition Below threshold ($p \u003c p_c$):\nOnly small, isolated components exist Largest component size: $O(\\ln n)$ At threshold ($p = p_c$):\nGiant component emerges Largest component size: $O(n^{2/3})$ Above threshold ($p \u003e p_c$):\nGiant component dominates Largest component size: $O(n)$ Site Percolation Model Definition Site percolation on a network:\nInitial state: All nodes present Process: Remove nodes with probability $1-p$ Question: What is the probability of a giant connected component? Mathematical Analysis Percolation probability: $$P(p) = 1 - \\sum_{k=0}^{\\infty} P(k) (1-p)^k$$\nCritical threshold: $$p_c = \\frac{1}{\\kappa - 1}$$\nSame as bond percolation for degree-uncorrelated networks.\nPercolation on Scale-Free Networks Critical Threshold For power-law degree distribution $P(k) \\sim k^{-\\gamma}$:\n$\\gamma \u003e 3$: $p_c \u003e 0$ (finite threshold) $2 \u003c \\gamma \\leq 3$: $p_c = 0$ (no threshold) $\\gamma \\leq 2$: $p_c = 0$ (no threshold) Mathematical Derivation Second moment: $$\\langle k^2 \\rangle = \\int_{k_{\\min}}^{\\infty} k^2 P(k) , dk$$\nFor power-law distribution: $$\\langle k^2 \\rangle \\sim \\int_{k_{\\min}}^{\\infty} k^{2-\\gamma} , dk$$\nConvergence condition: $\\gamma \u003e 3$\nCritical threshold: $$p_c = \\frac{1}{\\kappa - 1} = \\frac{\\langle k \\rangle}{\\langle k^2 \\rangle - \\langle k \\rangle}$$\nApplications to Materials Science Nanowire Networks Network formation:\nNodes: Nanowire junctions Edges: Nanowire segments Percolation: Electrical connectivity Critical density: $$\\rho_c = \\frac{1}{\\pi r^2 (\\kappa - 1)}$$\nWhere $r$ is the interaction radius.\nConductivity: $$\\sigma \\sim (\\rho - \\rho_c)^t$$\nWhere $t \\approx 2.0$ is the conductivity exponent.\nDefect Networks Defect percolation:\nNodes: Defect sites Edges: Defect interactions Percolation: Defect clustering Critical concentration: $$c_c = \\frac{1}{\\kappa - 1}$$\n10.2 Epidemic Spreading SIR Model Model Definition SIR model on a network:\nS: Susceptible (haven’t been infected) I: Infected (can spread the disease) R: Recovered (immune, cannot spread) Dynamics Transition rates:\nS → I: $\\beta$ (infection rate) I → R: $\\gamma$ (recovery rate) Differential equations: $$\\frac{dS_i}{dt} = -\\beta S_i \\sum_{j} A_{ij} I_j$$ $$\\frac{dI_i}{dt} = \\beta S_i \\sum_{j} A_{ij} I_j - \\gamma I_i$$ $$\\frac{dR_i}{dt} = \\gamma I_i$$\nBasic Reproduction Number Definition: $$R_0 = \\frac{\\beta}{\\gamma} \\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}$$\nEpidemic threshold: $$R_0 \u003e 1$$\nCritical infection rate: $$\\beta_c = \\frac{\\gamma \\langle k \\rangle}{\\langle k^2 \\rangle}$$\nSIS Model Model Definition SIS model on a network:\nS: Susceptible I: Infected No recovered state: Infected nodes can become susceptible again Dynamics Transition rates:\nS → I: $\\beta$ (infection rate) I → S: $\\gamma$ (recovery rate) Differential equations: $$\\frac{dS_i}{dt} = -\\beta S_i \\sum_{j} A_{ij} I_j + \\gamma I_i$$ $$\\frac{dI_i}{dt} = \\beta S_i \\sum_{j} A_{ij} I_j - \\gamma I_i$$\nSteady State Infection prevalence: $$\\rho = \\frac{\\beta \\langle k^2 \\rangle}{\\gamma \\langle k \\rangle + \\beta \\langle k^2 \\rangle}$$\nCritical threshold: $$\\beta_c = \\frac{\\gamma \\langle k \\rangle}{\\langle k^2 \\rangle}$$\nComplex Contagion Threshold Models Activation condition: $$\\sum_{j \\in \\text{active neighbors}} w_{ji} \\geq \\theta_i$$\nWhere:\n$w_{ji}$: Influence weight from $j$ to $i$ $\\theta_i$: Threshold for node $i$ Cascade Condition Global cascade condition: $$\\frac{\\langle k^2 \\rangle}{\\langle k \\rangle} \u003e \\frac{1}{\\theta}$$\nWhere $\\theta$ is the average threshold.\nMathematical Analysis Cascade size: $$S = \\sum_{k=0}^{\\infty} P(k) \\sum_{m=0}^{k} \\binom{k}{m} p^m (1-p)^{k-m} \\Theta(m - \\theta k)$$\nWhere $\\Theta(x)$ is the Heaviside step function.\n10.3 Synchronization Kuramoto Model Model Definition Kuramoto model on a network:\n$$\\frac{d\\theta_i}{dt} = \\omega_i + \\frac{K}{N} \\sum_{j=1}^N A_{ij} \\sin(\\theta_j - \\theta_i)$$\nWhere:\n$\\theta_i$: Phase of oscillator $i$ $\\omega_i$: Natural frequency $K$: Coupling strength $A_{ij}$: Adjacency matrix Order Parameters Global order parameter: $$r = \\left| \\frac{1}{N} \\sum_{j=1}^N e^{i\\theta_j} \\right|$$\nLocal order parameter: $$r_i = \\left| \\frac{1}{k_i} \\sum_{j \\in \\mathcal{N}_i} e^{i\\theta_j} \\right|$$\nSynchronization Threshold Critical coupling: $$K_c = \\frac{2}{\\pi g(0)} \\frac{\\langle k^2 \\rangle}{\\langle k \\rangle}$$\nWhere $g(0)$ is the frequency distribution at zero.\nMaster Stability Function Linear Stability Analysis Perturbation equations: $$\\frac{d\\delta \\theta_i}{dt} = \\delta \\omega_i + \\frac{K}{N} \\sum_{j=1}^N A_{ij} \\cos(\\theta_j - \\theta_i) (\\delta \\theta_j - \\delta \\theta_i)$$\nEigenvalue problem: $$\\lambda \\delta \\theta = L \\delta \\theta$$\nWhere $L$ is the Laplacian matrix.\nStability Condition Synchronization is stable if: $$\\lambda_2 \u003e \\frac{\\sigma^2}{K}$$\nWhere $\\lambda_2$ is the second smallest eigenvalue of the Laplacian.\n10.4 Random Walks Simple Random Walk Model Definition Simple random walk on a network:\nStart: Random initial node Move: At each step, move to random neighbor Transition matrix: $P_{ij} = \\frac{A_{ij}}{k_i}$ Stationary Distribution Stationary distribution: $$\\pi_i = \\frac{k_i}{2m}$$\nVerification: $$\\sum_i \\pi_i P_{ij} = \\sum_i \\frac{k_i}{2m} \\frac{A_{ij}}{k_i} = \\frac{1}{2m} \\sum_i A_{ij} = \\frac{k_j}{2m} = \\pi_j$$\nMixing Time Mixing time: $$\\tau_{\\text{mix}} = \\min{t : \\max_i ||P^t(i, \\cdot) - \\pi||_1 \\leq \\epsilon}$$\nSpectral bound: $$\\tau_{\\text{mix}} \\leq \\frac{1}{1 - \\lambda_2} \\log\\left(\\frac{1}{\\epsilon \\pi_{\\min}}\\right)$$\nWhere $\\lambda_2$ is the second largest eigenvalue of $P$.\nPageRank Model Definition PageRank as a random walk:\n$$\\mathbf{PR} = (1-d) \\frac{\\mathbf{1}}{n} + d P^T \\mathbf{PR}$$\nWhere $P$ is the transition matrix.\nMathematical Properties Convergence: Guaranteed for $d \u003c 1$\nStationary distribution: Unique solution\nInterpretation: Probability of being at each node in the long run\n10.5 Applications to Materials Science Information Spreading in Materials Defect Propagation Defect spreading can be modeled as:\nS: Healthy sites I: Defected sites R: Repaired sites Mathematical model: $$\\frac{dS_i}{dt} = -\\beta S_i \\sum_{j} A_{ij} I_j + \\gamma R_i$$ $$\\frac{dI_i}{dt} = \\beta S_i \\sum_{j} A_{ij} I_j - \\delta I_i$$ $$\\frac{dR_i}{dt} = \\delta I_i - \\gamma R_i$$\nCritical Defect Rate Critical defect rate: $$\\beta_c = \\frac{\\delta \\langle k \\rangle}{\\langle k^2 \\rangle}$$\nFor scale-free networks: $\\beta_c \\to 0$ as $n \\to \\infty$\nPhase Transitions in Materials Order-Disorder Transitions Order parameter: $$\\phi = \\frac{1}{N} \\sum_{i=1}^N \\cos(\\theta_i - \\theta_0)$$\nWhere $\\theta_0$ is the preferred orientation.\nCritical temperature: $$T_c = \\frac{K \\langle k^2 \\rangle}{2 \\langle k \\rangle}$$\nPercolation in Disordered Systems Defect percolation: $$P(\\text{percolation}) = 1 - \\sum_{k=0}^{\\infty} P(k) (1-p)^k$$\nCritical concentration: $$c_c = \\frac{1}{\\kappa - 1}$$\nNetwork-Based Materials Design Structure-Property Relationships Property prediction: $$P = f(\\langle k \\rangle, C, L, \\ldots)$$\nNetwork optimization: $$\\min_{\\text{network}} \\sum_i w_i |P_i - P_i^{\\text{target}}|^2$$\nConstraints:\nConnectivity: Network must be connected Degree bounds: $k_{\\min} \\leq k_i \\leq k_{\\max}$ Clustering bounds: $C_{\\min} \\leq C \\leq C_{\\max}$ Code Example: Network Processes import networkx as nx import numpy as np import matplotlib.pyplot as plt from collections import Counter from scipy.integrate import odeint def simulate_percolation(G, p_values): \"\"\"Simulate percolation on network\"\"\" results = [] for p in p_values: # Remove edges with probability 1-p edges_to_remove = [] for edge in G.edges(): if np.random.random() \u003e p: edges_to_remove.append(edge) # Create subgraph G_sub = G.copy() G_sub.remove_edges_from(edges_to_remove) # Analyze components components = list(nx.connected_components(G_sub)) component_sizes = [len(comp) for comp in components] giant_component_size = max(component_sizes) if component_sizes else 0 giant_component_fraction = giant_component_size / G.number_of_nodes() results.append({ 'p': p, 'giant_component_fraction': giant_component_fraction, 'num_components': len(components), 'avg_component_size': np.mean(component_sizes) }) return results def simulate_sir_epidemic(G, beta, gamma, initial_infected=1): \"\"\"Simulate SIR epidemic on network\"\"\" n = G.number_of_nodes() # Initial conditions S = np.ones(n) # Susceptible I = np.zeros(n) # Infected R = np.zeros(n) # Recovered # Initial infected nodes infected_nodes = np.random.choice(n, initial_infected, replace=False) S[infected_nodes] = 0 I[infected_nodes] = 1 # Time points t = np.linspace(0, 100, 1000) # SIR dynamics def sir_equations(y, t): S, I, R = y dS_dt = np.zeros(n) dI_dt = np.zeros(n) dR_dt = np.zeros(n) for i in range(n): # Infection rate infection_rate = 0 for j in G.neighbors(i): infection_rate += I[j] infection_rate *= beta * S[i] # Recovery rate recovery_rate = gamma * I[i] dS_dt[i] = -infection_rate dI_dt[i] = infection_rate - recovery_rate dR_dt[i] = recovery_rate return np.concatenate([dS_dt, dI_dt, dR_dt]) # Solve ODEs y0 = np.concatenate([S, I, R]) sol = odeint(sir_equations, y0, t) # Extract results S_t = sol[:, :n] I_t = sol[:, n:2*n] R_t = sol[:, 2*n:] return t, S_t, I_t, R_t def simulate_kuramoto(G, K, omega, initial_phases=None): \"\"\"Simulate Kuramoto model on network\"\"\" n = G.number_of_nodes() # Initial phases if initial_phases is None: theta = np.random.uniform(0, 2*np.pi, n) else: theta = initial_phases # Time points t = np.linspace(0, 100, 1000) # Kuramoto dynamics def kuramoto_equations(theta, t): dtheta_dt = np.zeros(n) for i in range(n): coupling = 0 for j in G.neighbors(i): coupling += np.sin(theta[j] - theta[i]) coupling *= K / n dtheta_dt[i] = omega[i] + coupling return dtheta_dt # Solve ODEs sol = odeint(kuramoto_equations, theta, t) return t, sol def analyze_network_processes(G, process_type=\"percolation\"): \"\"\"Analyze network processes\"\"\" if process_type == \"percolation\": # Percolation analysis p_values = np.linspace(0.1, 1.0, 20) results = simulate_percolation(G, p_values) # Find critical threshold critical_p = None for i, result in enumerate(results): if result['giant_component_fraction'] \u003e 0.5: critical_p = result['p'] break return { 'process_type': process_type, 'critical_threshold': critical_p, 'results': results } elif process_type == \"sir\": # SIR epidemic analysis beta = 0.1 gamma = 0.05 t, S_t, I_t, R_t = simulate_sir_epidemic(G, beta, gamma) # Calculate basic reproduction number degrees = [d for n, d in G.degree()] avg_degree = np.mean(degrees) degree_variance = np.var(degrees) R0 = (beta / gamma) * (avg_degree + degree_variance / avg_degree) return { 'process_type': process_type, 'R0': R0, 'time': t, 'S': S_t, 'I': I_t, 'R': R_t } elif process_type == \"kuramoto\": # Kuramoto synchronization analysis K = 1.0 omega = np.random.normal(0, 1, G.number_of_nodes()) t, theta_t = simulate_kuramoto(G, K, omega) # Calculate order parameter r_t = np.abs(np.mean(np.exp(1j * theta_t), axis=1)) return { 'process_type': process_type, 'time': t, 'phases': theta_t, 'order_parameter': r_t } def plot_network_processes(G, process_type=\"percolation\"): \"\"\"Plot network process results\"\"\" results = analyze_network_processes(G, process_type) if process_type == \"percolation\": p_values = [r['p'] for r in results['results']] giant_fractions = [r['giant_component_fraction'] for r in results['results']] plt.figure(figsize=(10, 6)) plt.plot(p_values, giant_fractions, 'bo-', markersize=8) plt.axvline(x=results['critical_threshold'], color='r', linestyle='--', label=f'Critical threshold: {results[\"critical_threshold\"]:.3f}') plt.xlabel('Probability p') plt.ylabel('Giant Component Fraction') plt.title('Percolation Phase Transition') plt.legend() plt.grid(True, alpha=0.3) plt.show() elif process_type == \"sir\": t = results['time'] S_t = results['S'] I_t = results['I'] R_t = results['R'] plt.figure(figsize=(12, 8)) # Plot SIR curves plt.subplot(2, 2, 1) plt.plot(t, np.mean(S_t, axis=1), 'b-', label='Susceptible') plt.plot(t, np.mean(I_t, axis=1), 'r-', label='Infected') plt.plot(t, np.mean(R_t, axis=1), 'g-', label='Recovered') plt.xlabel('Time') plt.ylabel('Fraction') plt.title('SIR Epidemic Dynamics') plt.legend() plt.grid(True, alpha=0.3) # Plot R0 plt.subplot(2, 2, 2) plt.bar(['R0'], [results['R0']], color='orange') plt.ylabel('Basic Reproduction Number') plt.title('Epidemic Threshold') plt.grid(True, alpha=0.3) # Plot individual node dynamics plt.subplot(2, 2, 3) for i in range(min(5, S_t.shape[1])): plt.plot(t, S_t[:, i], 'b-', alpha=0.3) plt.plot(t, I_t[:, i], 'r-', alpha=0.3) plt.plot(t, R_t[:, i], 'g-', alpha=0.3) plt.xlabel('Time') plt.ylabel('Fraction') plt.title('Individual Node Dynamics') plt.grid(True, alpha=0.3) # Plot network visualization plt.subplot(2, 2, 4) pos = nx.spring_layout(G, k=1, iterations=50) nx.draw(G, pos, node_size=50, node_color='lightblue', edge_color='gray', alpha=0.6) plt.title('Network Structure') plt.axis('off') plt.tight_layout() plt.show() elif process_type == \"kuramoto\": t = results['time'] theta_t = results['phases'] r_t = results['order_parameter'] plt.figure(figsize=(12, 8)) # Plot order parameter plt.subplot(2, 2, 1) plt.plot(t, r_t, 'b-', linewidth=2) plt.xlabel('Time') plt.ylabel('Order Parameter r') plt.title('Synchronization Order Parameter') plt.grid(True, alpha=0.3) # Plot phase evolution plt.subplot(2, 2, 2) for i in range(min(10, theta_t.shape[1])): plt.plot(t, theta_t[:, i], alpha=0.7) plt.xlabel('Time') plt.ylabel('Phase θ') plt.title('Phase Evolution') plt.grid(True, alpha=0.3) # Plot phase distribution plt.subplot(2, 2, 3) final_phases = theta_t[-1, :] plt.hist(final_phases, bins=20, alpha=0.7, edgecolor='black') plt.xlabel('Final Phase') plt.ylabel('Count') plt.title('Final Phase Distribution') plt.grid(True, alpha=0.3) # Plot network visualization plt.subplot(2, 2, 4) pos = nx.spring_layout(G, k=1, iterations=50) nx.draw(G, pos, node_size=50, node_color='lightblue', edge_color='gray', alpha=0.6) plt.title('Network Structure') plt.axis('off') plt.tight_layout() plt.show() # Example: Analyze network processes G = nx.barabasi_albert_graph(100, 3) # Percolation analysis print(\"Percolation Analysis:\") percolation_results = analyze_network_processes(G, \"percolation\") print(f\"Critical threshold: {percolation_results['critical_threshold']:.3f}\") # SIR epidemic analysis print(\"\\nSIR Epidemic Analysis:\") sir_results = analyze_network_processes(G, \"sir\") print(f\"Basic reproduction number: {sir_results['R0']:.3f}\") # Kuramoto synchronization analysis print(\"\\nKuramoto Synchronization Analysis:\") kuramoto_results = analyze_network_processes(G, \"kuramoto\") print(f\"Final order parameter: {kuramoto_results['order_parameter'][-1]:.3f}\") # Plot results plot_network_processes(G, \"percolation\") plot_network_processes(G, \"sir\") plot_network_processes(G, \"kuramoto\") Key Takeaways Percolation theory: Provides framework for understanding connectivity transitions Epidemic spreading: Network structure affects disease transmission dynamics Synchronization: Coupling strength and network topology determine synchronization Random walks: Reveal network structure and mixing properties Phase transitions: Critical thresholds determine system behavior Applications: Network processes help understand materials science phenomena Mathematical analysis: Rigorous theory enables prediction of dynamic behavior References Newman, M. E. J. (2010). Networks: An Introduction. Oxford University Press. Stauffer, D., \u0026 Aharony, A. (1994). Introduction to Percolation Theory. Taylor \u0026 Francis. Pastor-Satorras, R., \u0026 Vespignani, A. (2001). Epidemic spreading in scale-free networks. Physical Review Letters, 86(14), 3200. Kuramoto, Y. (1984). Chemical Oscillations, Waves, and Turbulence. Springer. Network processes provide insights into how dynamic phenomena unfold on complex networks, with important applications in understanding materials behavior and system dynamics.\n",
-  "wordCount" : "2014",
-  "inLanguage": "en",
-  "datePublished": "2025-08-29T00:00:00Z",
-  "dateModified": "2025-08-29T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "Linlin-resh"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Notes on AI4Science \u0026 Graph Theory",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://Linlin-resh.github.io/favicon.ico"
-    }
-  }
-}
-</script>
 </head>
 
 <body class="" id="top">
@@ -167,7 +96,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://Linlin-resh.github.io/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Notes on AI4Science &amp; Graph Theory (Alt + H)">Notes on AI4Science &amp; Graph Theory</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -193,27 +122,27 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://Linlin-resh.github.io/" title="Home">
+                <a href="http://localhost:1313/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://Linlin-resh.github.io/posts/" title="Blog">
+                <a href="http://localhost:1313/posts/" title="Blog">
                     <span>Blog</span>
                 </a>
             </li>
             <li>
-                <a href="https://Linlin-resh.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://Linlin-resh.github.io/about/" title="About">
+                <a href="http://localhost:1313/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
             <li>
-                <a href="https://Linlin-resh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -992,17 +921,17 @@ $$\min_{\text{network}} \sum_i w_i |P_i - P_i^{\text{target}}|^2$$</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://Linlin-resh.github.io/tags/reading-notes/">Reading-Notes</a></li>
-      <li><a href="https://Linlin-resh.github.io/tags/network-theory/">Network-Theory</a></li>
-      <li><a href="https://Linlin-resh.github.io/tags/network-processes/">Network-Processes</a></li>
-      <li><a href="https://Linlin-resh.github.io/tags/percolation/">Percolation</a></li>
-      <li><a href="https://Linlin-resh.github.io/tags/epidemic-spreading/">Epidemic-Spreading</a></li>
+      <li><a href="http://localhost:1313/tags/reading-notes/">Reading-Notes</a></li>
+      <li><a href="http://localhost:1313/tags/network-theory/">Network-Theory</a></li>
+      <li><a href="http://localhost:1313/tags/network-processes/">Network-Processes</a></li>
+      <li><a href="http://localhost:1313/tags/percolation/">Percolation</a></li>
+      <li><a href="http://localhost:1313/tags/epidemic-spreading/">Epidemic-Spreading</a></li>
     </ul>
 
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on x"
-            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f&amp;hashtags=reading-notes%2cnetwork-theory%2cnetwork-processes%2cpercolation%2cepidemic-spreading">
+            href="https://x.com/intent/tweet/?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch10%2f&amp;hashtags=reading-notes%2cnetwork-theory%2cnetwork-processes%2cpercolation%2cepidemic-spreading">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -1011,7 +940,7 @@ $$\min_{\text{network}} \sum_i w_i |P_i - P_i^{\text{target}}|^2$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;source=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f">
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch10%2f&amp;title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;summary=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;source=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch10%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -1020,7 +949,7 @@ $$\min_{\text{network}} \sum_i w_i |P_i - P_i^{\text{target}}|^2$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on reddit"
-            href="https://reddit.com/submit?url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes">
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch10%2f&title=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -1029,7 +958,7 @@ $$\min_{\text{network}} \sum_i w_i |P_i - P_i^{\text{target}}|^2$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on facebook"
-            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f">
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch10%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
@@ -1038,7 +967,7 @@ $$\min_{\text{network}} \sum_i w_i |P_i - P_i^{\text{target}}|^2$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on whatsapp"
-            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes%20-%20https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f">
+            href="https://api.whatsapp.com/send?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes%20-%20http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch10%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -1047,7 +976,7 @@ $$\min_{\text{network}} \sum_i w_i |P_i - P_i^{\text{target}}|^2$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on telegram"
-            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;url=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f">
+            href="https://telegram.me/share/url?text=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch10%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -1056,7 +985,7 @@ $$\min_{\text{network}} \sum_i w_i |P_i - P_i^{\text{target}}|^2$$</p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&u=https%3a%2f%2fLinlin-resh.github.io%2fposts%2freading-notes-newman-ch10%2f">
+            href="https://news.ycombinator.com/submitlink?t=Reading%20Notes%3a%20Newman%27s%20Networks%20Chapter%2010%20-%20Network%20Processes&u=http%3a%2f%2flocalhost%3a1313%2fposts%2freading-notes-newman-ch10%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path
@@ -1071,7 +1000,7 @@ $$\min_{\text{network}} \sum_i w_i |P_i - P_i^{\text{target}}|^2$$</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://Linlin-resh.github.io/">Notes on AI4Science &amp; Graph Theory</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">Notes on AI4Science &amp; Graph Theory</a></span> · 
 
     <span>
         Powered by
