@@ -2,186 +2,193 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Notes on AI4Science &amp; Graph Theory</title>
-    <link>https://Linlin-resh.github.io/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Notes on AI4Science &amp; Graph Theory</description>
     <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://Linlin-resh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title> 20250829 test auto post</title>
-      <link>https://Linlin-resh.github.io/posts/20250829-test-auto-post/</link>
+      <link>http://localhost:1313/posts/20250829-test-auto-post/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/20250829-test-auto-post/</guid>
+      <guid>http://localhost:1313/posts/20250829-test-auto-post/</guid>
       <description>文章描述</description>
     </item>
     <item>
       <title>20250829 template</title>
-      <link>https://Linlin-resh.github.io/posts/20250829-template/</link>
+      <link>http://localhost:1313/posts/20250829-template/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/20250829-template/</guid>
+      <guid>http://localhost:1313/posts/20250829-template/</guid>
       <description>文章描述</description>
     </item>
     <item>
       <title>Math Formula Display Test</title>
-      <link>https://Linlin-resh.github.io/posts/math-test/</link>
+      <link>http://localhost:1313/posts/math-test/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/math-test/</guid>
+      <guid>http://localhost:1313/posts/math-test/</guid>
       <description>Test page for math formula rendering optimization</description>
     </item>
     <item>
       <title>Quick Math Test</title>
-      <link>https://Linlin-resh.github.io/posts/math-quick-test/</link>
+      <link>http://localhost:1313/posts/math-quick-test/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/math-quick-test/</guid>
+      <guid>http://localhost:1313/posts/math-quick-test/</guid>
       <description>Quick test for math formula rendering</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 1 - Introduction</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch1/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch1/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch1/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch1/</guid>
       <description>Comprehensive study notes for Chapter 1 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering fundamental concepts, mathematical definitions, and real-world network examples</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 10 - Network Processes</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch10/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch10/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch10/</guid>
       <description>Study notes for Chapter 10 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering percolation, epidemic spreading, synchronization, and other dynamic processes on networks</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 11 - Community Structure</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch11/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch11/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch11/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch11/</guid>
       <description>Study notes for Chapter 11 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering community detection methods, modularity optimization, and spectral clustering</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 12 - Network Inference</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch12/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch12/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch12/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch12/</guid>
       <description>Study notes for Chapter 12 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering statistical inference, network reconstruction, and missing data imputation</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 13 - Network Dynamics</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch13/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch13/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch13/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch13/</guid>
       <description>Study notes for Chapter 13 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering temporal networks, network evolution, and dynamic processes</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 14 - Network Control</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch14/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch14/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch14/</guid>
       <description>Study notes for Chapter 14 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering network controllability, control theory, and applications to complex systems</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 15 - Multilayer Networks</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch15/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch15/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch15/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch15/</guid>
       <description>Study notes for Chapter 15 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering multilayer networks, multiplex networks, and their analysis</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 16 - Network Resilience</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch16/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch16/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch16/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch16/</guid>
       <description>Study notes for Chapter 16 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering network robustness, resilience measures, and failure analysis</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 17 - Network Optimization</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch17/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch17/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch17/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch17/</guid>
       <description>Study notes for Chapter 17 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering network optimization, design principles, and optimization algorithms</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 18 - Future Directions</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch18/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch18/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch18/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch18/</guid>
       <description>Study notes for Chapter 18 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering emerging trends, future research directions, and open problems in network science</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 2 - Technological Networks</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch2/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch2/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch2/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch2/</guid>
       <description>Study notes for Chapter 2 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering Internet, power grids, transportation networks, and their structural properties</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 3 - Social Networks</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch3/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch3/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch3/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch3/</guid>
       <description>Study notes for Chapter 3 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering social network analysis, data collection methods, and structural properties</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 4 - Information Networks</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch4/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch4/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch4/</guid>
       <description>Study notes for Chapter 4 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering the World Wide Web, citation networks, and information flow dynamics</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 5 - Biological Networks</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch5/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch5/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch5/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch5/</guid>
       <description>Study notes for Chapter 5 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering protein networks, metabolic networks, neural networks, and ecological networks</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 6 - Mathematical Foundations</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch6/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch6/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch6/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch6/</guid>
       <description>Study notes for Chapter 6 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering graph theory, matrix representations, and mathematical foundations of network analysis</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 7 - Network Measures and Metrics</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch7/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch7/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch7/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch7/</guid>
       <description>Study notes for Chapter 7 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering network measures, metrics, and their mathematical foundations</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 8 - Random Graphs</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch8/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch8/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch8/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch8/</guid>
       <description>Study notes for Chapter 8 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering Erdős-Rényi model, configuration model, and random graph theory</description>
     </item>
     <item>
       <title>Reading Notes: Newman&#39;s Networks Chapter 9 - Network Models</title>
-      <link>https://Linlin-resh.github.io/posts/reading-notes-newman-ch9/</link>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch9/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/reading-notes-newman-ch9/</guid>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch9/</guid>
       <description>Study notes for Chapter 9 of Newman&amp;#39;s &amp;#39;Networks: An Introduction&amp;#39; covering small-world networks, scale-free networks, and other network generation models</description>
     </item>
     <item>
       <title>Research Progress Update: August 2025</title>
-      <link>https://Linlin-resh.github.io/posts/progress-2025-08/</link>
+      <link>http://localhost:1313/posts/progress-2025-08/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/progress-2025-08/</guid>
+      <guid>http://localhost:1313/posts/progress-2025-08/</guid>
       <description>Monthly research progress summary covering network analysis, nanowire characterization, and machine learning developments</description>
     </item>
     <item>
       <title>Structural Graph Theory Tools: Code Snippets for Materials Analysis</title>
-      <link>https://Linlin-resh.github.io/posts/tool-snippets-structural-gt/</link>
+      <link>http://localhost:1313/posts/tool-snippets-structural-gt/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/tool-snippets-structural-gt/</guid>
+      <guid>http://localhost:1313/posts/tool-snippets-structural-gt/</guid>
       <description>Practical code snippets and tools for analyzing structural properties of graphs in materials science applications</description>
     </item>
     <item>
       <title>Transformer Architecture for Local Graph Structures: A Research Idea</title>
-      <link>https://Linlin-resh.github.io/posts/idea-transformer-for-local-graph/</link>
+      <link>http://localhost:1313/posts/idea-transformer-for-local-graph/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://Linlin-resh.github.io/posts/idea-transformer-for-local-graph/</guid>
+      <guid>http://localhost:1313/posts/idea-transformer-for-local-graph/</guid>
       <description>Exploring the potential of adapting Transformer architectures to capture local graph patterns in materials science applications</description>
+    </item>
+    <item>
+      <title>Video Script: Newman&#39;s Networks Chapter 6 - Mathematical Foundations</title>
+      <link>http://localhost:1313/posts/reading-notes-newman-ch6-video-script/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/reading-notes-newman-ch6-video-script/</guid>
+      <description>Video script for Chapter 6 mathematical foundations, covering graph theory, matrix representations, and spectral analysis</description>
     </item>
   </channel>
 </rss>

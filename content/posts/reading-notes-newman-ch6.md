@@ -577,6 +577,118 @@ plot_spectral_analysis(G, "Scale-Free Network Spectral Analysis")
 3. Godsil, C., & Royle, G. (2001). Algebraic Graph Theory. Springer.
 4. Horn, R. A., & Johnson, C. R. (2012). Matrix Analysis. Cambridge University Press.
 
+## Video: Mathematical Foundations Deep Dive
+
+### Video Overview
+**Duration**: 20 minutes  
+**Format**: Educational video with visual demonstrations and live coding
+
+### Video Content
+
+#### 1. Graph Theory Fundamentals (4 minutes)
+- **Visual demonstrations**: Interactive graphs showing different types and properties
+- **Key concepts**: Vertices, edges, connectivity, clustering, distance measures
+- **Mathematical focus**: Clustering coefficient formula and its interpretation
+
+#### 2. Matrix Representations (3 minutes)
+- **Adjacency matrix**: Construction and properties
+- **Matrix powers**: Path counting and reachability
+- **Laplacian matrix**: Definition and spectral properties
+- **Live coding**: Matrix operations in Python
+
+#### 3. Spectral Graph Theory (3 minutes)
+- **Eigenvalue analysis**: Adjacency and Laplacian spectra
+- **Fiedler vector**: Graph partitioning applications
+- **Cheeger's inequality**: Connectivity and bottlenecks
+- **Visualizations**: Spectral plots and partitioning results
+
+#### 4. Random Walks and PageRank (3 minutes)
+- **Transition matrix**: Random walk probabilities
+- **Stationary distribution**: Long-term behavior
+- **PageRank algorithm**: Web search applications
+- **Mixing time**: Convergence analysis
+
+#### 5. Centrality Measures (3 minutes)
+- **Degree centrality**: Connection counting
+- **Betweenness centrality**: Shortest path participation
+- **Closeness centrality**: Distance averaging
+- **Eigenvector centrality**: Neighbor importance
+- **Visual comparisons**: Centrality heatmaps
+
+#### 6. Materials Science Applications (2 minutes)
+- **Atomic networks**: Atoms as vertices, bonds as edges
+- **Defect networks**: Imperfection clustering and percolation
+- **Structure-property relationships**: Network descriptors for material properties
+- **Real examples**: Nanowire networks, defect clustering
+
+#### 7. Live Coding Demonstration (2 minutes)
+- **Python implementation**: NetworkX and NumPy
+- **Matrix analysis**: Adjacency, Laplacian, spectral decomposition
+- **Centrality computation**: All major centrality measures
+- **Visualization**: Network plots with centrality coloring
+
+### Learning Objectives
+
+After watching this video, you will be able to:
+
+1. **Understand graph theory basics**: Vertices, edges, connectivity, clustering
+2. **Work with matrix representations**: Adjacency, Laplacian, incidence matrices
+3. **Apply spectral analysis**: Eigenvalues, eigenvectors, graph partitioning
+4. **Analyze random walks**: Transition matrices, stationary distributions, mixing
+5. **Calculate centrality measures**: Degree, betweenness, closeness, eigenvector
+6. **Connect to materials science**: Network-based material property prediction
+
+### Key Mathematical Formulas Highlighted
+
+**Clustering Coefficient**:
+$$C_i = \frac{2e_i}{k_i(k_i-1)}$$
+
+**Laplacian Matrix**:
+$$L = D - A$$
+
+**Cheeger's Inequality**:
+$$\frac{\lambda_2}{2} \leq h(G) \leq \sqrt{2\lambda_2}$$
+
+**PageRank**:
+$$\mathbf{PR} = (1-d) \frac{\mathbf{1}}{n} + d \mathbf{M}^T \mathbf{PR}$$
+
+**Betweenness Centrality**:
+$$C_B(i) = \sum_{s \neq i \neq t} \frac{\sigma_{st}(i)}{\sigma_{st}}$$
+
+### Interactive Elements
+
+- **Pause and practice**: Key concepts with exercises
+- **Code along**: Follow the Python implementations
+- **Visual quizzes**: Identify graph properties and matrix elements
+- **Application scenarios**: Materials science problem solving
+
+### Additional Resources
+
+- **Complete code examples**: Available in the accompanying materials
+- **Interactive notebooks**: Jupyter notebooks for hands-on practice
+- **Reference materials**: Mathematical proofs and derivations
+- **Further reading**: Advanced topics in spectral graph theory
+
+### Video Production Notes
+
+**Visual Style**:
+- Clean, modern presentation with clear mathematical notation
+- Color-coded elements for different concepts
+- Smooth animations for matrix operations and spectral analysis
+- High-quality network visualizations
+
+**Audio**:
+- Clear, professional narration
+- Appropriate pacing for mathematical content
+- Emphasis on key concepts and formulas
+- Subtitles available for accessibility
+
+**Technical Quality**:
+- High-resolution graphics for mathematical formulas
+- Smooth screen recordings for code demonstrations
+- Professional audio recording
+- Multiple viewing options (desktop, mobile, tablet)
+
 ---
 
-*The mathematical foundations of network analysis provide the essential tools for understanding complex systems, with direct applications to materials science and engineering.*
+*The mathematical foundations of network analysis provide the essential tools for understanding complex systems, with direct applications to materials science and engineering. This video brings these concepts to life through visual demonstrations and practical implementations.*
