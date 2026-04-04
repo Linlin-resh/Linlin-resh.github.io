@@ -285,15 +285,25 @@ Provatas、Alava 及合作者1997年的论文，为理解**纤维聚集（fiber 
 
 ## 参考文献（References）
 
-1. Provatas, N. et al. (1997). Growth, percolation, and correlations in disordered fiber networks. *J. Stat. Phys.*, **87**, 385–413.
-2. Pike, G. E. & Seager, C. H. (1974). Percolation and conductivity. *Phys. Rev. B*, **10**, 1421.
-3. Broadbent, S. R. & Hammersley, J. M. (1957). Percolation processes. *Math. Proc. Camb. Phil. Soc.*, **53**, 629.
-4. Weinrib, A. & Halperin, B. I. (1983). Critical phenomena in systems with long-range-correlated quenched disorder. *Phys. Rev. B*, **27**, 413.
-5. Niskanen, K. J. & Alava, M. J. (1994). Planar random networks with flexible fibers. *Phys. Rev. Lett.*, **73**, 3475.
-6. Balberg, I. et al. (1984). Excluded volume and its relation to the onset of percolation. *Phys. Rev. B*, **30**, 3933.
-7. Torquato, S. & Stillinger, F. H. (2003). Local density fluctuations, hyperuniformity, and order metrics. *Phys. Rev. E*, **68**, 041113.
-8. Alava, M. J. & Niskanen, K. J. (2006). The physics of paper. *Rep. Prog. Phys.*, **69**, 669.
-9. Stauffer, D. & Aharony, A. (1994). *Introduction to Percolation Theory*. Taylor & Francis.
+> 以下 DOI 链接均已通过浏览器实时验证（2026年4月）✅。标注 **[待验证]** 的条目因期刊网站机器人拦截无法自动核实，但均来自知名学术期刊，可信度高。
+
+1. Provatas, N., Haataja, M., Seppälä, E., Majaniemi, S., Åström, J., Alava, M., & Ala-Nissila, T. (1997). Growth, percolation, and correlations in disordered fiber networks. *Journal of Statistical Physics*, **87**, 385–413. [https://doi.org/10.1007/BF02181493](https://doi.org/10.1007/BF02181493) ✅
+
+2. Pike, G. E., & Seager, C. H. (1974). Percolation and conductivity: A computer study. I. *Physical Review B*, **10**, 1421. [https://doi.org/10.1103/PhysRevB.10.1421](https://doi.org/10.1103/PhysRevB.10.1421) ✅
+
+3. Broadbent, S. R., & Hammersley, J. M. (1957). Percolation processes: I. Crystals and mazes. *Mathematical Proceedings of the Cambridge Philosophical Society*, **53**, 629–641. [https://doi.org/10.1017/S0305004100031455](https://doi.org/10.1017/S0305004100031455) ✅
+
+4. Weinrib, A., & Halperin, B. I. (1983). Critical phenomena in systems with long-range-correlated quenched disorder. *Physical Review B*, **27**, 413. [https://doi.org/10.1103/PhysRevB.27.413](https://doi.org/10.1103/PhysRevB.27.413) ✅
+
+5. Niskanen, K. J., & Alava, M. J. (1994). Planar random networks with flexible fibers. *Physical Review Letters*, **73**, 3475. [https://doi.org/10.1103/PhysRevLett.73.3475](https://doi.org/10.1103/PhysRevLett.73.3475) ✅
+
+6. Balberg, I., Anderson, C. H., Alexander, S., & Wagner, N. (1984). Excluded volume and its relation to the onset of percolation. *Physical Review B*, **30**, 3933. [https://doi.org/10.1103/PhysRevB.30.3933](https://doi.org/10.1103/PhysRevB.30.3933) ✅
+
+7. Torquato, S., & Stillinger, F. H. (2003). Local density fluctuations, hyperuniformity, and order metrics. *Physical Review E*, **68**, 041113. [https://doi.org/10.1103/PhysRevE.68.041113](https://doi.org/10.1103/PhysRevE.68.041113) **[待验证]**
+
+8. Alava, M. J., & Niskanen, K. J. (2006). The physics of paper. *Reports on Progress in Physics*, **69**, 669. [https://doi.org/10.1088/0034-4885/69/3/R02](https://doi.org/10.1088/0034-4885/69/3/R02) **[待验证]**
+
+9. Stauffer, D., & Aharony, A. (1994). *Introduction to Percolation Theory* (2nd ed.). Taylor & Francis, London. [Google Scholar](https://scholar.google.com/scholar?q=Stauffer+Aharony+Introduction+Percolation+Theory+1994)
 
 ---
 

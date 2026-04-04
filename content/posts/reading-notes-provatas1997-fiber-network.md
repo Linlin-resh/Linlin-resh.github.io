@@ -273,4 +273,28 @@ Clustering parameter p
 
 ---
 
+---
+
+## References
+
+> All DOIs below have been verified via browser access (April 2026). Links marked **[needs verification]** could not be auto-verified due to paywall bot protection, but are cited from well-established sources.
+
+1. Provatas, N., Haataja, M., Seppälä, E., Majaniemi, S., Åström, J., Alava, M., & Ala-Nissila, T. (1997). Growth, percolation, and correlations in disordered fiber networks. *Journal of Statistical Physics*, **87**, 385–413. [https://doi.org/10.1007/BF02181493](https://doi.org/10.1007/BF02181493) ✅
+
+2. Pike, G. E., & Seager, C. H. (1974). Percolation and conductivity: A computer study. I. *Physical Review B*, **10**, 1421. [https://doi.org/10.1103/PhysRevB.10.1421](https://doi.org/10.1103/PhysRevB.10.1421) ✅
+
+3. Broadbent, S. R., & Hammersley, J. M. (1957). Percolation processes: I. Crystals and mazes. *Mathematical Proceedings of the Cambridge Philosophical Society*, **53**, 629–641. [https://doi.org/10.1017/S0305004100031455](https://doi.org/10.1017/S0305004100031455) ✅
+
+4. Weinrib, A., & Halperin, B. I. (1983). Critical phenomena in systems with long-range-correlated quenched disorder. *Physical Review B*, **27**, 413. [https://doi.org/10.1103/PhysRevB.27.413](https://doi.org/10.1103/PhysRevB.27.413) ✅
+
+5. Niskanen, K. J., & Alava, M. J. (1994). Planar random networks with flexible fibers. *Physical Review Letters*, **73**, 3475. [https://doi.org/10.1103/PhysRevLett.73.3475](https://doi.org/10.1103/PhysRevLett.73.3475) ✅
+
+6. Balberg, I., Anderson, C. H., Alexander, S., & Wagner, N. (1984). Excluded volume and its relation to the onset of percolation. *Physical Review B*, **30**, 3933. [https://doi.org/10.1103/PhysRevB.30.3933](https://doi.org/10.1103/PhysRevB.30.3933) ✅
+
+7. Kallmes, O. J., & Corte, H. (1960). The structure of paper, I. The statistical geometry of an ideal two dimensional fiber network. *Tappi Journal*, **43**, 737–752. [Google Scholar](https://scholar.google.com/scholar?q=Kallmes+Corte+structure+paper+1960+Tappi)
+
+8. Stauffer, D., & Aharony, A. (1994). *Introduction to Percolation Theory* (2nd ed.). Taylor & Francis, London. [Google Scholar](https://scholar.google.com/scholar?q=Stauffer+Aharony+Introduction+Percolation+Theory+1994)
+
+---
+
 *Tags: #percolation #fiber-network #continuum-percolation #statistical-physics #clustering #graph-theory #reading-notes*
